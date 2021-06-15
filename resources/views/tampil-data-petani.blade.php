@@ -81,10 +81,15 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-success text-bold"
+                                                        <a href="#" class="btn btn-success text-bold update"
                                                             data-target="#modal-lg" data-toggle="modal"
-                                                            id="update">UPDATE</a>
-                                                        <a href="#" class="btn btn-danger text-bold">DELETE</a>
+                                                            data-id="{{ $item->id_petani }}">UPDATE</a>
+                                                        <form action="{{ url('/') }}/petani/{{ $item->id_petani }}"
+                                                            method="post" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+                                                        </form>
 
                                                     </td>
                                                 </tr>
@@ -109,7 +114,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form method="post" action="">
+                            <form method="post" action="" id="form-update">
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
@@ -130,6 +135,9 @@
                                             name="nama_pabrik">
                                         <span class="text-danger"></span>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -155,6 +163,7 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+    <script src="{{ asset('Js/Petani.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
