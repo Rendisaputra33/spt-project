@@ -11,7 +11,7 @@ class WilayahController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        return view('tampil-data-wilayah');
     }
 
     public function add(Request $req)

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wilayah extends Model
 {
-    use HasFactory;
+    protected $table = 'tb_wilayah';
 }

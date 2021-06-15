@@ -11,7 +11,7 @@ class PgController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        return view('tampil-data-pg');
     }
 
     public function add(Request $req)

@@ -11,7 +11,7 @@ class SopirController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        return view('tampil-data-sopir');
     }
 
     public function add(Request $req)

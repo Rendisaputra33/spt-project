@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index']);
 
+
+Route::get('/dashboard', function () {
+    return view('tampil-data-petani');
+});
+
 /* ===================== Routing petani =================  */
 
 // Routing petani

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sopir extends Model
 {
-    use HasFactory;
+    protected $table = 'tb_sopir';
 }
