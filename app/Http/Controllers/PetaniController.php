@@ -70,4 +70,14 @@ class PetaniController extends Controller
             'data_update' => Petani::where('id_petani', $id)->first()
         ]);
     }
+
+    /**
+     * @param Query parameters
+     * @return String this return string html
+     */
+    public function search()
+    {
+        $data = Petani::where('nama_petani', 'LIKE', '%' . request('name') . '%')->get();
+        return response()->json(['data' => $data]);
+    }
 }

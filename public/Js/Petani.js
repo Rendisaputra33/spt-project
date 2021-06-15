@@ -1,4 +1,5 @@
 const URL = document.getElementById("url").value;
+const TOKEN = document.getElementById("token").value;
 
 const elementUpdate = document.getElementsByClassName("update");
 
@@ -21,3 +22,43 @@ for (let i = 0; i < elementUpdate.length; i++) {
             .catch((err) => console.log(err));
     });
 }
+
+document.getElementById("search").addEventListener("keyup", function () {
+    const keyword = this.value;
+    fetch(URL + "/petani/group/search?name=" + keyword)
+        .then((res) => res.json())
+        .then((res) => {
+            document.getElementById("list-data").innerHTML = parseSearch(res);
+        });
+});
+
+const parseSearch = (data) => {
+    let html = "";
+    data.data.map((res) => {
+        html += elementSearch(res);
+    });
+    return html;
+};
+
+const elementSearch = (res) => {
+    return /*html*/ `<tr>
+    <td>${res.id_petani}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.register_petani}</td>
+    <td>${res.nama_pabrik}</td>
+    <td>${res.created_at}</td>
+<td>
+
+    <a href="#" class="btn btn-success text-bold update"
+        data-target="#modal-lg" data-toggle="modal"
+        data-id="${res.id_petani}">UPDATE</a>
+    <form action="${URL}/petani/${res.id_petani}"
+        method="post" class="d-inline">
+        <input type="hidden" name="_token" value="${TOKEN}">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+    </form>
+
+</td>
+</tr>`;
+};

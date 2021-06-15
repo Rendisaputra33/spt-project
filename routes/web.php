@@ -12,7 +12,7 @@ Route::get('/', [UserController::class, 'index']);
 
 
 Route::get('/dashboard', function () {
-    return view('tampil-data-petani');
+    return view('dashboard');
 });
 
 /* ===================== Routing petani =================  */
@@ -28,6 +28,10 @@ Route::prefix('/petani')->group(function () {
     Route::post('/', [PetaniController::class, 'add']);
     Route::put('/{id}', [PetaniController::class, 'update']);
     Route::delete('/{id}', [PetaniController::class, 'delete']);
+    // route grouping
+    Route::prefix('/group')->group(function () {
+        Route::get('/search', [PetaniController::class, 'search']);
+    });
     // route get update data petani
     Route::prefix('/json')->group(function () {
         Route::get('/getPetani/{id}', [PetaniController::class, 'getUpdate']);

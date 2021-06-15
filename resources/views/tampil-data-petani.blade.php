@@ -35,18 +35,18 @@
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-6">
-                                                <form action="" method="POST">
+                                                <form>
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <input type="text" class="form-control float-right"
-                                                                id="date-range" name="date" value="">
+                                                            <input type="text" class="form-control float-right" id="search"
+                                                                name="date" value="">
                                                         </div>
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="submit" class="btn btn-info">Cari</button>
+                                                <button type="button" class="btn btn-info">Cari</button>
                                             </div>
                                             </form>
                                         </div>
@@ -68,7 +68,7 @@
                                         </tr>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="list-data">
                                         @if (count($petani) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
@@ -88,7 +88,8 @@
                                                             method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+                                                            <button type="submit"
+                                                                class="btn btn-danger text-bold">DELETE</button>
                                                         </form>
 
                                                     </td>
