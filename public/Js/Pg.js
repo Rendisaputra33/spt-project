@@ -19,3 +19,41 @@ for (let i = 0; i < elementUpdate.length; i++) {
             });
     });
 }
+
+document.getElementById("search").addEventListener("keyup", function () {
+    const keyword = this.value;
+    fetch(URL + "/pg/group/search?name=" + keyword)
+        .then((res) => res.json())
+        .then((res) => {
+            document.getElementById("list-data").innerHTML = parseSearch(res);
+        });
+});
+
+const parseSearch = (data) => {
+    let html = "";
+    data.data.map((res) => {
+        html += elementSearch(res);
+    });
+    return html;
+};
+
+const elementSearch = (res) => {
+    return /*html*/ `<tr>
+    <td>${res.id_pg}</td>
+    <td>${res.nama_pg}</td>
+    <td>${res.lokasi_pg}</td>
+<td>
+
+    <a href="#" class="btn btn-success text-bold update"
+        data-target="#modal-lg" data-toggle="modal"
+        data-id="${res.id_pg}">UPDATE</a>
+    <form action="${URL}/pg/${res.id_pg}"
+        method="post" class="d-inline">
+        <input type="hidden" name="_token" value="${TOKEN}">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+    </form>
+
+</td>
+</tr>`;
+};

@@ -21,3 +21,42 @@ for (let i = 0; i < elementUpdate.length; i++) {
             });
     });
 }
+
+document.getElementById("search").addEventListener("keyup", function () {
+    const keyword = this.value;
+    fetch(URL + "/sopir/group/search?name=" + keyword)
+        .then((res) => res.json())
+        .then((res) => {
+            document.getElementById("list-data").innerHTML = parseSearch(res);
+        });
+});
+
+const parseSearch = (data) => {
+    let html = "";
+    data.data.map((res) => {
+        html += elementSearch(res);
+    });
+    return html;
+};
+
+const elementSearch = (res) => {
+    return /*html*/ `<tr>
+    <td>${res.id_sopir}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.nohp_sopir}</td>
+    <td>${res.alamat_sopir}</td>
+<td>
+
+    <a href="#" class="btn btn-success text-bold update"
+        data-target="#modal-lg" data-toggle="modal"
+        data-id="${res.id_sopir}">UPDATE</a>
+    <form action="${URL}/sopir/${res.id_sopir}"
+        method="post" class="d-inline">
+        <input type="hidden" name="_token" value="${TOKEN}">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+    </form>
+
+</td>
+</tr>`;
+};

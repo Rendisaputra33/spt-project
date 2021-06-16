@@ -51,6 +51,11 @@ Route::prefix('/sopir')->group(function () {
     Route::post('/', [SopirController::class, 'add']);
     Route::put('/{id}', [SopirController::class, 'update']);
     Route::delete('/{id}', [SopirController::class, 'delete']);
+
+    Route::prefix('/group')->group(function () {
+        Route::get('/search', [SopirController::class, 'search']);
+    });
+
     // route get update data sopir
     Route::prefix('/json')->group(function () {
         Route::get('/getSopir/{id}', [SopirController::class, 'getUpdate']);
@@ -69,6 +74,11 @@ Route::prefix('/wilayah')->group(function () {
     Route::post('/', [WilayahController::class, 'add']);
     Route::put('/{id}', [WilayahController::class, 'update']);
     Route::delete('/{id}', [WilayahController::class, 'delete']);
+
+    Route::prefix('/group')->group(function () {
+        Route::get('/search', [WilayahController::class, 'search']);
+    });
+
     // route get update data Wilayah
     Route::prefix('/json')->group(function () {
         Route::get('/getWilayah/{id}', [WilayahController::class, 'getUpdate']);
@@ -87,6 +97,11 @@ Route::prefix('/pg')->group(function () {
     Route::post('/', [PgController::class, 'add']);
     Route::put('/{id}', [PgController::class, 'update']);
     Route::delete('/{id}', [PgController::class, 'delete']);
+
+    Route::prefix('/group')->group(function () {
+        Route::get('/search', [PgController::class, 'search']);
+    });
+
     // route get update data Pg 
     Route::prefix('/json')->group(function () {
         Route::get('/getPg/{id}', [PgController::class, 'getUpdate']);

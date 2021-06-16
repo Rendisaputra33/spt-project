@@ -44,7 +44,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="/login/logout" class="dropdown-item dropdown-footer">Logout</a>
+                        <a href="" class="dropdown-item dropdown-footer">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -153,16 +153,16 @@
             </div>
         </footer>
     </div>
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE -->
-    <script src="dist/js/adminlte.js"></script>
+    <script src="{{asset('dist/js/adminlte.js')}}"></script>
 
     <!-- OPTIONAL SCRIPTS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
-    <script src="dist/js/demo.js"></script>
-    <script src="dist/js/pages/dashboard3.js"></script>
+    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('dist/js/demo.js')}}"></script>
+    <script src="{{asset('dist/js/pages/dashboard3.js')}}"></script>
 </body>
 
 </html>
