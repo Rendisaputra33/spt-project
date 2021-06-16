@@ -127,8 +127,10 @@
                                         <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah">
                                         <span class="text-danger"></span>
                                     </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                    </div>
                                 </div>
-                                <button class="btn btn-success">simpan</button>
                         </div>
                         <!-- /.modal-content -->
                     </div>

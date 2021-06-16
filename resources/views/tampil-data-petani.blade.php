@@ -136,10 +136,11 @@
                                             name="nama_pabrik">
                                         <span class="text-danger"></span>
                                     </div>
+                                    <div class="form-group">
+                                    <button type="submit" class="btn btn-success">SIMPAN</button>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success">simpan</button>
                                 </div>
+                                
                             </form>
                         </div>
                         <!-- /.modal-content -->

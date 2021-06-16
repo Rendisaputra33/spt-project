@@ -95,4 +95,5 @@ Route::prefix('/pg')->group(function () {
 
 Route::prefix('login')->group(function () {
     Route::post('/', [AuthController::class, 'Login']);
+    Route::get('/logout', [AuthController::class, 'Logout']);
 });

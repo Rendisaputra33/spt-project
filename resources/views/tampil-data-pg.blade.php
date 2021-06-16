@@ -127,6 +127,9 @@
                                         <input type="text" class="form-control" placeholder="Lokasi " name="lokasi_pg">
                                         <span class="text-danger"></span>
                                     </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                    </div>
                                 </div>
                         </div>
                         <!-- /.modal-content -->

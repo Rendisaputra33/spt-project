@@ -22,7 +22,7 @@ class WilayahController extends Controller
             'nama_wilayah' => $req->nama_wilayah,
             'harga_wilayah' => $req->harga_wilayah,
         ])
-            ? redirect()->back()->with('success', 'data berhasil di tambah')
+            ? redirect('/wilayah')->with('success', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
     }
 
@@ -32,14 +32,14 @@ class WilayahController extends Controller
             'nama_wilayah' => $req->nama_wilayah,
             'harga_wilayah' => $req->harga_wilayah,
         ])
-            ? redirect()->back()->with('success', 'data berhasil di update')
+            ? redirect('/wilayah')->with('success', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
     }
 
     public function delete($id)
     {
         return Wilayah::where('id_wilayah', $id)->delete()
-            ? redirect()->back()->with('success', 'data berhasil di delete')
+            ? redirect('/wilayah')->with('success', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
 

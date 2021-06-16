@@ -134,6 +134,9 @@
                                         <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir">
                                         <span class="text-danger"></span>
                                     </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                    </div>
                                 </div>
                         </div>
                     </div>
