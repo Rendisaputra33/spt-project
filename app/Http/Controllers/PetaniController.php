@@ -72,6 +72,14 @@ class PetaniController extends Controller
     }
 
     /**
+     * @return View 
+     */
+    public function viewAdd()
+    {
+        return view('petani');
+    }
+
+    /**
      * @param Query parameters
      * @return String this return string html
      */

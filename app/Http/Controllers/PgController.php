@@ -49,4 +49,9 @@ class PgController extends Controller
             'data_update' => Pg::where('id_pg', $id)->first(),
         ]);
     }
+
+    public function viewAdd()
+    {
+        return view('pg');
+    }
 }

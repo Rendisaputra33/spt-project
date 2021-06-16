@@ -51,4 +51,9 @@ class SopirController extends Controller
             'data_update' => Sopir::where('id_sopir', $id)->first(),
         ]);
     }
+
+    public function viewAdd()
+    {
+        return view('sopir');
+    }
 }

@@ -49,4 +49,9 @@ class WilayahController extends Controller
             'data_update' => Wilayah::where('id_wilayah', $id)->first(),
         ]);
     }
+
+    public function viewAdd()
+    {
+        return view('wilayah');
+    }
 }
