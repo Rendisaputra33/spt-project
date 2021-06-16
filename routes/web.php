@@ -4,6 +4,7 @@ use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\SopirController;
 use App\Http\Controllers\PgController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WilayahController;
 use Illuminate\Support\Facades\Route;
 
@@ -90,4 +91,8 @@ Route::prefix('/pg')->group(function () {
     Route::prefix('/json')->group(function () {
         Route::get('/getPg/{id}', [PgController::class, 'getUpdate']);
     });
+});
+
+Route::prefix('login')->group(function () {
+    Route::post('/', [AuthController::class, 'Login']);
 });
