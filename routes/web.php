@@ -5,6 +5,7 @@ use App\Http\Controllers\SopirController;
 use App\Http\Controllers\PgController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerangkatController;
 use App\Http\Controllers\WilayahController;
 use Illuminate\Support\Facades\Route;
 
@@ -108,7 +109,20 @@ Route::prefix('/pg')->group(function () {
     });
 });
 
-Route::prefix('login')->group(function () {
+Route::prefix('/auth')->group(function () {
     Route::post('/', [AuthController::class, 'Login']);
     Route::get('/logout', [AuthController::class, 'Logout']);
+});
+
+/* ================== Routing keberangkatan ================  */
+
+Route::prefix('/berangkat')->group(function () {
+    // main action
+    Route::get('/', [BerangkatController::class, 'index']);
+    Route::post('/', [BerangkatController::class, 'add']);
+    Route::put('/{id}', [BerangkatController::class, 'update']);
+    Route::delete('/{id}', [BerangkatController::class, 'destroy']);
+    // secondary action
+    Route::get('/search', [BerangkatController::class, 'search']);
+    Route::get('/filter', [BerangkatController::class, 'filter']);
 });

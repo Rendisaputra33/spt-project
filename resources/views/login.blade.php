@@ -30,7 +30,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan masuk</p>
 
-                <form action="/login" method="post">
+                <form action="/auth" method="post">
                     @csrf
                     <span class="text text-danger"></span>
                     <div class="input-group mb-3">
