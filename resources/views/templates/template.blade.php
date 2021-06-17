@@ -57,7 +57,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('') }}dist/img/logo_size.jpg" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">RAYA GUNA</span>
+                <span class="brand-text font-weight-light">{{ session('username') }}</span>
             </a>
 
             <!-- Sidebar -->
@@ -119,6 +119,40 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-money-check-alt"></i>
+                                <p>
+                                    Date Transaksi
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/petani" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Keberangkatan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/sopir" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kepulangan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/pg" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Laporan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-header">Report</li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
@@ -153,16 +187,16 @@
             </div>
         </footer>
     </div>
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE -->
-    <script src="{{asset('dist/js/adminlte.js')}}"></script>
+    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
     <!-- OPTIONAL SCRIPTS -->
-    <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('dist/js/demo.js')}}"></script>
-    <script src="{{asset('dist/js/pages/dashboard3.js')}}"></script>
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('dist/js/demo.js') }}"></script>
+    <script src="{{ asset('dist/js/pages/dashboard3.js') }}"></script>
 </body>
 
 </html>

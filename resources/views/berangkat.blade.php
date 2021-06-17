@@ -35,81 +35,82 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Berangkat</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Berangkat " name="tanggal_berangkat"
+                                        <input type="date" class="form-control" placeholder="Tanggal Berangkat "
+                                            name="tanggal_berangkat" required>
+                                        <span class="text-dark"></span>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
+                                        </div>
+                                        <select name="tipe" class="custom-select" id="tipe">
+                                            <option selected>Choose...</option>
+                                            <option value="SPT">SPT</option>
+                                            <option value="AMPERA">AMPERA</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">No SP</label>
+                                        <input type="text" class="form-control" placeholder="No SP " name="no_sp" required>
+                                        <span class="text-dark"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">No Induk</label>
+                                        <input type="text" class="form-control" placeholder="No Induk " name="no_induk"
                                             required>
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                         </div>
-                                        <select class="custom-select" id="tipe">
-                                          <option selected>Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
-                                        </select>
-                                      </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">No SP</label>
-                                        <input type="text" class="form-control" placeholder="No SP "
-                                            name="no_sp" required>
-                                        <span class="text-dark"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">No Induk</label>
-                                        <input type="text" class="form-control" placeholder="No Induk "
-                                            name="no_induk" required>
-                                        <span class="text-dark"></span>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
-                                        </div>
-                                        <select class="custom-select" id="wilayah">
-                                          <option selected>Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                        <select name="wilayah" class="custom-select" id="wilayah">
+                                            <option selected>Choose...</option>
+                                            @foreach ($wilayah as $item)
+                                                <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
                                         </div>
-                                        <select class="custom-select" id="nama_petani">
-                                          <option selected>Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                        <select name="nama_petani" class="custom-select" id="nama_petani">
+                                            <option selected>Choose...</option>
+                                            @foreach ($petani as $item)
+                                                <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Nama Sopir</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Nama Sopir</label>
                                         </div>
-                                        <select class="custom-select" id="nama_sopir">
-                                          <option selected>Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                        <select name="nama_sopir" class="custom-select" id="nama_sopir">
+                                            <option selected>Choose...</option>
+                                            @foreach ($sopir as $item)
+                                                <option value="{{ $item->nama_sopir }}">{{ $item->nama_sopir }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Nama Pabrik</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Nama Pabrik</label>
                                         </div>
-                                        <select class="custom-select" id="nama_pabrik">
-                                          <option selected>Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                        <select name="nama_pabrik" class="custom-select" id="nama_pabrik">
+                                            <option selected>Choose...</option>
+                                            @foreach ($pg as $item)
+                                                <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Sangu</label>
-                                        <input type="text" class="form-control" placeholder="Sangu "
-                                            name="sangu" required>
+                                        <input type="text" class="form-control" placeholder="Sangu " name="sangu" required>
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="form-group">
@@ -120,20 +121,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tara MBL</label>
-                                        <input type="text" class="form-control" placeholder="Tara MBL "
-                                            name="tara_mbl" required>
+                                        <input type="text" class="form-control" placeholder="Tara MBL " name="tara_mbl"
+                                            required>
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Netto</label>
-                                        <input type="text" class="form-control" placeholder="Netto "
-                                            name="netto" required>
+                                        <input type="text" class="form-control" placeholder="Netto " name="netto" required>
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Harga</label>
-                                        <input type="text" class="form-control" placeholder="Harga "
-                                            name="harga" required>
+                                        <input type="text" class="form-control" placeholder="Harga " name="harga" required>
                                         <span class="text-dark"></span>
                                     </div>
                                 </div>

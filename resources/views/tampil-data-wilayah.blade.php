@@ -76,7 +76,7 @@
                                                 <tr>
                                                     <td>{{ $item->id_wilayah }}</td>
                                                     <td>{{ $item->nama_wilayah }}</td>
-                                                    <td>{{ $item->harga_wilayah }}</td>
+                                                    <td>Rp {{ number_format($item->harga_wilayah, 0, ',', '.') }}</td>
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 

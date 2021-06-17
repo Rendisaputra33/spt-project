@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
+use App\Models\Petani;
+use App\Models\Pg;
+use App\Models\Sopir;
+use App\Models\Wilayah;
 use Illuminate\Http\Request;
 
 class BerangkatController extends Controller
 {
     public function index()
     {
-        return view('berangkat');
+        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get()];
+        return view('berangkat', $data);
     }
 
     public function add(Request $req)

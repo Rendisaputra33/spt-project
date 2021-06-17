@@ -125,4 +125,6 @@ Route::prefix('/berangkat')->group(function () {
     // secondary action
     Route::get('/search', [BerangkatController::class, 'search']);
     Route::get('/filter', [BerangkatController::class, 'filter']);
+    // transaksi
+    
 });
