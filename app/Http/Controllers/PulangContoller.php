@@ -47,7 +47,7 @@ class PulangContoller extends Controller
     public function show(Berangkat $berangkat)
     {
         return view('tampil-data-pulang', [
-            'data' => $berangkat->get()
+            'data' => $berangkat->first()
         ]);
     }
 
