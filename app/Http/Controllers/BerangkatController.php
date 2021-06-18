@@ -46,6 +46,32 @@ class BerangkatController extends Controller
             : redirect()->back()->with('error', 'gagal menambah data');
     }
 
+    public function update(Request $req, $id) {
+        return Berangkat::where('id_keberangkatan', $id)->update([
+            'tanggal_berangkat' => $req->tanggal_berangkat,
+            'tipe' => $req->tipe,
+            'no_sp' => $req->no_sp,
+            'no_induk' => $req->no_induk,
+            'wilayah' => $req->wilayah,
+            'nama_petani' => $req->nama_petani,
+            'nama_sopir' => $req->nama_sopir,
+            'pabrik_tujuan' => $req->pabrik_tujuan,
+            'sangu' => $req->sangu,
+            'berat_timbang' => $req->berat_timbang,
+            'tara_mbl' => $req->tara_mbl,
+            'netto' => $req->netto,
+            'harga' => $req->harga,
+        ])
+        ? redirect('/berangkat')->with('success', 'sukses update data')
+        : redirect()->back()->with('error', 'gagal menambah data');
+    }
+
+    public function delete($id) {
+        return Berangkat::where('id_keberangkatan', $id)->delete()
+        ? redirect('/berangkat')->with('success', 'sukses delete data')
+        : redirect()-> back()->with('error', 'gagal delete data');
+    }
+
     public function search(Berangkat $berangkat)
     {
         return response()->json([
