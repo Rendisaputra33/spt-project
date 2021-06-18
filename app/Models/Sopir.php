@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sopir extends Model
 {
-    protected $table = 'tb_sopir';
+    protected $table = 'tb_petani';
 }

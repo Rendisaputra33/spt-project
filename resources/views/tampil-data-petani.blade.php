@@ -40,8 +40,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <input type="text" class="form-control float-right" id="search"
-                                                                name="date" value="">
+                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
                                                         </div>
                                                     </div>
                                             </div>
@@ -74,22 +73,18 @@
                                         @else
                                             @foreach ($petani as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_petani }}</td>
-                                                    <td>{{ $item->nama_petani }}</td>
-                                                    <td>{{ $item->register_petani }}</td>
+                                                    <td>{{ $item->id_pemilik }}</td>
+                                                    <td>{{ $item->nama_pemilik }}</td>
+                                                    <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-success text-bold update"
-                                                            data-target="#modal-lg" data-toggle="modal"
-                                                            data-id="{{ $item->id_petani }}">UPDATE</a>
-                                                        <form action="{{ url('/') }}/petani/{{ $item->id_petani }}"
-                                                            method="post" class="d-inline">
+                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}">UPDATE</a>
+                                                        <form action="{{ url('/') }}/petani/{{ $item->id_pemilik }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit"
-                                                                class="btn btn-danger text-bold">DELETE</button>
+                                                            <button type="submit" class="btn btn-danger text-bold">DELETE</button>
                                                         </form>
 
                                                     </td>
@@ -126,21 +121,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Register Petani</label>
-                                        <input type="text" class="form-control" placeholder="Register "
-                                            name="register_petani">
+                                        <input type="text" class="form-control" placeholder="Register " name="register_petani">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pabrik</label>
-                                        <input type="text" class="form-control" placeholder="Nama Pabrik "
-                                            name="nama_pabrik">
+                                        <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                    <button type="submit" class="btn btn-success">SIMPAN</button>
+                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                    </div>
                                 </div>
-                                </div>
-                                
+
                             </form>
                         </div>
                         <!-- /.modal-content -->

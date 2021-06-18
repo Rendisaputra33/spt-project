@@ -26,8 +26,8 @@ class PetaniController extends Controller
     public function add(Request $req)
     {
         return Petani::insert([
-            'nama_petani' => $req->nama_petani,
-            'register_petani' => $req->register_petani,
+            'nama_pemilik' => $req->nama_petani,
+            'register_pemilik' => $req->register_petani,
             'nama_pabrik' => $req->nama_pabrik,
         ])
             ? redirect('/petani')->with('success', 'data berhasil di tambah')
@@ -40,9 +40,9 @@ class PetaniController extends Controller
      */
     public function update(Request $req, $id)
     {
-        return Petani::where('id_petani', $id)->update([
-            'nama_petani' => $req->nama_petani,
-            'register_petani' => $req->register_petani,
+        return Petani::where('id_pemilik', $id)->update([
+            'nama_pemilik' => $req->nama_petani,
+            'register_pemilik' => $req->register_petani,
             'nama_pabrik' => $req->nama_pabrik,
         ])
             ? redirect('/petani')->with('success', 'data berhasil di update')
@@ -55,7 +55,7 @@ class PetaniController extends Controller
      */
     public function delete($id)
     {
-        return Petani::where('id_petani', $id)->delete()
+        return Petani::where('id_pemilik', $id)->delete()
             ? redirect('/petani')->with('success', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
@@ -67,7 +67,7 @@ class PetaniController extends Controller
     public function getUpdate($id)
     {
         return response()->json([
-            'data_update' => Petani::where('id_petani', $id)->first()
+            'data_update' => Petani::where('id_pemilik', $id)->first()
         ]);
     }
 
@@ -85,7 +85,7 @@ class PetaniController extends Controller
      */
     public function search()
     {
-        $data = Petani::where('nama_petani', 'LIKE', '%' . request('name') . '%')->get();
+        $data = Petani::where('nama_pemilik', 'LIKE', '%' . request('name') . '%')->get();
         return response()->json(['data' => $data]);
     }
 }

@@ -14,9 +14,8 @@ class BerangkatController extends Controller
 
     public function index(Berangkat $berangkat)
     {
-        return view('tampil-data-berangkat', [
-            'data' => $berangkat->whereDate('created_at', now())->get()
-        ]);
+        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $berangkat->whereDate('created_at', now())->get()];
+        return view('tampil-data-berangkat', $data);
     }
 
     public function addView()
@@ -46,7 +45,8 @@ class BerangkatController extends Controller
             : redirect()->back()->with('error', 'gagal menambah data');
     }
 
-    public function update(Request $req, $id) {
+    public function update(Request $req, $id)
+    {
         return Berangkat::where('id_keberangkatan', $id)->update([
             'tanggal_berangkat' => $req->tanggal_berangkat,
             'tipe' => $req->tipe,
@@ -62,14 +62,15 @@ class BerangkatController extends Controller
             'netto' => $req->netto,
             'harga' => $req->harga,
         ])
-        ? redirect('/berangkat')->with('success', 'sukses update data')
-        : redirect()->back()->with('error', 'gagal menambah data');
+            ? redirect('/berangkat')->with('success', 'sukses update data')
+            : redirect()->back()->with('error', 'gagal menambah data');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         return Berangkat::where('id_keberangkatan', $id)->delete()
-        ? redirect('/berangkat')->with('success', 'sukses delete data')
-        : redirect()-> back()->with('error', 'gagal delete data');
+            ? redirect('/berangkat')->with('success', 'sukses delete data')
+            : redirect()->back()->with('error', 'gagal delete data');
     }
 
     public function search(Berangkat $berangkat)

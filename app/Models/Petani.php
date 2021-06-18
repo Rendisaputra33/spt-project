@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Petani extends Model
 {
-    protected $table = 'tb_petani';
+    protected $table = 'tb_pemilik';
 }
