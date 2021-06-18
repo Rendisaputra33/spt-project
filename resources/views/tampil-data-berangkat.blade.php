@@ -85,7 +85,9 @@
                                                 <td>{{ $item->netto }}</td>
                                                 <td>{{ $item->harga }}</td>
                                                 <td>{{ $item->tanggal_keberangkatan }}</td>
-                                                <td>action</td>
+                                                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
+                                                <button type="button" class="btn btn-success">Pulang</button>&nbsp;
+                                                <button type="button" class="btn btn-danger">Hapus</button></td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -263,6 +265,126 @@
     <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="exampleModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="tglberangkat">Tanggal Berangkat</label>
+                        <input type="text" name="tanggal_berangkat" class="form-control" id="tglberangkat" placeholder="Tanggal berangkat">
+                    </div>
+                  </form>
+              <div class="row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group">
+                          <label for="tipe">Tipe</label>
+                          <select class="form-control" id="tipe" name="tipe">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="nosp">No Sp</label>
+                          <input type="text" name="no_sp" class="form-control" id="nosp" placeholder="No Sp">
+                        </div>
+                        <div class="form-group">
+                          <label for="noinduk">No Induk</label>
+                          <input type="text" name="no_induk" class="form-control" id="noinduk" placeholder="No Induk">
+                        </div>
+                        <div class="form-group">
+                          <label for="wilayah">Wilayah</label>
+                          <select class="form-control" id="wilayah" name="wilayah">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="namapetani">Nama Petani</label>
+                          <select class="form-control" id="namapetani" name="nama_petani">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="namasopir">Nama Sopir</label>
+                          <select class="form-control" id="namasopir" name="nama_sopir">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+                        </div>
+                      </form>
+                </div>
+                <div class="col-md-6 ml-auto">
+                    <form action="">
+                        <div class="form-group">
+                          <label for="pabriktujuan">Pabrik Tujuan</label>
+                          <select class="form-control" id="pabriktujuan" name="pabrik_tujuan">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="sangu">Sangu</label>
+                          <input type="text" name="sangu" class="form-control" id="sangu" placeholder="Sangu">
+                        </div>
+                        <div class="form-group">
+                          <label for="berattimbang">Berat Timbang</label>
+                          <input type="text" name="berat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
+                        </div>
+                        <div class="form-group">
+                          <label for="tarambl">Tara mbl</label>
+                          <input type="text" name="tara_mbl" class="form-control" id="tarambl" placeholder="Tara mbl">
+                        </div>
+                        <div class="form-group">
+                          <label for="netto">Netto</label>
+                          <input type="text" name="netto" class="form-control" id="netto" placeholder="Netto">
+                        </div>
+                        <div class="form-group">
+                          <label for="harga">Harga</label>
+                          <input type="text" name="harga" class="form-control" id="harga" placeholder="Harga">
+                        </div>
+
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-info">Simpan</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
+  
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
