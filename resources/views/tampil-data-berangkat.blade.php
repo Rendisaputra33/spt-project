@@ -85,7 +85,7 @@
                                                 <td>{{ $item->netto }}</td>
                                                 <td>{{ $item->harga }}</td>
                                                 <td>{{ $item->tanggal_keberangkatan }}</td>
-                                                <!-- <th>Aksi</th> -->
+                                                <td>action</td>
                                             </tr>
                                         @endforeach
                                     @endif
