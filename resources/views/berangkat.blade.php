@@ -60,31 +60,35 @@
                                             required>
                                         <span class="text-dark"></span>
                                     </div>
-                                    <div class="input-group mb-3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                        <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                         </div>
-                                        <select name="wilayah" class="custom-select" id="wilayah">
-                                            <option selected>Choose...</option>
-                                            @foreach ($wilayah as $item)
-                                                <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
+                                            <select name="wilayah" class="custom-select" id="wilayah">
+                                                <option selected>Choose...</option>
+                                                @foreach ($wilayah as $item)
+                                                    <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <select name="nama_petani" class="custom-select" id="nama_petani">
-                                            <option selected>Choose...</option>
-                                            @foreach ($petani as $item)
-                                                <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
+                                            </div>
+                                            <select name="nama_petani" class="custom-select" id="nama_petani">
+                                                <option selected>Choose...</option>
+                                                @foreach ($petani as $item)
+                                                    <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="input-group mb-3">
+                                    <div class="col-6">
+                                        <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Nama Sopir</label>
                                         </div>
@@ -108,6 +112,10 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    </div>
+                                    </div>
+                                    
+                                    
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Sangu</label>
                                         <input type="text" class="form-control" placeholder="Sangu " name="sangu" required>
