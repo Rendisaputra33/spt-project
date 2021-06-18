@@ -142,3 +142,11 @@ Route::prefix('/pulang')->group(function () {
     Route::put('/{id}', [PulangContoller::class, 'update']);
     Route::delete('/{id}', [PulangContoller::class, 'destroy']);
 });
+
+Route::prefix('/pembayaran')->group(function () {
+    // main action
+    Route::get('/', [PulangContoller::class, 'index']);
+    Route::post('/', [PulangContoller::class, 'add']);
+    Route::put('/{id}', [PulangContoller::class, 'update']);
+    Route::delete('/{id}', [PulangContoller::class, 'destroy']);
+});
