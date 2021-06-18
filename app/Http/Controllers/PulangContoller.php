@@ -46,7 +46,7 @@ class PulangContoller extends Controller
      */
     public function show(Berangkat $berangkat)
     {
-        return $berangkat->get();
+        return response()->json(['data' => $berangkat->get()]);
     }
 
     /**
@@ -67,7 +67,7 @@ class PulangContoller extends Controller
      * @param  \App\Models\Berangkat  $berangkat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berangkat $berangkat)
+    public function update(Request $request, Berangkat $berangkat, $id)
     {
         //
     }
@@ -78,7 +78,7 @@ class PulangContoller extends Controller
      * @param  \App\Models\Berangkat  $berangkat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berangkat $berangkat)
+    public function destroy(Berangkat $berangkat, $id)
     {
         //
     }

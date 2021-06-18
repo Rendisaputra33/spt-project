@@ -6,6 +6,7 @@ use App\Http\Controllers\PgController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerangkatController;
+use App\Http\Controllers\PulangContoller;
 use App\Http\Controllers\WilayahController;
 use Illuminate\Support\Facades\Route;
 
@@ -126,5 +127,5 @@ Route::prefix('/berangkat')->group(function () {
     Route::get('/search', [BerangkatController::class, 'search']);
     Route::get('/filter', [BerangkatController::class, 'filter']);
     // transaksi
-    
+    Route::get('/pulang', [PulangContoller::class, 'show']);
 });

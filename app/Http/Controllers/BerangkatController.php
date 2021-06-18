@@ -37,4 +37,22 @@ class BerangkatController extends Controller
             ? redirect('/berangkat')->with('success', 'sukses tambah data')
             : redirect()->back()->with('error', 'gagal menambah data');
     }
+
+    public function search(Berangkat $berangkat)
+    {
+        return response()->json([
+            'data' => $berangkat
+                ->where('no_induk', 'LIKE', '%' . request('s') . '%')
+                ->orWhere('wilayah', 'LIKE', '%' . request('s') . '%')
+                ->orWhere('pabrik_tujuan', 'LIKE', '%' . request('s') . '%')
+                ->get()
+        ]);
+    }
+
+    public function filter(Request $req, Berangkat $berangkat)
+    {
+        return response()->json([
+            'data' => $berangkat->whereBetween('created_at', [$req->tgl1, $req->tgl2])->get()
+        ]);
+    }
 }
