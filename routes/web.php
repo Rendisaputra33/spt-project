@@ -130,6 +130,7 @@ Route::prefix('/berangkat')->group(function () {
     Route::get('/pulang', [PulangContoller::class, 'show']);
     // view
     Route::prefix('view')->group(function () {
-        Route::get('/add', [BerangkatController::class, 'addView']);                        
+        Route::get('/add', [BerangkatController::class, 'addView']);
+        Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
     });
 });
