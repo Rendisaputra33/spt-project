@@ -136,5 +136,9 @@ Route::prefix('/berangkat')->group(function () {
 });
 
 Route::prefix('/pulang')->group(function () {
+    // main action
     Route::get('/', [PulangContoller::class, 'index']);
+    Route::post('/', [PulangContoller::class, 'add']);
+    Route::put('/{id}', [PulangContoller::class, 'update']);
+    Route::delete('/{id}', [PulangContoller::class, 'destroy']);
 });
