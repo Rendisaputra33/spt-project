@@ -128,4 +128,8 @@ Route::prefix('/berangkat')->group(function () {
     Route::get('/filter', [BerangkatController::class, 'filter']);
     // transaksi
     Route::get('/pulang', [PulangContoller::class, 'show']);
+    // view
+    Route::prefix('view')->group(function () {
+        Route::get('/add', [BerangkatController::class, 'addView']);                        
+    });
 });

@@ -11,7 +11,15 @@ use Illuminate\Http\Request;
 
 class BerangkatController extends Controller
 {
-    public function index()
+
+    public function index(Berangkat $berangkat)
+    {
+        return view('tampil-data-berangkat', [
+            'data' => $berangkat->whereDate('created_at', now())->get()
+        ]);
+    }
+
+    public function addView()
     {
         $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get()];
         return view('berangkat', $data);
