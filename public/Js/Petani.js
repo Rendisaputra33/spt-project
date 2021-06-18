@@ -42,10 +42,10 @@ const parseSearch = (data) => {
 
 const elementSearch = (res) => {
     return /*html*/ `<tr>
-    <td>${res.id_petani}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.register_petani}</td>
-    <td>${res.nama_pabrik}</td>
+    <td>${res.id_pemilik}</td>
+    <td>${res.nama_pemilik}</td>
+    <td>${res.register_pemilik}</td>
+    <td>${res.nama_pemilik}</td>
     <td>${res.created_at}</td>
 <td>
 

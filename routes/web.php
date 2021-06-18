@@ -134,3 +134,7 @@ Route::prefix('/berangkat')->group(function () {
         Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
     });
 });
+
+Route::prefix('/pulang')->group(function () {
+    Route::get('/', [PulangContoller::class, 'index']);
+});

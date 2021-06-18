@@ -14,7 +14,8 @@ class BerangkatController extends Controller
 
     public function index(Berangkat $berangkat)
     {
-        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $berangkat->whereDate('created_at', now())->get()];
+        $data = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
+        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $data];
         return view('tampil-data-berangkat', $data);
     }
 
