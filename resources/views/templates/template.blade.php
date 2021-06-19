@@ -136,7 +136,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/sopir" class="nav-link">
+                                    <a href="/pulang" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kepulangan</p>
                                     </a>
@@ -144,9 +144,9 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/pg" class="nav-link">
+                                    <a href="/pembayaran" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Laporan</p>
+                                        <p>Pembayaran</p>
                                     </a>
                                 </li>
                             </ul>

@@ -51,29 +51,32 @@
                                 <table id="tabel_pemasukan" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Tanggal Keberangkatan</th>
+                                            <th>Tanggal Pulang</th>
                                             <th>Tipe</th>
+                                            <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
-                                            <th>Nama Sopir</th>
                                             <th>Tujuan</th>
-                                            <th>Tanggal Pulamg</th>
+                                            <th>Tanggal Berangkat</th>
                                             <th>Refaksi</th>
+                                            <th>Nominal</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="list-data">
-                                        <tr>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="">BAYAR</a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $item)
+                                            <tr>
+                                                <td>{{ $item->tanggal_pulang }}</td>
+                                                <td>{{ $item->tipe }}</td>
+                                                <td>{{ $item->nama_petani }}</td>
+                                                <td>{{ $item->nama_sopir }}</td>
+                                                <td>{{ $item->pabrik_tujuan }}</td>
+                                                <td>{{ $item->tanggal_keberangkatan }}</td>
+                                                <td>{{ $item->harga * $item->netto }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="">BAYAR</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

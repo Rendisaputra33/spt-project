@@ -88,4 +88,11 @@ class PetaniController extends Controller
         $data = Petani::where('nama_pemilik', 'LIKE', '%' . request('name') . '%')->get();
         return response()->json(['data' => $data]);
     }
+
+    public function getRegister($id)
+    {
+        return response()->json([
+            'data' => Petani::select('register_pemilik')->where('nama_pemilik', $id)->get()
+        ]);
+    }
 }

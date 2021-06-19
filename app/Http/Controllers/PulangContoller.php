@@ -15,7 +15,7 @@ class PulangContoller extends Controller
     public function index(Berangkat $berangkat)
     {
         return view('tampil-data-pulang', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('created_at', now())->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
         ]);
     }
 
@@ -56,6 +56,9 @@ class PulangContoller extends Controller
      */
     public function show(Berangkat $berangkat)
     {
+        return view('list-dipulangkan', [
+            'data' => $berangkat->whereNull('tanggal_pulang')->get()
+        ]);
     }
 
     /**
@@ -64,9 +67,16 @@ class PulangContoller extends Controller
      * @param  \App\Models\Berangkat  $berangkat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berangkat $berangkat)
+    public function edit(Berangkat $berangkat, Request $req, $id)
     {
-        //
+        return $berangkat->where('id_keberangkatan', $id)->update([
+            'tanggal_pulang' => $req->tanggal_pulang,
+            'tanggal_bongkar' => $req->tanggal_bongkar,
+            'no_truk' => $req->no_truk,
+            'berat_pulang' => $req->berat_pulang,
+            'refaksi' => $req->refaksi,
+            'updated_at' => now()
+        ]) ? redirect()->back() : redirect()->back();
     }
 
     /**
@@ -89,6 +99,7 @@ class PulangContoller extends Controller
      */
     public function destroy(Berangkat $berangkat, $id)
     {
-        //
+        return $berangkat->where('id_keberangkatan', $id)->delete()
+            ? redirect('/pulang') : redirect('/pulang');
     }
 }

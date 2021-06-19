@@ -9,6 +9,7 @@ use App\Http\Controllers\BerangkatController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PulangContoller;
 use App\Http\Controllers\WilayahController;
+use App\Models\Petani;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,6 +33,7 @@ Route::prefix('/petani')->group(function () {
     Route::post('/', [PetaniController::class, 'add']);
     Route::put('/{id}', [PetaniController::class, 'update']);
     Route::delete('/{id}', [PetaniController::class, 'delete']);
+    Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister']);
     // route grouping
     Route::prefix('/group')->group(function () {
         Route::get('/search', [PetaniController::class, 'search']);
@@ -77,6 +79,7 @@ Route::prefix('/wilayah')->group(function () {
     Route::post('/', [WilayahController::class, 'add']);
     Route::put('/{id}', [WilayahController::class, 'update']);
     Route::delete('/{id}', [WilayahController::class, 'delete']);
+    Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga']);
 
     Route::prefix('/group')->group(function () {
         Route::get('/search', [WilayahController::class, 'search']);
@@ -123,7 +126,7 @@ Route::prefix('/berangkat')->group(function () {
     Route::get('/', [BerangkatController::class, 'index']);
     Route::post('/', [BerangkatController::class, 'add']);
     Route::put('/{id}', [BerangkatController::class, 'update']);
-    Route::delete('/{id}', [BerangkatController::class, 'destroy']);
+    Route::get('/{id}', [BerangkatController::class, 'delete']);
     // secondary action
     Route::get('/search', [BerangkatController::class, 'search']);
     Route::get('/filter', [BerangkatController::class, 'filter']);
@@ -131,7 +134,6 @@ Route::prefix('/berangkat')->group(function () {
     Route::get('/pulang', [PulangContoller::class, 'show']);
     // view
     Route::prefix('view')->group(function () {
-        Route::get('/add', [BerangkatController::class, 'addView']);
         Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
     });
 });
@@ -139,9 +141,13 @@ Route::prefix('/berangkat')->group(function () {
 Route::prefix('/pulang')->group(function () {
     // main action
     Route::get('/', [PulangContoller::class, 'index']);
-    Route::post('/', [PulangContoller::class, 'add']);
-    Route::put('/{id}', [PulangContoller::class, 'update']);
-    Route::delete('/{id}', [PulangContoller::class, 'destroy']);
+    Route::post('/{id}', [PulangContoller::class, 'create']);
+    Route::put('/{id}', [PulangContoller::class, 'edit']);
+    Route::get('/{id}', [PulangContoller::class, 'destroy']);
+    // seondary action
+    Route::prefix('/view')->group(function () {
+        Route::get('/list', [PulangContoller::class, 'show']);
+    });
 });
 
 Route::prefix('/pembayaran')->group(function () {
@@ -150,4 +156,8 @@ Route::prefix('/pembayaran')->group(function () {
     Route::post('/', [PembayaranController::class, 'add']);
     Route::put('/{id}', [PembayaranController::class, 'update']);
     Route::delete('/{id}', [PembayaranController::class, 'destroy']);
+    // secondary action
+    Route::prefix('/view')->group(function () {
+        Route::get('/list', [PembayaranController::class, 'show']);
+    });
 });

@@ -28,14 +28,14 @@ class BerangkatController extends Controller
     public function add(Request $req)
     {
         return Berangkat::insert([
-            'tanggal_berangkat' => $req->tanggal_berangkat,
+            'tanggal_keberangkatan' => $req->tanggal_berangkat,
             'tipe' => $req->tipe,
             'no_sp' => $req->no_sp,
             'no_induk' => $req->no_induk,
             'wilayah' => $req->wilayah,
             'nama_petani' => $req->nama_petani,
             'nama_sopir' => $req->nama_sopir,
-            'pabrik_tujuan' => $req->pabrik_tujuan,
+            'pabrik_tujuan' => $req->nama_pabrik,
             'sangu' => $req->sangu,
             'berat_timbang' => $req->berat_timbang,
             'tara_mbl' => $req->tara_mbl,
@@ -49,14 +49,14 @@ class BerangkatController extends Controller
     public function update(Request $req, $id)
     {
         return Berangkat::where('id_keberangkatan', $id)->update([
-            'tanggal_berangkat' => $req->tanggal_berangkat,
+            'tanggal_keberangkatan' => $req->tanggal_berangkat,
             'tipe' => $req->tipe,
             'no_sp' => $req->no_sp,
             'no_induk' => $req->no_induk,
             'wilayah' => $req->wilayah,
             'nama_petani' => $req->nama_petani,
             'nama_sopir' => $req->nama_sopir,
-            'pabrik_tujuan' => $req->pabrik_tujuan,
+            'pabrik_tujuan' => $req->nama_pabrik,
             'sangu' => $req->sangu,
             'berat_timbang' => $req->berat_timbang,
             'tara_mbl' => $req->tara_mbl,

@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
-use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 
-class PembayaranController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Pembayaran $pembayaran)
+    public function index()
     {
-        return view('tampil-data-bayar', [
-            'data' => $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->get()
-        ]);
+        //
     }
 
     /**
@@ -44,23 +41,21 @@ class PembayaranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Berangkat  $Berangkat
      * @return \Illuminate\Http\Response
      */
-    public function show(Berangkat $berangkat)
+    public function show(Berangkat $Berangkat)
     {
-        return view('list-dibayar', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->get()
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Berangkat  $Berangkat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Berangkat $Berangkat)
     {
         //
     }
@@ -69,10 +64,10 @@ class PembayaranController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Berangkat  $Berangkat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pembayaran $pembayaran)
+    public function update(Request $request, Berangkat $Berangkat)
     {
         //
     }
@@ -80,13 +75,11 @@ class PembayaranController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Berangkat  $Berangkat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berangkat $pembayaran, $id)
+    public function destroy(Berangkat $Berangkat)
     {
-        return $pembayaran->find($id)->delete()
-            ? redirect()->back()->with('sukses', 'data berhasil di hapus')
-            : redirect()->back()->with('error', 'data gagal di hapus');
+        //
     }
 }

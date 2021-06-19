@@ -84,9 +84,9 @@
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->harga }}</td>
                                                         <td>{{ $item->tanggal_keberangkatan }}</td>
-                                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
-                                                            <button type="button" class="btn btn-success">Pulang</button>&nbsp;
-                                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                                        <td>
+                                                            <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}"> Edit</button>&nbsp;
+                                                            <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger">Hapus</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -103,7 +103,8 @@
                 <!-- /.row -->
 
                 <!-- modal untuk tambah data -->
-                <form action=" " method="post">
+                <form action="/berangkat" method="post">
+                    @csrf
                     <div class="modal fade" id="modal-lg-tambah">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -123,7 +124,7 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
                                         </div>
-                                        <select name="tipe" class="custom-select" id="tipe">
+                                        <select name="tipe" class="custom-select">
                                             <option selected>Choose...</option>
                                             <option value="SPT">SPT</option>
                                             <option value="AMPERA">AMPERA</option>
@@ -145,7 +146,7 @@
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                                 </div>
-                                                <select name="wilayah" class="custom-select" id="wilayah">
+                                                <select name="wilayah" class="custom-select">
                                                     <option selected>Choose...</option>
                                                     @foreach ($wilayah as $item)
                                                         <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
@@ -154,12 +155,12 @@
                                             </div>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
+                                                    <label class="input-group-text" for="inputGroupSelect01">Nama Pemilik</label>
                                                 </div>
-                                                <select name="nama_petani" class="custom-select" id="nama_petani">
+                                                <select name="nama_petani" class="custom-select">
                                                     <option selected>Choose...</option>
                                                     @foreach ($petani as $item)
-                                                        <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
+                                                        <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -167,12 +168,12 @@
                                         <div class="col-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Nama Sopir</label>
+                                                    <label class="input-group-text" for="inputGroupSelect01">Nama Petani</label>
                                                 </div>
-                                                <select name="nama_sopir" class="custom-select" id="nama_sopir">
+                                                <select name="nama_sopir" class="custom-select">
                                                     <option selected>Choose...</option>
                                                     @foreach ($sopir as $item)
-                                                        <option value="{{ $item->nama_sopir }}">{{ $item->nama_sopir }}</option>
+                                                        <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -180,7 +181,7 @@
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">Nama Pabrik</label>
                                                 </div>
-                                                <select name="nama_pabrik" class="custom-select" id="nama_pabrik">
+                                                <select name="nama_pabrik" class="custom-select">
                                                     <option selected>Choose...</option>
                                                     @foreach ($pg as $item)
                                                         <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
@@ -278,114 +279,104 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="">
+                    <form action="" id="form-update">
+                        <div class="modal-body">
                             <div class="form-group">
                                 <label for="tglberangkat">Tanggal Berangkat</label>
-                                <input type="text" name="tanggal_berangkat" class="form-control" id="tglberangkat" placeholder="Tanggal berangkat">
+                                <input type="date" name="uutanggal_berangkat" class="form-control">
                             </div>
-                        </form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form>
+                            <div class="row">
+                                <div class="col-md-6">
+
                                     <div class="form-group">
                                         <label for="tipe">Tipe</label>
-                                        <select class="form-control" id="tipe" name="tipe">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select class="form-control" id="tipe" name="utipe">
+                                            <option value="SPT">SPT</option>
+                                            <option value="AMPERA">AMPERA</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="nosp">No Sp</label>
-                                        <input type="text" name="no_sp" class="form-control" id="nosp" placeholder="No Sp">
+                                        <input type="text" name="uno_sp" class="form-control" id="nosp" placeholder="No Sp">
                                     </div>
                                     <div class="form-group">
                                         <label for="noinduk">No Induk</label>
-                                        <input type="text" name="no_induk" class="form-control" id="noinduk" placeholder="No Induk">
+                                        <input type="text" name="uno_induk" class="form-control" id="noinduk" placeholder="No Induk">
                                     </div>
                                     <div class="form-group">
                                         <label for="wilayah">Wilayah</label>
-                                        <select class="form-control" id="wilayah" name="wilayah">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select class="form-control" id="wilayah" name="uwilayah">
+                                            <option selected>Choose...</option>
+                                            @foreach ($wilayah as $item)
+                                                <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="namapetani">Nama Petani</label>
-                                        <select class="form-control" id="namapetani" name="nama_petani">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <label for="namapetani">Nama Pemilik</label>
+                                        <select class="form-control" id="namapetani" name="unama_petani">
+                                            <option selected>Choose...</option>
+                                            @foreach ($petani as $item)
+                                                <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="namasopir">Nama Sopir</label>
-                                        <select class="form-control" id="namasopir" name="nama_sopir">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <label for="namasopir">Nama Petani</label>
+                                        <select class="form-control" id="namasopir" name="unama_sopir">
+                                            <option selected>Choose...</option>
+                                            @foreach ($sopir as $item)
+                                                <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="col-md-6 ml-auto">
-                                <form action="">
+                                </div>
+                                <div class="col-md-6 ml-auto">
+
                                     <div class="form-group">
                                         <label for="pabriktujuan">Pabrik Tujuan</label>
-                                        <select class="form-control" id="pabriktujuan" name="pabrik_tujuan">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
+                                            <option selected>Choose...</option>
+                                            @foreach ($pg as $item)
+                                                <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="sangu">Sangu</label>
-                                        <input type="text" name="sangu" class="form-control" id="sangu" placeholder="Sangu">
+                                        <input type="text" name="usangu" class="form-control" id="sangu" placeholder="Sangu">
                                     </div>
                                     <div class="form-group">
                                         <label for="berattimbang">Berat Timbang</label>
-                                        <input type="text" name="berat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
+                                        <input type="text" name="uberat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
                                     </div>
                                     <div class="form-group">
                                         <label for="tarambl">Tara mbl</label>
-                                        <input type="text" name="tara_mbl" class="form-control" id="tarambl" placeholder="Tara mbl">
+                                        <input type="text" name="utara_mbl" class="form-control" id="tarambl" placeholder="Tara mbl">
                                     </div>
                                     <div class="form-group">
                                         <label for="netto">Netto</label>
-                                        <input type="text" name="netto" class="form-control" id="netto" placeholder="Netto">
+                                        <input type="text" name="unetto" class="form-control" id="netto" placeholder="Netto">
                                     </div>
                                     <div class="form-group">
                                         <label for="harga">Harga</label>
-                                        <input type="text" name="harga" class="form-control" id="harga" placeholder="Harga">
+                                        <input type="text" name="uharga" class="form-control" id="harga" placeholder="Harga">
                                     </div>
-
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info">Simpan</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-info">Simpan</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Modal -->
 
-
+    <script src="{{ asset('Js/Berangkat.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>

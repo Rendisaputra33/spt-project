@@ -59,27 +59,25 @@
                                         <tr>
                                             <th>Tanggal Keberangkatan</th>
                                             <th>Tipe</th>
+                                            <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
-                                            <th>Nama Sopir</th>
                                             <th>Tujuan</th>
-                                            <th>Tanggal Pulamg</th>
-                                            <th>Refaksi</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="list-data">
-                                        <tr>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>
-                                                <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="">UPDATE</a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $item)
+                                            <tr>
+                                                <td>{{ $item->tanggal_keberangkatan }}</td>
+                                                <td>{{ $item->tipe }}</td>
+                                                <td>{{ $item->nama_petani }}</td>
+                                                <td>{{ $item->nama_sopir }}</td>
+                                                <td>{{ $item->pabrik_tujuan }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -101,6 +99,7 @@
                             </div>
                             <form method="post" action="" id="form-update">
                                 @csrf
+                                @method('put')
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Pulang</label>
@@ -156,6 +155,7 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+    <script src="{{ asset('Js/List.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>

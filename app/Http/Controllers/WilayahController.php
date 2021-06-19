@@ -50,6 +50,13 @@ class WilayahController extends Controller
         ]);
     }
 
+    public function getHarga($id)
+    {
+        return response()->json([
+            'data' => Wilayah::select('id_wilayah', 'harga_wilayah')->where('nama_wilayah', $id)->get()
+        ]);
+    }
+
     public function viewAdd()
     {
         return view('wilayah');
