@@ -137,7 +137,6 @@ const updateRegister = (res) => {
 };
 
 document.getElementById('filter').addEventListener('click', function () {
-    const tgl = document.getElementById('tgl1');
     const a = new Date().toLocaleDateString();
     const date = a.split('/');
     const month = date[0] < 10 ? "0" + date[0] : date[0];
@@ -156,6 +155,7 @@ function filter() {
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
         })
+    return data.json()
 }
 
 const parse = (data) => {
