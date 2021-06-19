@@ -71,9 +71,14 @@
                                                 <td>{{ $item->nama_sopir }}</td>
                                                 <td>{{ $item->pabrik_tujuan }}</td>
                                                 <td>{{ $item->tanggal_keberangkatan }}</td>
-                                                <td>{{ $item->harga * $item->netto }}</td>
+                                                <td>{{ $item->refaksi }}</td>
+                                                <td>Rp {{ number_format($item->harga * $item->netto, 0, ',', '.') }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="">BAYAR</a>
+                                                    <form action="/pembayaran/chekout/{{ $item->id_keberangkatan }}" method="post">
+                                                        @csrf
+                                                        @method('put')
+                                                        <button type="submit" class="btn btn-success text-bold update">BAYAR</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -86,56 +91,6 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
-                {{-- <div class="modal fade" id="modal-lg">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">UPDATE DATA KEPULANGAN</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form method="post" action="" id="form-update">
-                                @csrf
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Pulang " name="tanggal_pulang">
-                                        <span class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Bongkar " name="tanggal_bongkar">
-                                        <span class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">No Truk</label>
-                                        <input type="text" class="form-control" placeholder="No Truk " name="no_truk">
-                                        <span class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Berat Pulang</label>
-                                        <input type="text" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
-                                        <span class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Refaksi</label>
-                                        <input type="text" class="form-control" placeholder="Refaksi " name="refaksi">
-                                        <span class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-success">SIMPAN</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div> --}}
-
                 <!-- COBA PANGGIL DATA MSQL -->
                 <div class="row">
                     <!-- ISI -->

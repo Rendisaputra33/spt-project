@@ -156,6 +156,10 @@ Route::prefix('/pembayaran')->group(function () {
     Route::post('/', [PembayaranController::class, 'add']);
     Route::put('/{id}', [PembayaranController::class, 'update']);
     Route::delete('/{id}', [PembayaranController::class, 'destroy']);
+    // transaksi route
+    Route::prefix('/chekout')->group(function () {
+        Route::put('/{id}', [PembayaranController::class, 'store']);
+    });
     // secondary action
     Route::prefix('/view')->group(function () {
         Route::get('/list', [PembayaranController::class, 'show']);

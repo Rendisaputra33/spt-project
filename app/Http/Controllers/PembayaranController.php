@@ -36,9 +36,17 @@ class PembayaranController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Berangkat $berangkat, Pembayaran $pembayaran, $id)
     {
-        //
+        $data = $berangkat->where('id_keberangkatan', $id)->first();
+        return $pembayaran->insert([
+            'no_invoice' => uniqid(),
+            'harga' => $data['harga'],
+            'tanggal_bayar' => now(),
+            'nominal' => $data['harga'] * $data['netto'],
+            'netto' => $data['netto'],
+            'id_keberangkatan' => $id
+        ]) ? redirect()->back() : redirect()->back();
     }
 
     /**

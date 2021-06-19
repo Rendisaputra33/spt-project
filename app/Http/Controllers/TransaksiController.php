@@ -12,9 +12,12 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Berangkat $berangkat)
     {
-        //
+        return view('tampil-data-transaksi', [
+            'data' => $berangkat->get()
+            
+        ]);
     }
 
     /**
