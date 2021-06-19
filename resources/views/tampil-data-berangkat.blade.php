@@ -40,13 +40,13 @@
                                             </div>
                                             <div class="col-6">
                                                 <button type="button" class="btn btn-info">Cari</button>
-                                                <button type="button" class="btn btn-info">Filter</button>
+                                                <button type="button" id='filter' class="btn btn-info">Filter</button>
                                             </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" id = 'tbh' data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
                                     </div>
                                 </div>
                             </div>
