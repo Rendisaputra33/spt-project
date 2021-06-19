@@ -1,4 +1,5 @@
 const URL = document.getElementById("url").value;
+const TOKEN = document.getElementById("token").value;
 
 const elementUpdate = document.getElementsByClassName("update");
 
@@ -134,3 +135,44 @@ const updateHarga = (res) => {
 const updateRegister = (res) => {
     document.querySelector("input[name=no_induk]").value = res.register_pemilik;
 };
+
+function filter() {
+    const tgl1 = document.getElementById('tgl1');
+    const tgl2 = document.getElementById('tgl2');
+    const data = fetch(URL + "/filterberangkat", {
+        method: 'post',
+        body: JSON.stringify({ tgl1: tgl1, tgl2: tgl2 }),
+        headers: { "Content-Type": "application/json", "X-CSRF-Token": TOKEN },
+    })
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('list-data').innerHTML = parse(res);
+        })
+}
+
+const parse = (data) => {
+    let html = "";
+    data.data.map((res) => {
+        html += elementSearch(res);
+    });
+    return html;
+}
+
+const data = (res) => {
+    return /*html*/ `<tr>
+    <td>${item.tipe}</td>
+    <td>${item.no_sp}</td>
+    <td>${item.wilayah}</td>
+    <td>${item.nama_petani}</td>
+    <td>${item.nama_sopir}</td>
+    <td>${item.pabrik_tujuan}</td>
+    <td>${item.berat_timbang}</td>
+    <td>${item.netto}</td>
+    <td>${item.harga}</td>
+    <td>${item.tanggal_keberangkatan}</td>
+    <td>
+        <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="${item.id_keberangkatan}"> Edit</button>&nbsp;
+        <a href="/berangkat/${item.id_keberangkatan}" class="btn btn-danger">Hapus</a>
+    </td>
+</tr>`
+}

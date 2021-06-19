@@ -9,6 +9,7 @@ use App\Http\Controllers\BerangkatController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PulangContoller;
 use App\Http\Controllers\WilayahController;
+use App\Http\Controllers\FilterController;
 use App\Models\Petani;
 use Illuminate\Support\Facades\Route;
 
@@ -165,3 +166,6 @@ Route::prefix('/pembayaran')->group(function () {
         Route::get('/list', [PembayaranController::class, 'show']);
     });
 });
+
+Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
+Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);

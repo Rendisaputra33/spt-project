@@ -40,6 +40,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <button type="button" class="btn btn-info">Cari</button>
+                                                <button type="button" class="btn btn-info">Filter</button>
                                             </div>
                                             </form>
                                         </div>
@@ -68,7 +69,7 @@
                                                 <th>action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id='list-data'>
                                             @if (count($data) === 0)
                                                 <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             @else
