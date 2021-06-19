@@ -40,7 +40,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <input type="text" class="form-control float-right" id="date-range" name="date" value="">
+                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
                                                         </div>
                                                     </div>
                                             </div>
@@ -67,7 +67,7 @@
                                         </tr>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="list-data">
                                         @if (count($sopir) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else

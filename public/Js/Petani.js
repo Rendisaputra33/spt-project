@@ -13,9 +13,9 @@ for (let i = 0; i < elementUpdate.length; i++) {
             .then((res) => res.json())
             .then((res) => {
                 document.querySelector("input[name=nama_petani]").value =
-                    res.data_update.nama_petani;
+                    res.data_update.nama_pemilik;
                 document.querySelector("input[name=register_petani]").value =
-                    res.data_update.register_petani;
+                    res.data_update.register_pemilik;
                 document.querySelector("input[name=nama_pabrik]").value =
                     res.data_update.nama_pabrik;
             })
@@ -52,7 +52,7 @@ const elementSearch = (res) => {
     <a href="#" class="btn btn-success text-bold update"
         data-target="#modal-lg" data-toggle="modal"
         data-id="${res.id_petani}">UPDATE</a>
-    <form action="${URL}/petani/${res.id_petani}"
+    <form action="${URL}/petani/${res.id_pemilik}"
         method="post" class="d-inline">
         <input type="hidden" name="_token" value="${TOKEN}">
         <input type="hidden" name="_method" value="delete">

@@ -13,11 +13,11 @@ for (let i = 0; i < elementUpdate.length; i++) {
             .then((res) => res.json())
             .then((res) => {
                 document.querySelector("input[name=nama_sopir]").value =
-                    res.data_update.nama_sopir;
+                    res.data_update.nama_petani;
                 document.querySelector("input[name=nohp_sopir]").value =
-                    res.data_update.nohp_sopir;
+                    res.data_update.nohp_petani;
                 document.querySelector("input[name=alamat_sopir]").value =
-                    res.data_update.alamat_sopir;
+                    res.data_update.alamat_petani;
             });
     });
 }
@@ -41,16 +41,16 @@ const parseSearch = (data) => {
 
 const elementSearch = (res) => {
     return /*html*/ `<tr>
-    <td>${res.id_sopir}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.nohp_sopir}</td>
-    <td>${res.alamat_sopir}</td>
+    <td>${res.id_petani}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.nohp_petani}</td>
+    <td>${res.alamat_petani}</td>
 <td>
 
     <a href="#" class="btn btn-success text-bold update"
         data-target="#modal-lg" data-toggle="modal"
         data-id="${res.id_sopir}">UPDATE</a>
-    <form action="${URL}/sopir/${res.id_sopir}"
+    <form action="${URL}/sopir/${res.id_petani}"
         method="post" class="d-inline">
         <input type="hidden" name="_token" value="${TOKEN}">
         <input type="hidden" name="_method" value="delete">
