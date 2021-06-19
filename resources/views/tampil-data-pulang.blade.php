@@ -85,7 +85,7 @@
                                                         <td>{{ $item->harga }}</td>
                                                         <td>{{ $item->tanggal_pulang }}</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}"> Edit</button>&nbsp;
+                                                            <button type="button" class="btn btn-warning update" data-target="#modal-lg" data-toggle="modal" data-id=""> Edit</button>&nbsp;
                                                             <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger">Hapus</a>
                                                         </td>
                                                     </tr>
@@ -121,28 +121,54 @@
     <!-- /.control-sidebar -->
 
     <!-- Modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="exampleModal">
+    <div class="modal fade" id="modal-lg">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="" method="post">
-                        <div class="modal-body">
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-info">Simpan</button>
-                        </div>
-                    </form>
+                <div class="modal-header">
+                    <h4 class="modal-title">UPDATE DATA KEPULANGAN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <form method="post" action="" id="form-update">
+                    @csrf
+                    @method('put')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Tanggal Pulang</label>
+                            <input type="date" class="form-control" placeholder="Tanggal Pulang " name="tanggal_pulang">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Tanggal Bongkar</label>
+                            <input type="date" class="form-control" placeholder="Tanggal Bongkar " name="tanggal_bongkar">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">No Truk</label>
+                            <input type="text" class="form-control" placeholder="No Truk " name="no_truk">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Berat Pulang</label>
+                            <input type="text" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Refaksi</label>
+                            <input type="text" class="form-control" placeholder="Refaksi " name="refaksi">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">SIMPAN</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
     </div>
     <!-- /Modal -->
 
