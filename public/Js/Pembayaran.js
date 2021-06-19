@@ -1,6 +1,14 @@
 const URL = document.getElementById("url").value;
 const TOKEN = document.getElementById("token").value;
 
+document.getElementById('filter').addEventListener('click', function () {
+    const tgl = document.getElementById('tgl1');
+    const a = new Date().toLocaleDateString();
+    const date = a.split('/');
+    const month = date[0] < 10 ? "0" + date[0] : date[0];
+    document.querySelector('input[name=tgl1]').value = `${date[2]}-${month}-${date[1]}`;
+})
+
 function filter() {
     const tgl1 = document.getElementById('tgl1');
     const tgl2 = document.getElementById('tgl2');
