@@ -25,7 +25,74 @@
           <h2>Laporan</h2>
           <strong>01/01/2021</strong>
         </div>
-          
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="h5">
+                Id Keberangkatan : 
+              </div>
+              <div class="h5">
+                Tanggal Berangkat :
+              </div>
+              <div class="h5">
+                Tipe : 
+              </div>
+              <div class="h5">
+                No Sp : 
+              </div>
+              <div class="h5">
+                No Induk : 
+              </div>
+              <div class="h5">
+                Wilayah : 
+              </div>
+              <div class="h5">
+                Nama Petani : 
+              </div>
+              <div class="h5">
+                INama Sopir : 
+              </div>
+              <div class="h5">
+               Pabrik Tujuan : 
+              </div>
+              <div class="h5">
+                Sangu : 
+              </div>
+            </div>
+            <div class="col-md-6 ml-auto">
+              <div class="h5">
+                Berat Timbang : 
+              </div>
+              <div class="h5">
+                Tara Mbl : 
+              </div>
+              <div class="h5">
+                Netto : 
+              </div>
+              <div class="h5">
+                Harga : 
+              </div>
+              <div class="h5">
+                Tanggal Pulang : 
+              </div>
+              <div class="h5">
+                Tanggal Bongkar : 
+              </div>
+              <div class="h5">
+                No Truk : 
+              </div>
+              <div class="h5">
+                Berat Pulang : 
+              </div>
+              <div class="h5">
+                Rafaksi : 
+              </div>
+              <div class="h5">
+                Date add : 
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>

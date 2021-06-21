@@ -65,7 +65,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id='list-data'>
                                             @if (count($data) === 0)
                                                 <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             @else

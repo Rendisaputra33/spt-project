@@ -40,12 +40,13 @@
                                             </div>
                                             <div class="col-6">
                                                 <button type="button" class="btn btn-info">Cari</button>
+                                                <button type="button" id='filter' class="btn btn-info">Filter</button>
                                             </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" id = 'tbh' data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                                                 <th>action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id='list-data'>
                                             @if (count($data) === 0)
                                                 <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             @else

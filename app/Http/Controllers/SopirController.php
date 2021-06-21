@@ -19,9 +19,9 @@ class SopirController extends Controller
     public function add(Request $req)
     {
         return Sopir::insert([
-            'nama_sopir' => $req->nama_sopir,
-            'nohp_sopir' => $req->nohp_sopir,
-            'alamat_sopir' => $req->alamat_sopir,
+            'nama_petani' => $req->nama_sopir,
+            'nohp_petani' => $req->nohp_sopir,
+            'alamat_petani' => $req->alamat_sopir,
         ])
             ? redirect('/sopir')->with('success', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
@@ -30,9 +30,9 @@ class SopirController extends Controller
     public function update(Request $req, $id)
     {
         return Sopir::where('id_sopir', $id)->update([
-            'nama_sopir' => $req->nama_sopir,
-            'nohp_sopir' => $req->nohp_sopir,
-            'alamat_sopir' => $req->alamat_sopir,
+            'nama_petani' => $req->nama_sopir,
+            'nohp_petani' => $req->nohp_sopir,
+            'alamat_petani' => $req->alamat_sopir,
         ])
             ? redirect('/sopir')->with('success', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
@@ -40,7 +40,7 @@ class SopirController extends Controller
 
     public function delete($id)
     {
-        return Sopir::where('id_sopir', $id)->delete()
+        return Sopir::where('id_petani', $id)->delete()
             ? redirect('/sopir')->with('success', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
@@ -48,7 +48,7 @@ class SopirController extends Controller
     public function getUpdate($id)
     {
         return response()->json([
-            'data_update' => Sopir::where('id_sopir', $id)->first(),
+            'data_update' => Sopir::where('id_petani', $id)->first(),
         ]);
     }
 
