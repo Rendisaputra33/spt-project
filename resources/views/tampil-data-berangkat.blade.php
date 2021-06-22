@@ -281,10 +281,12 @@
                         </button>
                     </div>
                     <form action="" id="form-update">
+                        @csrf
+                        @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="tglberangkat">Tanggal Berangkat</label>
-                                <input type="date" name="uutanggal_berangkat" class="form-control">
+                                <input type="date" name="utanggal_berangkat" class="form-control">
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -368,7 +370,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-info">Simpan</button>
+                            <button type="submit" class="btn btn-info">Simpan</button>
                         </div>
                     </form>
                 </div>
