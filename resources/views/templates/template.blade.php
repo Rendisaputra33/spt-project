@@ -88,7 +88,7 @@
                                 <li class="nav-item">
                                     <a href="/petani" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Petani</p>
+                                        <p>Pemilik</p>
                                     </a>
                                 </li>
                             </ul>
@@ -96,15 +96,7 @@
                                 <li class="nav-item">
                                     <a href="/sopir" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Sopir</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/pg" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pg</p>
+                                        <p>Petani</p>
                                     </a>
                                 </li>
                             </ul>
@@ -113,6 +105,14 @@
                                     <a href="/wilayah" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Wilayah</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/pg" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pabrik Gula</p>
                                     </a>
                                 </li>
                             </ul>
@@ -156,7 +156,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice-dollar"></i>
                                 <p>
-                                    Laporan
+                                    Laporan Transaksi
                                     <!-- <span class="right badge badge-danger">New</span> -->
                                 </p>
                             </a>
@@ -165,7 +165,7 @@
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice-dollar"></i>
                                 <p>
-                                    Laporan Hutang
+                                    Laporan Pembayaran
                                     <!-- <span class="right badge badge-danger">New</span> -->
                                 </p>
                             </a>

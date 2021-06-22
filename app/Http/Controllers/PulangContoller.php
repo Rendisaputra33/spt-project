@@ -75,6 +75,7 @@ class PulangContoller extends Controller
             'no_truk' => $req->no_truk,
             'berat_pulang' => $req->berat_pulang,
             'refaksi' => $req->refaksi,
+            'netto_pulang' => $req->berat_pulang - $req->refaksi,
             'updated_at' => now()
         ]) ? redirect()->back() : redirect()->back();
     }
@@ -86,9 +87,11 @@ class PulangContoller extends Controller
      * @param  \App\Models\Berangkat  $berangkat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berangkat $berangkat, $id)
+    public function update(Berangkat $berangkat, $id)
     {
-        //
+        return response()->json([
+            'data' => $berangkat->where('id_keberangkatan', $id)->first()
+        ]);
     }
 
     /**

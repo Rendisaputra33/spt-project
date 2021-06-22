@@ -30,23 +30,54 @@ class PembayaranController extends Controller
         //
     }
 
+    private function makeId(Pembayaran $pembayaran)
+    {
+        $last = $pembayaran->latest()->first();
+        $pecah = $last === null ? 0 : explode("/", $last['no_invoice']);
+        $parseid = $last === null ? 0 : (int) $pecah[0];
+        return "{$this->makeZero($parseid)}/INV/{$this->getMounth(date('m'))}/" . date('Y');
+    }
+
+    public function makeZero($id)
+    {
+        if ($id < 9) {
+            return '00' . ($id += 1);
+        } elseif ($id < 99) {
+            return '0' . ($id += 1);
+        } else {
+            return $id += 1;
+        }
+    }
+
+    public function getMounth($intMounth)
+    {
+        $im = (int) $intMounth;
+        $mounth = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+        return $mounth[$im - 1];
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Berangkat $berangkat, Pembayaran $pembayaran, $id)
+    public function store(Berangkat $berangkat, Pembayaran $pembayaran, Request $req)
     {
-        $data = $berangkat->where('id_keberangkatan', $id)->first();
-        return $pembayaran->insert([
-            'no_invoice' => uniqid(),
-            'harga' => $data['harga'],
-            'tanggal_bayar' => now(),
-            'nominal' => $data['harga'] * $data['netto'],
-            'netto' => $data['netto'],
-            'id_keberangkatan' => $id
-        ]) ? redirect()->back() : redirect()->back();
+        $invoice = $this->makeId($pembayaran);
+        $status = false;
+        foreach ($req->id as $item) :
+            $data = $berangkat->where('id_keberangkatan', $item)->first();
+            $pembayaran->insert([
+                'no_invoice' => $invoice,
+                'harga' => $data['harga'],
+                'tanggal_bayar' => now(),
+                'nominal' => $data['harga'] * $data['netto'],
+                'netto' => $data['netto'],
+                'id_keberangkatan' => $data['id_keberangkatan']
+            ]) ? $status = true : $status = false;
+        endforeach;
+        return $status === false ? redirect()->back() : redirect()->back();
     }
 
     /**
@@ -82,7 +113,6 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, Pembayaran $pembayaran)
     {
-        //
     }
 
     /**
@@ -91,9 +121,9 @@ class PembayaranController extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berangkat $pembayaran, $id)
+    public function destroy(Pembayaran $pembayaran, $id)
     {
-        return $pembayaran->find($id)->delete()
+        return $pembayaran->where('id_pembayaran', $id)->delete()
             ? redirect()->back()->with('sukses', 'data berhasil di hapus')
             : redirect()->back()->with('error', 'data gagal di hapus');
     }

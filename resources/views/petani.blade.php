@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-danger">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data Petani</h3>
                             </div>
@@ -35,26 +35,23 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Petani</label>
-                                        <input type="text" class="form-control" placeholder="Nama " name="nama_petani"
-                                            required>
-                                        <span class="text-danger"></span>
+                                        <input type="text" class="form-control" placeholder="Nama " name="nama_petani" required>
+                                        <span class="text-primary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Register Petani</label>
-                                        <input type="text" class="form-control" placeholder="Register "
-                                            name="register_petani" required>
-                                        <span class="text-danger"></span>
+                                        <input type="text" class="form-control" placeholder="Register " name="register_petani" required>
+                                        <span class="text-primary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pabrik</label>
-                                        <input type="text" class="form-control" placeholder="Nama Pabrik "
-                                            name="nama_pabrik" required>
-                                        <span class="text-danger"></span>
+                                        <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required>
+                                        <span class="text-primary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

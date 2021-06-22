@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-danger">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data Wilayah</h3>
                             </div>
@@ -36,18 +36,18 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Wilayah</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_wilayah">
-                                        <span class="text-danger"></span>
+                                        <span class="text-primary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Harga Wilayah</label>
                                         <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah">
-                                        <span class="text-danger"></span>
+                                        <span class="text-primary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

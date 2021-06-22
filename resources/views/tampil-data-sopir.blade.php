@@ -9,12 +9,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark"></h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Pengambilan Hutang</a></li>
-                            <li class="breadcrumb-item active">Index</li>
-                        </ol>
-                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -45,10 +39,13 @@
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="submit" class="btn btn-info">Cari</button>
+                                                <button type="button" class="btn btn-info text-bold"><i class="fas fa-search"></i>&nbsp;CARI</button>
                                             </div>
                                             </form>
                                         </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="/sopir/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;TAMBAH</a>
                                     </div>
                                 </div>
                             </div>
@@ -80,11 +77,11 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}">UPDATE</a>
+                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;UPDATE</a>
                                                         <form action="{{ url('/') }}/sopir/{{ $item->id_petani }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit" class="btn btn-danger text-bold">DELETE</button>
+                                                            <button type="submit" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;DELETE</button>
                                                         </form>
 
                                                     </td>
@@ -105,7 +102,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">UPDATE DATA PETANI</h4>
+                                <h4 class="modal-title">UPDATE DATA SOPIR</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -130,7 +127,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                        <button type="submit" class="btn btn-primary">SIMPAN</button>
                                     </div>
                                 </div>
                         </div>

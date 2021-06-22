@@ -85,7 +85,7 @@
                                                         <td>{{ $item->harga }}</td>
                                                         <td>{{ $item->tanggal_pulang }}</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-warning update" data-target="#modal-lg" data-toggle="modal" data-id=""> Edit</button>&nbsp;
+                                                            <button type="button" class="btn btn-warning update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"> Edit</button>&nbsp;
                                                             <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger">Hapus</a>
                                                         </td>
                                                     </tr>
@@ -172,7 +172,7 @@
     </div>
     <!-- /Modal -->
 
-
+    <script src="{{ asset('Js/GlobalPulang.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>

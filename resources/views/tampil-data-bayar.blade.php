@@ -55,7 +55,7 @@
                                     <table id="tabel_pemasukan" class="table table-bordered table-striped ">
                                         <thead>
                                             <tr>
-                                                <th>Id Pembayaran</th>
+                                                <th>Tipe</th>
                                                 <th>Invoice</th>
                                                 <th>Harga</th>
                                                 <th>Tanggal Bayar</th>
@@ -73,9 +73,9 @@
                                                     <tr>
                                                         <td>{{ $item->tipe }}</td>
                                                         <td>{{ $item->no_invoice }}</td>
-                                                        <td>{{ $item->harga }}</td>
+                                                        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                                         <td>{{ $item->tanggal_bayar }}</td>
-                                                        <td>{{ $item->nominal }}</td>
+                                                        <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>
                                                         <td>

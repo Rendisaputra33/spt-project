@@ -16,7 +16,6 @@ class TransaksiController extends Controller
     {
         return view('tampil-data-transaksi', [
             'data' => $berangkat->get()
-            
         ]);
     }
 

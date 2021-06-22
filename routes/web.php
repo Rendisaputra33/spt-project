@@ -148,6 +148,7 @@ Route::prefix('/pulang')->group(function () {
     // seondary action
     Route::prefix('/view')->group(function () {
         Route::get('/list', [PulangContoller::class, 'show']);
+        Route::get('/get/{id}', [PulangContoller::class, 'update']);
     });
 });
 
@@ -156,10 +157,10 @@ Route::prefix('/pembayaran')->group(function () {
     Route::get('/', [PembayaranController::class, 'index']);
     Route::post('/', [PembayaranController::class, 'add']);
     Route::put('/{id}', [PembayaranController::class, 'update']);
-    Route::delete('/{id}', [PembayaranController::class, 'destroy']);
+    Route::get('/{id}', [PembayaranController::class, 'destroy']);
     // transaksi route
     Route::prefix('/chekout')->group(function () {
-        Route::put('/{id}', [PembayaranController::class, 'store']);
+        Route::post('/', [PembayaranController::class, 'store']);
     });
     // secondary action
     Route::prefix('/view')->group(function () {

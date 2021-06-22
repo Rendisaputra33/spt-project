@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Tambah Data Petani</h1>
+                        <h1 class="m-0 text-dark">Tambah Data Sopir</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-danger">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data Sopir</h3>
                             </div>
@@ -36,23 +36,23 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Sopir</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_sopir">
-                                        <span class="text-danger"></span>
+                                        <span class="text-primary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Telp</label>
                                         <input type="text" class="form-control" placeholder="No Telp " name="nohp_sopir">
-                                        <span class="text-danger"></span>
+                                        <span class="text-primary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Alamat Sopir</label>
                                         <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir">
-                                        <span class="text-danger"></span>
+                                        <span class="text-primary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

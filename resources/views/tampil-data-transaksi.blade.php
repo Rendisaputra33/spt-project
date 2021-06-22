@@ -69,17 +69,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>      
+                                            @foreach ($data as $item)
+                                                <tr>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                    <td>dummy</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -91,8 +95,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-@endsection
+                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+            @endsection
