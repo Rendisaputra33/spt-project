@@ -108,7 +108,7 @@ class PulangContoller extends Controller
 
     public function cetak(Berangkat $berangkat)
     {
-        return view('laporan-berangkat', [
+        return view('laporan-pulang', [
             'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
         ]);
     }

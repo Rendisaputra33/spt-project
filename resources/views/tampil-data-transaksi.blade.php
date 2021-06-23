@@ -58,10 +58,10 @@
                                                 <th>Tipe</th>
                                                 <th>No SP</th>
                                                 <th>Wilayah</th>
+                                                <th>Pemilik</th>
                                                 <th>Petani</th>
-                                                <th>Sopir</th>
                                                 <th>Tujuan</th>
-                                                <th>Berat timbang</th>
+                                                <th>Berat (Kwintal)</th>
                                                 <th>Netto</th>
                                                 <th>Harga</th>
                                                 <th>Tanggal</th>
@@ -71,16 +71,16 @@
                                         <tbody>
                                             @foreach ($data as $item)
                                                 <tr>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
-                                                    <td>dummy</td>
+                                                    <td>{{ $item->tipe }}</td>
+                                                    <td>{{ $item->no_sp }}</td>
+                                                    <td>{{ $item->wilayah }}</td>
+                                                    <td>{{ $item->nama_petani }}</td>
+                                                    <td>{{ $item->nama_sopir }}</td>
+                                                    <td>{{ $item->pabrik_tujuan }}</td>
+                                                    <td>{{ $item->berat_timbang }}</td>
+                                                    <td>{{ $item->netto }}</td>
+                                                    <td>{{ formatRupiah($item->harga) }}</td>
+                                                    <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                                     <td><a href="/transaksi/berangkat/cetak/{{ $item->id_keberangkatan }}" class="btn btn-success">cetak</a></td>
                                                 </tr>
                                             @endforeach

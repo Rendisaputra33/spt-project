@@ -33,7 +33,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <b>Invoice #{{ $inv }}</b><br>
+                            <b>#Laporan Kepulangan</b><br>
                         </div>
                         <!-- /.col -->
                     </div> <br>
@@ -56,7 +56,7 @@
                                 <tbody>
                                     @php $total = 0; @endphp
                                     @foreach ($data as $item)
-                                        @php $total += $item->harga @endphp
+                                        @php $total += $item->harga * $item->netto_pulang @endphp
                                         <tr>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ formatTanggal($item->tanggal_pulang) }}</td>

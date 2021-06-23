@@ -55,7 +55,7 @@
                                 <tbody>
                                     @php $total = 0; @endphp
                                     @foreach ($data as $item)
-                                        @php $total += $item->harga @endphp
+                                        @php $total += $item->harga * $item->netto @endphp
                                         <tr>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
