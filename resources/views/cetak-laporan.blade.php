@@ -30,9 +30,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="h5">
+                        {{-- <div class="h5">
                             Id Keberangkatan &nbsp;&nbsp; : {{ $data->id_keberangkatan }}
-                        </div>
+                        </div> --}}
                         <div class="h5">
                             Tanggal Berangkat &nbsp;: {{ $data->tanggal_keberangkatan }}
                         </div>
@@ -66,32 +66,32 @@
                             Berat Timbang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->berat_timbang }}
                         </div>
                         <div class="h5">
-                            Tara Mbl &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                            Tara Mbl &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->tara_mbl }}
                         </div>
                         <div class="h5">
-                            Netto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                            Netto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->netto }}
                         </div>
                         <div class="h5">
-                            Harga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                            Harga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->harga }}
                         </div>
                         <div class="h5">
-                            Tanggal Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            Tanggal Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $data->tanggal_pulang === null ? 'belum pulang' : $data->tanggal_pulang }}
                         </div>
                         <div class="h5">
-                            Tanggal Bongkar &nbsp; :
+                            Tanggal Bongkar &nbsp; : {{ $data->tanggal_pulang === null ? 'belum pulang' : $data->tanggal_bongkar }}
                         </div>
                         <div class="h5">
-                            No Truk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            No Truk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $data->tanggal_pulang === null ? 'belum pulang' : $data->no_truk }}
                         </div>
                         <div class="h5">
-                            Berat Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            Berat Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $data->tanggal_pulang === null ? 'belum pulang' : $data->berat_pulang }}
                         </div>
                         <div class="h5">
-                            Rafaksi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                            Rafaksi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->tanggal_pulang === null ? 'belum pulang' : $data->refaksi }}
                         </div>
-                        <div class="h5">
-                            Date add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                        </div>
+                        {{-- <div class="h5">
+                            Date add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->created_at }}
+                        </div> --}}
                     </div>
                 </div>
             </div>
