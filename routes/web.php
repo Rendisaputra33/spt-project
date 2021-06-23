@@ -183,6 +183,8 @@ Route::prefix('/transaksi')->group(function () {
 
 Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
 Route::post('/filterpulang', [FilterController::class, 'FilterData']);
+Route::post('/filtertransaksi', [FilterController::class, 'FilterTData']);
+Route::post('/filterlaporan', [FilterController::class, 'FilterLPData']);
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
 
 Route::get('/coba', function () {

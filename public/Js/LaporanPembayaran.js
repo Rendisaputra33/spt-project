@@ -19,7 +19,7 @@ function getfilter() {
     const type = document.getElementById('type').value;
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
-    fetch(`${URL}/filtertransaksi`, {
+    fetch(`${URL}/filterlaporan`, {
         method: "post",
         body: JSON.stringify({ tgl1: split[0], tgl2: split[1], type: type, tujuan: pabrik }),
         headers: { "Content-Type": "application/json", "X-CSRF-Token": TOKEN },
@@ -40,17 +40,14 @@ const parse = (data) => {
 }
 
 const htmldata = (res) => {
-    return /*html*/ `<tr>
+    return /*html*/ ` <tr>
     <td>${res.tipe}</td>
-    <td>${res.no_sp}</td>
-    <td>${res.wilayah}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.berat_timbang}</td>
+    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : ${res.no_invoice}</td>
+    <td>Rp number_format(${res.harga}, 0, ',', '.')</td>
+    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : ${res.tanggal_bayar}</td>
+    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : 'Rp ' . number_format(${res.nominal}, 0, ',', '.')</td>
     <td>${res.netto}</td>
-    <td>formatRupiah(${res.harga})</td>
-    <td>formatTanggal(${res.tanggal_keberangkatan})</td>
-    <td><a href="/transaksi/berangkat/cetak/${res.id_keberangkatan}" class="btn btn-success">cetak</a></td>
+    <td>${res.pabrik_tujuan}</td>
+    <td><a href="/transaksi/pembayaran/cetak/${res.id_pembayaran}" class="btn btn-success">cetak</a></td>
 </tr>`
 }

@@ -36,7 +36,7 @@ class FilterController extends Controller
     public function FilterLPData(Request $req)
     {
         return response()->json([
-            'data' => Pembayaran::rightJoin('tb_pembayaran', 'tb_transaksi.id_keberangkatan', '=', 'tb_pembayaran.id_keberangkatan')->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
+            'data' => Pembayaran::rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
                 ->where('tipe', $req->type)
                 ->where('pabrik_tujuan', $req->tujuan)
                 ->get()
