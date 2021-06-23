@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
 use App\Models\Pembayaran;
+use App\Models\Pg;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -16,7 +17,8 @@ class TransaksiController extends Controller
     public function index(Berangkat $berangkat)
     {
         return view('tampil-data-transaksi', [
-            'data' => $berangkat->get()
+            'data' => $berangkat->get(),
+            'pg' => Pg::get(),
         ]);
     }
 
@@ -39,7 +41,8 @@ class TransaksiController extends Controller
     public function viewLaporan(Pembayaran $pembayaran)
     {
         return view('tampil-data-laporan-pembayaran', [
-            'data' => $pembayaran->rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->get()
+            'data' => $pembayaran->rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->get(),
+            'pg' => Pg::get(),
         ]);
     }
 

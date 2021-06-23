@@ -42,10 +42,10 @@ const parse = (data) => {
 const htmldata = (res) => {
     return /*html*/ ` <tr>
     <td>${res.tipe}</td>
-    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : ${res.no_invoice}</td>
-    <td>Rp number_format(${res.harga}, 0, ',', '.')</td>
-    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : ${res.tanggal_bayar}</td>
-    <td>${res.tanggal_bayar} === null ? 'belum dibayar' : 'Rp ' . number_format(${res.nominal}, 0, ',', '.')</td>
+    <td>${res.no_invoice}</td>
+    <td>${res.harga}</td>
+    <td>${res.tanggal_bayar}</td>
+    <td>${res.nominal}</td>
     <td>${res.netto}</td>
     <td>${res.pabrik_tujuan}</td>
     <td><a href="/transaksi/pembayaran/cetak/${res.id_pembayaran}" class="btn btn-success">cetak</a></td>
