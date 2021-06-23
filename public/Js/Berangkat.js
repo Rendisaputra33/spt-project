@@ -68,7 +68,6 @@ document
 document
     .querySelector("select[name=wilayah]")
     .addEventListener("change", function () {
-        console.log("ok");
         fetch(URL + "/wilayah/getHarga/" + this.value)
             .then((res) => res.json())
             .then((res) => updateHarga(res.data[0]));

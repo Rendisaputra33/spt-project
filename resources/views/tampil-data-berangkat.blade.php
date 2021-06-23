@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" id = 'tbh' data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" id='tbh' data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Berangkat</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Berangkat " name="tanggal_berangkat" required>
+                                        <input type="date" class="form-control" placeholder="Tanggal Berangkat " value="{{ date('Y-m-d') }}" name="tanggal_berangkat" required>
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="input-group mb-3">
@@ -199,7 +199,7 @@
                                         <span class="text-dark"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Berat Timbang</label>
+                                        <label for="exampleInputPassword1">Berat (Kuintal)</label>
                                         <input type="text" class="form-control" placeholder="Berat Timbang " name="berat_timbang" required>
                                         <span class="text-dark"></span>
                                     </div>
@@ -350,7 +350,7 @@
                                         <input type="text" name="usangu" class="form-control" id="sangu" placeholder="Sangu">
                                     </div>
                                     <div class="form-group">
-                                        <label for="berattimbang">Berat Timbang</label>
+                                        <label for="berattimbang">Berat Timbang (kwintal)</label>
                                         <input type="text" name="uberat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
                                     </div>
                                     <div class="form-group">

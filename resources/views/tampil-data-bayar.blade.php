@@ -29,19 +29,17 @@
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-6">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            </div>
-                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
                                                         </div>
+                                                        <input type="text" class="form-control float-right" id="search" name="date" value="">
                                                     </div>
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <button type="button" class="btn btn-info">Cari</button>
                                             </div>
-                                            </form>
                                         </div>
                                     </div>
                                     <div class="col-6">

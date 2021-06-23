@@ -103,12 +103,12 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Pulang " name="tanggal_pulang">
+                                        <input type="date" class="form-control" placeholder="Tanggal Pulang " value="{{ date('Y-m-d') }}" name="tanggal_pulang">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Bongkar " name="tanggal_bongkar">
+                                        <input type="date" class="form-control" placeholder="Tanggal Bongkar " value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">

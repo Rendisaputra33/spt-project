@@ -169,9 +169,14 @@ Route::prefix('/pembayaran')->group(function () {
 });
 
 Route::prefix('/transaksi')->group(function () {
-    Route::get('/berangkat', [TransaksiController::class, 'index']);
-    Route::get('/cetak', [TransaksiController::class, 'cetak']);
-    Route::get('/all', [TransaksiController::class, '']);
+    Route::prefix('/berangkat')->group(function () {
+        Route::get('/', [TransaksiController::class, 'index']);
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakTransaksi']);
+    });
+    Route::prefix('/pembayaran')->group(function () {
+        Route::get('/', [TransaksiController::class, 'viewLaporan']);
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakPembayaran']);
+    });
 });
 
 Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
