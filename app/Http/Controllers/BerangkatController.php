@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
+use App\Models\Pembayaran;
 use App\Models\Petani;
 use App\Models\Pg;
 use App\Models\Sopir;
@@ -14,8 +15,8 @@ class BerangkatController extends Controller
 
     public function index(Berangkat $berangkat)
     {
-        $data = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
-        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $data];
+        $list = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
+        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
         return view('tampil-data-berangkat', $data);
     }
 
@@ -50,18 +51,18 @@ class BerangkatController extends Controller
     {
         return Berangkat::where('id_keberangkatan', $id)->update([
             'tanggal_keberangkatan' => $req->tanggal_berangkat,
-            'tipe' => $req->tipe,
-            'no_sp' => $req->no_sp,
-            'no_induk' => $req->no_induk,
-            'wilayah' => $req->wilayah,
-            'nama_petani' => $req->nama_petani,
-            'nama_sopir' => $req->nama_sopir,
-            'pabrik_tujuan' => $req->nama_pabrik,
-            'sangu' => $req->sangu,
-            'berat_timbang' => $req->berat_timbang,
-            'tara_mbl' => $req->tara_mbl,
-            'netto' => $req->netto,
-            'harga' => $req->harga,
+            'tipe' => $req->utipe,
+            'no_sp' => $req->uno_sp,
+            'no_induk' => $req->uno_induk,
+            'wilayah' => $req->uwilayah,
+            'nama_petani' => $req->unama_petani,
+            'nama_sopir' => $req->unama_sopir,
+            'pabrik_tujuan' => $req->upabrik_tujuan,
+            'sangu' => $req->usangu,
+            'berat_timbang' => $req->uberat_timbang,
+            'tara_mbl' => $req->utara_mbl,
+            'netto' => $req->unetto,
+            'harga' => $req->uharga,
         ])
             ? redirect('/berangkat')->with('success', 'sukses update data')
             : redirect()->back()->with('error', 'gagal menambah data');
@@ -89,6 +90,20 @@ class BerangkatController extends Controller
     {
         return response()->json([
             'data' => $berangkat->whereBetween('created_at', [$req->tgl1, $req->tgl2])->get()
+        ]);
+    }
+
+    public function getUpdate(Berangkat $berangkat, $id)
+    {
+        return response()->json([
+            'data' => $berangkat->where('id_keberangkatan', $id)->first()
+        ]);
+    }
+
+    public function cetak(Berangkat $berangkat)
+    {
+        return view('laporan-berangkat', [
+            'data' => $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get()
         ]);
     }
 }

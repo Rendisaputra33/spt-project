@@ -77,7 +77,8 @@ class PembayaranController extends Controller
                 'id_keberangkatan' => $data['id_keberangkatan']
             ]) ? $status = true : $status = false;
         endforeach;
-        return $status === false ? redirect()->back() : redirect()->back();
+        $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
+        return $status === true ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice]) : redirect()->back();
     }
 
     /**
@@ -88,8 +89,9 @@ class PembayaranController extends Controller
      */
     public function show(Berangkat $berangkat)
     {
+        $data = Pembayaran::select('id_keberangkatan')->get();
         return view('list-dibayar', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get()
         ]);
     }
 

@@ -29,23 +29,23 @@
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-6">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            </div>
-                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
                                                         </div>
+                                                        <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                        <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('m/d/Y') ?> - <?= date('m/d/Y') ?>">
                                                     </div>
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <button type="button" class="btn btn-info">Cari</button>
                                             </div>
-                                            </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/pembayaran/view/list" class="btn btn-success float-right text-bold">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="/pembayaran/view/list" class="btn btn-success float-right text-bold">Tambah
+                                            &nbsp;<i class="fas fa-plus"></i> </a>
                                     </div>
                                 </div>
                             </div>
@@ -66,24 +66,24 @@
                                             </tr>
                                         </thead>
                                         <tbody id='list-data'>
-                                            @if (count($data) === 0)
-                                                <td colspan="11" style="text-align: center;">DATA KOSONG</td>
-                                            @else
-                                                @foreach ($data as $item)
-                                                    <tr>
-                                                        <td>{{ $item->tipe }}</td>
-                                                        <td>{{ $item->no_invoice }}</td>
-                                                        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                                        <td>{{ $item->tanggal_bayar }}</td>
-                                                        <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
-                                                        <td>{{ $item->netto }}</td>
-                                                        <td>{{ $item->pabrik_tujuan }}</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
-                                                            <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger">Hapus</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+                                        @if (count($data) === 0)
+                                            <td colspan="11" style="text-align: center;">DATA KOSONG</td>
+                                        @else
+                                            @foreach ($data as $item)
+                                            <tr>
+                                                <td>{{ $item->tipe }}</td>
+                                                <td>{{ $item->no_invoice }}</td>
+                                                <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                                <td>{{ $item->tanggal_bayar }}</td>
+                                                <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
+                                                <td>{{ $item->netto }}</td>
+                                                <td>{{ $item->pabrik_tujuan }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
+                                                    <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                             @endif
                                     </table>
                                 </div>
@@ -105,4 +105,14 @@
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+        $('#date-range').daterangepicker({
+            locale: {
+                format: 'YYYY-MM-DD',
+                separator: " / "
+            }
+        });
+    </script>
 @endsection

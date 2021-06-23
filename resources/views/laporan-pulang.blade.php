@@ -45,23 +45,25 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Tipe</th>
+                                        <th>Tanggal Pulang</th>
                                         <th>Harga</th>
-                                        <th>Tanggal Bayar</th>
-                                        <th>Nominal</th>
-                                        <th>Netto</th>
                                         <th>No SP</th>
+                                        <th>Netto</th>
+                                        <th>Berat Timbang</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $total = 0; @endphp
                                     @foreach ($data as $item)
-                                        @php $total += $item->nominal @endphp
+                                        @php $total += $item->harga @endphp
                                         <tr>
+                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_bayar) }}</td>
-                                            <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
-                                            <td>{{ $item->netto }}</td>
                                             <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>{{ $item->berat_pulang }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -96,11 +98,6 @@
                 <div class="row no-print">
                     <div class="col-xs-12">
                         <a id="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        {{-- <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
-                        </button>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                        </button> --}}
                     </div>
                 </div>
             </section>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -20,68 +21,36 @@ class TransaksiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function cetakTransaksi(Berangkat $berangkat, $id)
     {
-        //
+        $data = $berangkat->where('id_keberangkatan', $id)->first();
+        return view('cetak-laporan', ['data' => $data]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function viewLaporan(Pembayaran $pembayaran)
     {
-        //
+        return view('tampil-data-laporan-pembayaran', [
+            'data' => $pembayaran->rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->get()
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * Display a listing of the resource.
      *
-     * @param  \App\Models\Berangkat  $Berangkat
      * @return \Illuminate\Http\Response
      */
-    public function show(Berangkat $Berangkat)
+    public function cetakPembayaran(Pembayaran $pembayaran, $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Berangkat  $Berangkat
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Berangkat $Berangkat)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Berangkat  $Berangkat
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Berangkat $Berangkat)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Berangkat  $Berangkat
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Berangkat $Berangkat)
-    {
-        //
+        $data = $pembayaran->where('id_pembayaran', $id)->first();
+        return view('cetak-laporan', ['data' => $data]);
     }
 }

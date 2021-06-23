@@ -105,4 +105,11 @@ class PulangContoller extends Controller
         return $berangkat->where('id_keberangkatan', $id)->delete()
             ? redirect('/pulang') : redirect('/pulang');
     }
+
+    public function cetak(Berangkat $berangkat)
+    {
+        return view('laporan-berangkat', [
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
+        ]);
+    }
 }

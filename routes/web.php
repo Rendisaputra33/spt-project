@@ -10,7 +10,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PulangContoller;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\FilterController;
-use App\Models\Petani;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -134,8 +134,9 @@ Route::prefix('/berangkat')->group(function () {
     // transaksi
     Route::get('/pulang', [PulangContoller::class, 'show']);
     // view
-    Route::prefix('view')->group(function () {
+    Route::prefix('/view')->group(function () {
         Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
+        Route::get('/cetak', [BerangkatController::class, 'cetak']);
     });
 });
 
@@ -148,6 +149,7 @@ Route::prefix('/pulang')->group(function () {
     // seondary action
     Route::prefix('/view')->group(function () {
         Route::get('/list', [PulangContoller::class, 'show']);
+        Route::get('/cetak', [PulangContoller::class, 'cetak']);
         Route::get('/get/{id}', [PulangContoller::class, 'update']);
     });
 });
@@ -168,5 +170,20 @@ Route::prefix('/pembayaran')->group(function () {
     });
 });
 
+Route::prefix('/transaksi')->group(function () {
+    Route::prefix('/berangkat')->group(function () {
+        Route::get('/', [TransaksiController::class, 'index']);
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakTransaksi']);
+    });
+    Route::prefix('/pembayaran')->group(function () {
+        Route::get('/', [TransaksiController::class, 'viewLaporan']);
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakPembayaran']);
+    });
+});
+
 Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
+
+Route::get('/coba', function () {
+    return view('ambilhutang');
+});
