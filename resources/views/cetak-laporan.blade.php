@@ -50,7 +50,7 @@
                 Nama Petani : 
               </div>
               <div class="h5">
-                INama Sopir : 
+                Nama Sopir : 
               </div>
               <div class="h5">
                Pabrik Tujuan : 
@@ -93,6 +93,12 @@
             </div>
           </div>
         </div>
+        </div>
+        <!-- this row will not appear when printing -->
+        <div class="row no-print">
+          <div class="col-xs-12">
+            <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+          </div>
         </div>
       </div>
     </div>
