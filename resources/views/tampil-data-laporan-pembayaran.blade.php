@@ -45,7 +45,6 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +61,7 @@
                                                 <th>Nominal</th>
                                                 <th>Netto</th>
                                                 <th>Pabrik Tujuan</th>
-
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody id='list-data'>
@@ -78,7 +77,7 @@
                                                         <td>{{ $item->tanggal_bayar === null ? 'belum dibayar' : 'Rp ' . number_format($item->nominal, 0, ',', '.') }}</td>
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>
-
+                                                        <td><a href="/transaksi/pembayaran/cetak/{{ $item->id_pembayaran }}" class="btn btn-success">cetak</a></td>
                                                     </tr>
                                                 @endforeach
                                             @endif

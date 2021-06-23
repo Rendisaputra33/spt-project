@@ -81,7 +81,7 @@
                                                     <td>dummy</td>
                                                     <td>dummy</td>
                                                     <td>dummy</td>
-                                                    <td>dummy</td>
+                                                    <td><a href="/transaksi/berangkat/cetak/{{ $item->id_keberangkatan }}" class="btn btn-success">cetak</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
