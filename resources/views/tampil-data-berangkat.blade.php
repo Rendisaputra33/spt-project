@@ -39,9 +39,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-secondary text-bold"><i
+                                                <button type="button" class="btn btn-primary text-bold"><i
                                                         class="fas fa-search"></i>&nbsp;CARI</button>
-                                                <button type="button" id='filter' class="btn btn-secondary text-bold"><i
+                                                <button type="button" id='filter' class="btn btn-primary text-bold"><i
                                                         class="fas fa-filter"></i>&nbsp;FILTER</button>
                                             </div>
                                         </div>

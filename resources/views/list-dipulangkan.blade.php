@@ -9,12 +9,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark"></h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Pengambilan Hutang</a></li>
-                            <li class="breadcrumb-item active">Index</li>
-                        </ol>
-                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -45,7 +39,7 @@
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-info">Cari</button>
+                                                <button type="button" class="btn btn-primary text-bold"><i class="fas fa-search"></i>&nbsp;CARI</button>
                                             </div>
                                             </form>
                                         </div>
@@ -74,7 +68,7 @@
                                                 <td>{{ $item->nama_sopir }}</td>
                                                 <td>{{ $item->pabrik_tujuan }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
+                                                    <a href="#" class="btn btn-success text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
                                                 </td>
                                             </tr>
                                         @endforeach
