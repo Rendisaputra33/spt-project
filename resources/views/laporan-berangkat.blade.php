@@ -58,7 +58,7 @@
                                         @php $total += $item->harga @endphp
                                         <tr>
                                             <td>{{ $item->tipe }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_berangkat) }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->berat_timbang }}</td>

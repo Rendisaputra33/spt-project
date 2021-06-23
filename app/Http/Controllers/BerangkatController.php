@@ -15,8 +15,8 @@ class BerangkatController extends Controller
 
     public function index(Berangkat $berangkat)
     {
-        $data = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
-        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $data];
+        $list = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
+        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
         return view('tampil-data-berangkat', $data);
     }
 
@@ -97,6 +97,13 @@ class BerangkatController extends Controller
     {
         return response()->json([
             'data' => $berangkat->where('id_keberangkatan', $id)->first()
+        ]);
+    }
+
+    public function cetak(Berangkat $berangkat)
+    {
+        return view('laporan-berangkat', [
+            'data' => $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get()
         ]);
     }
 }

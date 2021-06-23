@@ -45,7 +45,8 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/pulang/view/list" class="btn btn-success float-right text-bold">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="/pulang/view/cetak" class="btn btn-primary float-right text-bold ml-1"><i class="fas fa-print"></i>&nbsp;CETAK LAPORAN</a>
+                                        <a href="/pulang/view/list" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;TAMBAH</a>
                                     </div>
                                 </div>
                             </div>

@@ -45,23 +45,25 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Tipe</th>
+                                        <th>Tanggal Pulang</th>
                                         <th>Harga</th>
-                                        <th>Tanggal Bayar</th>
-                                        <th>Nominal</th>
-                                        <th>Netto</th>
                                         <th>No SP</th>
+                                        <th>Netto</th>
+                                        <th>Berat Timbang</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $total = 0; @endphp
                                     @foreach ($data as $item)
-                                        @php $total += $item->nominal @endphp
+                                        @php $total += $item->harga @endphp
                                         <tr>
+                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_bayar) }}</td>
-                                            <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
-                                            <td>{{ $item->netto }}</td>
                                             <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>{{ $item->berat_pulang }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

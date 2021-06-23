@@ -134,8 +134,9 @@ Route::prefix('/berangkat')->group(function () {
     // transaksi
     Route::get('/pulang', [PulangContoller::class, 'show']);
     // view
-    Route::prefix('view')->group(function () {
+    Route::prefix('/view')->group(function () {
         Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
+        Route::get('/cetak', [BerangkatController::class, 'cetak']);
     });
 });
 
@@ -148,6 +149,7 @@ Route::prefix('/pulang')->group(function () {
     // seondary action
     Route::prefix('/view')->group(function () {
         Route::get('/list', [PulangContoller::class, 'show']);
+        Route::get('/cetak', [PulangContoller::class, 'cetak']);
         Route::get('/get/{id}', [PulangContoller::class, 'update']);
     });
 });
