@@ -1,5 +1,6 @@
 const elementUpdate = document.getElementsByClassName("update");
 const URL = document.getElementById("url").value;
+const TOKEN = document.getElementById("token").value;
 
 for (let i = 0; i < elementUpdate.length; i++) {
     elementUpdate[i].addEventListener("click", function () {
@@ -24,6 +25,10 @@ for (let i = 0; i < elementUpdate.length; i++) {
             });
     });
 }
+
+document.getElementById('filter').addEventListener('click', function () {
+    filter();
+});
 
 function filter() {
     try {

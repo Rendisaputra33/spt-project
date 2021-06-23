@@ -28,19 +28,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                         </div>
-                                                        <input type="text" class="form-control float-right" id="search" name="date" value="">
                                                         <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('Y-m-d') ?> / <?= date('Y-m-d') ?>">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <button type="button" class="btn btn-secondary text-bold"><i
-                                                        class="fas fa-search"></i>&nbsp;CARI</button>
                                                 <button type="button" id='filter' onClick="filter()" class="btn btn-secondary text-bold"><i
                                                         class="fas fa-filter"></i>&nbsp;FILTER</button>
                                                 </div>
