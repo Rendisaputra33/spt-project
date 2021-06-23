@@ -31,66 +31,66 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="h5">
-                            Id Keberangkatan :
+                            Id Keberangkatan &nbsp;&nbsp; : {{ $data->id_keberangkatan }}
                         </div>
                         <div class="h5">
-                            Tanggal Berangkat :
+                            Tanggal Berangkat &nbsp;: {{ $data->tanggal_keberangkatan }}
                         </div>
                         <div class="h5">
-                            Tipe :
+                            Tipe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $data->tipe }}
                         </div>
                         <div class="h5">
-                            No Sp :
+                            No Sp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->no_sp }}
                         </div>
                         <div class="h5">
-                            No Induk :
+                            No Induk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->no_induk }}
                         </div>
                         <div class="h5">
-                            Wilayah :
+                            Wilayah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->wilayah }}
                         </div>
                         <div class="h5">
-                            Nama Petani :
+                            Nama Petani &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $data->nama_petani }}
                         </div>
                         <div class="h5">
-                            Nama Sopir :
+                            Nama Sopir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->nama_petani }}
                         </div>
                         <div class="h5">
-                            Pabrik Tujuan :
+                            Pabrik Tujuan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->pabrik_tujuan }}
                         </div>
                         <div class="h5">
-                            Sangu :
+                            Sangu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->sangu }}
                         </div>
                     </div>
                     <div class="col-md-6 ml-auto">
                         <div class="h5">
-                            Berat Timbang :
+                            Berat Timbang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $data->berat_timbang }}
                         </div>
                         <div class="h5">
-                            Tara Mbl :
+                            Tara Mbl &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
                         </div>
                         <div class="h5">
-                            Netto :
+                            Netto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
                         </div>
                         <div class="h5">
-                            Harga :
+                            Harga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
                         </div>
                         <div class="h5">
-                            Tanggal Pulang :
+                            Tanggal Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </div>
                         <div class="h5">
-                            Tanggal Bongkar :
+                            Tanggal Bongkar &nbsp; :
                         </div>
                         <div class="h5">
-                            No Truk :
+                            No Truk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </div>
                         <div class="h5">
-                            Berat Pulang :
+                            Berat Pulang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </div>
                         <div class="h5">
-                            Rafaksi :
+                            Rafaksi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
                         </div>
                         <div class="h5">
-                            Date add :
+                            Date add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
                         </div>
                     </div>
                 </div>
