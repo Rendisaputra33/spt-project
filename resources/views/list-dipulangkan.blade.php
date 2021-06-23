@@ -68,7 +68,7 @@
                                                 <td>{{ $item->nama_sopir }}</td>
                                                 <td>{{ $item->pabrik_tujuan }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
+                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
                                                 </td>
                                             </tr>
                                         @endforeach

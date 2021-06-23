@@ -25,7 +25,7 @@
                         <div class="col-xs-12">
                             <h2 class="page-header">
                                 <i class="fa fa-globe"></i> RAYA GUNA
-                                <small class="pull-right">Date: {{ date('d/m/Y') }}</small>
+                                <p class="pull-right" style="font-size: 23px">Date: {{ date('d/m/Y') }}</p>
                             </h2>
                         </div>
                         <!-- /.col -->
@@ -33,7 +33,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <br>
+                            <h5><b>#Laporan Berangkat</b></h5>
                         </div>
                         <!-- /.col -->
                     </div> <br>
@@ -75,7 +75,13 @@
                         <!-- accepted payments column -->
 
                         <!-- /.col -->
-                        <div class="col-xs-12">
+                        <div class="col-xs-8">
+
+                        </div>
+                        {{-- <div class="col-xs-3">
+
+                        </div> --}}
+                        <div class="col-xs-4">
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>

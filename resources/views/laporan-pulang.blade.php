@@ -25,7 +25,7 @@
                         <div class="col-xs-12">
                             <h2 class="page-header">
                                 <i class="fa fa-globe"></i> RAYA GUNA
-                                <small class="pull-right">Date: 2/10/2014</small>
+                                <small class="pull-right"><b>#Laporan Kepulangan</b></small>
                             </h2>
                         </div>
                         <!-- /.col -->
@@ -33,7 +33,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <b>#Laporan Kepulangan</b><br>
+                            <small>Date: 2/10/2014</small>
                         </div>
                         <!-- /.col -->
                     </div> <br>
