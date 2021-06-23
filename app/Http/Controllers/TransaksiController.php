@@ -38,8 +38,8 @@ class TransaksiController extends Controller
      */
     public function viewLaporan(Pembayaran $pembayaran)
     {
-        return view('cetak-transaksi', [
-            'data' => $pembayaran->get()
+        return view('tampil-data-laporan-pembayaran', [
+            'data' => $pembayaran->rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->get()
         ]);
     }
 

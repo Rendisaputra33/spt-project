@@ -130,19 +130,19 @@ const parse = (data) => {
 
 const data = (res) => {
     return /*html*/ `<tr>
-    <td>${item.tipe}</td>
-    <td>${item.no_sp}</td>
-    <td>${item.wilayah}</td>
-    <td>${item.nama_petani}</td>
-    <td>${item.nama_sopir}</td>
-    <td>${item.pabrik_tujuan}</td>
-    <td>${item.berat_timbang}</td>
-    <td>${item.netto}</td>
-    <td>${item.harga}</td>
-    <td>${item.tanggal_keberangkatan}</td>
+    <td>${res.tipe}</td>
+    <td>${res.no_sp}</td>
+    <td>${res.wilayah}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.berat_timbang}</td>
+    <td>${res.netto}</td>
+    <td>${res.harga}</td>
+    <td>${res.tanggal_keberangkatan}</td>
     <td>
-        <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="${item.id_keberangkatan}"> Edit</button>&nbsp;
-        <a href="/berangkat/${item.id_keberangkatan}" class="btn btn-danger">Hapus</a>
+        <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}"> Edit</button>&nbsp;
+        <a href="/berangkat/${res.id_keberangkatan}" class="btn btn-danger">Hapus</a>
     </td>
 </tr>`;
 };

@@ -56,31 +56,32 @@
                                         <thead>
                                             <tr>
                                                 <th>Tipe</th>
-                                                <th>No SP</th>
-                                                <th>Wilayah</th>
-                                                <th>Petani</th>
-                                                <th>Sopir</th>
-                                                <th>Tujuan</th>
-                                                <th>Berat timbang</th>
-                                                <th>Netto</th>
+                                                <th>Invoice</th>
                                                 <th>Harga</th>
-                                                <th>Tanggal</th>
-                                                <th>action</th>
+                                                <th>Tanggal Bayar</th>
+                                                <th>Nominal</th>
+                                                <th>Netto</th>
+                                                <th>Pabrik Tujuan</th>
+
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>
-                                            <td>dummy</td>      
-                                        </tbody>
+                                        <tbody id='list-data'>
+                                            @if (count($data) === 0)
+                                                <td colspan="11" style="text-align: center;">DATA KOSONG</td>
+                                            @else
+                                                @foreach ($data as $item)
+                                                    <tr>
+                                                        <td>{{ $item->tipe }}</td>
+                                                        <td>{{ $item->tanggal_bayar === null ? 'belum dibayar' : $item->no_invoice }}</td>
+                                                        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                                        <td>{{ $item->tanggal_bayar === null ? 'belum dibayar' : $item->tanggal_bayar }}</td>
+                                                        <td>{{ $item->tanggal_bayar === null ? 'belum dibayar' : 'Rp ' . number_format($item->nominal, 0, ',', '.') }}</td>
+                                                        <td>{{ $item->netto }}</td>
+                                                        <td>{{ $item->pabrik_tujuan }}</td>
+
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                     </table>
                                 </div>
 
@@ -91,8 +92,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-@endsection
+                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+            @endsection
