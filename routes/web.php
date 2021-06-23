@@ -181,3 +181,7 @@ Route::prefix('/transaksi')->group(function () {
 
 Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
+
+Route::get('/coba', function () {
+    return view('ambilhutang');
+});
