@@ -1,48 +1,50 @@
 const URL = document.getElementById("url").value;
 const TOKEN = document.getElementById("token").value;
 
-document.getElementById('filter').addEventListener('click', function () {
-    const tgl = document.getElementById('tgl1');
-    const a = new Date().toLocaleDateString();
-    const date = a.split('/');
-    const month = date[0] < 10 ? "0" + date[0] : date[0];
-    document.querySelector('input[name=tgl1]').value = `${date[2]}-${month}-${date[1]}`;
-})
-
 function filter() {
-    const tgl1 = document.getElementById('tgl1');
-    const tgl2 = document.getElementById('tgl2');
-    const data = fetch(URL + "/filterpembayaran", {
-        method: 'post',
-        body: JSON.stringify({ tgl1: tgl1, tgl2: tgl2 }),
+    try {
+        getfilter();
+    } catch (e) {
+        console.log(e);
+        document.getElementById("list-data").innerHTML = "error";
+    }
+}
+
+function getfilter() {
+    const date = document.getElementById('date-range').value;
+    const split = date.split(' / ');
+    fetch(`${URL}/filterpembayaran`, {
+        method: "post",
+        body: JSON.stringify({ tgl1: split[0], tgl2: split[1] }),
         headers: { "Content-Type": "application/json", "X-CSRF-Token": TOKEN },
     })
-        .then(res => res.json())
-        .then(res => {
-            document.getElementById('list-data').innerHTML = parse(res);
-        })
+        .then((res) => res.json())
+        .then((res) => {
+            document.getElementById("list-data").innerHTML = parse(res);
+        });
+
 }
 
 const parse = (data) => {
     let html = "";
     data.data.map((res) => {
-        html += elementSearch(res);
+        html += htmldata(res);
     });
     return html;
 }
 
-const data = (res) => {
+const htmldata = (res) => {
     return /*html*/ `<tr>
-    <td>${item.tipe}</td>
-    <td>${item.no_invoice}</td>
-    <td>${item.harga}</td>
-    <td>${item.tanggal_bayar}</td>
-    <td>${item.nominal}</td>
-    <td>${item.netto}</td>
-    <td>${item.pabrik_tujuan}</td>
+    <td>${res.tipe}</td>
+    <td>${res.no_invoice}</td>
+    <td>${res.harga}</td>
+    <td>${res.tanggal_bayar}</td>
+    <td>${res.nominal}</td>
+    <td>${res.netto}</td>
+    <td>${res.pabrik_tujuan}</td>
     <td>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
-        <a href="/pembayaran/${item.id_pembayaran}" class="btn btn-danger">Hapus</a>
+        <a href="/pembayaran/${res.id_pembayaran}" class="btn btn-danger">Hapus</a>
     </td>
 </tr>`
 }

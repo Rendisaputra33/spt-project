@@ -42,7 +42,7 @@
                                                         <div class="col-6">
                                                             <button type="button" class="btn btn-primary text-bold"><i
                                                                 class="fas fa-search"></i>&nbsp;CARI</button>
-                                                        <button type="button" id='filter' class="btn btn-primary text-bold"><i
+                                                        <button type="button" id='filter' onClick="filter()" class="btn btn-primary text-bold"><i
                                                                 class="fas fa-filter"></i>&nbsp;FILTER</button>
                                                         </div>
                                                         </form>
@@ -73,7 +73,7 @@
                                                             <th>action</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id='list-data'>
                                                         @if (count($data) === 0)
                                                             <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             @else
