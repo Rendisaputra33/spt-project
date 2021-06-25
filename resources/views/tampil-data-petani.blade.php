@@ -59,7 +59,7 @@
                                             <th>Nama Pemilik</th>
                                             <th>Register Pemilik</th>
                                             <th>Nama Pabrik</th>
-                                            <th>Tanggal Data Masuk</th>
+                                            <th>Tanggal Edit</th>
                                             <th>Action</th>
                                         </tr>
                                         </tr>
@@ -74,7 +74,7 @@
                                                     <td>{{ $item->nama_pemilik }}</td>
                                                     <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>
-                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>

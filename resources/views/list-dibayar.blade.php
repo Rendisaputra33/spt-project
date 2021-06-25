@@ -72,12 +72,12 @@
                                                 @foreach ($data as $item)
                                                     <tr>
                                                         <td><input type="checkbox" name="id[]" value="{{ $item->id_keberangkatan }}" /></td>
-                                                        <td>{{ $item->tanggal_pulang }}</td>
+                                                        <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_pulang))) }}</td>
                                                         <td>{{ $item->tipe }}</td>
                                                         <td>{{ $item->nama_petani }}</td>
                                                         <td>{{ $item->nama_sopir }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>
-                                                        <td>{{ $item->tanggal_keberangkatan }}</td>
+                                                        <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                                         <td>{{ $item->refaksi }}</td>
                                                         <td>Rp {{ number_format($item->harga * $item->netto, 0, ',', '.') }}</td>
                                                     </tr>

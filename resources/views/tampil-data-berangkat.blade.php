@@ -59,39 +59,40 @@
                                     <table id="tabel_pemasukan" class="table table-bordered table-striped ">
                                         <thead>
                                             <tr>
-                                                <th>Tipe</th>
+                                                <th>No</th>
+                                                <th>Tanggal Berangkat</th>
                                                 <th>No SP</th>
+                                                <th>Nama Pemilik</th>
+                                                <th>No Induk</th>
                                                 <th>Wilayah</th>
-                                                <th>Petani</th>
-                                                <th>Sopir</th>
-                                                <th>Tujuan</th>
-                                                <th>Berat timbang</th>
-                                                <th>Netto</th>
                                                 <th>Harga</th>
-                                                <th>Tanggal</th>
-                                                <th>action</th>
+                                                <th style="text-align: center;">action</th>
                                             </tr>
                                         </thead>
                                         <tbody id='list-data'>
                                             @if (count($data) === 0)
                                             <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         @else
+                                            @php
+                                                $no = 1;
+                                            @endphp
                                             @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ $item->tipe }}</td>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                 <td>{{ $item->no_sp }}</td>
-                                                <td>{{ $item->wilayah }}</td>
                                                 <td>{{ $item->nama_petani }}</td>
-                                                <td>{{ $item->nama_sopir }}</td>
-                                                <td>{{ $item->pabrik_tujuan }}</td>
-                                                <td>{{ $item->berat_timbang }}</td>
-                                                <td>{{ $item->netto }}</td>
+                                                <td>{{ $item->no_induk }}</td>
+                                                <td>{{ $item->wilayah }}</td>
                                                 <td>{{ $item->harga }}</td>
                                                 <td>{{ $item->tanggal_keberangkatan }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-warning text-bold" data-toggle="modal"
                                                         data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                         <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+                                                    <button type="button" class="btn btn-success update" data-toggle="modal"
+                                                        data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                       Detail</button>
                                                     <a href="/berangkat/{{ $item->id_keberangkatan }}"
                                                         class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                 </td>

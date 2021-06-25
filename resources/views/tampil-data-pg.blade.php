@@ -58,7 +58,7 @@
                                             <th>No</th>
                                             <th>Nama PG</th>
                                             <th>Lokasi PG</th>
-                                            <th>Tanggal Data Masuk</th>
+                                            <th>Tanggal Edit</th>
                                             <th>Action</th>
                                         </tr>
                                         </tr>
@@ -72,7 +72,7 @@
                                                     <td>{{ $item->id_pg }}</td>
                                                     <td>{{ $item->nama_pg }}</td>
                                                     <td>{{ $item->lokasi_pg }}</td>
-                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>

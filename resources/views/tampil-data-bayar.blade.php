@@ -77,7 +77,7 @@
                                                         <td>{{ $item->tipe }}</td>
                                                         <td>{{ $item->no_invoice }}</td>
                                                         <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                                        <td>{{ $item->tanggal_bayar }}</td>
+                                                        <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                         <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>

@@ -58,7 +58,7 @@
                                             <th>No</th>
                                             <th>Nama Wilayah</th>
                                             <th>Harga Wilayah</th>
-                                            <th>Tanggal Data Masuk</th>
+                                            <th>Tanggal Edit</th>
                                             <th>Action</th>
                                         </tr>
                                         </tr>
@@ -72,7 +72,7 @@
                                                     <td>{{ $item->id_wilayah }}</td>
                                                     <td>{{ $item->nama_wilayah }}</td>
                                                     <td>Rp {{ number_format($item->harga_wilayah, 0, ',', '.') }}</td>
-                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_wilayah }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>

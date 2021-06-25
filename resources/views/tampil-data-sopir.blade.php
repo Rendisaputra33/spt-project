@@ -59,7 +59,7 @@
                                             <th>Nama Petani</th>
                                             <th>No Telp</th>
                                             <th>Alamat Petani</th>
-                                            <th>Tanggal Data Masuk</th>
+                                            <th>Tanggal Edit</th>
                                             <th>Action</th>
                                         </tr>
                                         </tr>
@@ -74,7 +74,7 @@
                                                     <td>{{ $item->nama_petani }}</td>
                                                     <td>{{ $item->nohp_petani }}</td>
                                                     <td>{{ $item->alamat_petani }}</td>
-                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>

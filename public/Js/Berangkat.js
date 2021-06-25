@@ -9,41 +9,41 @@ for (let i = 0; i < elementUpdate.length; i++) {
         fetch(URL + "/berangkat/view/get/" + ID)
             .then((res) => res.json())
             .then((res) => {
-                document.querySelector("input[name=utanggal_keberangkatan]").value = res.data.tanggal_keberangkatan;
-                document.querySelector("input[name=utipe]").value = res.data.tipe;
+                document.querySelector("input[name=utanggal_berangkat]").value = res.data.tanggal_keberangkatan;
+                document.querySelector("select[name=utipe]").value = res.data.tipe;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=uno_sp]"
+                ).value = res.data.no_sp;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=uno_induk]"
+                ).value = res.data.no_induk;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "select[name=uwilayah]"
+                ).value = res.data.wilayah;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "select[name=unama_petani]"
+                ).value = res.data.nama_petani;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "select[name=unama_sopir]"
+                ).value = res.data.nama_sopir;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "select[name=upabrik_tujuan]"
+                ).value = res.data.pabrik_tujuan;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=usangu]"
+                ).value = res.data.sangu;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=uberat_timbang]"
+                ).value = res.data.berat_timbang;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=utara_mbl]"
+                ).value = res.data.tara_mbl;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=unetto]"
+                ).value = res.data.netto;
                 document.querySelector(
-                    "input[name=tanggal_keberangkatan]"
-                ).value = res.data.tanggal_keberangkatan;
+                    "input[name=uharga]"
+                ).value = res.data.harga;
             });
     });
 }

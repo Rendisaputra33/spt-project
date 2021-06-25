@@ -35,11 +35,13 @@
                                                             <div class="input-group-prepend">
                                                             </div>
                                                             <select class="form-control" id="pabrik" name="utipe">
+                                                            <option default>Pabrik Tujuan</option>
                                                             @foreach ( $pg as $i )
                                                                 <option value="{{ $i->nama_pg }}">{{ $i->nama_pg }}</option>
                                                             @endforeach
                                                             </select>
                                                             <select class="form-control" id="type" name="utipe">
+                                                                <option default>Tipe</option>
                                                                 <option value="SPT">SPT</option>
                                                                 <option value="AMPERA">AMPERA</option>
                                                             </select>

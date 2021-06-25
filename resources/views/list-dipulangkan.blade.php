@@ -62,7 +62,7 @@
                                     <tbody id="list-data">
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ $item->tanggal_keberangkatan }}</td>
+                                                <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                                 <td>{{ $item->tipe }}</td>
                                                 <td>{{ $item->nama_petani }}</td>
                                                 <td>{{ $item->nama_sopir }}</td>
