@@ -55,10 +55,10 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id Sopir</th>
-                                            <th>Nama Sopir</th>
+                                            <th>Id Petani</th>
+                                            <th>Nama Petani</th>
                                             <th>No Telp</th>
-                                            <th>Alamat Sopir</th>
+                                            <th>Alamat Petani</th>
                                             <th>Tanggal Data Masuk</th>
                                             <th>Action</th>
                                         </tr>
@@ -77,7 +77,7 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;UPDATE</a>
+                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;UPDATE</a>
                                                         <form action="{{ url('/') }}/sopir/{{ $item->id_petani }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')

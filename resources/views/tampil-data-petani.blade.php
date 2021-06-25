@@ -55,9 +55,9 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id Petani</th>
-                                            <th>Nama Petani</th>
-                                            <th>Register Petani</th>
+                                            <th>Id Pemilik</th>
+                                            <th>Nama Pemilik</th>
+                                            <th>Register Pemilik</th>
                                             <th>Nama Pabrik</th>
                                             <th>Tanggal Data Masuk</th>
                                             <th>Action</th>
@@ -112,12 +112,12 @@
                                 @method('PUT')
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Petani</label>
+                                        <label for="exampleInputPassword1">Nama Pemilik</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_petani">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Register Petani</label>
+                                        <label for="exampleInputPassword1">Register Pemilik</label>
                                         <input type="text" class="form-control" placeholder="Register " name="register_petani">
                                         <span class="text-danger"></span>
                                     </div>

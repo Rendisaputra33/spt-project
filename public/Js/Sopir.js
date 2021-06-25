@@ -1,10 +1,10 @@
 const URL = document.getElementById("url").value;
-
 const elementUpdate = document.getElementsByClassName("update");
 
 for (let i = 0; i < elementUpdate.length; i++) {
     elementUpdate[i].addEventListener("click", function () {
-        const id = this.getAttribute("data-id");
+        const id = elementUpdate[i].getAttribute("data-id");
+        console.log(id);
         document
             .getElementById("form-update")
             .setAttribute("action", URL + "/sopir/" + id);
