@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
+                        <div class="card card-secondary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data PG</h3>
                             </div>
@@ -36,18 +36,18 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama PG</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_pg">
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Lokasi PG</label>
                                         <input type="text" class="form-control" placeholder="Lokasi " name="lokasi_pg">
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-secondary">Simpan</button>
                                 </div>
                             </form>
                         </div>

@@ -39,7 +39,7 @@
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-primary text-bold"><i class="fas fa-search"></i>&nbsp;CARI</button>
+                                                <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
@@ -68,7 +68,7 @@
                                                 <td>{{ $item->nama_sopir }}</td>
                                                 <td>{{ $item->pabrik_tujuan }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}">UPDATE</a>
+                                                    <a href="#" class="btn btn-primary text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Pilih</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -121,7 +121,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">SIMPAN</button>
+                                        <button type="submit" class="btn btn-secondary">Simpan</button>
                                     </div>
                                 </div>
 

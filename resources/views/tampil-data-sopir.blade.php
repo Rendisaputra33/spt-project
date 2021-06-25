@@ -39,13 +39,13 @@
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-info text-bold"><i class="fas fa-search"></i>&nbsp;CARI</button>
+                                                <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/sopir/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;TAMBAH</a>
+                                        <a href="/sopir/view/add" class="btn btn-secondary float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                     </div>
                                 </div>
                             </div>
@@ -77,11 +77,11 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;UPDATE</a>
+                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                         <form action="{{ url('/') }}/sopir/{{ $item->id_petani }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;DELETE</button>
+                                                            <button type="submit" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
                                                         </form>
 
                                                     </td>
@@ -127,7 +127,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                        <button type="submit" class="btn btn-secondary">Simpan</button>
                                     </div>
                                 </div>
                         </div>

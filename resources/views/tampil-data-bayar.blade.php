@@ -39,12 +39,12 @@
                                                     </div>
                                                     <div class="col-6">
                                                     <button type="button" id='filter' onClick="filter()" class="btn btn-secondary text-bold"><i
-                                                            class="fas fa-filter"></i>&nbsp;FILTER</button>
+                                                            class="fas fa-filter"></i>&nbsp;Cari</button>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <a href="/pembayaran/view/list" class="btn btn-success float-right text-bold">Tambah
+                                                <a href="/pembayaran/view/list" class="btn btn-secondary float-right text-bold">Tambah
                                                     &nbsp;<i class="fas fa-plus"></i> </a>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>
                                                         <td>
-                                                            <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger">Hapus</a>
+                                                            <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                         </td>
                                                     </tr>
                                                     @endforeach

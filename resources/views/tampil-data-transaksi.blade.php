@@ -48,14 +48,14 @@
                                                     </div>
                                             </div>
                                             <div class="col-3">
-                                                <button type="button" id="filter" class="btn btn-info text-bold"><i
-                                                class="fas fa-filter"></i>&nbsp;FILTER</button>
+                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i
+                                                class="fas fa-filter"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal">Tambah &nbsp;<i class="fas fa-plus"></i> </a>
+                                        <a href="#" class="btn btn-secondary float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah </a>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                                     <td>{{ $item->netto }}</td>
                                                     <td>{{ formatRupiah($item->harga) }}</td>
                                                     <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
-                                                    <td><a href="/transaksi/berangkat/cetak/{{ $item->id_keberangkatan }}" class="btn btn-success">cetak</a></td>
+                                                    <td><a href="/transaksi/berangkat/cetak/{{ $item->id_keberangkatan }}" class="btn btn-primary text-bolds"><i class="fas fa-print"></i>&nbsp;Cetak</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
