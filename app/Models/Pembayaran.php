@@ -10,9 +10,8 @@ class Pembayaran extends Model
 {
     protected $table = 'tb_pembayaran';
 
-    public function getLast($tgl1, $tgl2)
+    public function getGlobal()
     {
-        $query = "SELECT * FROM tb_pembayaran WHERE(created_at BETWEEN '{$tgl1}' AND '{$tgl2}')";
-        return DB::select("select * from tb_pembayaran where(created_at BETWEEN '{$tgl1}' AND '{$tgl2}') AND tanggal_kepulangan = null");
+        return DB::select('SELECT no_invoice, SUM(nominal) as sub_total, GROUP_CONCAT(nama_petani) as petani FROM tb_pembayaran JOIN tb_transaksi ON tb_pembayaran.id_keberangkatan = tb_transaksi.id_keberangkatan GROUP BY no_invoice');
     }
 }

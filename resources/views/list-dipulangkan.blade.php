@@ -34,12 +34,14 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                            <input type="text" class="form-control float-right" id="search"
+                                                                name="date" value="">
                                                         </div>
                                                     </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
+                                                <button type="button" class="btn btn-secondary text-bold"><i
+                                                        class="fas fa-search"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
@@ -62,13 +64,17 @@
                                     <tbody id="list-data">
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
+                                                <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}
+                                                </td>
                                                 <td>{{ $item->tipe }}</td>
                                                 <td>{{ $item->nama_petani }}</td>
                                                 <td>{{ $item->nama_sopir }}</td>
                                                 <td>{{ $item->pabrik_tujuan }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Pilih</a>
+                                                    <a href="#" class="btn btn-primary text-bold update"
+                                                        data-target="#modal-lg" data-toggle="modal"
+                                                        data-id="{{ $item->id_keberangkatan }}"><i
+                                                            class="fas fa-mouse-pointer"></i></i>&nbsp;Pilih</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -97,12 +103,14 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Pulang " value="{{ date('Y-m-d') }}" name="tanggal_pulang">
+                                        <input type="date" class="form-control" placeholder="Tanggal Pulang "
+                                            value="{{ date('Y-m-d') }}" name="tanggal_pulang">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                        <input type="date" class="form-control" placeholder="Tanggal Bongkar " value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
+                                        <input type="date" class="form-control" placeholder="Tanggal Bongkar "
+                                            value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -112,7 +120,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Berat Pulang</label>
-                                        <input type="text" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
+                                        <input type="text" class="form-control" placeholder="Berat Pulang "
+                                            name="berat_pulang">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
