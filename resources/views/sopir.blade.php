@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
+                        <div class="card card-secondary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data Petani</h3>
                             </div>
@@ -36,23 +36,23 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Petani</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_sopir">
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Telp</label>
                                         <input type="text" class="form-control" placeholder="No Telp " name="nohp_sopir">
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Alamat Petani</label>
                                         <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir">
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-secondary">Simpan</button>
                                 </div>
                             </form>
                         </div>

@@ -40,12 +40,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <button type="button" class="btn btn-info">Cari</button>
+                                                    <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <button type="submit" class="btn btn-success float-right text-bold">Bayar</button>
+                                            <button type="submit" class="btn btn-secondary float-right text-bold"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
                                         </div>
                                     </div>
                                 </div>

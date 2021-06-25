@@ -48,8 +48,8 @@
                                                     </div>
                                             </div>
                                             <div class="col-3">
-                                                <button type="button" id="filter" class="btn btn-info text-bold"><i
-                                                class="fas fa-filter"></i>&nbsp;FILTER</button>
+                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i
+                                                class="fas fa-filter"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
@@ -87,7 +87,7 @@
                                                         <td>{{ $item->tanggal_bayar === null ? 'belum dibayar' : 'Rp ' . number_format($item->nominal, 0, ',', '.') }}</td>
                                                         <td>{{ $item->netto }}</td>
                                                         <td>{{ $item->pabrik_tujuan }}</td>
-                                                        <td><a href="/transaksi/pembayaran/cetak/{{ $item->id_pembayaran }}" class="btn btn-success">cetak</a></td>
+                                                        <td><a href="/transaksi/pembayaran/cetak/{{ $item->id_pembayaran }}" class="btn btn-primary text-bold"><i class="fas fa-print"></i>&nbsp;Cetak</a></td>
                                                     </tr>
                                                 @endforeach
                                             @endif

@@ -39,15 +39,15 @@
                                                                 </div>
                                                         </div>
                                                         <div class="col-6">
-                                                        <button type="button" id='filter' class="btn btn-primary text-bold"><i
-                                                                class="fas fa-filter"></i>&nbsp;FILTER</button>
+                                                        <button type="button" id='filter' class="btn btn-secondary text-bold"><i
+                                                                class="fas fa-filter"></i>&nbsp;Cari</button>
                                                         </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <a href="/pulang/view/cetak" class="btn btn-primary float-right text-bold ml-1"><i class="fas fa-print"></i>&nbsp;CETAK LAPORAN</a>
-                                                    <a href="/pulang/view/list" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;TAMBAH</a>
+                                                    <a href="/pulang/view/cetak" class="btn btn-secondary float-right text-bold ml-1"><i class="fas fa-print"></i>&nbsp;Cetak Laporan</a>
+                                                    <a href="/pulang/view/list" class="btn btn-secondary float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,8 +87,8 @@
                                                                     <td>{{ formatRupiah($item->harga) }}</td>
                                                                     <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                                                     <td>
-                                                                        <button type="button" class="btn btn-warning update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"> Edit</button>&nbsp;
-                                                                        <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger">Hapus</a>
+                                                                        <button type="button" class="btn btn-warning text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+                                                                        <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach

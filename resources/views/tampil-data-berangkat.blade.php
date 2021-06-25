@@ -38,18 +38,18 @@
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" id='filter' onClick="filter()" class="btn btn-primary text-bold"><i
-                                                        class="fas fa-filter"></i>&nbsp;FILTER</button>
+                                                <button type="button" id='filter' onClick="filter()" class="btn btn-secondary text-bold"><i
+                                                        class="fas fa-filter"></i>&nbsp;Cari</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <a href="/berangkat/view/cetak"
-                                            class="btn btn-primary float-right text-bold ml-1"><i
-                                                class="fas fa-print"></i>&nbsp;CETAK LAPORAN</a>
-                                        <a href="#" class="btn btn-success float-right text-bold"
+                                            class="btn btn-secondary float-right text-bold ml-1"><i
+                                                class="fas fa-print"></i>&nbsp;Cetak Laporan</a>
+                                        <a href="#" class="btn btn-secondary float-right text-bold"
                                             data-target="#modal-lg-tambah" id='tbh' data-toggle="modal"><i
-                                                class="fas fa-plus"></i>&nbsp;TAMBAH</a>
+                                                class="fas fa-plus"></i>&nbsp;Tambah</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,11 +89,11 @@
                                                 <td>{{ $item->harga }}</td>
                                                 <td>{{ $item->tanggal_keberangkatan }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-warning update" data-toggle="modal"
+                                                    <button type="button" class="btn btn-warning text-bold" data-toggle="modal"
                                                         data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
-                                                        <i class="fas fa-edit"></i> Edit</button>&nbsp;
+                                                        <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                     <a href="/berangkat/{{ $item->id_keberangkatan }}"
-                                                        class="btn btn-danger">Hapus</a>
+                                                        class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -237,7 +237,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                    <button type="submit" class="btn btn-dark">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -247,13 +247,13 @@
             </div>
             </form>
 
-            <!-- modal untuk edit data -->
+            <!-- modal untuk Ubah data -->
             <form action="" method="post">
                 <div class="modal fade" id="">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Edit Data Barang</h4>
+                                <h4 class="modal-title">Ubah Data Barang</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -292,7 +292,7 @@
             <div class="modal-content">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Ubah</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -391,9 +391,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-info">Simpan</button>
+                        <div class="modal-footer float-left">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-secondary">Simpan</button>
                         </div>
                     </form>
                 </div>

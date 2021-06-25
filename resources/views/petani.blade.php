@@ -24,7 +24,7 @@
 
                     <div class="col-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
+                        <div class="card card-secondary">
                             <div class="card-header">
                                 <h3 class="card-title">Isi Form Data Pemilik</h3>
                             </div>
@@ -36,22 +36,22 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pemilik</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_petani" required>
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Register Pemilik</label>
                                         <input type="text" class="form-control" placeholder="Register " name="register_petani" required>
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pabrik</label>
                                         <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required>
-                                        <span class="text-primary"></span>
+                                        <span class="text-secondary"></span>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-secondary">Simpan</button>
                                 </div>
                             </form>
                         </div>
