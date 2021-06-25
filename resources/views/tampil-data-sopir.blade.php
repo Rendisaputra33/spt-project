@@ -55,7 +55,7 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id Petani</th>
+                                            <th>No</th>
                                             <th>Nama Petani</th>
                                             <th>No Telp</th>
                                             <th>Alamat Petani</th>

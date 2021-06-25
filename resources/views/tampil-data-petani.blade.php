@@ -55,7 +55,7 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id Pemilik</th>
+                                            <th>No</th>
                                             <th>Nama Pemilik</th>
                                             <th>Register Pemilik</th>
                                             <th>Nama Pabrik</th>

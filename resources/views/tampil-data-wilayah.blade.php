@@ -55,7 +55,7 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id Wilayah</th>
+                                            <th>No</th>
                                             <th>Nama Wilayah</th>
                                             <th>Harga Wilayah</th>
                                             <th>Tanggal Data Masuk</th>

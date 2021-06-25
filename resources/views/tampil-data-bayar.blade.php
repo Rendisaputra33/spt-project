@@ -55,14 +55,17 @@
                                             <table id="tabel_pemasukan" class="table table-bordered table-striped ">
                                                 <thead>
                                                     <tr>
+                                                        <th>Tgl Berangkat</th>
+                                                        <th>Tgl Pulang</th>
                                                         <th>Tipe</th>
-                                                        <th>Invoice</th>
+                                                        <th>Pemilik</th>
+                                                        <th>Nama Petani</th>
+                                                        <th>No Sp</th>
+                                                        <th>No Truk</th>
+                                                        <th>Tujuan</th>
+                                                        <th>Netto Pulang</th>
                                                         <th>Harga</th>
-                                                        <th>Tanggal Bayar</th>
-                                                        <th>Nominal</th>
-                                                        <th>Netto</th>
-                                                        <th>Pabrik Tujuan</th>
-                                                        <th>Action</th>
+                                                        <th>Sub Total</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id='list-data'>

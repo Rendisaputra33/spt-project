@@ -381,7 +381,7 @@
                                     <div class="form-group">
                                         <label for="netto">Netto</label>
                                         <input type="text" name="unetto" class="form-control" id="netto"
-                                            placeholder="Netto">
+                                            placeholder="Netto" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="harga">Harga</label>

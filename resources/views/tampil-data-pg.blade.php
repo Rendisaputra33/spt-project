@@ -55,7 +55,7 @@
                                     <thead>
                                         <tr>
                                         <tr>
-                                            <th>Id PG</th>
+                                            <th>No</th>
                                             <th>Nama PG</th>
                                             <th>Lokasi PG</th>
                                             <th>Tanggal Data Masuk</th>
