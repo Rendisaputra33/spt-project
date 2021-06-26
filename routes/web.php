@@ -109,7 +109,7 @@ Route::prefix('/pg')->group(function () {
         Route::get('/search', [PgController::class, 'search']);
     });
 
-    // route get update data Pg 
+    // route get update data Pg
     Route::prefix('/json')->group(function () {
         Route::get('/getPg/{id}', [PgController::class, 'getUpdate']);
     });
@@ -186,7 +186,8 @@ Route::post('/filterpulang', [FilterController::class, 'FilterData']);
 Route::post('/filtertransaksi', [FilterController::class, 'FilterTData']);
 Route::post('/filterlaporan', [FilterController::class, 'FilterLPData']);
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
+Route::get('/pilih', [FilterController::class, 'getSopir']);
 
 Route::get('/coba', function () {
-    return view('ambilhutang');
+    return view('invoice');
 });
