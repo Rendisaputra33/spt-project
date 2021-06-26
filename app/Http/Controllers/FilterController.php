@@ -43,4 +43,12 @@ class FilterController extends Controller
                 ->get()
         ]);
     }
+
+    public function getSopir()
+    {
+        $sopir = request('name');
+        return response()->json([
+            'pembayaran' => Berangkat::whereNotNull('tanggal_pulang')->where('nama_sopir', $sopir)->get()
+        ]);
+    }
 }

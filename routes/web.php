@@ -188,5 +188,5 @@ Route::post('/filterlaporan', [FilterController::class, 'FilterLPData']);
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
 
 Route::get('/coba', function () {
-    return view('ambilhutang');
+    return view('coba-invoice');
 });

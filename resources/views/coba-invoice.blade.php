@@ -35,7 +35,10 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col pull-right">
-                            <b>Invoice #</b><br>
+                            Malang &emsp;&emsp;&emsp; Maret 2021 <br>
+                            Kepada <br>
+                            Yth PT ASINDO KARSA JAYA <br>
+                            KREBET MALANG
                         </div>
                         <!-- /.col -->
                     </div> <br>
@@ -57,10 +60,18 @@
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td>Rp </td>
                                             <td></td>
-                                            <td>Rp </td>
                                             <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Rp. </td>
+                                            <td>Rp. </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <th>Total</th>
                                             <td></td>
                                             <th></th>
                                         </tr>
@@ -70,29 +81,15 @@
                         <!-- /.col -->
                     </div><br>
                     <!-- /.row -->
-
+                    <!-- Table row -->
                     <div class="row">
-                        <!-- accepted payments column -->
-                        <!-- /.col -->
-                        <div class="col-xs-7">
-
-                        </div>
-
-                        <!-- /.col -->
-                        <div class="col-xs-5">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Total:</th>
-                                            <td style="text-align: right">Rp </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="col-xs-4 table-responsive pull-right">
+                            Hormat kami <br> <br> <br> <br>
+                            CV. RAYA GUNA
                         </div>
                         <!-- /.col -->
-                    </div>
+                    </div><br>
+                    <!-- /.row -->
                 </div>
                 <!-- /.row -->
 

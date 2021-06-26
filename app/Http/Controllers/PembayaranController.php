@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Berangkat;
 use App\Models\Pembayaran;
+use App\Models\Petani;
+use App\Models\Sopir;
 use Illuminate\Http\Request;
+use Mockery\Undefined;
 
 class PembayaranController extends Controller
 {
@@ -26,7 +29,7 @@ class PembayaranController extends Controller
             ];
         endforeach;
         return view('tampil-data-bayar', [
-            'data' => $this->data
+            'data' => !isset($this->data) ? [] : $this->data
         ]);
     }
 
@@ -75,20 +78,21 @@ class PembayaranController extends Controller
     public function store(Berangkat $berangkat, Pembayaran $pembayaran, Request $req)
     {
         $invoice = $this->makeId($pembayaran);
-        $status = false;
+        $arr = [];
         foreach ($req->id as $item) :
             $data = $berangkat->where('id_keberangkatan', $item)->first();
-            $pembayaran->insert([
+            $arr[] = [
                 'no_invoice' => $invoice,
                 'harga' => $data['harga'],
                 'tanggal_bayar' => now(),
                 'nominal' => $data['harga'] * $data['netto'],
                 'netto' => $data['netto'],
                 'id_keberangkatan' => $data['id_keberangkatan']
-            ]) ? $status = true : $status = false;
+            ];
         endforeach;
-        $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
-        return $status === true ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice]) : redirect()->back();
+        $insert = $pembayaran->insert($arr);
+        $list = $pembayaran->whereIn('id_keberangkatan', $req->id)->get();
+        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice]) : redirect()->back();
     }
 
     /**
@@ -101,7 +105,8 @@ class PembayaranController extends Controller
     {
         $data = Pembayaran::select('id_keberangkatan')->get();
         return view('list-dibayar', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get(),
+            'sopir' => Sopir::get(),
         ]);
     }
 
