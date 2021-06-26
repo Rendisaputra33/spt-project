@@ -30,17 +30,22 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                         </div>
-                                                        <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                        <select class="form-control" name="pilih" id="pilih">
+                                                            <option selected>Pilih Petani</option>
+                                                            @foreach ( $sopir as $i )
+                                                            <option value="{{ $i->nama_petani }}">{{ $i->nama_petani }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
+                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
                                             </div>
                                         </div>
                                     </div>

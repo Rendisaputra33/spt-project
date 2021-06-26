@@ -2,14 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cetak Invoice</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
 </head>
 
 <body>
@@ -50,17 +53,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $total = 0; @endphp
+                                    {{-- @php $total = 0; @endphp
                                     @foreach ($data as $item)
                                     @php $total += $item->nominal @endphp
                                     <tr>
                                         <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                        <td>{{ formatTanggal($item->tanggal_bayar) }}</td>
-                                        <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
-                                        {{-- <td>{{ $item->netto </td> --}}
-                                        {{-- <td>{{ $item->no_sp }}</td> --}}
+                                    <td>{{ formatTanggal($item->tanggal_bayar) }}</td>
+                                    <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
+                                    {{-- <td>{{ $item->netto }}</td>
+                                    <td>{{ $item->no_sp }}</td> --}}
                                     </tr>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </tbody>
                             </table>
                         </div>
@@ -102,25 +105,7 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div> 
 </body>
-
-<script>
-    const tombol = document.getElementById('button')
-    const documen = document.getElementById('cetak')
-
-    tombol.addEventListener('click', () => {
-        var restorepage = document.body.innerHTML
-        var printcontent = documen.innerHTML
-        document.body.innerHTML = printcontent
-        window.print()
-        document.body.innerHTML = restorepage
-    })
-</script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 </html>
