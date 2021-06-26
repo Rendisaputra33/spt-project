@@ -1,7 +1,14 @@
 const URL = document.getElementById("url").value;
 const TOKEN = document.getElementById("token").value;
 
-const elementUpdate = document.getElementsByClassName("update");
+const BTN = {
+    update: document.getElementsByClassName("update"),
+};
+
+const DATA_HARGA = {
+    id: 0,
+    harga: 0,
+};
 
 const FORM_ADD = {
     wilayah: document.querySelector("input[name=wilayah]"),
@@ -12,6 +19,7 @@ const FORM_ADD = {
     harga: document.querySelector("input[name=harga]"),
     petani: document.querySelector("select[name=nama_petani]"),
     tipe: document.getElementById("tipe"),
+    no_induk: document.querySelector("input[name=no_induk]"),
 };
 
 const FORM_UPDATE = {
@@ -30,16 +38,11 @@ const FORM_UPDATE = {
     harga: document.querySelector("input[name=uharga]"),
 };
 
-for (let i = 0; i < elementUpdate.length; i++) {
-    elementUpdate[i].addEventListener("click", function () {
+for (let i = 0; i < BTN.update.length; i++) {
+    BTN.update[i].addEventListener("click", function () {
         setForm(this);
     });
 }
-
-let dataHarga = {
-    id: 0,
-    harga: 0,
-};
 
 FORM_ADD.tipe.addEventListener("change", function () {
     this.value === "SPT" ? dForm(FORM_ADD) : oForm(FORM_ADD);
@@ -84,24 +87,25 @@ FORM_ADD.petani.addEventListener("change", function () {
 
 const updateHarga = (res) => {
     if (res == null) {
-        document.querySelector("input[name=harga]").value = "";
+        FORM_ADD.harga.value = "";
     } else {
-        dataHarga.id = res.id_wilayah;
-        dataHarga.harga = res.harga_wilayah;
-        document.querySelector("input[name=harga]").value = dataHarga.harga;
+        DATA_HARGA.id = res.id_wilayah;
+        DATA_HARGA.harga = res.harga_wilayah;
+        FORM_ADD.harga.value = DATA_HARGA.harga;
     }
 };
 
 const updateRegister = (res) => {
-    document.querySelector("input[name=no_induk]").value = res.register_pemilik;
+    FORM_ADD.no_induk.value = res.register_pemilik;
 };
 
 function filter() {
     try {
         getfilter();
     } catch (e) {
-        console.log(e);
-        document.getElementById("list-data").innerHTML = "error";
+        document.getElementById(
+            "list-data"
+        ).innerHTML = /*html*/ `<td colspan="6" style="text-align: center;">ERROR</td>`;
     }
 }
 
