@@ -106,6 +106,10 @@
                                         </tr>
                                         @endforeach
                                         <?php endif; ?>
+                                        <tr>
+                                            <td colspan="6"><b>Total</b></td>
+                                            <td colspan="2">Rp. 5.000.000</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
