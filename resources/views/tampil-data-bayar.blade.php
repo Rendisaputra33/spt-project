@@ -82,11 +82,11 @@
                                             <td>
                                                 <details>
                                                     <summary>List Tipe Tebu</summary>
-                                                    <ul>
+                                                    <ol>
                                                         @foreach ($item['list_tipe'] as $data)
                                                         <li>{{ $data }}</li>
                                                         @endforeach
-                                                    </ul>
+                                                    </ol>
                                                 </details>
                                             </td>
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
@@ -94,11 +94,11 @@
                                             <td>
                                                 <details>
                                                     <summary>List Nama Petani</summary>
-                                                    <ul>
+                                                    <ol>
                                                         @foreach ($item['list_petani'] as $data)
                                                         <li>{{ $data }}</li>
                                                         @endforeach
-                                                    </ul>
+                                                    </ol>
                                                 </details>
                                             </td>
                                             <td>{{ formatRupiah($item['sub_total']) }}</td>
