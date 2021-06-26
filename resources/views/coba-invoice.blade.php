@@ -13,6 +13,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <style>
+        hr {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,22 +64,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Rp. </td>
-                                            <td>Rp. </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <th>Total</th>
-                                            <td></td>
-                                            <th></th>
-                                        </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Rp. </td>
+                                        <td>Rp. </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <th>Total</th>
+                                        <td></td>
+                                        <th></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
