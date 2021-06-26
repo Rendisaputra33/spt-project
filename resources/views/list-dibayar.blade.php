@@ -59,7 +59,7 @@
                                 <table id="tabel_pemasukan" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" id="check-all"></th>
+                                            <th><input type="checkbox" id="check-all" disabled></th>
                                             <th>Tanggal Pulang</th>
                                             <th>Tipe</th>
                                             <th>Nama Pemilik</th>
@@ -76,7 +76,7 @@
                                         @else
                                         @foreach ($data as $item)
                                         <tr>
-                                            <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" /></td>
+                                            <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" disabled /></td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_pulang))) }}</td>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->nama_petani }}</td>

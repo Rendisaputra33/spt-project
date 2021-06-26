@@ -18,8 +18,29 @@ checkAll.onchange = function () {
 };
 
 document.getElementById("filter").addEventListener("click", function () {
+    const sopir = document.querySelector("select[name=pilih]");
+    const ds = document.querySelectorAll("input[type=checkbox]");
+
+    if (sopir.value === "Pilih Petani") {
+        for (let i = 0; i < ds.length; i++) {
+            ds[i].disabled = true;
+        }
+    } else {
+        for (let i = 0; i < ds.length; i++) {
+            ds[i].disabled = false;
+        }
+    }
     getSopir();
 });
+
+document.querySelector("select[name=pilih]").onchange = function () {
+    if (this.value === "Pilih Petani") {
+        const ds = document.querySelectorAll("input[type=checkbox]");
+        for (let i = 0; i < ds.length; i++) {
+            ds[i].disabled = true;
+        }
+    }
+};
 
 function getSopir() {
     const sopir = document.querySelector("select[name=pilih]").value;

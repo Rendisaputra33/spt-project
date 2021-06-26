@@ -57,10 +57,12 @@ class WilayahController extends Controller
         ]);
     }
 
-    public function updateHarga(Request $req)
+    public function updateHarga()
     {
         return response()->json([
-            'status' => Wilayah::where('id_wilayah', $req->id)->update(['harga' => $req->harga])
+            'status' => Wilayah::where('id_wilayah', request('id'))->update([
+                'harga_wilayah' => request('harga')
+            ]) ? 'sukses' : 'gagal'
         ]);
     }
 

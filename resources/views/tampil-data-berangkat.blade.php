@@ -80,11 +80,9 @@
                                             <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->wilayah }}</td>
                                             <td>{{ $item->harga }}</td>
-                                            <td>
+                                            <td style="text-align: center;">
                                                 <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                     <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-                                                <button type="button" class="btn btn-success update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
-                                                    Detail</button>
                                                 <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                             </td>
                                         </tr>
@@ -124,7 +122,7 @@
                                         <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
                                     </div>
                                     <select name="tipe" id="tipe" class="custom-select">
-                                        <option selected>Choose...</option>
+                                        <option selected value="def">Choose...</option>
                                         <option value="SPT">SPT</option>
                                         <option value="AMPERA">AMPERA</option>
                                     </select>
@@ -134,11 +132,7 @@
                                     <input type="text" class="form-control" placeholder="No SP " name="no_sp" required>
                                     <span class="text-dark"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">No Induk</label>
-                                    <input type="text" class="form-control" placeholder="No Induk " name="no_induk" required>
-                                    <span class="text-dark"></span>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="input-group mb-3">
@@ -146,7 +140,7 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                             </div>
                                             <select name="wilayah" class="custom-select">
-                                                <option selected>Choose...</option>
+                                                <option selected value="def">Choose...</option>
                                                 @foreach ($wilayah as $item)
                                                 <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
                                                 </option>
@@ -159,7 +153,7 @@
                                                     Pemilik</label>
                                             </div>
                                             <select name="nama_petani" class="custom-select">
-                                                <option selected>Choose...</option>
+                                                <option selected value="def">Choose...</option>
                                                 @foreach ($petani as $item)
                                                 <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
                                                 </option>
@@ -174,7 +168,7 @@
                                                     Petani</label>
                                             </div>
                                             <select name="nama_sopir" class="custom-select">
-                                                <option selected>Choose...</option>
+                                                <option selected value="def">Choose...</option>
                                                 @foreach ($sopir as $item)
                                                 <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
                                                 </option>
@@ -187,7 +181,7 @@
                                                     Pabrik</label>
                                             </div>
                                             <select name="nama_pabrik" class="custom-select">
-                                                <option selected>Choose...</option>
+                                                <option selected value="def">Choose...</option>
                                                 @foreach ($pg as $item)
                                                 <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                                 @endforeach
@@ -195,8 +189,28 @@
                                         </div>
                                     </div>
                                 </div>
-
-
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">No Induk</label>
+                                            <input type="text" class="form-control" placeholder="No Induk " name="no_induk" required>
+                                            <span class="text-dark"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" style="margin-top: 32px;">
+                                        <button disabled class="btn btn-primary text-bold" id="einduk"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Harga</label>
+                                            <input type="text" class="form-control" placeholder="Harga " name="harga" required>
+                                            <span class="text-dark"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" style="margin-top: 32px;">
+                                        <button disabled class="btn btn-primary text-bold" id="eharga"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Sangu</label>
                                     <input type="text" class="form-control" placeholder="Sangu " name="sangu" required>
@@ -215,11 +229,6 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Netto</label>
                                     <input type="text" class="form-control" placeholder="Netto " name="netto" required>
-                                    <span class="text-dark"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Harga</label>
-                                    <input type="text" class="form-control" placeholder="Harga " name="harga" required>
                                     <span class="text-dark"></span>
                                 </div>
                             </div>

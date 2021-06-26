@@ -35,6 +35,7 @@ Route::prefix('/petani')->group(function () {
     Route::put('/{id}', [PetaniController::class, 'update']);
     Route::delete('/{id}', [PetaniController::class, 'delete']);
     Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister']);
+    Route::get('/induk', [PetaniController::class, 'updateInduk']);
     // route grouping
     Route::prefix('/group')->group(function () {
         Route::get('/search', [PetaniController::class, 'search']);
@@ -81,6 +82,7 @@ Route::prefix('/wilayah')->group(function () {
     Route::put('/{id}', [WilayahController::class, 'update']);
     Route::delete('/{id}', [WilayahController::class, 'delete']);
     Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga']);
+    Route::get('/harga', [WilayahController::class, 'updateHarga']);
 
     Route::prefix('/group')->group(function () {
         Route::get('/search', [WilayahController::class, 'search']);

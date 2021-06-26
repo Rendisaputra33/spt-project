@@ -72,7 +72,7 @@ class PetaniController extends Controller
     }
 
     /**
-     * @return View 
+     * @return View
      */
     public function viewAdd()
     {
@@ -92,7 +92,16 @@ class PetaniController extends Controller
     public function getRegister($id)
     {
         return response()->json([
-            'data' => Petani::select('register_pemilik')->where('nama_pemilik', $id)->get()
+            'data' => Petani::select('register_pemilik', 'id_pemilik')->where('nama_pemilik', $id)->get()
+        ]);
+    }
+
+    public function updateInduk()
+    {
+        return response()->json([
+            'data' => Petani::where('id_pemilik', request('id'))->update([
+                'register_pemilik' => request('induk')
+            ]) ? 'sukses' : 'gagal'
         ]);
     }
 }
