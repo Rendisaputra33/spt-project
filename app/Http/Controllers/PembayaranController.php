@@ -135,7 +135,8 @@ class PembayaranController extends Controller
      */
     public function destroy(Pembayaran $pembayaran, $id)
     {
-        return $pembayaran->where('id_pembayaran', $id)->delete()
+        $invoice = str_replace('-', '/', $id);
+        return $pembayaran->where('no_invoice', $invoice)->delete()
             ? redirect()->back()->with('sukses', 'data berhasil di hapus')
             : redirect()->back()->with('error', 'data gagal di hapus');
     }
