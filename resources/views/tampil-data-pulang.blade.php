@@ -87,6 +87,7 @@
                                                                     <td>{{ formatRupiah($item->harga) }}</td>
                                                                     <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                                                     <td>
+                                                                        <button type="button" class="btn btn-primary text-bold" data-target="#modal-lg-2" data-toggle="modal" data-id=""><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                                         <button type="button" class="btn btn-warning text-bold" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                                         <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                                     </td>
@@ -162,11 +163,107 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary">SIMPAN</button>
+                                        <button type="submit" class="btn btn-secondary">Simpan</button>
                                     </div>
                                 </div>
 
                             </form>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="modal fade" id="modal-lg-2">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">DETAIL DATA</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <table id="tabel_pemasukan" class="table table-borderless mt-3" style=" display: flex; flex-direction: row; justify-content: space-evenly;">
+                                    <thead>
+                                        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                            <th>Tanggal Keberangkatan</th>
+                                            <th>Tipe</th>
+                                            <th>No SP</th>
+                                            <th>No Induk</th>
+                                            <th>Wilayah</th>
+                                            <th>Nama Petani</th>
+                                            <th>Pemilik</th>
+                                            <th>Petani</th>
+                                            <th>Tujuan</th>
+                                            <th>Berat Pulang</th>
+                                        </tr>
+                                    </thead>
+                                    <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                    </tr>
+                                    <tbody>
+                                        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                        </tr>   
+                                    </tbody>
+                                    <thead>
+                                        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                            <th>No Induk</th>
+                                            <th>Wilayah</th>
+                                            <th>Nama Petani</th>
+                                            <th>Pemilik</th>
+                                            <th>Petani</th>
+                                            <th>Tujuan</th>
+                                            <th>Berat Pulang</th>
+                                            <th>Netto</th>
+                                            <th>Harga</th>
+                                            <th>Tanggal</th>
+                                        </tr>
+                                    </thead>
+                                    <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                        <td>:</td>
+                                    </tr>
+                                    <tbody>
+                                        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            <td>dummy</td>
+                                            
+                                        </tr>   
+                                    </tbody>
+                                </table>
                         </div>
                         <!-- /.modal-content -->
                     </div>

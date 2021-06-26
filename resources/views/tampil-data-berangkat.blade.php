@@ -135,11 +135,7 @@
                                                     <input type="text" class="form-control" placeholder="No SP " name="no_sp" required>
                                                     <span class="text-dark"></span>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">No Induk</label>
-                                                    <input type="text" class="form-control" placeholder="No Induk " name="no_induk" required>
-                                                    <span class="text-dark"></span>
-                                                </div>
+                                                
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="input-group mb-3">
@@ -196,6 +192,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">No Induk</label>
+                                                    <input type="text" class="form-control" placeholder="No Induk " name="no_induk" required>
+                                                    <span class="text-dark"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Harga</label>
+                                                    <input type="text" class="form-control" placeholder="Harga " name="harga" required>
+                                                    <span class="text-dark"></span>
+                                                </div>
 
 
                                                 <div class="form-group">
@@ -215,14 +221,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Netto</label>
-                                                    <input type="text" class="form-control" placeholder="Netto " name="netto" required>
+                                                    <input type="text" class="form-control" placeholder="Netto " name="netto" disabled>
                                                     <span class="text-dark"></span>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Harga</label>
-                                                    <input type="text" class="form-control" placeholder="Harga " name="harga" required>
-                                                    <span class="text-dark"></span>
-                                                </div>
+                                                
                                             </div>
                                             <!-- /.card-body -->
                                             <div class="card-footer">
