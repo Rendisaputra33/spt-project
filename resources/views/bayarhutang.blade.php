@@ -1,5 +1,5 @@
 @extends('templates.template')
-@section("content")
+@section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -43,9 +43,10 @@
                                                 <span style="font-weight: bold;">Nama Sopir :</span>
                                             </div>
                                             <div class="col-2">
-                                                <select name="nama_sopir" id="nama_sopir" class="form-control select2bs4">
+                                                <select name="nama_sopir" id="nama_sopir"
+                                                    class="form-control select2bs4">
                                                     <option selected="selected">Pilih Sopir</option>
-                                                        <option value=""></option>
+                                                    <option value=""></option>
                                                 </select>
                                             </div>
                                             </form>
@@ -65,13 +66,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="#" class="btn btn-success text-white bayar" style="margin: center;" data-target="#modal-lg-cicil" data-toggle="modal"><i class=" fas fa-plus-circle"></i> Bayar</a></td>
-                                            </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href="#" class="btn btn-success text-white bayar" style="margin: center;"
+                                                data-target="#modal-lg-cicil" data-toggle="modal"><i
+                                                    class=" fas fa-plus-circle"></i> Bayar</a></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -82,56 +85,60 @@
             </div>
             <!-- /.row -->
             <?php $no = 0; ?>
-                <div class="modal fade" id="modal-lg-cicil">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Masukkan Nominal Cicilan</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                
-                                <div class="form-group" style="display: none;">
-                                    <label for=" nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="kode_hutang" value="" autocomplete="off">
-                                </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="keterangan" value="" autocomplete="off">
-                                </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="kode_supir" value="" autocomplete="off">
-                                </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="status_hutang" value="" autocomplete="off">
-                                </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="jenis" value="pembayaran_hutang" autocomplete="off">
-                                </div>
-                                <div class="form-group" style="display: none;">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="nominal_awal" value="" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama_barang" class="col-form-label">Nominal</label>
-                                    <input type="text" class="form-control" name="nominal" data-inputmask="'alias': 'currency' " data-mask>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+            <div class="modal fade" id="modal-lg-cicil">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Masukkan Nominal Cicilan</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-                                    <button type="submit" name="btnSubmit" class="btn btn-primary swalDefaultSuccess"><i class="fa fa-spinner fa-spin loading" style="display:none"></i> Simpan</button>
-                                </div>
+                            <div class="form-group" style="display: none;">
+                                <label for=" nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="kode_hutang" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="keterangan" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="kode_supir" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="status_hutang" value=""
+                                    autocomplete="off">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="jenis" value="pembayaran_hutang"
+                                    autocomplete="off">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="nominal_awal" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_barang" class="col-form-label">Nominal</label>
+                                <input type="text" class="form-control" name="nominal"
+                                    data-inputmask="'alias': 'currency' " data-mask>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+
+                                <button type="submit" name="btnSubmit" class="btn btn-primary swalDefaultSuccess"><i
+                                        class="fa fa-spinner fa-spin loading" style="display:none"></i> Simpan</button>
                             </div>
                         </div>
-                        <!-- /.modal-content -->
                     </div>
-                    <!-- /.modal-dialog -->
+                    <!-- /.modal-content -->
                 </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div>
 </div>
 
@@ -161,34 +168,34 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $('[data-mask]').inputmask("currency", {
-            prefix: " Rp. ",
-            digitsOptional: true
-        })
-
-        function filterData() {
-            $('#tabel_pemasukan').DataTable().search(
-                $('.select2bs4').val()
-            ).draw();
-        }
-
-        $('.select2bs4').on('change', function() {
-            var slct = $("#nama_sopir option:selected").html();
-            if (slct == "Pilih Sopir") {
-                $('#tabel_pemasukan').DataTable().search(
-                    ''
-                ).draw();
-            } else {
-                filterData();
-            }
-        });
-
-        $(function() {
-            $('.select2bs4').select2({
-                theme: 'bootstrap4',
-                placeholder: "change your placeholder"
+            $('[data-mask]').inputmask("currency", {
+                prefix: " Rp. ",
+                digitsOptional: true
             })
+
+            function filterData() {
+                $('#tabel_pemasukan').DataTable().search(
+                    $('.select2bs4').val()
+                ).draw();
+            }
+
+            $('.select2bs4').on('change', function() {
+                var slct = $("#nama_sopir option:selected").html();
+                if (slct == "Pilih Sopir") {
+                    $('#tabel_pemasukan').DataTable().search(
+                        ''
+                    ).draw();
+                } else {
+                    filterData();
+                }
+            });
+
+            $(function() {
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4',
+                    placeholder: "change your placeholder"
+                })
+            });
         });
-    });
 </script>
 @endsection
