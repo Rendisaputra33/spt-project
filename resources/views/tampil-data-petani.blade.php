@@ -57,7 +57,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Pemilik</th>
-                                            <th>Register Pemilik</th>
+                                            <th>No Induk</th>
                                             <th>Nama Pabrik</th>
                                             <th>Tanggal Edit</th>
                                             <th>Action</th>
@@ -68,9 +68,10 @@
                                         @if (count($petani) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($petani as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_pemilik }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_pemilik }}</td>
                                                     <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>

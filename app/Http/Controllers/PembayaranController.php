@@ -22,14 +22,15 @@ class PembayaranController extends Controller
             $this->data[] = [
                 'invoice' => $item->no_invoice,
                 'sub_total' => $item->sub_total,
-                'list_petani' => explode(',', $item->petani),
+                'petani' => $item->nama_sopir,
+                'list_pemilik' => explode(',', $item->pemilik),
                 'list_tipe' => explode(',', $item->type),
                 'tgl' => $item->tgl,
                 'harga' => $item->hrg,
             ];
         endforeach;
         return view('tampil-data-bayar', [
-            'data' => !isset($this->data) ? [] : $this->data
+            'list' => !isset($this->data) ? [] : $this->data
         ]);
     }
 

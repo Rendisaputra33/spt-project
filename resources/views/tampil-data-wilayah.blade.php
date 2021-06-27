@@ -67,9 +67,10 @@
                                         @if (count($wilayah) === 0)
                                             <td colspan="5" style="text-align: center;">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($wilayah as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_wilayah }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_wilayah }}</td>
                                                     <td>Rp {{ number_format($item->harga_wilayah, 0, ',', '.') }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>

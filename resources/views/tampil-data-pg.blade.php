@@ -67,9 +67,10 @@
                                         @if (count($pg) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($pg as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_pg }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_pg }}</td>
                                                     <td>{{ $item->lokasi_pg }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>

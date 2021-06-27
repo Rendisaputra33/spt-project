@@ -63,19 +63,20 @@
                                             <th>Tipe</th>
                                             <th>Tanggal Bayar</th>
                                             <th>Harga</th>
+                                            <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
                                             <th>Sub Total</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
-                                        <?php if (count($data) === 0): ?>
+                                        <?php if (count($list) === 0): ?>
                                         <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         <?php else: ?>
                                         @php
                                         $no = 1;
                                         @endphp
-                                        @foreach ($data as $item)
+                                        @foreach ($list as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item['invoice'] }}</td>
@@ -95,20 +96,25 @@
                                                 <details>
                                                     <summary>List Nama Petani</summary>
                                                     <ol>
-                                                        @foreach ($item['list_petani'] as $data)
+                                                        @foreach ($item['list_pemilik'] as $data)
                                                         <li>{{ $data }}</li>
                                                         @endforeach
                                                     </ol>
                                                 </details>
                                             </td>
+                                            <td>{{ $item['petani'] }}</td>
                                             <td>{{ formatRupiah($item['sub_total']) }}</td>
                                             <td><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
                                         </tr>
                                         @endforeach
                                         <?php endif; ?>
                                         <tr>
-                                            <td colspan="6"><b>Total</b></td>
-                                            <td colspan="2">Rp. 5.000.000</td>
+                                            <td colspan="7"><b>
+                                                    <h4>Total
+                                                </b></h4>
+                                            </td>
+
+                                            <td colspan="2">Rp. {{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -147,6 +153,6 @@
             }
         });
 </script>
-@endsection
 
+@endsection
 {{-- <!-- <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a> --> --}}

@@ -68,9 +68,10 @@
                                         @if (count($sopir) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($sopir as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_petani }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_petani }}</td>
                                                     <td>{{ $item->nohp_petani }}</td>
                                                     <td>{{ $item->alamat_petani }}</td>
