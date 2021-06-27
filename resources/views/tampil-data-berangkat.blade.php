@@ -79,7 +79,7 @@
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->wilayah }}</td>
-                                            <td>{{ $item->harga }}</td>
+                                            <td>{{ formatRupiah($item->harga) }}</td>
                                             <td style="text-align: center;">
                                                 <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                     <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>

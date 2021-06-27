@@ -47,7 +47,7 @@ const FORM_UPDATE = {
 
 for (let i = 0; i < BTN.update.length; i++) {
     BTN.update[i].addEventListener('click', function () {
-        setForm(this);
+        setForm(this.getAttribute('data-id'));
     });
 }
 
@@ -56,19 +56,19 @@ FORM_ADD.tipe.addEventListener('change', function () {
 });
 
 const dForm = THIS => {
-    THIS.sangu.disabled = true;
-    THIS.berat.disabled = true;
-    THIS.truk.disabled = true;
-    THIS.netto.disabled = true;
-    THIS.harga.disabled = true;
+    THIS.sangu.readOnly = true;
+    THIS.berat.readOnly = true;
+    THIS.truk.readOnly = true;
+    THIS.netto.readOnly = true;
+    THIS.harga.readOnly = true;
 };
 
 const oForm = THIS => {
-    THIS.sangu.disabled = false;
-    THIS.berat.disabled = false;
-    THIS.truk.disabled = false;
-    THIS.netto.disabled = false;
-    THIS.harga.disabled = false;
+    THIS.sangu.readOnly = false;
+    THIS.berat.readOnly = false;
+    THIS.truk.readOnly = false;
+    THIS.netto.readOnly = false;
+    THIS.harga.readOnly = false;
 };
 
 FORM_ADD.berat.addEventListener('keyup', function () {
@@ -145,7 +145,10 @@ function getfilter() {
 }
 
 function setForm(THIS) {
-    const ID = THIS.getAttribute('data-id');
+    const ID = THIS;
+    document
+        .getElementById('form-update')
+        .setAttribute('action', URL + '/berangkat/' + ID);
     fetch(URL + '/berangkat/view/get/' + ID)
         .then(res => res.json())
         .then(res => {
@@ -185,27 +188,66 @@ BTN.uinduk.onclick = async function () {
 
 const parse = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += htmldata(res);
+        html += htmldata(res, no++);
     });
     return html;
 };
 
-const htmldata = res => {
+const htmldata = (res, no) => {
     return /*html*/ `<tr>
-    <td>${res.tipe}</td>
+    <td>${no}</td>
+    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.no_sp}</td>
+    <td>${res.nama_petani}}</td>
+    <td>${res.no_induk}</td>
     <td>${res.wilayah}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.berat_timbang}</td>
-    <td>${res.netto}</td>
-    <td>${res.harga}</td>
-    <td>${res.tanggal_keberangkatan}</td>
-    <td>
-        <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}"> Edit</button>&nbsp;
-        <a href="/berangkat/${res.id_keberangkatan}" class="btn btn-danger">Hapus</a>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td style="text-align: center;">
+        <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
+            res.tanggal_keberangkatan
+        }">
+            <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <a href="${URL}/berangkat/${
+        res.tanggal_keberangkatan
+    }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
+};
+
+// optional function
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+};
+
+const formatRupiah = (angka, prefix) => {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };

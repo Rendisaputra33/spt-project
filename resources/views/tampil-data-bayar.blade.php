@@ -114,7 +114,7 @@
                                                 </b></h4>
                                             </td>
 
-                                            <td colspan="2">Rp. {{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td>
+                                            <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
