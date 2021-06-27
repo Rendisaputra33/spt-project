@@ -45,11 +45,15 @@ const FORM_UPDATE = {
     harga: document.querySelector('input[name=uharga]'),
 };
 
-for (let i = 0; i < BTN.update.length; i++) {
-    BTN.update[i].addEventListener('click', function () {
-        setForm(this.getAttribute('data-id'));
-    });
-}
+const setFunctionu = () => {
+    for (let i = 0; i < BTN.update.length; i++) {
+        BTN.update[i].addEventListener('click', function () {
+            setForm(this.getAttribute('data-id'));
+        });
+    }
+};
+
+setFunctionu();
 
 FORM_ADD.tipe.addEventListener('change', function () {
     this.value === 'SPT' ? dForm(FORM_ADD) : oForm(FORM_ADD);
@@ -141,6 +145,7 @@ function getfilter() {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
+            setFunctionu();
         });
 }
 
@@ -206,11 +211,11 @@ const htmldata = (res, no) => {
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
         <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
-            res.tanggal_keberangkatan
+            res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
         <a href="${URL}/berangkat/${
-        res.tanggal_keberangkatan
+        res.id_keberangkatan
     }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
