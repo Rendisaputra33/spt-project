@@ -44,8 +44,15 @@
                                     <span class="text-secondary"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Nama Pabrik</label>
-                                    <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required>
+                                    <label for="pabriktujuan">Nama Pabrik</label>
+                                    <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
+                                        <option selected>Choose...</option>
+                                        @foreach ($pabrik as $item)
+                                        <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                        @endforeach
+                                    </select>
+                                    {{-- <label for="exampleInputPassword1">Nama Pabrik</label> --}}
+                                    {{-- <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required> --}}
                                     <span class="text-secondary"></span>
                                 </div>
                             </div>

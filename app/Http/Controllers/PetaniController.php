@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Petani;
+use App\Models\Pg;
 use Illuminate\Http\Request;
 
 class PetaniController extends Controller
@@ -76,7 +77,9 @@ class PetaniController extends Controller
      */
     public function viewAdd()
     {
-        return view('petani');
+        return view('petani', [
+            'pabrik' => Pg::select('nama_pg')->get()
+        ]);
     }
 
     /**
