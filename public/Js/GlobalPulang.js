@@ -52,17 +52,18 @@ function getfilter() {
             document.getElementById("list-data").innerHTML = parse(res);
         });
 
-}
+};
 
-const parse = (data) => {
+const parse = data => {
     let html = "";
-    data.data.map((res, no = 1) => {
+    let no = 1;
+    data.data.map((res) => {
         html += htmldata(res, no++);
     });
     return html;
-}
+};
 
-const htmldata = (res, no = 1) => {
+const htmldata = (res, no) => {
     const total = res.netto_pulang * res.harga;
     return /*html*/ `<tr>
     <td>${no}</td>
@@ -76,7 +77,7 @@ const htmldata = (res, no = 1) => {
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>${formatRupiah(total.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold" data-target="#modal-lg-2" data-toggle="modal" data-id=""><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
         <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
         <a href="/pulang/${res.id_keberangkatan}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
