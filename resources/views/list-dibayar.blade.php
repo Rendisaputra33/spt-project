@@ -68,6 +68,7 @@
                                             <th>Tanggal Berangkat</th>
                                             <th>Berat Bersih</th>
                                             <th>Harga</th>
+                                            <th>Sub Total</th>
                                         </tr>
                                     </thead>
                                     <tbody id="list-data">
@@ -85,6 +86,7 @@
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                            <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>
                                         </tr>
                                         @endforeach
                                         @endif

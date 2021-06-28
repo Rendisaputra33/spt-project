@@ -179,7 +179,9 @@ BTN.uharga.onclick = async function () {
         URL + `/wilayah/harga?id=${DATA_HARGA.id}&harga=${HARGA}`
     );
     const RESULT = await DATA.json();
-    console.log(RESULT);
+    RESULT.status === 'sukses'
+        ? alert('sukses update harga')
+        : alert('gagal update harga');
 };
 
 BTN.uinduk.onclick = async function () {
@@ -188,7 +190,9 @@ BTN.uinduk.onclick = async function () {
         URL + `/petani/induk?id=${REGISTER.id}&induk=${INDUK}`
     );
     const RESULT = await DATA.json();
-    console.log(RESULT);
+    RESULT.data === 'sukses'
+        ? alert('sukses update nomor induk')
+        : alert('gagal update nomor induk');
 };
 
 const parse = data => {
@@ -210,11 +214,13 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
+            res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="${URL}/berangkat/${res.id_keberangkatan
-        }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="${URL}/berangkat/${
+        res.id_keberangkatan
+    }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };

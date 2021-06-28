@@ -108,12 +108,12 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Pulang " value="{{ date('Y-m-d') }}" name="tanggal_pulang">
+                                    <input type="date" class="form-control date" placeholder="Tanggal Pulang " value="{{ date('Y-m-d') }}" name="tanggal_pulang">
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Bongkar " value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
+                                    <input type="date" class="form-control date" placeholder="Tanggal Bongkar " value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -173,11 +173,12 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
-    $('#date-range').daterangepicker({
-                        locale: {
-                            format: 'YYYY-MM-DD',
-                            separator: " / "
-                        }
-                    });
+    $('#date-range')
+        .daterangepicker({
+            locale: {
+                format: 'YYYY-MM-DD',
+                separator: " / "
+            }
+    });
 </script>
 @endsection

@@ -198,7 +198,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2" style="margin-top: 32px;">
-                                        <button disabled class="btn btn-primary text-bold" id="einduk"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
+                                        <button disabled type="button" class="btn btn-primary text-bold" id="einduk"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="form-group">
@@ -208,7 +208,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2" style="margin-top: 32px;">
-                                        <button disabled class="btn btn-primary text-bold" id="eharga"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
+                                        <button disabled type="button" class="btn btn-primary text-bold" id="eharga"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</button>
                                     </div>
                                 </div>
                                 <div class="form-group">
