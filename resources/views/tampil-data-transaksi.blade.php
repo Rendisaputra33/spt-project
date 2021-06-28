@@ -82,8 +82,10 @@
                                     </thead>
                                     <tbody id='list-data'>
                                         <?php $no = 1; ?>
-                                        @foreach ($data as $item)
+                                        <?php $c = 0; ?>
+                                        @foreach ($list as $item)
                                         <tr>
+                                            <?php $c += $item->harga * ($item->berat_pulang - $item->refaksi) ?>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                             <td>{{ $item->tanggal_pulang === null ? 'belum pulang' : formatTanggal($item->tanggal_pulang) }}</td>
@@ -98,6 +100,13 @@
                                             <td>{{ formatRupiah($item->harga * ($item->berat_pulang - $item->refaksi)) }}</td>
                                         </tr>
                                         @endforeach
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="8">Total</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>{{ formatRupiah($c) }}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
