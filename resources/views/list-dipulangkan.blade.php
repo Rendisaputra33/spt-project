@@ -167,7 +167,7 @@
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-secondary">Simpan</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
 
