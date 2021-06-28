@@ -81,9 +81,13 @@
                                             <td>{{ $item->wilayah }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
                                             <td style="text-align: center;">
-                                                <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                <button type="button" {{$item->tanggal_pulang != null ? 'disabled' : ''}} class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                     <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-                                                <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                    @if ( $item->tanggal_pulang == null )
+                                                        <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                    @else
+
+                                                    @endif
                                             </td>
                                         </tr>
                                         @endforeach
@@ -234,7 +238,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-dark">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                     </div>
@@ -383,7 +387,7 @@
                     </div>
                     <div class="modal-footer float-left">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-secondary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

@@ -20,7 +20,7 @@ class BerangkatController extends Controller
             $update = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $dau];
             return view('tampil-data-berangkat', $update);
         } else {
-            $list = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
+            $list = $berangkat->whereDate('created_at', now())->get();
             $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
             return view('tampil-data-berangkat', $data);
         }

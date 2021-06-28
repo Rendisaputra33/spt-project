@@ -76,7 +76,7 @@
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                         <form action="{{ url('/') }}/pg/{{ $item->id_pg }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
@@ -121,7 +121,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
                                 </div>
                         </div>

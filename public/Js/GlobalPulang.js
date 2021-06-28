@@ -83,7 +83,7 @@ const htmldata = (res, no) => {
     <td>${formatRupiah(total.toString(), 'Rp ')}</td>
     <td>
         <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
         <a href="/pulang/${res.id_keberangkatan}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`
