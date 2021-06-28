@@ -73,6 +73,14 @@ const oForm = THIS => {
     THIS.netto.readOnly = false;
 };
 
+FORM_UPDATE.tipe.addEventListener('change', function () {
+    if (this.value === 'SPT') {
+        dForm(FORM_UPDATE);
+    } else {
+        oForm(FORM_UPDATE);
+    }
+});
+
 FORM_ADD.berat.addEventListener('keyup', function () {
     FORM_ADD.netto.value = this.value;
 });
@@ -168,6 +176,7 @@ function setForm(THIS) {
             FORM_UPDATE.truk.value = res.data.tara_mbl;
             FORM_UPDATE.netto.value = res.data.netto;
             FORM_UPDATE.harga.value = res.data.harga;
+            res.data.tipe === 'SPT' ? dForm(FORM_UPDATE) : oForm(FORM_UPDATE);
         });
 }
 
@@ -212,11 +221,13 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
+            res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="${URL}/berangkat/${res.id_keberangkatan
-        }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="${URL}/berangkat/${
+        res.id_keberangkatan
+    }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };
