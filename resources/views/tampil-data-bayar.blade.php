@@ -60,12 +60,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Invoice</th>
-                                            <th>Tipe</th>
-                                            <th>Tanggal Bayar</th>
-                                            <th>Harga</th>
-                                            <th>Nama Pemilik</th>
+                                            <th>Tanggal Pembayaran</th>
                                             <th>Nama Petani</th>
-                                            <th>Sub Total</th>
+                                            <th>No SP</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -80,30 +77,9 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item['invoice'] }}</td>
-                                            <td>
-                                                <details>
-                                                    <summary>List Tipe Tebu</summary>
-                                                    <ol>
-                                                        @foreach ($item['list_tipe'] as $data)
-                                                        <li>{{ $data }}</li>
-                                                        @endforeach
-                                                    </ol>
-                                                </details>
-                                            </td>
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
-                                            {{-- <td>{{ formatRupiah($item['harga']) }}</td> --}}
-                                            <td>
-                                                <details>
-                                                    <summary>List Nama Petani</summary>
-                                                    <ol>
-                                                        @foreach ($item['list_pemilik'] as $data)
-                                                        <li>{{ $data }}</li>
-                                                        @endforeach
-                                                    </ol>
-                                                </details>
-                                            </td>
                                             <td>{{ $item['petani'] }}</td>
-                                            {{-- <td>{{ formatRupiah($item['sub_total']) }}</td> --}}
+                                            <td>{{ $item['list_sp'] }}</td>
                                             <td><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
                                         </tr>
                                         @endforeach

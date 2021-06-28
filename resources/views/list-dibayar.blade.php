@@ -62,10 +62,12 @@
                                             <th><input type="checkbox" id="check-all" disabled></th>
                                             <th>Tanggal Pulang</th>
                                             <th>Tipe</th>
+                                            <th>No SP</th>
                                             <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
                                             <th>Tujuan</th>
                                             <th>Tanggal Berangkat</th>
+                                            <th>No Induk</th>
                                             <th>Berat Bersih</th>
                                             <th>Harga</th>
                                             <th>Sub Total</th>
@@ -80,10 +82,12 @@
                                             <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" disabled /></td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_pulang))) }}</td>
                                             <td>{{ $item->tipe }}</td>
+                                            <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
+                                            <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>
