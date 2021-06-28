@@ -76,7 +76,7 @@
                                         <td>{{ $item->nama_sopir }}</td>
                                         <td>
                                             @if ($item->no_sp === null)
-                                            <a href="/berangkat?id={{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Lengkapi</a>
+                                            <a href="#" class="btn btn-danger text-bold sp" data-target="#modal-sp" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Lengkapi</a>
                                             @else
                                             <a href="#" class="btn btn-primary text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Pilih</a>
                                             @endif
@@ -134,6 +134,36 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Netto</label>
                                     <input type="text" class="form-control" placeholder="Netto " name="netto" readonly>
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-secondary">Simpan</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            {{-- modal update sp --}}
+            <div class="modal fade" id="modal-sp">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">UPDATE NOMOR SP</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form method="post" action="" id="form-sp">
+                            @csrf
+                            @method('put')
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nomor SP</label>
+                                    <input type="text" class="form-control" placeholder="Refaksi " name="no_sp">
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">

@@ -153,6 +153,7 @@ Route::prefix('/pulang')->group(function () {
         Route::get('/list', [PulangContoller::class, 'show'])->middleware('myAuth');
         Route::get('/cetak', [PulangContoller::class, 'cetak'])->middleware('myAuth');
         Route::get('/get/{id}', [PulangContoller::class, 'update'])->middleware('myAuth');
+        Route::put('/list/{id}', [PulangContoller::class, 'updateSp']);
     });
 });
 

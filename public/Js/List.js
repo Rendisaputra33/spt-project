@@ -11,6 +11,20 @@ for (let i = 0; i < elementUpdate.length; i++) {
     });
 }
 
+function elementSp() {
+    const sp = document.getElementsByClassName('sp');
+    for (let i = 0; i < sp.length; i++) {
+        sp[i].addEventListener('click', function () {
+            const ID = this.getAttribute('data-id');
+            document
+                .getElementById('form-sp')
+                .setAttribute('action', URL + '/pulang/view/list/' + ID);
+        });
+    }
+}
+
+elementSp();
+
 document
     .querySelector('input[name=berat_pulang]')
     .addEventListener('keyup', function () {
@@ -26,4 +40,3 @@ document
             parseInt(this.value);
         document.querySelector('input[name=netto]').value = set.toString();
     });
-

@@ -112,4 +112,11 @@ class PulangContoller extends Controller
             'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
         ]);
     }
+
+    public function updateSp(Berangkat $berangkat, Request $req, $id)
+    {
+        return $berangkat->where('id_keberangkatan', $id)->update([
+            'no_sp' => $req->no_sp
+        ]) ? redirect()->back() : redirect()->back();
+    }
 }
