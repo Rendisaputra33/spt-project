@@ -28,18 +28,18 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <form>
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                         </div>
-                                                        <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                        <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('m/d/Y') ?> - <?= date('m/d/Y') ?>">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="col-6">
-                                            <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
+                                            <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                         </div>
                                         </form>
                                     </div>
@@ -170,4 +170,14 @@
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+    $('#date-range').daterangepicker({
+                        locale: {
+                            format: 'YYYY-MM-DD',
+                            separator: " / "
+                        }
+                    });
+</script>
 @endsection

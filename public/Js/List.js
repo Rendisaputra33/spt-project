@@ -1,5 +1,6 @@
 const elementUpdate = document.getElementsByClassName('update');
 const URL = document.getElementById('url').value;
+const TOKEN = document.getElementById('token').value;
 
 for (let i = 0; i < elementUpdate.length; i++) {
     elementUpdate[i].addEventListener('click', function () {
@@ -25,3 +26,4 @@ document
             parseInt(this.value);
         document.querySelector('input[name=netto]').value = set.toString();
     });
+

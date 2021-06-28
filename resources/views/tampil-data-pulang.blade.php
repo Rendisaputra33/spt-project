@@ -87,7 +87,7 @@
                                             <td>{{ formatRupiah($item->harga) }}</td>
                                             <td>{{ formatRupiah($item->netto_pulang * $item->harga) }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-primary text-bold" data-target="#modal-lg-2" data-toggle="modal" data-id=""><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+                                                <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                 <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                 <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                             </td>
@@ -192,7 +192,6 @@
                         <th>Wilayah</th>
                         <th>Nama Petani</th>
                         <th>Pemilik</th>
-                        <th>Petani</th>
                         <th>Tujuan</th>
                         <th>Berat Pulang</th>
                     </tr>
@@ -207,11 +206,9 @@
                     <td>:</td>
                     <td>:</td>
                     <td>:</td>
-                    <td>:</td>
                 </tr>
-                <tbody>
+                <tbody id="detail1">
                     <tr class="col-sm" style="display: flex; flex-direction: column;">
-                        <td>dummy</td>
                         <td>dummy</td>
                         <td>dummy</td>
                         <td>dummy</td>
@@ -229,12 +226,11 @@
                         <th>Wilayah</th>
                         <th>Nama Petani</th>
                         <th>Pemilik</th>
-                        <th>Petani</th>
                         <th>Tujuan</th>
                         <th>Berat Pulang</th>
                         <th>Netto</th>
                         <th>Harga</th>
-                        <th>Tanggal</th>
+                        <th>Tanggal Pulang</th>
                     </tr>
                 </thead>
                 <tr class="col-sm" style="display: flex; flex-direction: column;">
@@ -247,11 +243,9 @@
                     <td>:</td>
                     <td>:</td>
                     <td>:</td>
-                    <td>:</td>
                 </tr>
-                <tbody>
+                <tbody id="detail2">
                     <tr class="col-sm" style="display: flex; flex-direction: column;">
-                        <td>dummy</td>
                         <td>dummy</td>
                         <td>dummy</td>
                         <td>dummy</td>

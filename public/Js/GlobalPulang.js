@@ -63,20 +63,100 @@ const parse = (data) => {
 }
 
 const htmldata = (res) => {
+    const total = res.netto_pulang * res.harga;
     return /*html*/ `<tr>
-    <td>${res.tipe}</td>
-    <td>${res.no_sp}</td>
-    <td>${res.wilayah}</td>
+    <td>$no++</td>
+    <td>${formatTanggal(res.tanggal_pulang)}</td>
+    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.nama_petani}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.berat_pulang} Kuintal</td>
+    <td>${res.no_sp}</td>
+    <td>${res.no_truk}</td>
+    <td>${res.nama_sopir} Kuintal</td>
     <td>${res.netto_pulang}</td>
-    <td>formatRupiah(${res.harga})</td>
-    <td>formatTanggal(${res.tanggal_pulang})</td>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td>${formatRupiah(total.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-warning update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan}"> Edit</button>&nbsp;
-        <a href="/pulang/${res.id_keberangkatan}" class="btn btn-danger">Hapus</a>
+        <button type="button" class="btn btn-primary text-bold" data-target="#modal-lg-2" data-toggle="modal" data-id=""><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+        <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <a href="/pulang/${res.id_keberangkatan}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`
 }
+
+const dt = document.getElementsByClassName('detail');
+
+for (let i = 0; i < dt.length; i++) {
+    dt[i].addEventListener("click", function () {
+        const ID = this.getAttribute("data-id");
+        fetch(URL + '/detail?id=' + ID)
+            .then((res) => res.json())
+            .then((res) => {
+                document.getElementById('detail1').innerHTML = htmldetail(res.data),
+                    document.getElementById('detail2').innerHTML = htmldetail2(res.data)
+            })
+    });
+}
+
+const htmldetail = res => {
+    return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
+    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+    <td>${res.tipe}</td>
+    <td>${res.no_sp}</td>
+    <td>${res.no_induk}</td>
+    <td>${res.wilayah}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.berat_pulang}</td>
+</tr>`
+}
+
+const htmldetail2 = res => {
+    return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
+    <td>${res.no_induk}</td>
+    <td>${res.wilayah}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.berat_pulang}</td>
+    <td>${res.netto}</td>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td>${formatTanggal(res.tanggal_pulang)}</td>
+</tr>`
+}
+
+
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+};
+
+const formatRupiah = (angka, prefix) => {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
+};

@@ -43,6 +43,12 @@ function getSopir() {
                 ? (document.getElementById('bayar').disabled = true)
                 : (document.getElementById('bayar').disabled = false);
         });
+        .then(
+            res =>
+            (document.getElementById('list-data').innerHTML = parse(
+                res.pembayaran
+            ))
+        );
 }
 
 const parse = data => {
@@ -69,9 +75,8 @@ const oCheckbox = () => {
 
 const htmldata = item => {
     return /*html*/ `<tr>
-    <td><input type="checkbox" class="cl" name="id[]" value="${
-        item.id_keberangkatan
-    }" /></td>
+    <td><input type="checkbox" class="cl" name="id[]" value="${item.id_keberangkatan
+        }" /></td>
     <td>${formatTanggal(item.tanggal_pulang)}</td>
     <td>${item.tipe}</td>
     <td>${item.nama_petani}</td>

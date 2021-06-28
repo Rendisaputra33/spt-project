@@ -189,6 +189,7 @@ Route::post('/filtertransaksi', [FilterController::class, 'FilterTData'])->middl
 Route::post('/filterlaporan', [FilterController::class, 'FilterLPData'])->middleware('myAuth');
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData'])->middleware('myAuth');
 Route::get('/pilih', [FilterController::class, 'getSopir'])->middleware('myAuth');
+Route::get('/detail', [FilterController::class, 'getDetail'])->middleware('myAuth');
 
 Route::get('/coba', function () {
     return view('coba-invoice');

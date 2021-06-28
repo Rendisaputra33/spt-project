@@ -56,4 +56,11 @@ class FilterController extends Controller
                 'type' => 'base'
             ]);
     }
+
+    public function getDetail()
+    {
+        $id = request('id');
+        return response()->json(['data' => Berangkat::where('id_keberangkatan', $id)->first()]);
+    }
+
 }
