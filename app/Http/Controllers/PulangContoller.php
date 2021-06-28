@@ -77,7 +77,7 @@ class PulangContoller extends Controller
             'refaksi' => $req->refaksi,
             'netto_pulang' => $req->berat_pulang - $req->refaksi,
             'updated_at' => now()
-        ]) ? redirect()->back() : redirect()->back();
+        ]) ? redirect('/pulang') : redirect()->back();
     }
 
     /**

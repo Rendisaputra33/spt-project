@@ -56,16 +56,16 @@
                                 <table id="tabel_pemasukan" class="table table-bordered table-striped ">
                                     <thead>
                                         <tr>
-                                            <th>Tipe</th>
-                                            <th>No SP</th>
-                                            <th>Wilayah</th>
+                                            <th>No</th>
+                                            <th>Tanggal Pulang</th>
+                                            <th>Tanggal Berangkat</th>
                                             <th>Pemilik</th>
+                                            <th>No SP</th>
+                                            <th>No Truk</th>
                                             <th>Petani</th>
-                                            <th>Tujuan</th>
-                                            <th>Berat Pulang</th>
-                                            <th>Netto</th>
+                                            <th>Berat Bersih</th>
                                             <th>Harga</th>
-                                            <th>Tanggal</th>
+                                            <th>Sub Total</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -73,18 +73,19 @@
                                         @if (count($data) === 0)
                                         <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         @else
+                                        <?php $no = 1; ?>
                                         @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->tipe }}</td>
-                                            <td>{{ $item->no_sp }}</td>
-                                            <td>{{ $item->wilayah }}</td>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                             <td>{{ $item->nama_petani }}</td>
-                                            <td>{{ $item->nama_sopir }}</td>
-                                            <td>{{ $item->pabrik_tujuan }}</td>
-                                            <td>{{ $item->berat_pulang }} Kuintal</td>
+                                            <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->no_truk }}</td>
+                                            <td>{{ $item->nama_sopir }} Kuintal</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
+                                            <td>{{ formatRupiah($item->netto_pulang * $item->harga) }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary text-bold" data-target="#modal-lg-2" data-toggle="modal" data-id=""><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                 <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
