@@ -83,11 +83,11 @@
                                             <td style="text-align: center;">
                                                 <button type="button" {{$item->tanggal_pulang != null ? 'disabled' : ''}} class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                     <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-                                                    @if ( $item->tanggal_pulang == null )
-                                                        <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                    @else
+                                                @if ( $item->tanggal_pulang == null )
+                                                <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                @else
 
-                                                    @endif
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach
@@ -144,7 +144,7 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                             </div>
                                             <select name="wilayah" class="custom-select">
-                                                <option selected value="def">Choose...</option>
+                                                <option selected value="def">Pilih...</option>
                                                 @foreach ($wilayah as $item)
                                                 <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
                                                 </option>
@@ -157,7 +157,7 @@
                                                     Pemilik</label>
                                             </div>
                                             <select name="nama_petani" class="custom-select">
-                                                <option selected value="def">Choose...</option>
+                                                <option selected value="def">Pilih...</option>
                                                 @foreach ($petani as $item)
                                                 <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
                                                 </option>
@@ -172,7 +172,7 @@
                                                     Petani</label>
                                             </div>
                                             <select name="nama_sopir" class="custom-select">
-                                                <option selected value="def">Choose...</option>
+                                                <option selected value="def">Pilih...</option>
                                                 @foreach ($sopir as $item)
                                                 <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
                                                 </option>
@@ -185,7 +185,7 @@
                                                     Pabrik</label>
                                             </div>
                                             <select name="nama_pabrik" class="custom-select">
-                                                <option selected value="def">Choose...</option>
+                                                <option selected value="def">Pilih...</option>
                                                 @foreach ($pg as $item)
                                                 <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                                 @endforeach

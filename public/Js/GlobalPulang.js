@@ -24,25 +24,29 @@ function displayU() {
                     document.querySelector(
                         'input[name=tanggal_bongkar]'
                     ).value = res.data.tanggal_bongkar;
-                    document.querySelector(
-                        'input[name=berat_bersih]'
-                    ).value = res.data.berat_pulang - res.data.refaksigit;
-
+                    document.querySelector('input[name=berat_bersih]').value =
+                        res.data.berat_pulang - res.data.refaksi;
                 });
         });
     }
 }
 
-document.querySelector('input[name=berat_pulang]').addEventListener('keyup', function () {
-    const netto = document.querySelector('input[name=berat_bersih]');
-    netto.value = this.value
-})
+document
+    .querySelector('input[name=berat_pulang]')
+    .addEventListener('keyup', function () {
+        const netto = document.querySelector('input[name=berat_bersih]');
+        netto.value = this.value;
+    });
 
-document.querySelector('input[name=refaksi]').addEventListener('keyup', function () {
-    const netto = document.querySelector('input[name=berat_bersih]');
-    const total = parseInt(document.querySelector('input[name=berat_pulang]').value) - parseInt(this.value);
-    netto.value = total.toString()
-})
+document
+    .querySelector('input[name=refaksi]')
+    .addEventListener('keyup', function () {
+        const netto = document.querySelector('input[name=berat_bersih]');
+        const total =
+            parseInt(document.querySelector('input[name=berat_pulang]').value) -
+            parseInt(this.value);
+        netto.value = total.toString();
+    });
 
 displayU();
 
@@ -95,11 +99,14 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/pulang/${res.id_keberangkatan
+        <a href="/pulang/${
+            res.id_keberangkatan
         }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
