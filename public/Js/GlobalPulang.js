@@ -1,30 +1,33 @@
-const elementUpdate = document.getElementsByClassName("update");
 const URL = document.getElementById("url").value;
 const TOKEN = document.getElementById("token").value;
 
-for (let i = 0; i < elementUpdate.length; i++) {
-    elementUpdate[i].addEventListener("click", function () {
-        const ID = this.getAttribute("data-id");
-        console.log(ID);
-        document
-            .getElementById("form-update")
-            .setAttribute("action", URL + "/pulang/" + ID);
-        fetch(URL + "/pulang/view/get/" + ID)
-            .then((res) => res.json())
-            .then((res) => {
-                document.querySelector("input[name=no_truk]").value =
-                    res.data.no_truk;
-                document.querySelector("input[name=berat_pulang]").value =
-                    res.data.berat_pulang;
-                document.querySelector("input[name=refaksi]").value =
-                    res.data.refaksi;
-                document.querySelector("input[name=tanggal_pulang]").value =
-                    res.data.tanggal_pulang;
-                document.querySelector("input[name=tanggal_bongkar]").value =
-                    res.data.tanggal_bongkar;
-            });
-    });
+function displayU() {
+    const elementUpdate = document.getElementsByClassName("update");
+    for (let i = 0; i < elementUpdate.length; i++) {
+        elementUpdate[i].addEventListener("click", function () {
+            const ID = this.getAttribute("data-id");
+            console.log(ID);
+            document
+                .getElementById("form-update")
+                .setAttribute("action", URL + "/pulang/" + ID);
+            fetch(URL + "/pulang/view/get/" + ID)
+                .then((res) => res.json())
+                .then((res) => {
+                    document.querySelector("input[name=no_truk]").value =
+                        res.data.no_truk;
+                    document.querySelector("input[name=berat_pulang]").value =
+                        res.data.berat_pulang;
+                    document.querySelector("input[name=refaksi]").value =
+                        res.data.refaksi;
+                    document.querySelector("input[name=tanggal_pulang]").value =
+                        res.data.tanggal_pulang;
+                    document.querySelector("input[name=tanggal_bongkar]").value =
+                        res.data.tanggal_bongkar;
+                });
+        });
+    }
 }
+
 
 document.getElementById('filter').addEventListener('click', function () {
     filter();
@@ -50,6 +53,8 @@ function getfilter() {
         .then((res) => res.json())
         .then((res) => {
             document.getElementById("list-data").innerHTML = parse(res);
+            displayD();
+            displayU();
         });
 
 };
@@ -84,18 +89,20 @@ const htmldata = (res, no) => {
 </tr>`
 }
 
-const dt = document.getElementsByClassName('detail');
+function displayD() {
+    const dt = document.getElementsByClassName('detail');
 
-for (let i = 0; i < dt.length; i++) {
-    dt[i].addEventListener("click", function () {
-        const ID = this.getAttribute("data-id");
-        fetch(URL + '/detail?id=' + ID)
-            .then((res) => res.json())
-            .then((res) => {
-                document.getElementById('detail1').innerHTML = htmldetail(res.data),
-                    document.getElementById('detail2').innerHTML = htmldetail2(res.data)
-            })
-    });
+    for (let i = 0; i < dt.length; i++) {
+        dt[i].addEventListener("click", function () {
+            const ID = this.getAttribute("data-id");
+            fetch(URL + '/detail?id=' + ID)
+                .then((res) => res.json())
+                .then((res) => {
+                    document.getElementById('detail1').innerHTML = htmldetail(res.data),
+                        document.getElementById('detail2').innerHTML = htmldetail2(res.data)
+                })
+        });
+    }
 }
 
 const htmldetail = res => {
