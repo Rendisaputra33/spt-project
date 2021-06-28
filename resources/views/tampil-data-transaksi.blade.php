@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <a href="#" class="btn btn-secondary float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah </a>
+                                    {{-- <a href="#" class="btn btn-secondary float-right text-bold" data-target="#modal-lg-tambah" data-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah </a> --}}
                                 </div>
                             </div>
                         </div>
