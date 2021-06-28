@@ -24,10 +24,25 @@ function displayU() {
                     document.querySelector(
                         'input[name=tanggal_bongkar]'
                     ).value = res.data.tanggal_bongkar;
+                    document.querySelector(
+                        'input[name=berat_bersih]'
+                    ).value = res.data.berat_pulang - res.data.refaksigit;
+
                 });
         });
     }
 }
+
+document.querySelector('input[name=berat_pulang]').addEventListener('keyup', function () {
+    const netto = document.querySelector('input[name=berat_bersih]');
+    netto.value = this.value
+})
+
+document.querySelector('input[name=refaksi]').addEventListener('keyup', function () {
+    const netto = document.querySelector('input[name=berat_bersih]');
+    const total = parseInt(document.querySelector('input[name=berat_pulang]').value) - parseInt(this.value);
+    netto.value = total.toString()
+})
 
 displayU();
 
@@ -73,24 +88,18 @@ const htmldata = (res, no) => {
     const total = res.netto_pulang * res.harga;
     return /*html*/ `<tr>
     <td>${no}</td>
-    <td>${formatTanggal(res.tanggal_pulang)}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-    <td>${res.nama_petani}</td>
     <td>${res.no_sp}</td>
-    <td>${res.no_truk}</td>
-    <td>${res.nama_sopir} Kuintal</td>
-    <td>${res.netto_pulang}</td>
+    <td>${res.nama_petani}}</td>
+    <td>${res.no_induk}</td>
+    <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
-    <td>${formatRupiah(total.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
         }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/pulang/${
-            res.id_keberangkatan
+        <a href="/pulang/${res.id_keberangkatan
         }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
@@ -120,28 +129,29 @@ displayD();
 const htmldetail = res => {
     return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-    <td>${res.tipe}</td>
+    <td>${formatTanggal(res.tanggal_bongkar)}</td>
     <td>${res.no_sp}</td>
-    <td>${res.no_induk}</td>
-    <td>${res.wilayah}</td>
-    <td>${res.nama_sopir}</td>
     <td>${res.nama_petani}</td>
     <td>${res.pabrik_tujuan}</td>
+    <td>${res.no_truk}</td>
+    <td>${res.berat_timbang}</td>
+    <td>${res.netto}</td>
     <td>${res.berat_pulang}</td>
+    <td>${res.netto_pulang}</td>
 </tr>`;
 };
 
 const htmldetail2 = res => {
     return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
-    <td>${res.no_induk}</td>
-    <td>${res.wilayah}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.berat_pulang}</td>
-    <td>${res.netto}</td>
-    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>${formatTanggal(res.tanggal_pulang)}</td>
+    <td>${res.tipe}</td>
+    <td>${res.no_induk}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.wilayah}</td>
+    <td>${res.sangu}</td>
+    <td>${res.tara_mbl}</td>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td>${res.refaksi}</td>
 </tr>`;
 };
 

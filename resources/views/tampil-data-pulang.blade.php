@@ -57,35 +57,31 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Tanggal Pulang</th>
                                             <th>Tanggal Berangkat</th>
-                                            <th>Pemilik</th>
                                             <th>No SP</th>
-                                            <th>No Truk</th>
-                                            <th>Petani</th>
-                                            <th>Berat Bersih (Ku)</th>
+                                            <th>Nama Pemilik</th>
+                                            <th>No Induk</th>
+                                            <th>Wilayah</th>
                                             <th>Harga</th>
-                                            <th>Sub Total</th>
-                                            <th>action</th>
+                                            <th style="text-align: center;">action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
                                         @if (count($data) === 0)
                                         <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         @else
-                                        <?php $no = 1; ?>
+                                        @php
+                                        $no = 1;
+                                        @endphp
                                         @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
-                                            <td>{{ $item->nama_petani }}</td>
+                                            <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->no_sp }}</td>
-                                            <td>{{ $item->no_truk }}</td>
-                                            <td>{{ $item->nama_sopir }}</td>
-                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>{{ $item->nama_petani }}</td>
+                                            <td>{{ $item->no_induk }}</td>
+                                            <td>{{ $item->wilayah }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
-                                            <td>{{ formatRupiah($item->netto_pulang * $item->harga) }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                 <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
@@ -163,6 +159,11 @@
                         <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">Berat Bersih</label>
+                        <input type="text" class="form-control" placeholder="Berat Bersih" name="berat_bersih" readonly>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
@@ -186,17 +187,19 @@
                 <thead>
                     <tr class="col-sm" style="display: flex; flex-direction: column;">
                         <th>Tanggal Keberangkatan</th>
-                        <th>Tipe</th>
-                        <th>No SP</th>
-                        <th>No Induk</th>
-                        <th>Wilayah</th>
-                        <th>Nama Petani</th>
-                        <th>Pemilik</th>
+                        <th>Tanggal Bongkar</th>
+                        <th>No Sp</th>
+                        <th>Nama Pemilik</th>
                         <th>Tujuan</th>
+                        <th>No Truk</th>
+                        <th>Berat Timbang</th>
+                        <th>Netto</th>
                         <th>Berat Pulang</th>
+                        <th>Berat Bersih</th>
                     </tr>
                 </thead>
                 <tr class="col-sm" style="display: flex; flex-direction: column;">
+                    <td>:</td>
                     <td>:</td>
                     <td>:</td>
                     <td>:</td>
@@ -218,19 +221,20 @@
                         <td>dummy</td>
                         <td>dummy</td>
                         <td>dummy</td>
+                        <td>dummy</td>
                     </tr>
                 </tbody>
                 <thead>
                     <tr class="col-sm" style="display: flex; flex-direction: column;">
+                        <th>Tanggal Kepulangan</th>
+                        <th>Tipe</th>
                         <th>No Induk</th>
-                        <th>Wilayah</th>
                         <th>Nama Petani</th>
-                        <th>Pemilik</th>
-                        <th>Tujuan</th>
-                        <th>Berat Pulang</th>
-                        <th>Netto</th>
+                        <th>Wilayah</th>
+                        <th>Sangu</th>
+                        <th>Tara</th>
                         <th>Harga</th>
-                        <th>Tanggal Pulang</th>
+                        <th>Refaksi</th>
                     </tr>
                 </thead>
                 <tr class="col-sm" style="display: flex; flex-direction: column;">
