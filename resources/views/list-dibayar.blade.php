@@ -66,8 +66,8 @@
                                             <th>Nama Petani</th>
                                             <th>Tujuan</th>
                                             <th>Tanggal Berangkat</th>
-                                            <th>Refaksi</th>
-                                            <th>Nominal</th>
+                                            <th>Berat Bersih</th>
+                                            <th>Harga</th>
                                         </tr>
                                     </thead>
                                     <tbody id="list-data">
@@ -83,8 +83,8 @@
                                             <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
-                                            <td>{{ $item->refaksi }}</td>
-                                            <td>Rp {{ number_format($item->harga * $item->netto_pulang, 0, ',', '.') }}</td>
+                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                         </tr>
                                         @endforeach
                                         @endif

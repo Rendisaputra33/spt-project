@@ -91,7 +91,7 @@
                                                 </details>
                                             </td>
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
-                                            <td>{{ formatRupiah($item['harga']) }}</td>
+                                            {{-- <td>{{ formatRupiah($item['harga']) }}</td> --}}
                                             <td>
                                                 <details>
                                                     <summary>List Nama Petani</summary>
@@ -103,7 +103,7 @@
                                                 </details>
                                             </td>
                                             <td>{{ $item['petani'] }}</td>
-                                            <td>{{ formatRupiah($item['sub_total']) }}</td>
+                                            {{-- <td>{{ formatRupiah($item['sub_total']) }}</td> --}}
                                             <td><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
                                         </tr>
                                         @endforeach
@@ -111,7 +111,7 @@
                                         <tr>
                                             <td></td>
                                             <td colspan="6"><b>Total</b></td>
-                                            <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td>
+                                            {{-- <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td> --}}
                                         </tr>
                                     </tbody>
                                 </table>
