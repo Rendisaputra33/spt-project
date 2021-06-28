@@ -109,11 +109,8 @@
                                         @endforeach
                                         <?php endif; ?>
                                         <tr>
-                                            <td colspan="7"><b>
-                                                    <h4>Total
-                                                </b></h4>
-                                            </td>
-
+                                            <td></td>
+                                            <td colspan="6"><b>Total</b></td>
                                             <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td>
                                         </tr>
                                     </tbody>
