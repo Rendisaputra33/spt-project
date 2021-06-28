@@ -183,7 +183,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <table id="tabel_pemasukan" class="table table-borderless mt-3" style=" display: flex; flex-direction: row; justify-content: space-evenly;">
+            <table id="tabel_detail" class="table table-borderless mt-3" style=" display: flex; flex-direction: row; justify-content: space-evenly;">
                 <thead>
                     <tr class="col-sm" style="display: flex; flex-direction: column;">
                         <th>Tanggal Keberangkatan</th>

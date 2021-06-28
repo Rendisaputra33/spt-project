@@ -24,8 +24,9 @@ function displayU() {
                     document.querySelector(
                         'input[name=tanggal_bongkar]'
                     ).value = res.data.tanggal_bongkar;
-                    document.querySelector('input[name=berat_bersih]').value =
-                        res.data.berat_pulang - res.data.refaksi;
+                    document.querySelector(
+                        'input[name=berat_bersih]'
+                    ).value = res.data.berat_pulang - res.data.refaksi;
                 });
         });
     }
@@ -89,7 +90,6 @@ const parse = data => {
 };
 
 const htmldata = (res, no) => {
-    const total = res.netto_pulang * res.harga;
     return /*html*/ `<tr>
     <td>${no}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
@@ -99,14 +99,11 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
         }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/pulang/${
-            res.id_keberangkatan
+        <a href="/pulang/${res.id_keberangkatan
         }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
@@ -121,11 +118,9 @@ function displayD() {
             fetch(URL + '/detail?id=' + ID)
                 .then(res => res.json())
                 .then(res => {
-                    (document.getElementById('detail1').innerHTML = htmldetail(
+                    (document.getElementById('tabel_detail').innerHTML = htmldetail(
                         res.data
-                    )),
-                        (document.getElementById('detail2').innerHTML =
-                            htmldetail2(res.data));
+                    ))
                 });
         });
     }
@@ -134,32 +129,149 @@ function displayD() {
 displayD();
 
 const htmldetail = res => {
-    return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
-    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-    <td>${formatTanggal(res.tanggal_bongkar)}</td>
-    <td>${res.no_sp}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.no_truk}</td>
-    <td>${res.berat_timbang}</td>
-    <td>${res.netto}</td>
-    <td>${res.berat_pulang}</td>
-    <td>${res.netto_pulang}</td>
-</tr>`;
-};
-
-const htmldetail2 = res => {
-    return /*html*/ `<tr class="col-sm" style="display: flex; flex-direction: column;">
-    <td>${formatTanggal(res.tanggal_pulang)}</td>
-    <td>${res.tipe}</td>
-    <td>${res.no_induk}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.wilayah}</td>
-    <td>${res.sangu}</td>
-    <td>${res.tara_mbl}</td>
-    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
-    <td>${res.refaksi}</td>
-</tr>`;
+    if (res.tipe == 'SPT') {
+        return /*html*/ `<thead>
+        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                        <th>Tanggal Keberangkatan</th>
+                        <th>Tanggal Bongkar</th>
+                        <th>No Sp</th>
+                        <th>Nama Pemilik</th>
+                        <th>Tujuan</th>
+                        <th>No Truk</th>
+                        <th>Berat Pulang</th>
+                        <th>Berat Bersih</th>
+                    </tr>
+                </thead>
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                </tr>
+                <tbody id="detail1">
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+                <td>${formatTanggal(res.tanggal_bongkar)}</td>
+                <td>${res.no_sp}</td>
+                <td>${res.nama_petani}</td>
+                <td>${res.pabrik_tujuan}</td>
+                <td>${res.no_truk}</td>
+                <td>${res.berat_pulang}</td>
+                <td>${res.netto_pulang}</td>
+            </tr>
+                </tbody>
+                <thead>
+                    <tr class="col-sm" style="display: flex; flex-direction: column;">
+                        <th>Tanggal Kepulangan</th>
+                        <th>Tipe</th>
+                        <th>No Induk</th>
+                        <th>Nama Petani</th>
+                        <th>Wilayah</th>
+                        <th>Harga</th>
+                        <th>Refaksi</th>
+                    </tr>
+                </thead>
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                </tr>
+                <tbody id="detail2">
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                <td>${formatTanggal(res.tanggal_pulang)}</td>
+                <td>${res.tipe}</td>
+                <td>${res.no_induk}</td>
+                <td>${res.nama_sopir}</td>
+                <td>${res.wilayah}</td>
+                <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+                <td>${res.refaksi}</td>
+            </tr></tbody>`
+    } else {
+        return /*html*/ `<thead>
+        <tr class="col-sm" style="display: flex; flex-direction: column;">
+                        <th>Tanggal Keberangkatan</th>
+                        <th>Tanggal Bongkar</th>
+                        <th>No Sp</th>
+                        <th>Nama Pemilik</th>
+                        <th>Tujuan</th>
+                        <th>No Truk</th>
+                        <th>Berat Timbang</th>
+                        <th>Netto</th>
+                        <th>Berat Pulang</th>
+                        <th>Berat Bersih</th>
+                    </tr>
+                </thead>
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                </tr>
+                <tbody id="detail1">
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+                <td>${formatTanggal(res.tanggal_bongkar)}</td>
+                <td>${res.no_sp}</td>
+                <td>${res.nama_petani}</td>
+                <td>${res.pabrik_tujuan}</td>
+                <td>${res.no_truk}</td>
+                <td>${res.berat_timbang}</td>
+                <td>${res.netto}</td>
+                <td>${res.berat_pulang}</td>
+                <td>${res.netto_pulang}</td>
+            </tr>
+                </tbody>
+                <thead>
+                    <tr class="col-sm" style="display: flex; flex-direction: column;">
+                        <th>Tanggal Kepulangan</th>
+                        <th>Tipe</th>
+                        <th>No Induk</th>
+                        <th>Nama Petani</th>
+                        <th>Wilayah</th>
+                        <th>Sangu</th>
+                        <th>Tara</th>
+                        <th>Harga</th>
+                        <th>Refaksi</th>
+                    </tr>
+                </thead>
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                </tr>
+                <tbody id="detail2">
+                <tr class="col-sm" style="display: flex; flex-direction: column;">
+                <td>${formatTanggal(res.tanggal_pulang)}</td>
+                <td>${res.tipe}</td>
+                <td>${res.no_induk}</td>
+                <td>${res.nama_sopir}</td>
+                <td>${res.wilayah}</td>
+                <td>${res.sangu}</td>
+                <td>${res.tara_mbl}</td>
+                <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+                <td>${res.refaksi}</td>
+            </tr></tbody>`
+    }
 };
 
 const formatTanggal = tgl => {

@@ -15,7 +15,7 @@ class PulangContoller extends Controller
     public function index(Berangkat $berangkat)
     {
         return view('tampil-data-pulang', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get(),
         ]);
     }
 
