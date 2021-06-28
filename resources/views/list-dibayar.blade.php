@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-secondary float-right text-bold"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
+                                        <button type="submit" disabled class="btn btn-secondary float-right text-bold" id="bayar"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->refaksi }}</td>
-                                            <td>Rp {{ number_format($item->harga * $item->netto, 0, ',', '.') }}</td>
+                                            <td>Rp {{ number_format($item->harga * $item->netto_pulang, 0, ',', '.') }}</td>
                                         </tr>
                                         @endforeach
                                         @endif

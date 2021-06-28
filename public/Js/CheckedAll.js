@@ -18,18 +18,6 @@ checkAll.onchange = function () {
 };
 
 document.getElementById('filter').addEventListener('click', function () {
-    const sopir = document.querySelector('select[name=pilih]');
-    const ds = document.querySelectorAll('input[type=checkbox]');
-
-    if (sopir.value === 'Pilih Petani') {
-        for (let i = 0; i < ds.length; i++) {
-            ds[i].disabled = true;
-        }
-    } else {
-        for (let i = 0; i < ds.length; i++) {
-            ds[i].disabled = false;
-        }
-    }
     getSopir();
 });
 
@@ -46,12 +34,15 @@ function getSopir() {
     const sopir = document.querySelector('select[name=pilih]').value;
     fetch(URL + '/pilih?name=' + sopir)
         .then(res => res.json())
-        .then(
-            res =>
-                (document.getElementById('list-data').innerHTML = parse(
-                    res.pembayaran
-                ))
-        );
+        .then(res => {
+            document.getElementById('list-data').innerHTML = parse(
+                res.pembayaran
+            );
+            res.type === 'base' ? dCheckbox() : oCheckbox();
+            res.type === 'base'
+                ? (document.getElementById('bayar').disabled = true)
+                : (document.getElementById('bayar').disabled = false);
+        });
 }
 
 const parse = data => {
@@ -60,6 +51,20 @@ const parse = data => {
         html += htmldata(res);
     });
     return html;
+};
+
+const dCheckbox = () => {
+    const ds = document.querySelectorAll('input[type=checkbox]');
+    for (let i = 0; i < ds.length; i++) {
+        ds[i].disabled = true;
+    }
+};
+
+const oCheckbox = () => {
+    const ds = document.querySelectorAll('input[type=checkbox]');
+    for (let i = 0; i < ds.length; i++) {
+        ds[i].disabled = false;
+    }
 };
 
 const htmldata = item => {
@@ -74,7 +79,7 @@ const htmldata = item => {
     <td>${item.pabrik_tujuan}</td>
     <td>${formatTanggal(item.tanggal_keberangkatan)}</td>
     <td>${item.refaksi}</td>
-    <td>${formatRupiah((item.harga * item.netto).toString())}</td>
+    <td>${formatRupiah((item.harga * item.netto_pulang).toString())}</td>
 
 </tr>`;
 };

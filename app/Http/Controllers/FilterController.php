@@ -49,8 +49,11 @@ class FilterController extends Controller
         $sopir = request('name');
         $data = Pembayaran::select('id_keberangkatan')->get();
         $filter = Berangkat::whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->where('nama_sopir', $sopir)->get();
-        return response()->json([
-            'pembayaran' => count($filter) === 0 ? Berangkat::whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get() : $filter
-        ]);
+        return count($filter) !== 0
+            ? response()->json(['pembayaran' => $filter, 'type' => 'filter'])
+            : response()->json([
+                'pembayaran' => Berangkat::whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get(),
+                'type' => 'base'
+            ]);
     }
 }
