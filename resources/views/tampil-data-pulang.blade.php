@@ -63,7 +63,7 @@
                                             <th>No SP</th>
                                             <th>No Truk</th>
                                             <th>Petani</th>
-                                            <th>Berat Bersih</th>
+                                            <th>Berat Bersih (Ku)</th>
                                             <th>Harga</th>
                                             <th>Sub Total</th>
                                             <th>action</th>
@@ -82,7 +82,7 @@
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->no_truk }}</td>
-                                            <td>{{ $item->nama_sopir }} Kuintal</td>
+                                            <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
                                             <td>{{ formatRupiah($item->netto_pulang * $item->harga) }}</td>

@@ -122,9 +122,9 @@
                                         <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
                                     </div>
                                     <select name="tipe" id="tipe" class="custom-select">
-                                        <option selected value="def">Choose...</option>
+                                        <option selected value="def">Pilih</option>
                                         <option value="SPT">SPT</option>
-                                        <option value="AMPERA">AMPERA</option>
+                                        <option value="AMPERA">AMPERAN</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

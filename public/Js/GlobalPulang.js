@@ -56,16 +56,16 @@ function getfilter() {
 
 const parse = (data) => {
     let html = "";
-    data.data.map((res) => {
-        html += htmldata(res);
+    data.data.map((res, no = 1) => {
+        html += htmldata(res, no++);
     });
     return html;
 }
 
-const htmldata = (res) => {
+const htmldata = (res, no = 1) => {
     const total = res.netto_pulang * res.harga;
     return /*html*/ `<tr>
-    <td>$no++</td>
+    <td>${no}</td>
     <td>${formatTanggal(res.tanggal_pulang)}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.nama_petani}</td>
