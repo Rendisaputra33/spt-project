@@ -75,7 +75,11 @@
                                         <td>{{ $item->pabrik_tujuan }}</td>
                                         <td>{{ $item->nama_sopir }}</td>
                                         <td>
+                                            @if ($item->no_sp === null)
+                                            <a href="/berangkat?id={{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Lengkapi</a>
+                                            @else
                                             <a href="#" class="btn btn-primary text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-mouse-pointer"></i></i>&nbsp;Pilih</a>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

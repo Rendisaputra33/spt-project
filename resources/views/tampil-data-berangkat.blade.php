@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">No SP</label>
-                                    <input type="text" class="form-control" placeholder="No SP " name="no_sp" required>
+                                    <input type="text" class="form-control" placeholder="No SP " name="no_sp">
                                     <span class="text-dark"></span>
                                 </div>
 
