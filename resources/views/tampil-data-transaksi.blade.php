@@ -75,9 +75,9 @@
                                             <th>No SP</th>
                                             <th>No Truk</th>
                                             <th>Pabrik Tujuan</th>
+                                            <th>Berat Bersih</th>
                                             <th>Harga</th>
                                             <th>Subtotal</th>
-                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
@@ -93,9 +93,9 @@
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->no_truk === null ? 'belum pulang' : $item->no_truk }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
+                                            <td>{{ $item->berat_pulang - $item->refaksi }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
                                             <td>{{ formatRupiah($item->harga * ($item->berat_pulang - $item->refaksi)) }}</td>
-                                            <td><a href="/transaksi/berangkat/cetak/{{ $item->id_keberangkatan }}" class="btn btn-primary text-bolds"><i class="fas fa-print"></i>&nbsp;Cetak</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
