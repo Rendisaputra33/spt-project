@@ -64,7 +64,6 @@ const dForm = THIS => {
     THIS.berat.readOnly = true;
     THIS.truk.readOnly = true;
     THIS.netto.readOnly = true;
-    THIS.harga.readOnly = true;
 };
 
 const oForm = THIS => {
@@ -72,7 +71,6 @@ const oForm = THIS => {
     THIS.berat.readOnly = false;
     THIS.truk.readOnly = false;
     THIS.netto.readOnly = false;
-    THIS.harga.readOnly = false;
 };
 
 FORM_ADD.berat.addEventListener('keyup', function () {
