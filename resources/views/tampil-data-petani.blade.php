@@ -57,7 +57,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Pemilik</th>
-                                            <th>Register Pemilik</th>
+                                            <th>No Induk</th>
                                             <th>Nama Pabrik</th>
                                             <th>Tanggal Edit</th>
                                             <th>Action</th>
@@ -68,16 +68,17 @@
                                         @if (count($petani) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($petani as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_pemilik }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_pemilik }}</td>
                                                     <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                         <form action="{{ url('/') }}/petani/{{ $item->id_pemilik }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
@@ -127,7 +128,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
                                 </div>
 

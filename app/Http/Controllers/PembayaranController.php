@@ -18,18 +18,16 @@ class PembayaranController extends Controller
      */
     public function index(Pembayaran $pembayaran)
     {
-        foreach ($pembayaran->getGlobal() as $item) :
+        foreach ($pembayaran->getPembayaran() as $item) :
             $this->data[] = [
                 'invoice' => $item->no_invoice,
-                'sub_total' => $item->sub_total,
-                'list_petani' => explode(',', $item->petani),
-                'list_tipe' => explode(',', $item->type),
+                'petani' => $item->nama_sopir,
                 'tgl' => $item->tgl,
-                'harga' => $item->hrg,
+                'list_sp' => $item->sp,
             ];
         endforeach;
         return view('tampil-data-bayar', [
-            'data' => !isset($this->data) ? [] : $this->data
+            'list' => !isset($this->data) ? [] : $this->data
         ]);
     }
 

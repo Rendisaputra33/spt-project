@@ -15,9 +15,15 @@ class BerangkatController extends Controller
 
     public function index(Berangkat $berangkat)
     {
-        $list = $berangkat->whereNull('tanggal_pulang')->whereDate('created_at', now())->get();
-        $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
-        return view('tampil-data-berangkat', $data);
+        if (request('id') !== null) {
+            $dau = $berangkat->where('id_keberangkatan', request('id'))->get();
+            $update = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $dau];
+            return view('tampil-data-berangkat', $update);
+        } else {
+            $list = $berangkat->whereDate('created_at', now())->get();
+            $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
+            return view('tampil-data-berangkat', $data);
+        }
     }
 
     public function addView()
@@ -50,7 +56,7 @@ class BerangkatController extends Controller
     public function update(Request $req, $id)
     {
         return Berangkat::where('id_keberangkatan', $id)->update([
-            'tanggal_keberangkatan' => $req->tanggal_berangkat,
+            'tanggal_keberangkatan' => $req->utanggal_berangkat,
             'tipe' => $req->utipe,
             'no_sp' => $req->uno_sp,
             'no_induk' => $req->uno_induk,

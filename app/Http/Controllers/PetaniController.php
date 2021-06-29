@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Petani;
+use App\Models\Pg;
 use Illuminate\Http\Request;
 
 class PetaniController extends Controller
@@ -72,11 +73,13 @@ class PetaniController extends Controller
     }
 
     /**
-     * @return View 
+     * @return View
      */
     public function viewAdd()
     {
-        return view('petani');
+        return view('petani', [
+            'pabrik' => Pg::select('nama_pg')->get()
+        ]);
     }
 
     /**
@@ -92,7 +95,16 @@ class PetaniController extends Controller
     public function getRegister($id)
     {
         return response()->json([
-            'data' => Petani::select('register_pemilik')->where('nama_pemilik', $id)->get()
+            'data' => Petani::select('register_pemilik', 'id_pemilik')->where('nama_pemilik', $id)->get()
+        ]);
+    }
+
+    public function updateInduk()
+    {
+        return response()->json([
+            'data' => Petani::where('id_pemilik', request('id'))->update([
+                'register_pemilik' => request('induk')
+            ]) ? 'sukses' : 'gagal'
         ]);
     }
 }

@@ -19,7 +19,7 @@ Route::get('/', [UserController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware('myAuth');
 
 /* ===================== Routing petani =================  */
 
@@ -27,21 +27,22 @@ Route::get('/dashboard', function () {
 Route::prefix('/petani')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [PetaniController::class, 'viewAdd']);
+        Route::get('/add', [PetaniController::class, 'viewAdd'])->middleware('myAuth');
     });
     // route crud petani
-    Route::get('/', [PetaniController::class, 'index']);
-    Route::post('/', [PetaniController::class, 'add']);
-    Route::put('/{id}', [PetaniController::class, 'update']);
-    Route::delete('/{id}', [PetaniController::class, 'delete']);
-    Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister']);
+    Route::get('/', [PetaniController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [PetaniController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [PetaniController::class, 'update'])->middleware('myAuth');
+    Route::delete('/{id}', [PetaniController::class, 'delete'])->middleware('myAuth');
+    Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister'])->middleware('myAuth');
+    Route::get('/induk', [PetaniController::class, 'updateInduk'])->middleware('myAuth');
     // route grouping
     Route::prefix('/group')->group(function () {
-        Route::get('/search', [PetaniController::class, 'search']);
+        Route::get('/search', [PetaniController::class, 'search'])->middleware('myAuth');
     });
     // route get update data petani
     Route::prefix('/json')->group(function () {
-        Route::get('/getPetani/{id}', [PetaniController::class, 'getUpdate']);
+        Route::get('/getPetani/{id}', [PetaniController::class, 'getUpdate'])->middleware('myAuth');
     });
 });
 
@@ -50,21 +51,21 @@ Route::prefix('/petani')->group(function () {
 Route::prefix('/sopir')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [SopirController::class, 'viewAdd']);
+        Route::get('/add', [SopirController::class, 'viewAdd'])->middleware('myAuth');
     });
     // route crud sopir
-    Route::get('/', [SopirController::class, 'index']);
-    Route::post('/', [SopirController::class, 'add']);
-    Route::put('/{id}', [SopirController::class, 'update']);
-    Route::delete('/{id}', [SopirController::class, 'delete']);
+    Route::get('/', [SopirController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [SopirController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [SopirController::class, 'update'])->middleware('myAuth');
+    Route::delete('/{id}', [SopirController::class, 'delete'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
-        Route::get('/search', [SopirController::class, 'search']);
+        Route::get('/search', [SopirController::class, 'search'])->middleware('myAuth');
     });
 
     // route get update data sopir
     Route::prefix('/json')->group(function () {
-        Route::get('/getSopir/{id}', [SopirController::class, 'getUpdate']);
+        Route::get('/getSopir/{id}', [SopirController::class, 'getUpdate'])->middleware('myAuth');
     });
 });
 
@@ -73,22 +74,23 @@ Route::prefix('/sopir')->group(function () {
 Route::prefix('/wilayah')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [WilayahController::class, 'viewAdd']);
+        Route::get('/add', [WilayahController::class, 'viewAdd'])->middleware('myAuth');
     });
     // route crud Wilayah
-    Route::get('/', [WilayahController::class, 'index']);
-    Route::post('/', [WilayahController::class, 'add']);
-    Route::put('/{id}', [WilayahController::class, 'update']);
-    Route::delete('/{id}', [WilayahController::class, 'delete']);
-    Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga']);
+    Route::get('/', [WilayahController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [WilayahController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [WilayahController::class, 'update'])->middleware('myAuth');
+    Route::delete('/{id}', [WilayahController::class, 'delete'])->middleware('myAuth');
+    Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga'])->middleware('myAuth');
+    Route::get('/harga', [WilayahController::class, 'updateHarga'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
-        Route::get('/search', [WilayahController::class, 'search']);
+        Route::get('/search', [WilayahController::class, 'search'])->middleware('myAuth');
     });
 
     // route get update data Wilayah
     Route::prefix('/json')->group(function () {
-        Route::get('/getWilayah/{id}', [WilayahController::class, 'getUpdate']);
+        Route::get('/getWilayah/{id}', [WilayahController::class, 'getUpdate'])->middleware('myAuth');
     });
 });
 
@@ -97,95 +99,98 @@ Route::prefix('/wilayah')->group(function () {
 Route::prefix('/pg')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [PgController::class, 'viewAdd']);
+        Route::get('/add', [PgController::class, 'viewAdd'])->middleware('myAuth');
     });
     // route crud Pg
-    Route::get('/', [PgController::class, 'index']);
-    Route::post('/', [PgController::class, 'add']);
-    Route::put('/{id}', [PgController::class, 'update']);
-    Route::delete('/{id}', [PgController::class, 'delete']);
+    Route::get('/', [PgController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [PgController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [PgController::class, 'update'])->middleware('myAuth');
+    Route::delete('/{id}', [PgController::class, 'delete'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
-        Route::get('/search', [PgController::class, 'search']);
+        Route::get('/search', [PgController::class, 'search'])->middleware('myAuth');
     });
 
-    // route get update data Pg 
+    // route get update data Pg
     Route::prefix('/json')->group(function () {
-        Route::get('/getPg/{id}', [PgController::class, 'getUpdate']);
+        Route::get('/getPg/{id}', [PgController::class, 'getUpdate'])->middleware('myAuth');
     });
 });
 
 Route::prefix('/auth')->group(function () {
     Route::post('/', [AuthController::class, 'Login']);
-    Route::get('/logout', [AuthController::class, 'Logout']);
+    Route::get('/logout', [AuthController::class, 'Logout'])->middleware('myAuth');
 });
 
 /* ================== Routing keberangkatan ================  */
 
 Route::prefix('/berangkat')->group(function () {
     // main action
-    Route::get('/', [BerangkatController::class, 'index']);
-    Route::post('/', [BerangkatController::class, 'add']);
-    Route::put('/{id}', [BerangkatController::class, 'update']);
-    Route::get('/{id}', [BerangkatController::class, 'delete']);
+    Route::get('/', [BerangkatController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [BerangkatController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [BerangkatController::class, 'update'])->middleware('myAuth');
+    Route::get('/{id}', [BerangkatController::class, 'delete'])->middleware('myAuth');
     // secondary action
-    Route::get('/search', [BerangkatController::class, 'search']);
-    Route::get('/filter', [BerangkatController::class, 'filter']);
+    Route::get('/search', [BerangkatController::class, 'search'])->middleware('myAuth');
+    Route::get('/filter', [BerangkatController::class, 'filter'])->middleware('myAuth');
     // transaksi
-    Route::get('/pulang', [PulangContoller::class, 'show']);
+    Route::get('/pulang', [PulangContoller::class, 'show'])->middleware('myAuth');
     // view
     Route::prefix('/view')->group(function () {
-        Route::get('/get/{id}', [BerangkatController::class, 'getUpdate']);
-        Route::get('/cetak', [BerangkatController::class, 'cetak']);
+        Route::get('/get/{id}', [BerangkatController::class, 'getUpdate'])->middleware('myAuth');
+        Route::get('/cetak', [BerangkatController::class, 'cetak'])->middleware('myAuth');
     });
 });
 
 Route::prefix('/pulang')->group(function () {
     // main action
-    Route::get('/', [PulangContoller::class, 'index']);
-    Route::post('/{id}', [PulangContoller::class, 'create']);
-    Route::put('/{id}', [PulangContoller::class, 'edit']);
-    Route::get('/{id}', [PulangContoller::class, 'destroy']);
+    Route::get('/', [PulangContoller::class, 'index'])->middleware('myAuth');
+    Route::post('/{id}', [PulangContoller::class, 'create'])->middleware('myAuth');
+    Route::put('/{id}', [PulangContoller::class, 'edit'])->middleware('myAuth');
+    Route::get('/{id}', [PulangContoller::class, 'destroy'])->middleware('myAuth');
     // seondary action
     Route::prefix('/view')->group(function () {
-        Route::get('/list', [PulangContoller::class, 'show']);
-        Route::get('/cetak', [PulangContoller::class, 'cetak']);
-        Route::get('/get/{id}', [PulangContoller::class, 'update']);
+        Route::get('/list', [PulangContoller::class, 'show'])->middleware('myAuth');
+        Route::get('/cetak', [PulangContoller::class, 'cetak'])->middleware('myAuth');
+        Route::get('/get/{id}', [PulangContoller::class, 'update'])->middleware('myAuth');
+        Route::put('/list/{id}', [PulangContoller::class, 'updateSp']);
     });
 });
 
 Route::prefix('/pembayaran')->group(function () {
     // main action
-    Route::get('/', [PembayaranController::class, 'index']);
-    Route::post('/', [PembayaranController::class, 'add']);
-    Route::put('/{id}', [PembayaranController::class, 'update']);
-    Route::get('/{id}', [PembayaranController::class, 'destroy']);
+    Route::get('/', [PembayaranController::class, 'index'])->middleware('myAuth');
+    Route::post('/', [PembayaranController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [PembayaranController::class, 'update'])->middleware('myAuth');
+    Route::get('/{id}', [PembayaranController::class, 'destroy'])->middleware('myAuth');
     // transaksi route
     Route::prefix('/chekout')->group(function () {
-        Route::post('/', [PembayaranController::class, 'store']);
+        Route::post('/', [PembayaranController::class, 'store'])->middleware('myAuth');
     });
     // secondary action
     Route::prefix('/view')->group(function () {
-        Route::get('/list', [PembayaranController::class, 'show']);
+        Route::get('/list', [PembayaranController::class, 'show'])->middleware('myAuth');
     });
 });
 
 Route::prefix('/transaksi')->group(function () {
     Route::prefix('/berangkat')->group(function () {
-        Route::get('/', [TransaksiController::class, 'index']);
-        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakTransaksi']);
+        Route::get('/', [TransaksiController::class, 'index'])->middleware('myAuth');
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakTransaksi'])->middleware('myAuth');
     });
     Route::prefix('/pembayaran')->group(function () {
-        Route::get('/', [TransaksiController::class, 'viewLaporan']);
-        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakPembayaran']);
+        Route::get('/', [TransaksiController::class, 'viewLaporan'])->middleware('myAuth');
+        Route::get('/cetak/{id}', [TransaksiController::class, 'cetakPembayaran'])->middleware('myAuth');
     });
 });
 
-Route::post('/filterberangkat', [FilterController::class, 'FilterBData']);
-Route::post('/filterpulang', [FilterController::class, 'FilterData']);
-Route::post('/filtertransaksi', [FilterController::class, 'FilterTData']);
-Route::post('/filterlaporan', [FilterController::class, 'FilterLPData']);
-Route::post('/filterpembayaran', [FilterController::class, 'FilterPData']);
+Route::post('/filterberangkat', [FilterController::class, 'FilterBData'])->middleware('myAuth');
+Route::post('/filterpulang', [FilterController::class, 'FilterData'])->middleware('myAuth');
+Route::post('/filtertransaksi', [FilterController::class, 'FilterTData'])->middleware('myAuth');
+Route::post('/filterlaporan', [FilterController::class, 'FilterLPData'])->middleware('myAuth');
+Route::post('/filterpembayaran', [FilterController::class, 'FilterPData'])->middleware('myAuth');
+Route::get('/pilih', [FilterController::class, 'getSopir'])->middleware('myAuth');
+Route::get('/detail', [FilterController::class, 'getDetail'])->middleware('myAuth');
 
 Route::get('/coba', function () {
     return view('coba-invoice');

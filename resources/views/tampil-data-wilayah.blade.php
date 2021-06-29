@@ -67,15 +67,16 @@
                                         @if (count($wilayah) === 0)
                                             <td colspan="5" style="text-align: center;">DATA KOSONG</td>
                                         @else
+                                            <?php $no = 1; ?>
                                             @foreach ($wilayah as $item)
                                                 <tr>
-                                                    <td>{{ $item->id_wilayah }}</td>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_wilayah }}</td>
                                                     <td>Rp {{ number_format($item->harga_wilayah, 0, ',', '.') }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td>
 
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_wilayah }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_wilayah }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                         <form action="{{ url('/') }}/wilayah/{{ $item->id_wilayah }}" method="post" class="d-inline">
                                                             @csrf
                                                             @method('delete')
@@ -119,7 +120,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-secondary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
                                 </div>
                         </div>

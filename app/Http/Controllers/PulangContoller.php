@@ -15,7 +15,7 @@ class PulangContoller extends Controller
     public function index(Berangkat $berangkat)
     {
         return view('tampil-data-pulang', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get(),
         ]);
     }
 
@@ -77,7 +77,7 @@ class PulangContoller extends Controller
             'refaksi' => $req->refaksi,
             'netto_pulang' => $req->berat_pulang - $req->refaksi,
             'updated_at' => now()
-        ]) ? redirect()->back() : redirect()->back();
+        ]) ? redirect('/pulang') : redirect()->back();
     }
 
     /**
@@ -111,5 +111,12 @@ class PulangContoller extends Controller
         return view('laporan-pulang', [
             'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
         ]);
+    }
+
+    public function updateSp(Berangkat $berangkat, Request $req, $id)
+    {
+        return $berangkat->where('id_keberangkatan', $id)->update([
+            'no_sp' => $req->no_sp
+        ]) ? redirect()->back() : redirect()->back();
     }
 }

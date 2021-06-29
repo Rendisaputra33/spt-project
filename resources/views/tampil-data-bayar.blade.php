@@ -60,55 +60,34 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Invoice</th>
-                                            <th>Tipe</th>
-                                            <th>Tanggal Bayar</th>
-                                            <th>Harga</th>
+                                            <th>Tanggal Pembayaran</th>
                                             <th>Nama Petani</th>
-                                            <th>Sub Total</th>
+                                            <th>No SP</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
-                                        <?php if (count($data) === 0): ?>
+                                        <?php if (count($list) === 0): ?>
                                         <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         <?php else: ?>
                                         @php
                                         $no = 1;
                                         @endphp
-                                        @foreach ($data as $item)
+                                        @foreach ($list as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item['invoice'] }}</td>
-                                            <td>
-                                                <details>
-                                                    <summary>List Tipe Tebu</summary>
-                                                    <ol>
-                                                        @foreach ($item['list_tipe'] as $data)
-                                                        <li>{{ $data }}</li>
-                                                        @endforeach
-                                                    </ol>
-                                                </details>
-                                            </td>
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
-                                            <td>{{ formatRupiah($item['harga']) }}</td>
-                                            <td>
-                                                <details>
-                                                    <summary>List Nama Petani</summary>
-                                                    <ol>
-                                                        @foreach ($item['list_petani'] as $data)
-                                                        <li>{{ $data }}</li>
-                                                        @endforeach
-                                                    </ol>
-                                                </details>
-                                            </td>
-                                            <td>{{ formatRupiah($item['sub_total']) }}</td>
+                                            <td>{{ $item['petani'] }}</td>
+                                            <td>{{ $item['list_sp'] }}</td>
                                             <td><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
                                         </tr>
                                         @endforeach
                                         <?php endif; ?>
                                         <tr>
+                                            <td></td>
                                             <td colspan="6"><b>Total</b></td>
-                                            <td colspan="2">Rp. 5.000.000</td>
+                                            {{-- <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td> --}}
                                         </tr>
                                     </tbody>
                                 </table>
@@ -147,6 +126,6 @@
             }
         });
 </script>
-@endsection
 
+@endsection
 {{-- <!-- <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a> --> --}}

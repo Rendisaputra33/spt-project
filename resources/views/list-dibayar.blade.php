@@ -45,12 +45,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
+                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Pilih</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-secondary float-right text-bold"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
+                                        <button type="submit" disabled class="btn btn-secondary float-right text-bold" id="bayar"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
                                     </div>
                                 </div>
                             </div>
@@ -59,15 +59,18 @@
                                 <table id="tabel_pemasukan" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" id="check-all"></th>
+                                            <th><input type="checkbox" id="check-all" disabled></th>
                                             <th>Tanggal Pulang</th>
                                             <th>Tipe</th>
+                                            <th>No SP</th>
                                             <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
                                             <th>Tujuan</th>
                                             <th>Tanggal Berangkat</th>
-                                            <th>Refaksi</th>
-                                            <th>Nominal</th>
+                                            <th>No Induk</th>
+                                            <th>Berat Bersih</th>
+                                            <th>Harga</th>
+                                            <th>Sub Total</th>
                                         </tr>
                                     </thead>
                                     <tbody id="list-data">
@@ -76,15 +79,18 @@
                                         @else
                                         @foreach ($data as $item)
                                         <tr>
-                                            <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" /></td>
+                                            <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" disabled /></td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_pulang))) }}</td>
                                             <td>{{ $item->tipe }}</td>
+                                            <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
-                                            <td>{{ $item->refaksi }}</td>
-                                            <td>Rp {{ number_format($item->harga * $item->netto, 0, ',', '.') }}</td>
+                                            <td>{{ $item->no_induk }}</td>
+                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                            <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>
                                         </tr>
                                         @endforeach
                                         @endif
