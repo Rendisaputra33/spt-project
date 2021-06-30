@@ -55,7 +55,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="tabel_pemasukan" class="table table-bordered table-striped ">
+                                <table id="tb" class="table table-bordered table-striped ">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -70,9 +70,7 @@
                                         <?php if (count($list) === 0): ?>
                                         <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         <?php else: ?>
-                                        @php
-                                        $no = 1;
-                                        @endphp
+                                        <?php $no = 1; ?>
                                         @foreach ($list as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
@@ -84,11 +82,6 @@
                                         </tr>
                                         @endforeach
                                         <?php endif; ?>
-                                        <tr>
-                                            <td></td>
-                                            <td colspan="6"><b>Total</b></td>
-                                            {{-- <td colspan="2">{{ formatrupiah(array_sum(array_column($list, 'sub_total'))) }}</td> --}}
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -108,24 +101,13 @@
 
 <script src="{{ asset('Js/Pembayaran.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
-</script>
-<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js">
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js">
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
-</script>
-<script>
-    $('#date-range').daterangepicker({
-            locale: {
-                format: 'YYYY-MM-DD',
-                separator: " / "
-            }
-        });
-</script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="{{ asset('Js/Range.js') }}"></script>
+<script src="{{ asset('Js/Pagination.js') }}"></script>
 
 @endsection
 {{-- <!-- <a href="/pembayaran/{{ $item->id_pembayaran }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a> --> --}}

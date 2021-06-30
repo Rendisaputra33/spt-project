@@ -63,7 +63,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="tabel_pemasukan" class="table table-bordered table-striped ">
+                                <table id="tb" class="table table-bordered table-striped ">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -100,13 +100,13 @@
                                             <td>{{ formatRupiah($item->harga * ($item->berat_pulang - $item->refaksi)) }}</td>
                                         </tr>
                                         @endforeach
-                                        <tr>
+                                        {{-- <tr>
                                             <td></td>
                                             <td colspan="8">Total</td>
                                             <td></td>
                                             <td></td>
                                             <td>{{ formatRupiah($c) }}</td>
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
                             </div>
@@ -125,12 +125,6 @@
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-            <script>
-                $('#date-range').daterangepicker({
-                        locale: {
-                            format: 'YYYY-MM-DD',
-                            separator: " / "
-                        }
-                    });
-            </script>
+            <script src="{{ asset('Js/Range.js') }}"></script>
+            <script src="{{ asset('Js/Pagination.js') }}"></script>
             @endsection

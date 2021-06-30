@@ -51,7 +51,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="tabel_pemasukan" class="table table-bordered table-striped ">
+                                <table id="tb" class="table table-bordered table-striped ">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -86,7 +86,7 @@
                                                 @if ( $item->tanggal_pulang == null )
                                                 <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                 @else
-
+                                                <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
                                                 @endif
                                             </td>
                                         </tr>
@@ -403,12 +403,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script>
-    $('#date-range').daterangepicker({
-                        locale: {
-                            format: 'YYYY-MM-DD',
-                            separator: " / "
-                        }
-                    });
-</script>
+<script src="{{ asset('Js/Range.js') }}"></script>
+<script src="{{ asset('Js/Pagination.js') }}"></script>
 @endsection

@@ -16,11 +16,11 @@ class BerangkatController extends Controller
     public function index(Berangkat $berangkat)
     {
         if (request('id') !== null) {
-            $dau = $berangkat->where('id_keberangkatan', request('id'))->get();
+            $dau = $berangkat->where('id_keberangkatan', request('id'))->orderBy('id_keberangkatan', 'desc')->get();
             $update = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $dau];
             return view('tampil-data-berangkat', $update);
         } else {
-            $list = $berangkat->whereDate('created_at', now())->get();
+            $list = $berangkat->whereDate('created_at', now())->orderBy('id_keberangkatan', 'desc')->get();
             $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
             return view('tampil-data-berangkat', $data);
         }

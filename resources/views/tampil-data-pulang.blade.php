@@ -53,7 +53,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="tabel_pemasukan" class="table table-bordered table-striped ">
+                                <table id="tb" class="table table-bordered table-striped ">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -82,7 +82,7 @@
                                             <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->wilayah }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
-                                            <td>
+                                            <td style="text-align: center;">
                                                 <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                 <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                 <a href="/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
@@ -276,12 +276,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script>
-    $('#date-range').daterangepicker({
-                        locale: {
-                            format: 'YYYY-MM-DD',
-                            separator: " / "
-                        }
-                    });
-</script>
+<script src="{{ asset('Js/Range.js') }}"></script>
+<script src="{{ asset('Js/Pagination.js') }}"></script>
 @endsection
