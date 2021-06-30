@@ -187,8 +187,8 @@ BTN.uharga.onclick = async function () {
     );
     const RESULT = await DATA.json();
     RESULT.status === 'sukses'
-        ? alert('sukses update harga')
-        : alert('gagal update harga');
+        ? toastr.success('sukses update harga', 'update harga')
+        : toastr.error('gagal update harga', 'update harga');
 };
 
 BTN.uinduk.onclick = async function () {
@@ -198,8 +198,8 @@ BTN.uinduk.onclick = async function () {
     );
     const RESULT = await DATA.json();
     RESULT.data === 'sukses'
-        ? alert('sukses update nomor induk')
-        : alert('gagal update nomor induk');
+        ? toastr.success('sukses update nomor induk', 'update no induk')
+        : toastr.error('gagal update nomor induk', 'update no induk');
 };
 
 const parse = data => {
