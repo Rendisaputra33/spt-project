@@ -17,7 +17,7 @@ class TransaksiController extends Controller
     public function index(Berangkat $berangkat)
     {
         return view('tampil-data-transaksi', [
-            'list' => $berangkat->whereNotNull('tanggal_pulang')->get(),
+            'list' => $berangkat->whereNotNull('tanggal_pulang')->orderBy('id_keberangkatan', 'desc')->get(),
             'pg' => Pg::get(),
         ]);
     }

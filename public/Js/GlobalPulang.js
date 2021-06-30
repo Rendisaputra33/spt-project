@@ -24,9 +24,8 @@ function displayU() {
                     document.querySelector(
                         'input[name=tanggal_bongkar]'
                     ).value = res.data.tanggal_bongkar;
-                    document.querySelector(
-                        'input[name=berat_bersih]'
-                    ).value = res.data.berat_pulang - res.data.refaksi;
+                    document.querySelector('input[name=berat_bersih]').value =
+                        res.data.berat_pulang - res.data.refaksi;
                 });
         });
     }
@@ -77,6 +76,7 @@ function getfilter() {
             document.getElementById('list-data').innerHTML = parse(res);
             displayD();
             displayU();
+            tablePagination();
         });
 }
 
@@ -99,14 +99,27 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/pulang/${res.id_keberangkatan
+        <a href="/pulang/${
+            res.id_keberangkatan
         }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
+};
+
+const tablePagination = () => {
+    $('#tb').dataTable({
+        searching: false,
+        lengthChange: false,
+        language: {
+            info: 'Halaman ke _PAGE_ dari _PAGES_',
+        },
+    });
 };
 
 function displayD() {
@@ -118,9 +131,8 @@ function displayD() {
             fetch(URL + '/detail?id=' + ID)
                 .then(res => res.json())
                 .then(res => {
-                    (document.getElementById('tabel_detail').innerHTML = htmldetail(
-                        res.data
-                    ))
+                    document.getElementById('tabel_detail').innerHTML =
+                        htmldetail(res.data);
                 });
         });
     }
@@ -193,7 +205,7 @@ const htmldetail = res => {
                 <td>${res.wilayah}</td>
                 <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
                 <td>${res.refaksi}</td>
-            </tr></tbody>`
+            </tr></tbody>`;
     } else {
         return /*html*/ `<thead>
         <tr class="col-sm" style="display: flex; flex-direction: column;">
@@ -270,7 +282,7 @@ const htmldetail = res => {
                 <td>${res.tara_mbl}</td>
                 <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
                 <td>${res.refaksi}</td>
-            </tr></tbody>`
+            </tr></tbody>`;
     }
 };
 
