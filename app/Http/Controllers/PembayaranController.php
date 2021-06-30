@@ -27,7 +27,8 @@ class PembayaranController extends Controller
             ];
         endforeach;
         return view('tampil-data-bayar', [
-            'list' => !isset($this->data) ? [] : $this->data
+            'list' => !isset($this->data) ? [] : $this->data,
+            'title' => 'Pembayaran'
         ]);
     }
 
@@ -90,7 +91,7 @@ class PembayaranController extends Controller
         endforeach;
         $insert = $pembayaran->insert($arr);
         $list = $pembayaran->whereIn('id_keberangkatan', $req->id)->get();
-        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice]) : redirect()->back();
+        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'title' => 'Invoice']) : redirect()->back();
     }
 
     /**
@@ -105,6 +106,7 @@ class PembayaranController extends Controller
         return view('list-dibayar', [
             'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get(),
             'sopir' => Sopir::get(),
+            'title' => 'Tambah | Pembayaran'
         ]);
     }
 

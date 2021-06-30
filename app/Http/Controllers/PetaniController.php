@@ -16,7 +16,8 @@ class PetaniController extends Controller
     public function index()
     {
         return view('tampil-data-petani', [
-            'petani' => Petani::get()
+            'petani' => Petani::get(),
+            'title' => 'Pemilik'
         ]);
     }
 
@@ -78,7 +79,8 @@ class PetaniController extends Controller
     public function viewAdd()
     {
         return view('petani', [
-            'pabrik' => Pg::select('nama_pg')->get()
+            'pabrik' => Pg::select('nama_pg')->get(),
+            'title' => 'Tambah | Pemilik'
         ]);
     }
 

@@ -12,7 +12,8 @@ class SopirController extends Controller
     public function index()
     {
         return view('tampil-data-sopir', [
-            'sopir' => Sopir::get()
+            'sopir' => Sopir::get(),
+            'title' => 'Petani'
         ]);
     }
 
@@ -54,6 +55,8 @@ class SopirController extends Controller
 
     public function viewAdd()
     {
-        return view('sopir');
+        return view('sopir', [
+            'title' => 'Tambah | Petani'
+        ]);
     }
 }

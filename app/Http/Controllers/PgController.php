@@ -12,7 +12,8 @@ class PgController extends Controller
     public function index()
     {
         return view('tampil-data-pg', [
-            'pg' => Pg::get()
+            'pg' => Pg::get(),
+            'title' => 'Pabrik'
         ]);
     }
 
@@ -52,6 +53,8 @@ class PgController extends Controller
 
     public function viewAdd()
     {
-        return view('pg');
+        return view('pg', [
+            'title' => 'Tambah | Pabrik'
+        ]);
     }
 }

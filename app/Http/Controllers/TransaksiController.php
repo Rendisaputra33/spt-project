@@ -19,6 +19,7 @@ class TransaksiController extends Controller
         return view('tampil-data-transaksi', [
             'list' => $berangkat->whereNotNull('tanggal_pulang')->orderBy('id_keberangkatan', 'desc')->get(),
             'pg' => Pg::get(),
+            'title' => 'Transaksi'
         ]);
     }
 
@@ -30,7 +31,7 @@ class TransaksiController extends Controller
     public function cetakTransaksi(Berangkat $berangkat, $id)
     {
         $data = $berangkat->where('id_keberangkatan', $id)->first();
-        return view('cetak-laporan', ['data' => $data]);
+        return view('cetak-laporan', ['data' => $data, 'title' => 'Cetak | Transaksi']);
     }
 
     /**
@@ -54,6 +55,7 @@ class TransaksiController extends Controller
         return view('tampil-data-laporan-pembayaran', [
             'list' => !isset($this->data) ? [] : $this->data,
             'pg' => Pg::get(),
+            'title' => 'Laporan | Pembayaran'
         ]);
     }
 

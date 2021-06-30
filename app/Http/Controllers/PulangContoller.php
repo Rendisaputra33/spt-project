@@ -16,6 +16,7 @@ class PulangContoller extends Controller
     {
         return view('tampil-data-pulang', [
             'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->orderBy('id_keberangkatan', 'desc')->get(),
+            'title' => 'Pulang'
         ]);
     }
 
@@ -57,7 +58,8 @@ class PulangContoller extends Controller
     public function show(Berangkat $berangkat)
     {
         return view('list-dipulangkan', [
-            'data' => $berangkat->whereNull('tanggal_pulang')->get()
+            'data' => $berangkat->whereNull('tanggal_pulang')->get(),
+            'title' => 'Tambah | Pulang'
         ]);
     }
 
@@ -109,7 +111,8 @@ class PulangContoller extends Controller
     public function cetak(Berangkat $berangkat)
     {
         return view('laporan-pulang', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get()
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereDate('updated_at', now())->get(),
+            'title' => 'Laporan | Pulang'
         ]);
     }
 

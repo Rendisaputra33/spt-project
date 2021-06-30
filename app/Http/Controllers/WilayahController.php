@@ -12,7 +12,8 @@ class WilayahController extends Controller
     public function index()
     {
         return view('tampil-data-wilayah', [
-            'wilayah' => Wilayah::get()
+            'wilayah' => Wilayah::get(),
+            'title' => 'Wilayah'
         ]);
     }
 
@@ -68,6 +69,8 @@ class WilayahController extends Controller
 
     public function viewAdd()
     {
-        return view('wilayah');
+        return view('wilayah', [
+            'title' => 'Tambah | Wilayah'
+        ]);
     }
 }

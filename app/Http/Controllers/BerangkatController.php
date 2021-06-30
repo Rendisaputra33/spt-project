@@ -21,7 +21,7 @@ class BerangkatController extends Controller
             return view('tampil-data-berangkat', $update);
         } else {
             $list = $berangkat->whereDate('created_at', now())->orderBy('id_keberangkatan', 'desc')->get();
-            $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list];
+            $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get(), 'data' => $list, 'title' => 'Berangkat'];
             return view('tampil-data-berangkat', $data);
         }
     }
