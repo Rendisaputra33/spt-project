@@ -79,7 +79,7 @@ class PulangContoller extends Controller
             'refaksi' => $req->refaksi,
             'netto_pulang' => $req->berat_pulang - $req->refaksi,
             'updated_at' => now()
-        ]) ? redirect('/pulang') : redirect()->back();
+        ]) ? redirect('/pulang')->with('sukses', 'sukses menambah data kepulangan') : redirect()->back()->with('error', 'gagal menambah data kepulangan');
     }
 
     /**
@@ -105,7 +105,7 @@ class PulangContoller extends Controller
     public function destroy(Berangkat $berangkat, $id)
     {
         return $berangkat->where('id_keberangkatan', $id)->delete()
-            ? redirect('/pulang') : redirect('/pulang');
+            ? redirect('/pulang')->with('sukses', 'sukses menghapus data') : redirect('/pulang')->with('error', 'gagal menghapus data');
     }
 
     public function cetak(Berangkat $berangkat)
@@ -120,6 +120,6 @@ class PulangContoller extends Controller
     {
         return $berangkat->where('id_keberangkatan', $id)->update([
             'no_sp' => $req->no_sp
-        ]) ? redirect()->back() : redirect()->back();
+        ]) ? redirect()->back()->with('sukses', 'sukses update nomor sp') : redirect()->back()->with('error', 'gagal update nomor sp');
     }
 }

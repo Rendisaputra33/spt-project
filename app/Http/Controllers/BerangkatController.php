@@ -49,7 +49,7 @@ class BerangkatController extends Controller
             'netto' => $req->netto,
             'harga' => $req->harga,
         ])
-            ? redirect('/berangkat')->with('success', 'sukses tambah data')
+            ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
             : redirect()->back()->with('error', 'gagal menambah data');
     }
 
@@ -70,14 +70,14 @@ class BerangkatController extends Controller
             'netto' => $req->unetto,
             'harga' => $req->uharga,
         ])
-            ? redirect('/berangkat')->with('success', 'sukses update data')
+            ? redirect('/berangkat')->with('sukses', 'sukses update data')
             : redirect()->back()->with('error', 'gagal menambah data');
     }
 
     public function delete($id)
     {
         return Berangkat::where('id_keberangkatan', $id)->delete()
-            ? redirect('/berangkat')->with('success', 'sukses delete data')
+            ? redirect('/berangkat')->with('sukses', 'sukses delete data')
             : redirect()->back()->with('error', 'gagal delete data');
     }
 

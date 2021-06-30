@@ -23,7 +23,7 @@ class PgController extends Controller
             'nama_pg' => $req->nama_pg,
             'lokasi_pg' => $req->lokasi_pg,
         ])
-            ? redirect('/pg')->with('success', 'data berhasil di tambah')
+            ? redirect('/pg')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
     }
 
@@ -33,14 +33,14 @@ class PgController extends Controller
             'nama_pg' => $req->nama_pg,
             'lokasi_pg' => $req->lokasi_pg,
         ])
-            ? redirect('/pg')->with('success', 'data berhasil di update')
+            ? redirect('/pg')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
     }
 
     public function delete($id)
     {
         return Pg::where('id_pg', $id)->delete()
-            ? redirect('/pg')->with('success', 'data berhasil di delete')
+            ? redirect('/pg')->with('sukses', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
 
