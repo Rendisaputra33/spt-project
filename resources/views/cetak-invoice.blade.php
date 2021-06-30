@@ -10,6 +10,14 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <style>
+        hr {
+           border: 1px solid black; 
+        }
+    </style>
 </head>
 
 <body>
@@ -20,17 +28,22 @@
                 <div id="cetak">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="page-header">
-                                <i class="fa fa-globe"></i> RAYA GUNA
-                                <small class="pull-right">Date: 2/10/2014</small>
-                            </h2>
+                            <h4 style="text-align: center;">
+                                <i>USAHA PENGANGKUTAN</i><br>
+                            </h4>
+                            <h4 style="text-align: center"><b>CV RAYA GUNA</b></h4>
+                            <p style="text-align: center">JL. RAYA BLAMBANGAN 88 SALAKAN KREBET - MALANG <br> TELP (0341) 803808, 085100727127, 08179660466</p>
+                            <hr>
                         </div>
                         <!-- /.col -->
                     </div>
                     <!-- info row -->
                     <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                            {{-- <b>Invoice #{{ $inv }}</b><br> --}}
+                        <div class="col-sm-4 invoice-col pull-right">
+                            Malang &emsp;&emsp;&emsp; Maret 2021 <br>
+                            Kepada <br>
+                            Yth PT ASINDO KARSA JAYA <br>
+                            KREBET MALANG
                         </div>
                         <!-- /.col -->
                     </div> <br>
@@ -42,50 +55,55 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
+                                        <th>Tgl Berangkat</th>
+                                        <th>Tgl Pulang</th>
+                                        <th>No Sp</th>
+                                        <th>No Truk</th>
+                                        <th>Pabrik</th>
+                                        <th>Berat Bersih</th>
                                         <th>Harga</th>
-                                        <th>Tanggal Bayar</th>
-                                        <th>Nominal</th>
-                                        <th>Netto</th>
-                                        <th>No SP</th>
+                                        <th>Sub Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $total = 0; @endphp
-                                    @foreach ($data as $item)
-                                    @php $total += $item->nominal @endphp
-                                    <tr>
-                                        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                        <td>{{ formatTanggal($item->tanggal_bayar) }}</td>
-                                        <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
-                                        {{-- <td>{{ $item->netto </td> --}}
-                                        {{-- <td>{{ $item->no_sp }}</td> --}}
-                                    </tr>
-                                    @endforeach
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Rp. </td>
+                                            <td>Rp. </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.col -->
                     </div><br>
                     <!-- /.row -->
-
+                    <!-- Table row -->
                     <div class="row">
-                        <!-- accepted payments column -->
-
-                        <!-- /.col -->
-                        <div class="col-xs-12">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Total:</th>
-                                            {{-- <td style="text-align: right">Rp {{ number_format($total, 0, ',', '.') }}</td> --}}
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="col-xs-4 table-responsive pull-right">
+                            Hormat kami <br> <br> <br> <br>
+                            CV. RAYA GUNA
                         </div>
                         <!-- /.col -->
-                    </div>
+                    </div><br>
+                    <!-- /.row -->
                 </div>
                 <!-- /.row -->
 
