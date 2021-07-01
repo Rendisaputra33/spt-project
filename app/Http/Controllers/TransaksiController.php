@@ -41,15 +41,12 @@ class TransaksiController extends Controller
      */
     public function viewLaporan(Pembayaran $pembayaran)
     {
-        foreach ($pembayaran->getGlobal() as $item) :
+        foreach ($pembayaran->getPembayaran() as $item) :
             $this->data[] = [
                 'invoice' => $item->no_invoice,
-                'sub_total' => $item->sub_total,
                 'petani' => $item->nama_sopir,
-                'list_pemilik' => explode(',', $item->pemilik),
-                'list_tipe' => explode(',', $item->type),
                 'tgl' => $item->tgl,
-                'harga' => $item->hrg,
+                'list_sp' => $item->sp,
             ];
         endforeach;
         return view('tampil-data-laporan-pembayaran', [
