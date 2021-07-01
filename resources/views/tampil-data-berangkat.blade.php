@@ -235,7 +235,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Netto</label>
-                                    <input type="text" class="form-control" placeholder="Netto " name="netto" required>
+                                    <input type="text" class="form-control" placeholder="Netto " name="netto" required readonly>
                                     <span class="text-dark"></span>
                                 </div>
                             </div>

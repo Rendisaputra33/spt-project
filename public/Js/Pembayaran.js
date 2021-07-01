@@ -1,12 +1,12 @@
-const URL = document.getElementById("url").value;
-const TOKEN = document.getElementById("token").value;
+const URL = document.getElementById('url').value;
+const TOKEN = document.getElementById('token').value;
 
 function filter() {
     try {
         getfilter();
     } catch (e) {
         console.log(e);
-        document.getElementById("list-data").innerHTML = "error";
+        document.getElementById('list-data').innerHTML = 'error';
     }
 }
 
@@ -14,26 +14,25 @@ function getfilter() {
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
     fetch(`${URL}/filterpembayaran`, {
-        method: "post",
+        method: 'post',
         body: JSON.stringify({ tgl1: split[0], tgl2: split[1] }),
-        headers: { "Content-Type": "application/json", "X-CSRF-Token": TOKEN },
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': TOKEN },
     })
-        .then((res) => res.json())
-        .then((res) => {
-            document.getElementById("list-data").innerHTML = parse(res);
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('list-data').innerHTML = parse(res);
         });
-
 }
 
-const parse = (data) => {
-    let html = "";
-    data.data.map((res) => {
+const parse = data => {
+    let html = '';
+    data.data.map(res => {
         html += htmldata(res);
     });
     return html;
-}
+};
 
-const htmldata = (res) => {
+const htmldata = res => {
     return /*html*/ `<tr>
     <td>${res.tipe}</td>
     <td>${res.no_invoice}</td>
@@ -46,19 +45,16 @@ const htmldata = (res) => {
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
         <a href="/pembayaran/${res.id_pembayaran}" class="btn btn-danger">Hapus</a>
     </td>
-</tr>`
-}
+</tr>`;
+};
 
-displayD()
-
+displayD();
 
 function displayD() {
     const dt = document.getElementsByClassName('detail');
-
     for (let i = 0; i < dt.length; i++) {
         dt[i].addEventListener('click', function () {
             const ID = this.getAttribute('data-id');
-            console.log(ID)
             fetch(URL + '/detailp?id=' + ID)
                 .then(res => res.json())
                 .then(res => {
@@ -69,18 +65,18 @@ function displayD() {
     }
 }
 
-const parse2 = (data) => {
-    let html = "";
+const parse2 = data => {
+    let html = '';
     let no = 1;
-    data.data.map((res) => {
-        html += detaildata(res, no++)
-    })
-    return html
-}
+    data.data.map(res => {
+        html += detaildata(res, no++);
+    });
+    return html;
+};
 
 const detaildata = (res, no) => {
-    const netto = res.berat_pulang * res.refaksi
-    const total = res.harga * netto
+    const netto = res.berat_pulang * res.refaksi;
+    const total = res.harga * netto;
     return /*html*/ `<tr>
     <td>${no}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
@@ -91,8 +87,8 @@ const detaildata = (res, no) => {
     <td>${netto}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>${formatRupiah(total.toString(), 'Rp ')}</td>
-</tr>`
-}
+</tr>`;
+};
 
 const formatTanggal = tgl => {
     const listMonth = [
