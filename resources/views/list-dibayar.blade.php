@@ -68,6 +68,7 @@
                                             <th>Tujuan</th>
                                             <th>Tanggal Berangkat</th>
                                             <th>No Induk</th>
+                                            <th>No Truk</th>
                                             <th>Berat Bersih</th>
                                             <th>Harga</th>
                                             <th>Sub Total</th>
@@ -88,6 +89,7 @@
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->no_induk }}</td>
+                                            <td>{{ $item->no_truk }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>

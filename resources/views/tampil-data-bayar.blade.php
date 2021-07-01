@@ -63,7 +63,7 @@
                                             <th>Tanggal Pembayaran</th>
                                             <th>Nama Petani</th>
                                             <th>No SP</th>
-                                            <th colspan="2">Action</th>
+                                            <th style="text-align: center;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
@@ -78,7 +78,7 @@
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
                                             <td>{{ $item['petani'] }}</td>
                                             <td>{{ $item['list_sp'] }}</td>
-                                            <td>
+                                            <td style="text-align: center;">
                                                 <button type="button" class="btn btn-primary detail" id="detail" data-id="{{ $item['invoice'] }}" data-toggle="modal" data-target="#exampleModal">
                                                     Detail
                                                 </button>

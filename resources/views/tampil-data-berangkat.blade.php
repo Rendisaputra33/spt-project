@@ -61,6 +61,8 @@
                                             <th>Tanggal Berangkat</th>
                                             <th>No SP</th>
                                             <th>Nama Pemilik</th>
+                                            <th>Nama Petani</th>
+                                            <th>Pabrik Tujuan</th>
                                             <th>No Induk</th>
                                             <th>Wilayah</th>
                                             <th>Harga</th>
@@ -80,6 +82,8 @@
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->no_sp === null ? 'kosong' : $item->no_sp }}</td>
                                             <td>{{ $item->nama_petani }}</td>
+                                            <td>{{ $item->nama_sopir }}</td>
+                                            <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->wilayah }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
@@ -329,7 +333,7 @@
                                 <div class="form-group">
                                     <label for="wilayah">Wilayah</label>
                                     <select class="form-control" id="wilayah" name="uwilayah">
-                                        <option selected>Choose...</option>
+                                        <option selected>Pilih...</option>
                                         @foreach ($wilayah as $item)
                                         <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
                                         @endforeach
@@ -338,7 +342,7 @@
                                 <div class="form-group">
                                     <label for="namapetani">Nama Pemilik</label>
                                     <select class="form-control" id="namapetani" name="unama_petani">
-                                        <option selected>Choose...</option>
+                                        <option selected>Pilih...</option>
                                         @foreach ($petani as $item)
                                         <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
                                         @endforeach
@@ -347,7 +351,7 @@
                                 <div class="form-group">
                                     <label for="namasopir">Nama Petani</label>
                                     <select class="form-control" id="namasopir" name="unama_sopir">
-                                        <option selected>Choose...</option>
+                                        <option selected>Pilih...</option>
                                         @foreach ($sopir as $item)
                                         <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
                                         @endforeach
@@ -359,7 +363,7 @@
                                 <div class="form-group">
                                     <label for="pabriktujuan">Pabrik Tujuan</label>
                                     <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
-                                        <option selected>Choose...</option>
+                                        <option selected>Pilih...</option>
                                         @foreach ($pg as $item)
                                         <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                         @endforeach
