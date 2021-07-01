@@ -50,6 +50,9 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <?php if(session('sukses') !== null): ?>
+                            <x-alert message="{{ session('sukses') }}" type="success" />
+                            <?php endif ?>
                             <div class="table-responsive">
                                 <table id="tb" class="table table-bordered table-striped ">
                                     <thead>
@@ -394,6 +397,7 @@
         </div>
     </div>
 </div>
+
 <!-- /Modal -->
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -406,4 +410,6 @@
 <script src="{{ asset('Js/Berangkat.js') }}"></script>
 <script src="{{ asset('Js/Range.js') }}"></script>
 <script src="{{ asset('Js/Pagination.js') }}"></script>
+
+
 @endsection
