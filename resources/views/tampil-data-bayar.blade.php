@@ -63,7 +63,7 @@
                                             <th>Tanggal Pembayaran</th>
                                             <th>Nama Petani</th>
                                             <th>No SP</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id='list-data'>
@@ -78,7 +78,12 @@
                                             <td>{{ formatTanggal($item['tgl']) }}</td>
                                             <td>{{ $item['petani'] }}</td>
                                             <td>{{ $item['list_sp'] }}</td>
-                                            <td><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                    Detail
+                                                </button>
+                                                <a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                         <?php endif; ?>
@@ -96,7 +101,52 @@
         </div>
     </section>
 </div>
-<!-- /Modal -->
+
+
+{{-- modal --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered table-responsive-xl">
+              <tr>
+                  <th>No</th>
+                  <th>Tgl Berangkat</th>
+                  <th>Tgl Pulang</th>
+                  <th>No Sp</th>
+                  <th>No truck</th>
+                  <th>Pabrik</th>
+                  <th>Berat Bersih</th>
+                  <th>Harga</th>
+                  <th>Subtotal</th>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{-- /modal --}}
 
 
 <script src="{{ asset('Js/Pembayaran.js') }}"></script>
