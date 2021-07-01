@@ -48,3 +48,35 @@ const htmldata = (res) => {
     </td>
 </tr>`
 }
+
+function displayD() {
+    const dt = document.getElementsByClassName('detail');
+
+    for (let i = 0; i < dt.length; i++) {
+        dt[i].addEventListener('click', function () {
+            const ID = this.getAttribute('data-id');
+            fetch(URL + '/detailp?id=' + ID)
+                .then(res => res.json())
+                .then(res => {
+                    document.getElementById('tabel_detail').innerHTML =
+                        detaildata(res.data);
+                });
+        });
+    }
+}
+
+const detaildata = (res) => {
+    return /*html*/ `<tr>
+    <td>${res.tipe}</td>
+    <td>${res.no_invoice}</td>
+    <td>${res.harga}</td>
+    <td>${res.tanggal_bayar}</td>
+    <td>${res.nominal}</td>
+    <td>${res.netto}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
+        <a href="/pembayaran/${res.id_pembayaran}" class="btn btn-danger">Hapus</a>
+    </td>
+</tr>`
+}

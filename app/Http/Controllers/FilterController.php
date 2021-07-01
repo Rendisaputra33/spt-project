@@ -63,4 +63,10 @@ class FilterController extends Controller
         return response()->json(['data' => Berangkat::where('id_keberangkatan', $id)->first()]);
     }
 
+    public function getDetailP()
+    {
+        $id = request('id');
+        return response()->json(['data' => Pembayaran::where('id_pembayaran', $id)->first()]);
+    }
+
 }
