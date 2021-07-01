@@ -120,6 +120,16 @@ const updateHarga = res => {
     }
 };
 
+const updateHargau = res => {
+    if (res == null) {
+        FORM_UPDATE.harga.value = '';
+    } else {
+        DATA_HARGA.id = res.id_wilayah;
+        DATA_HARGA.harga = res.harga_wilayah;
+        FORM_UPDATE.harga.value = DATA_HARGA.harga;
+    }
+};
+
 const updateRegister = res => {
     if (res == null) {
         FORM_ADD.no_induk.value = '';
@@ -179,6 +189,12 @@ function setForm(THIS) {
             res.data.tipe === 'SPT' ? dForm(FORM_UPDATE) : oForm(FORM_UPDATE);
         });
 }
+
+FORM_UPDATE.wilayah.addEventListener('change', function () {
+    fetch(URL + '/wilayah/getHarga/' + this.value)
+        .then(res => res.json())
+        .then(res => updateHargau(res.data[0]));
+});
 
 BTN.uharga.onclick = async function () {
     const HARGA = FORM_ADD.harga.value;
