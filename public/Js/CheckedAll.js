@@ -74,13 +74,15 @@ const htmldata = item => {
     }" /></td>
     <td>${formatTanggal(item.tanggal_pulang)}</td>
     <td>${item.tipe}</td>
+    <td>${item.no_sp}</td>
     <td>${item.nama_petani}</td>
     <td>${item.nama_sopir}</td>
     <td>${item.pabrik_tujuan}</td>
     <td>${formatTanggal(item.tanggal_keberangkatan)}</td>
-    <td>${item.refaksi}</td>
+    <td>${item.no_induk}</td>
+    <td>${item.netto_pulang}</td>
+    <td>${item.harga}</td>
     <td>${formatRupiah((item.harga * item.netto_pulang).toString())}</td>
-
 </tr>`;
 };
 
