@@ -66,7 +66,7 @@ class FilterController extends Controller
     public function getDetailP()
     {
         $id = request('id');
-        return response()->json(['data' => Pembayaran::where('id_pembayaran', $id)->first()]);
+        return response()->json(['data' => Pembayaran::join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->where('tb_pembayaran.no_invoice', $id)->get()]);
     }
 
 }
