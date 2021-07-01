@@ -43,8 +43,8 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <a href="/berangkat/view/cetak" class="btn btn-secondary float-right text-bold ml-1"><i class="fas fa-print"></i>&nbsp;Cetak Laporan</a>
-                                    <a href="#" class="btn btn-secondary float-right text-bold" data-target="#modal-lg-tambah" id='tbh' data-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                    <a href="/berangkat/view/cetak" class="btn btn-primary float-right text-bold ml-1"><i class="fas fa-print"></i>&nbsp;Cetak Laporan</a>
+                                    <a href="#" class="btn btn-success float-right text-bold" data-target="#modal-lg-tambah" id='tbh' data-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                 </div>
                             </div>
                         </div>

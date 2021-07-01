@@ -58,3 +58,38 @@ const htmldata = res => {
     <td><a href="/transaksi/berangkat/cetak/${res.id_keberangkatan}" class="btn btn-success">cetak</a></td>
 </tr>`;
 };
+
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+};
+
+const formatRupiah = (angka, prefix) => {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
+};

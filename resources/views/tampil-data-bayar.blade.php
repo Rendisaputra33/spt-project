@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <a href="/pembayaran/view/list" class="btn btn-secondary float-right text-bold">Tambah
+                                    <a href="/pembayaran/view/list" class="btn btn-success float-right text-bold">Tambah
                                         &nbsp;<i class="fas fa-plus"></i> </a>
                                 </div>
                             </div>

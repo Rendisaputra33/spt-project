@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <a href="/wilayah/view/add" class="btn btn-secondary float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                    <a href="/wilayah/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                 </div>
                             </div>
                         </div>

@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <button type="submit" disabled class="btn btn-secondary float-right text-bold" id="bayar"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
+                                        <button type="submit" disabled class="btn btn-primary float-right text-bold" id="bayar"><i class="fas fa-money-bill-wave"></i>&nbsp;Bayar</button>
                                     </div>
                                 </div>
                             </div>

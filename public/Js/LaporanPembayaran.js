@@ -37,21 +37,55 @@ function getfilter() {
 
 const parse = data => {
 	let html = '';
+	let no = 1;
 	data.data.map(res => {
-		html += htmldata(res);
+		html += htmldata(res, no++);
 	});
 	return html;
 };
 
-const htmldata = res => {
-	return /*html*/ ` <tr>
-    <td>${res.tipe}</td>
-    <td>${res.no_invoice}</td>
-    <td>${res.harga}</td>
-    <td>${res.tanggal_bayar}</td>
-    <td>${res.nominal}</td>
-    <td>${res.netto}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td><a href="/transaksi/pembayaran/cetak/${res.id_pembayaran}" class="btn btn-success">cetak</a></td>
+const htmldata = (res, no) => {
+	return /*html*/ `<tr>
+	<td>${no}</td>
+	<td>${res['invoice']}</td>
+	<td>${formatTanggal(res.tanggal_bayar)}</td>
+	<td>${res.nama_sopir}</td>
+	<td>${res.no_sp}</td>
+	<td><a href="/pembayaran/str_replace('/', '-', ${res['invoice']})" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
 </tr>`;
+};
+
+const formatTanggal = tgl => {
+	const listMonth = [
+		'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'November',
+		'Desember',
+	];
+	const month = tgl.split('-');
+	return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+};
+
+const formatRupiah = (angka, prefix) => {
+	var number_string = angka.replace(/[^,\d]/g, '').toString(),
+		split = number_string.split(','),
+		sisa = split[0].length % 3,
+		rupiah = split[0].substr(0, sisa),
+		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+	// tambahkan titik jika yang di input sudah menjadi angka ribuan
+	if (ribuan) {
+		separator = sisa ? '.' : '';
+		rupiah += separator + ribuan.join('.');
+	}
+
+	rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+	return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
