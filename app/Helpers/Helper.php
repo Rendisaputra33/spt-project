@@ -16,7 +16,7 @@ function formatRupiah($angka)
 function tanggal($tgl)
 {
     $tg = explode('/', $tgl);
-    return $tg[3] . '-' . $tg[2] . '-' . $tg[1];
+    return $tg[2] . '-' . $tg[1] . '-' . $tg[0];
 }
 
 function tanggal2($tgl)

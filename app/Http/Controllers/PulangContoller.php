@@ -70,7 +70,7 @@ class PulangContoller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Berangkat $berangkat, Request $req, $id)
-    {
+    {   
         return $berangkat->where('id_keberangkatan', $id)->update([
             'tanggal_pulang' => tanggal2($req->tanggal_pulang),
             'tanggal_bongkar' => tanggal2($req->tanggal_bongkar),

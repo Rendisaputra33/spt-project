@@ -51,7 +51,6 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <?php if(session('sukses') !== null): ?>
-                            <x-alert message="{{ session('sukses') }}" type="success" />
                             <?php endif ?>
                             <div class="table-responsive">
                                 <table id="tb" class="table table-bordered table-striped ">

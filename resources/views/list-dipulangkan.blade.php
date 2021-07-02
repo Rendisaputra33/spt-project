@@ -106,14 +106,14 @@
                             @csrf
                             @method('put')
                             <div class="modal-body">
-                                <div class="form-group">
+                                <div class="form-group" id="1">
                                     <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                    <input type="date" class="form-control date" placeholder="Tanggal Pulang " value="{{ date('Y-m-d') }}" name="tanggal_pulang">
+                                    <input type="text" class="form-control date" placeholder="Tanggal Pulang " value="{{ date('d-m-Y') }}" name="tanggal_pulang">
                                     <span class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="2">
                                     <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                    <input type="date" class="form-control date" placeholder="Tanggal Bongkar " value="{{ date('Y-m-d') }}" name="tanggal_bongkar">
+                                    <input type="text" class="form-control date" placeholder="Tanggal Bongkar " value="{{ date('d-m-Y') }}" name="tanggal_bongkar">
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -202,6 +202,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script>
     $('#date-range')
         .daterangepicker({
@@ -210,5 +212,13 @@
                 separator: " / "
             }
     });
+    $('#1').datepicker({
+        inputs: $('input[name=tanggal_pulang]'),
+        format: 'dd/mm/yyyy'
+    })
+    $('#2').datepicker({
+        inputs: $('input[name=tanggal_bongkar]'),
+        format: 'dd/mm/yyyy'
+    })
 </script>
 @endsection
