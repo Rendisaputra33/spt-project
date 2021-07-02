@@ -15,8 +15,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <style>
         hr {
-           border: 1px solid black; 
+            border: 1px solid black;
         }
+
     </style>
 </head>
 
@@ -42,7 +43,7 @@
                         <div class="col-sm-4 invoice-col pull-right">
                             Malang &emsp;&emsp;&emsp; Maret 2021 <br>
                             Kepada <br>
-                            Yth PT ASINDO KARSA JAYA <br>
+                            Yth {{ $penerima }} <br>
                             KREBET MALANG
                         </div>
                         <!-- /.col -->
@@ -67,28 +68,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 1; ?>
+                                    <?php $total = 0; ?>
+                                    @foreach ($data as $item)
+                                        <?php $total += $item->harga * $item->netto_pulang; ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Rp. </td>
-                                            <td>Rp. </td>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $item->tanggal_keberangkatan }}</td>
+                                            <td>{{ $item->tanggal_pulang }}</td>
+                                            <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->no_truk }}</td>
+                                            <td>{{ $item->pabrik_tujuan }}</td>
+                                            <td>{{ $item->netto_pulang }}</td>
+                                            <td>{{ formatRupiah($item->harga) }}</td>
+                                            <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>
                                         </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
+                                    @endforeach
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <th>Total</th>
+                                        <th>{{ formatRupiah($total) }}</th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

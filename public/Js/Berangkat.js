@@ -233,6 +233,8 @@ const htmldata = (res, no) => {
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.no_sp}</td>
     <td>${res.nama_petani}}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.pabrik_tujuan}</td>
     <td>${res.no_induk}</td>
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>

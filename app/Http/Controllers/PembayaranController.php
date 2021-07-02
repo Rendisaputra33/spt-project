@@ -90,8 +90,8 @@ class PembayaranController extends Controller
             ];
         endforeach;
         $insert = $pembayaran->insert($arr);
-        $list = $pembayaran->whereIn('id_keberangkatan', $req->id)->get();
-        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'title' => 'Invoice']) : redirect()->back();
+        $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
+        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'penerima' => $list[0]['nama_sopir'], 'title' => 'Invoice']) : redirect()->back();
     }
 
     /**
