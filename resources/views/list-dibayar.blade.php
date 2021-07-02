@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Pilih</button>
+                                                <button type="button" id="filter" class="btn btn-primary text-bold"><i class="fas fa-filter"></i>&nbsp;Pilih</button>
                                             </div>
                                         </div>
                                     </div>

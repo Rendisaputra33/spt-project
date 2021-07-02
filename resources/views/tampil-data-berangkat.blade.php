@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <button type="button" id='filter' onClick="filter()" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
+                                            <button type="button" id='filter' onClick="filter()" class="btn btn-primary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
                                         </div>
                                     </div>
                                 </div>
@@ -123,9 +123,9 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="form-group">
+                                <div class="form-group" id="1">
                                     <label for="exampleInputPassword1">Tanggal Berangkat</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Berangkat " value="{{ date('Y-m-d') }}" name="tanggal_berangkat" required>
+                                    <input type="text" class="form-control" placeholder="Tanggal Berangkat" value="{{ date('d/m/Y') }}" name="tanggal_berangkat" required>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="input-group mb-3">
@@ -308,9 +308,9 @@
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
-                        <div class="form-group">
+                        <div class="form-group" id="2">
                             <label for="tglberangkat">Tanggal Berangkat</label>
-                            <input type="date" name="utanggal_berangkat" class="form-control">
+                            <input type="text" name="utanggal_berangkat" class="form-control">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -411,22 +411,18 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('Js/Berangkat.js') }}"></script>
 <script src="{{ asset('Js/Range.js') }}"></script>
 <script src="{{ asset('Js/Pagination.js') }}"></script>
 <script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.date form').length>0 ? $('.date form').parent() : "body";
-      var options={
-        format: 'dd/mm/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
+    $('#1').datepicker({
+        inputs: $('input[name=tanggal_berangkat]'),
+        format: 'dd/mm/yyyy'
+    })
+    $('#2').datepicker({
+        inputs: $('input[name=utanggal_berangkat]'),
+        format: 'dd/mm/yyyy'
     })
 </script>
 

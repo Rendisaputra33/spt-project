@@ -173,7 +173,7 @@ function setForm(THIS) {
     fetch(URL + '/berangkat/view/get/' + ID)
         .then(res => res.json())
         .then(res => {
-            FORM_UPDATE.tgl_b.value = res.data.tanggal_keberangkatan;
+            FORM_UPDATE.tgl_b.value = formatInputUpdate(res.data.tanggal_keberangkatan);
             FORM_UPDATE.tipe.value = res.data.tipe;
             FORM_UPDATE.no_sp.value = res.data.no_sp;
             FORM_UPDATE.no_induk.value = res.data.no_induk;
@@ -239,13 +239,11 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="${URL}/berangkat/${
-        res.id_keberangkatan
-    }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="${URL}/berangkat/${res.id_keberangkatan
+        }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };
@@ -285,3 +283,8 @@ const formatRupiah = (angka, prefix) => {
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
+
+function formatInputUpdate(tgl) {
+    const tanggal = tgl.split('-')
+    return `${tanggal[2]}/${tanggal[1]}/${tanggal[0]}`
+}
