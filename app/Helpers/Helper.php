@@ -12,3 +12,9 @@ function formatRupiah($angka)
 {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
+
+function tanggal($tgl)
+{
+    $tg = explode('/', $tgl);
+    return $tg[3] . '-' . $tg[2] . '-' . $tg[1];
+}
