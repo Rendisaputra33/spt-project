@@ -1,6 +1,6 @@
 $('#date-range').daterangepicker({
     locale: {
-        format: 'YYYY-MM-DD',
+        format: 'DD-MM-YYYY',
         separator: ' / ',
     },
 });
