@@ -79,9 +79,7 @@
                                             <td>{{ $item['petani'] }}</td>
                                             <td>{{ $item['list_sp'] }}</td>
                                             <td style="text-align: center;">
-                                                <button type="button" class="btn btn-primary detail" id="detail" data-id="{{ $item['invoice'] }}" data-toggle="modal" data-target="#exampleModal">
-                                                    Detail
-                                                </button>
+                                                <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#exampleModal" data-toggle="modal" data-id="{{ $item['invoice'] }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                 <a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                             </td>
                                         </tr>

@@ -45,12 +45,12 @@
                                                             <option value="SPT">SPT</option>
                                                             <option value="AMPERA">AMPERA</option>
                                                         </select>
-                                                        <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('Y-m-d') ?> / <?= date('Y-m-d') ?>">
+                                                        <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('d-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="col-3">
-                                            <button type="button" id="filter" class="btn btn-secondary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
+                                            <button type="button" id="filter" class="btn btn-primary text-bold"><i class="fas fa-filter"></i>&nbsp;Cari</button>
                                         </div>
                                         </form>
                                     </div>
