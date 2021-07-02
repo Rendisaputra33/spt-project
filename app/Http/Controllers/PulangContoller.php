@@ -72,8 +72,8 @@ class PulangContoller extends Controller
     public function edit(Berangkat $berangkat, Request $req, $id)
     {
         return $berangkat->where('id_keberangkatan', $id)->update([
-            'tanggal_pulang' => tanggal($req->tanggal_pulang),
-            'tanggal_bongkar' => tanggal($req->tanggal_bongkar),
+            'tanggal_pulang' => tanggal2($req->tanggal_pulang),
+            'tanggal_bongkar' => tanggal2($req->tanggal_bongkar),
             'no_truk' => $req->no_truk,
             'berat_pulang' => $req->berat_pulang,
             'refaksi' => $req->refaksi,
