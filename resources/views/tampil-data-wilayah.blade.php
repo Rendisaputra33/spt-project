@@ -39,7 +39,7 @@
                                                 </div>
                                         </div>
                                         <div class="col-6">
-                                            <button type="button" class="btn btn-secondary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
+                                            <button type="button" class="btn btn-primary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                         </div>
                                         </form>
                                     </div>
