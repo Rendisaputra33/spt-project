@@ -13,9 +13,13 @@ function filter() {
 function getfilter() {
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
+    const format = split[0].split('-')
+    const format2 = split[1].split('-')
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
     fetch(`${URL}/filterpembayaran`, {
         method: 'post',
-        body: JSON.stringify({ tgl1: split[0], tgl2: split[1] }),
+        body: JSON.stringify({ tgl1: date1, tgl2: date2 }),
         headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': TOKEN },
     })
         .then(res => res.json())

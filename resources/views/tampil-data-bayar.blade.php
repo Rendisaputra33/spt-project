@@ -37,7 +37,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                     </div>
-                                                    <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('Y-m-d') ?> / <?= date('Y-m-d') ?>">
+                                                    <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('d-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                 </div>
                                             </div>
                                         </div>

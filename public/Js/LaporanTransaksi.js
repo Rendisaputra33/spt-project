@@ -19,11 +19,15 @@ function getfilter() {
     const type = document.getElementById('type').value;
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
+    const format = split[0].split('-')
+    const format2 = split[1].split('-')
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
     fetch(`${URL}/filtertransaksi`, {
         method: 'post',
         body: JSON.stringify({
-            tgl1: split[0],
-            tgl2: split[1],
+            tgl1: date1,
+            tgl2: date2,
             type: type,
             tujuan: pabrik,
         }),
@@ -55,7 +59,7 @@ const htmldata = (res, no) => {
 	<td>${res.nama_petani}</td>
 	<td>${res.nama_sopir}</td>
 	<td>${res.no_sp}</td>
-	<td>${res.no_truk == null ? "Belum Pulang" : res.no_truk    }</td>
+	<td>${res.no_truk == null ? "Belum Pulang" : res.no_truk}</td>
 	<td>${res.pabrik_tujuan}</td>
 	<td>${berat}</td>
 	<td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>

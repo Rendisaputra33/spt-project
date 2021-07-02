@@ -19,11 +19,15 @@ function getfilter() {
 	const type = document.getElementById('type').value;
 	const date = document.getElementById('date-range').value;
 	const split = date.split(' / ');
+	const format = split[0].split('-')
+	const format2 = split[1].split('-')
+	const date1 = `${format[2]}-${format[1]}-${format[0]}`
+	const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
 	fetch(`${URL}/filterlaporan`, {
 		method: 'post',
 		body: JSON.stringify({
-			tgl1: split[0],
-			tgl2: split[1],
+			tgl1: date1,
+			tgl2: date2,
 			type: type,
 			tujuan: pabrik,
 		}),
