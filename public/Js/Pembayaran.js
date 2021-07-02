@@ -21,29 +21,31 @@ function getfilter() {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
+            displayD();
         });
 }
 
 const parse = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += htmldata(res);
+        html += htmldata(res, no++);
     });
     return html;
 };
 
-const htmldata = res => {
+const htmldata = (res, no) => {
     return /*html*/ `<tr>
-    <td>${res.tipe}</td>
+    <td>${no}</td>
     <td>${res.no_invoice}</td>
-    <td>${res.harga}</td>
-    <td>${res.tanggal_bayar}</td>
-    <td>${res.nominal}</td>
-    <td>${res.netto}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>&nbsp;
-        <a href="/pembayaran/${res.id_pembayaran}" class="btn btn-danger">Hapus</a>
+    <td>${formatTanggal(res.tanggal_bayar)}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.no_sp}</td>
+    <td style="text-align: center;">
+        <button type="button" class="btn btn-primary detail" id="detail" data-id="${res.no_invoice}" data-toggle="modal" data-target="#exampleModal">
+            Detail
+        </button>
+        <a href="/pembayaran/str_replace('/', '-', ${res.no_invoice})" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };

@@ -107,8 +107,14 @@
                                             <td></td>
                                             <td>{{ formatRupiah($c) }}</td>
                                         </tr> --}}
-                                    </tbody>
                                 </table>
+                                <div class="total">
+                                    <table>
+                                        <tr>
+                                            <td>Total</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
 
                         </div>

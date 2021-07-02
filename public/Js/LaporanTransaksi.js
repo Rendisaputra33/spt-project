@@ -37,26 +37,30 @@ function getfilter() {
 
 const parse = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += htmldata(res);
+        html += htmldata(res, no++);
     });
     return html;
 };
 
-const htmldata = res => {
+const htmldata = (res, no) => {
+    const berat = res.berat_pulang - res.refaksi;
+    const total = res.harga * berat;
     return /*html*/ `<tr>
-    <td>${res.tipe}</td>
-    <td>${res.no_sp}</td>
-    <td>${res.wilayah}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.pabrik_tujuan}</td>
-    <td>${res.berat_timbang}</td>
-    <td>${res.netto}</td>
-    <td>formatRupiah(${res.harga})</td>
-    <td>formatTanggal(${res.tanggal_keberangkatan})</td>
-    <td><a href="/transaksi/berangkat/cetak/${res.id_keberangkatan}" class="btn btn-success">cetak</a></td>
-</tr>`;
+	<td>${no}</td>
+	<td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+	<td>${res.tanggal_pulang == null ? "Belum Pulang" : formatTanggal(res.tanggal_pulang)}</td>
+	<td>${res.tipe}</td>
+	<td>${res.nama_petani}</td>
+	<td>${res.nama_sopir}</td>
+	<td>${res.no_sp}</td>
+	<td>${res.no_truk == null ? "Belum Pulang" : res.no_truk    }</td>
+	<td>${res.pabrik_tujuan}</td>
+	<td>${berat}</td>
+	<td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+	<td>${formatRupiah(total.toString(), 'Rp ')}</td>
+	</tr>`
 };
 
 const formatTanggal = tgl => {

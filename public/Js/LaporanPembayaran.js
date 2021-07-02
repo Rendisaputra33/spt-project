@@ -47,11 +47,11 @@ const parse = data => {
 const htmldata = (res, no) => {
 	return /*html*/ `<tr>
 	<td>${no}</td>
-	<td>${res['invoice']}</td>
+	<td>${res.no_invoice}</td>
 	<td>${formatTanggal(res.tanggal_bayar)}</td>
 	<td>${res.nama_sopir}</td>
 	<td>${res.no_sp}</td>
-	<td><a href="/pembayaran/str_replace('/', '-', ${res['invoice']})" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
+	<td><a href="/pembayaran/str_replace('/', '-', ${res.no_invoice})" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
 </tr>`;
 };
 

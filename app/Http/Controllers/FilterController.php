@@ -20,7 +20,7 @@ class FilterController extends Controller
 
     public function FilterPData(Request $req)
     {
-        return response()->json(['data' => Pembayaran::whereBetween('tanggal_bayar', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
+        return response()->json(['data' => Pembayaran::join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereBetween('tanggal_bayar', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
     }
 
     public function FilterTData(Request $req)
