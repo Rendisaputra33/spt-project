@@ -18,3 +18,9 @@ function tanggal($tgl)
     $tg = explode('/', $tgl);
     return $tg[3] . '-' . $tg[2] . '-' . $tg[1];
 }
+
+function tanggal2($tgl)
+{
+    $tg = explode('-', $tgl);
+    return $tg[2] . '-' . $tg[1] . '-' . $tg[0];
+}

@@ -21,11 +21,6 @@ class alert extends Component
         $this->t = $type;
     }
 
-    public function typeClass()
-    {
-        return $this->type === 'sukses' ? 'alert-success' : 'alert-danger';
-    }
-
     /**
      * Get the view / contents that represent the component.
      *
