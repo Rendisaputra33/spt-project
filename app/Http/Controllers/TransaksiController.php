@@ -28,10 +28,15 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cetakTransaksi(Berangkat $berangkat, $id)
+    public function cetakTransaksi(Berangkat $berangkat, Request $req)
     {
-        $data = $berangkat->where('id_keberangkatan', $id)->first();
-        return view('cetak-laporan', ['data' => $data, 'title' => 'Cetak | Transaksi']);
+        return view('cetak-laporan', [
+            'data' => $berangkat->whereBetween('created_at', [$req->tgl1, $req->tgl2])
+                ->where('tipe', $req->type)
+                ->where('pabrik_tujuan', $req->tujuan)
+                ->get(),
+            'title' => 'Cetak | Transaksi'
+        ]);
     }
 
     /**
