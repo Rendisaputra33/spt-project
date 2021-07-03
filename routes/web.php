@@ -176,11 +176,11 @@ Route::prefix('/pembayaran')->group(function () {
 Route::prefix('/transaksi')->group(function () {
     Route::prefix('/berangkat')->group(function () {
         Route::get('/', [TransaksiController::class, 'index'])->middleware('myAuth');
-        Route::get('/cetak', [TransaksiController::class, 'cetakTransaksi'])->middleware('myAuth');
+        Route::post('/cetak', [TransaksiController::class, 'cetakTransaksi'])->middleware('myAuth');
     });
     Route::prefix('/pembayaran')->group(function () {
         Route::get('/', [TransaksiController::class, 'viewLaporan'])->middleware('myAuth');
-        Route::get('/cetak', [TransaksiController::class, 'cetakPembayaran'])->middleware('myAuth');
+        Route::post('/cetak', [TransaksiController::class, 'cetakPembayaran'])->middleware('myAuth');
     });
 });
 

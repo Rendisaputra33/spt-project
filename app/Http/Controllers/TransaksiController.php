@@ -30,10 +30,11 @@ class TransaksiController extends Controller
      */
     public function cetakTransaksi(Berangkat $berangkat, Request $req)
     {
+        $tgl = explode(' / ', $req->tanggal);
         return view('cetak-laporan', [
-            'data' => $berangkat->whereBetween('created_at', [$req->tgl1, $req->tgl2])
-                ->where('tipe', $req->type)
-                ->where('pabrik_tujuan', $req->tujuan)
+            'data' => $berangkat->whereBetween('created_at', [tanggal2($tgl[0]), tanggal2($tgl[1])])
+                ->where('tipe', $req->tipe)
+                ->where('pabrik_tujuan', $req->pabrik)
                 ->get(),
             'title' => 'Cetak | Transaksi'
         ]);
