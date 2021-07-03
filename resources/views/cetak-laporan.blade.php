@@ -13,6 +13,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-size: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,7 +47,7 @@
                     <!-- Table row -->
                     <div class="row">
                         <div class="col-xs-12 table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>No</th>
