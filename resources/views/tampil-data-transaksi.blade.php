@@ -108,10 +108,11 @@
                                             <td>{{ formatRupiah($c) }}</td>
                                         </tr> --}}
                                         </table>
-                                        <div class="total">
-                                            <table>
+                                        <div class="tota mt-3">
+                                            <table class="table table-bordered" style="width: 100%;">
                                                 <tr>
-                                                    <td>Total</td>
+                                                    <th>Total</th>
+                                                    <th style="text-align: right;">{{ formatRupiah($c) }}</th>
                                                 </tr>
                                             </table>
                                         </div>
