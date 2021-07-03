@@ -33,7 +33,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <small>Date: 2/10/2014</small>
+                            <small>Tanggal Cetak : 2/10/2014</small>
                         </div>
                         <!-- /.col -->
                     </div> <br>
