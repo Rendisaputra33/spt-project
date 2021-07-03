@@ -107,30 +107,18 @@
                                                 }}</td>
                                         </tr>
                                         @endforeach
-                                        {{-- <tr>
-                                            <td></td>
-                                            <td colspan="8">Total</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>{{ formatRupiah($c) }}</td>
-                                        </tr> --}}
+                                    </tbody>
                                 </table>
-                                <div class="total">
-                                    <table>
+                                </table>
+                                <div class="tota mt-3">
+                                    <table class="table table-bordered" style="width: 100%;">
                                         <tr>
-                                            <td>Total</td>
+                                            <th>Total</th>
+                                            <th style="text-align: right;">{{ formatRupiah($c) }}</th>
                                         </tr>
                                     </table>
-                                    </table>
-                                    <div class="tota mt-3">
-                                        <table class="table table-bordered" style="width: 100%;">
-                                            <tr>
-                                                <th>Total</th>
-                                                <th style="text-align: right;">{{ formatRupiah($c) }}</th>
-                                            </tr>
-                                        </table>
-                                    </div>
                                 </div>
+
                             </div>
                         </div>
 
