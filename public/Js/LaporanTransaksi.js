@@ -1,6 +1,13 @@
 const URL = document.getElementById('url').value;
 const TOKEN = document.getElementById('token').value;
 
+const state = {
+    tanggal1: '',
+    tanggal2: '',
+    pabrik: '',
+    type: '',
+};
+
 document.getElementById('filter').addEventListener('click', function () {
     filter();
 });
@@ -19,10 +26,10 @@ function getfilter() {
     const type = document.getElementById('type').value;
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
-    const format = split[0].split('-')
-    const format2 = split[1].split('-')
-    const date1 = `${format[2]}-${format[1]}-${format[0]}`
-    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
+    const format = split[0].split('-');
+    const format2 = split[1].split('-');
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`;
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`;
     fetch(`${URL}/filtertransaksi`, {
         method: 'post',
         body: JSON.stringify({
@@ -36,8 +43,21 @@ function getfilter() {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
+            setState(date1, date2, type, pabrik);
+            checkState();
         });
 }
+
+const setState = (tgl1, tgl2, type, pabrik) => {
+    state.tanggal1 = tgl1;
+    state.tanggal2 = tgl2;
+    state.type = type;
+    state.pabrik = pabrik;
+};
+
+const checkState = () => {
+    console.log(state);
+};
 
 const parse = data => {
     let html = '';
@@ -54,17 +74,21 @@ const htmldata = (res, no) => {
     return /*html*/ `<tr>
 	<td>${no}</td>
 	<td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-	<td>${res.tanggal_pulang == null ? "Belum Pulang" : formatTanggal(res.tanggal_pulang)}</td>
+	<td>${
+        res.tanggal_pulang == null
+            ? 'Belum Pulang'
+            : formatTanggal(res.tanggal_pulang)
+    }</td>
 	<td>${res.tipe}</td>
 	<td>${res.nama_petani}</td>
 	<td>${res.nama_sopir}</td>
 	<td>${res.no_sp}</td>
-	<td>${res.no_truk == null ? "Belum Pulang" : res.no_truk}</td>
+	<td>${res.no_truk == null ? 'Belum Pulang' : res.no_truk}</td>
 	<td>${res.pabrik_tujuan}</td>
 	<td>${berat}</td>
 	<td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
 	<td>${formatRupiah(total.toString(), 'Rp ')}</td>
-	</tr>`
+	</tr>`;
 };
 
 const formatTanggal = tgl => {
