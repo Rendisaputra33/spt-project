@@ -121,24 +121,34 @@
                                             <td>Total</td>
                                         </tr>
                                     </table>
+                                    </table>
+                                    <div class="tota mt-3">
+                                        <table class="table table-bordered" style="width: 100%;">
+                                            <tr>
+                                                <th>Total</th>
+                                                <th style="text-align: right;">{{ formatRupiah($c) }}</th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <!-- /.card-body -->
+
                     </div>
-                    <!-- /.card -->
+                    <!-- /.card-body -->
                 </div>
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
-            <script src="{{ asset('Js/LaporanTransaksi.js') }}"></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-            <script type="text/javascript"
-                src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-            <script src="{{ asset('Js/Range.js') }}"></script>
-            <script src="{{ asset('Js/Pagination.js') }}"></script>
-            @endsection
+        </div>
+        <!-- /.row -->
+        <script src="{{ asset('Js/LaporanTransaksi.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script src="{{ asset('Js/Range.js') }}"></script>
+        <script src="{{ asset('Js/Pagination.js') }}"></script>
+        @endsection
