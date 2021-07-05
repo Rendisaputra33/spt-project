@@ -68,10 +68,14 @@ const oCheckbox = () => {
 };
 
 const htmldata = item => {
-    return /*html*/ `<tr>
-    <td><input type="checkbox" class="cl" name="id[]" value="${
-        item.id_keberangkatan
-    }" /></td>
+    const total = item.harga * item.netto_pulang;
+    if (item.tanggal_bayar != null) {
+        return /* html */ `
+        <td colspan="9" style="text-align: center;">DATA KOSONG</td>`
+    }
+    else {
+        return /*html*/ `<tr>
+    <td><input type="checkbox" class="cl" name="id[]" value="${item.id_keberangkatan}" disabled /></td>
     <td>${formatTanggal(item.tanggal_pulang)}</td>
     <td>${item.tipe}</td>
     <td>${item.no_sp}</td>
@@ -80,10 +84,13 @@ const htmldata = item => {
     <td>${item.pabrik_tujuan}</td>
     <td>${formatTanggal(item.tanggal_keberangkatan)}</td>
     <td>${item.no_induk}</td>
+    <td>${item.no_truk}</td>
     <td>${item.netto_pulang}</td>
-    <td>${item.harga}</td>
-    <td>${formatRupiah((item.harga * item.netto_pulang).toString())}</td>
+    <td>${formatRupiah(item.harga.toString(), 'Rp ')}</td>
+    <td>${formatRupiah(total.toString(), 'Rp ')}</td>
 </tr>`;
+    }
+
 };
 
 const formatTanggal = tgl => {
