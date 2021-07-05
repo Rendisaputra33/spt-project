@@ -29,9 +29,6 @@
                 <div id="cetak">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h4 style="text-align: center;">
-                                <i>USAHA PENGANGKUTAN</i><br>
-                            </h4>
                             <h4 style="text-align: center"><b>CV RAYA GUNA</b></h4>
                             <p style="text-align: center">JL. RAYA BLAMBANGAN 88 SALAKAN KREBET - MALANG <br> TELP (0341) 803808, 085100727127, 08179660466</p>
                             <hr>
@@ -58,7 +55,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Tgl Berangkat</th>
-                                        <th>Tgl Pulang</th>
                                         <th>No Sp</th>
                                         <th>No Truk</th>
                                         <th>Pabrik</th>
@@ -75,7 +71,6 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item->tanggal_keberangkatan }}</td>
-                                            <td>{{ $item->tanggal_pulang }}</td>
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->no_truk }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
