@@ -74,8 +74,8 @@
                                         <?php $total += $item->harga * $item->netto_pulang; ?>
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $item->tanggal_keberangkatan }}</td>
-                                            <td>{{ $item->tanggal_pulang }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->no_truk }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
