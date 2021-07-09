@@ -18,6 +18,10 @@
             border: 1px solid black;
         }
 
+        @page {
+            size: landscape;
+        }
+
     </style>
 </head>
 
@@ -38,7 +42,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col pull-right">
-                            Malang &emsp;&emsp;&emsp; Maret 2021 <br>
+                            Malang, {{ formatTanggalCetak($tgl) }} <br>
                             Kepada <br>
                             Yth {{ $penerima }} <br>
                             KREBET MALANG
@@ -71,7 +75,6 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                             <td>{{ $item->no_sp }}</td>
                                             <td>{{ $item->no_truk }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
@@ -81,7 +84,6 @@
                                         </tr>
                                     @endforeach
                                     <tr>
-                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>

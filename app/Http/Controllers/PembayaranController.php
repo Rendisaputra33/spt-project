@@ -32,16 +32,6 @@ class PembayaranController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     private function makeId(Pembayaran $pembayaran)
     {
         $last = $pembayaran->latest()->first();
@@ -91,7 +81,7 @@ class PembayaranController extends Controller
         endforeach;
         $insert = $pembayaran->insert($arr);
         $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
-        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'penerima' => $list[0]['nama_sopir'], 'title' => 'Invoice']) : redirect()->back();
+        return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'penerima' => $list[0]['nama_sopir'], 'tgl' => $list[0]['tanggal_bayar'], 'title' => 'Invoice']) : redirect()->back();
     }
 
     /**
@@ -110,27 +100,6 @@ class PembayaranController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pembayaran  $pembayaran
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pembayaran $pembayaran)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pembayaran  $pembayaran
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Pembayaran $pembayaran)
-    {
-    }
 
     /**
      * Remove the specified resource from storage.

@@ -35,6 +35,7 @@ class TransaksiController extends Controller
             'data' => $berangkat->whereBetween('created_at', [tanggal2($tgl[0]), tanggal2($tgl[1])])
                 ->where('tipe', $req->tipe)
                 ->where('pabrik_tujuan', $req->pabrik)
+                ->whereNotNull('tanggal_pulang')
                 ->get(),
             'title' => 'Cetak | Transaksi'
         ]);

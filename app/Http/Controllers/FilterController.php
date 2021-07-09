@@ -29,6 +29,7 @@ class FilterController extends Controller
             'data' => Berangkat::whereBetween('created_at', [$req->tgl1, $req->tgl2])
                 ->where('tipe', $req->type)
                 ->where('pabrik_tujuan', $req->tujuan)
+                ->whereNotNull('tanggal_pulang')
                 ->get()
         ]);
     }
@@ -68,5 +69,4 @@ class FilterController extends Controller
         $id = request('id');
         return response()->json(['data' => Pembayaran::join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->where('tb_pembayaran.no_invoice', $id)->get()]);
     }
-
 }
