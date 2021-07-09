@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cetak Invoice</title>
+    <title>Laporan | Transaksi</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -13,6 +13,16 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-size: 10px;
+        }
+
+        @page {
+            size: landscape;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -33,7 +43,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <small>Date: 2/10/2014</small>
+                            <small>Tanggal Cetak : 2/10/2014</small>
                         </div>
                         <!-- /.col -->
                     </div> <br>
@@ -42,28 +52,41 @@
                     <!-- Table row -->
                     <div class="row">
                         <div class="col-xs-12 table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Tipe</th>
+                                        <th>No</th>
+                                        <th>Tanggal Berangkat</th>
                                         <th>Tanggal Pulang</th>
-                                        <th>Harga</th>
+                                        <th>Tipe</th>
+                                        <th>Pemilik</th>
+                                        <th>Petani</th>
                                         <th>No SP</th>
-                                        <th>Netto</th>
-                                        <th>Berat Timbang</th>
+                                        <th>No Truk</th>
+                                        <th>Pabrik Tujuan</th>
+                                        <th>Berat Bersih</th>
+                                        <th>Harga</th>
+                                        <th>Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $total = 0; @endphp
+                                    @php $no = 1; @endphp
                                     @foreach ($data as $item)
                                         @php $total += $item->harga * $item->netto_pulang @endphp
                                         <tr>
-                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                             <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
-                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ $item->nama_petani }}</td>
+                                            <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->no_truk }}</td>
+                                            <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
-                                            <td>{{ $item->berat_pulang }}</td>
+                                            <td>{{ formatRupiah($item->harga) }}</td>
+                                            <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

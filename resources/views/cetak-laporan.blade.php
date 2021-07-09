@@ -18,6 +18,10 @@
             font-size: 10px;
         }
 
+        @page {
+            size: landscape;
+        }
+
     </style>
 </head>
 
