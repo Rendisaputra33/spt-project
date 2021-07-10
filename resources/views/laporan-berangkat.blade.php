@@ -25,7 +25,7 @@
                         <div class="col-xs-12">
                             <h2 class="page-header">
                                 <i class="fa fa-globe"></i> RAYA GUNA
-                                <p class="pull-right" style="font-size: 23px">Date: {{ date('d/m/Y') }}</p>
+                                <p class="pull-right" style="font-size: 23px">Date: {{ formatTanggal(date('Y-m-d')) }}</p>
                             </h2>
                         </div>
                         <!-- /.col -->
@@ -45,23 +45,32 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Tipe</th>
+                                        <th>No</th>
                                         <th>Tanggal Berangkat</th>
-                                        <th>Harga</th>
                                         <th>No SP</th>
-                                        <th>Berat Timbang</th>
+                                        <th>Nama Pemilik</th>
+                                        <th>Nama Petani</th>
+                                        <th>Pabrik Tujuan</th>
+                                        <th>No Induk</th>
+                                        <th>Wilayah</th>
+                                        <th>Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $total = 0; @endphp
+                                    @php $no = 1; @endphp
                                     @foreach ($data as $item)
                                         @php $total += $item->harga * $item->netto @endphp
                                         <tr>
-                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ $no++ }}</td>
                                             <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
-                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td>{{ $item->no_sp }}</td>
-                                            <td>{{ $item->berat_timbang }}</td>
+                                            <td>{{ $item->nama_petani }}</td>
+                                            <td>{{$item->nama_sopir}}</td>
+                                            <td>{{ $item->pabrik_tujuan }}</td>
+                                            <td>{{ $item->no_induk }}</td>
+                                            <td>{{ $item->wilayah }}</td>
+                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -81,7 +90,7 @@
                         {{-- <div class="col-xs-3">
 
                         </div> --}}
-                        <div class="col-xs-4">
+                        {{-- <div class="col-xs-4">
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
@@ -92,7 +101,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /.col -->
                     </div>
                 </div>

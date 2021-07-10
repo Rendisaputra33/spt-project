@@ -85,7 +85,7 @@
                                                 <td>{{ formatTanggal($item['tgl']) }}</td>
                                                 <td>{{ $item['petani'] }}</td>
                                                 <td>{{ $item['list_sp'] }}</td>
-                                                <td style="text-align: center;"><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a></td>
+                                                <td style="text-align: center;"><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>&nbsp;&nbsp;<a href="/transaksi/pembayaran/cetak?inv={{$item['invoice']}}" class="btn btn-success text-bold"><i class="fas fa-print"></i>&nbsp;Cetak</a></td>
                                             </tr>
                                             @endforeach
                                             <?php endif; ?>

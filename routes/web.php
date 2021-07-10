@@ -180,7 +180,7 @@ Route::prefix('/transaksi')->group(function () {
     });
     Route::prefix('/pembayaran')->group(function () {
         Route::get('/', [TransaksiController::class, 'viewLaporan'])->middleware('myAuth');
-        Route::post('/cetak', [TransaksiController::class, 'cetakPembayaran'])->middleware('myAuth');
+        Route::get('/cetak', [TransaksiController::class, 'cetakPembayaran'])->middleware('myAuth');
     });
 });
 

@@ -68,9 +68,9 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cetakPembayaran(Pembayaran $pembayaran, $id)
+    public function cetakPembayaran(Pembayaran $pembayaran)
     {
-        $data = $pembayaran->where('id_pembayaran', $id)->first();
-        return view('cetak-laporan', ['data' => $data]);
+        $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->where('tb_pembayaran.no_invoice', request('inv'))->get();
+        return view('cetak-invoice', ['data' => $list, 'inv' => request('inv'), 'penerima' => $list[0]['nama_sopir'], 'tgl' => $list[0]['tanggal_bayar'], 'title' => 'Invoice']);
     }
 }
