@@ -4,6 +4,8 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
+            <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+            <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
@@ -79,14 +81,18 @@
                                             <?php else: ?>
                                             <?php $no = 1; ?>
                                             @foreach ($list as $item)
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td>{{ $item['invoice'] }}</td>
-                                                <td>{{ formatTanggal($item['tgl']) }}</td>
-                                                <td>{{ $item['petani'] }}</td>
-                                                <td>{{ $item['list_sp'] }}</td>
-                                                <td style="text-align: center;"><a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>&nbsp;&nbsp;<a href="/transaksi/pembayaran/cetak?inv={{$item['invoice']}}" class="btn btn-success text-bold"><i class="fas fa-print"></i>&nbsp;Cetak</a></td>
-                                            </tr>
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $item['invoice'] }}</td>
+                                                    <td>{{ formatTanggal($item['tgl']) }}</td>
+                                                    <td>{{ $item['petani'] }}</td>
+                                                    <td>{{ $item['list_sp'] }}</td>
+                                                    <td style="text-align: center;">
+                                                        <a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        &nbsp;&nbsp;
+                                                        <a href="/transaksi/pembayaran/cetak?inv={{ $item['invoice'] }}" class="btn btn-success text-bold"><i class="fas fa-print"></i>&nbsp;Cetak</a>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                             <?php endif; ?>
                                         </tbody>
@@ -100,13 +106,13 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <script src="{{ asset('Js/LaporanPembayaran.js') }}"></script>
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
                 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="{{ asset('Js/LaporanPembayaran.js') }}"></script>
                 <script>
                     $('#date-range').daterangepicker({
                         locale: {

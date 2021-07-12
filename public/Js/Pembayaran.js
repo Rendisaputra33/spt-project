@@ -13,10 +13,10 @@ function filter() {
 function getfilter() {
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
-    const format = split[0].split('-')
-    const format2 = split[1].split('-')
-    const date1 = `${format[2]}-${format[1]}-${format[0]}`
-    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
+    const format = split[0].split('-');
+    const format2 = split[1].split('-');
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`;
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`;
     fetch(`${URL}/filterpembayaran`, {
         method: 'post',
         body: JSON.stringify({ tgl1: date1, tgl2: date2 }),
@@ -46,10 +46,14 @@ const htmldata = (res, no) => {
     <td>${res.nama_sopir}</td>
     <td>${res.no_sp}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-primary detail" id="detail" data-id="${res.no_invoice}" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary detail" id="detail" data-id="${
+            res.no_invoice
+        }" data-toggle="modal" data-target="#exampleModal">
             Detail
         </button>
-        <a href="/pembayaran/str_replace('/', '-', ${res.no_invoice})" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="/pembayaran/str_replace('/', '-', ${
+            res.no_invoice
+        })" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };
@@ -130,3 +134,47 @@ const formatRupiah = (angka, prefix) => {
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
+
+function listDelete() {
+    const documentDel = document.querySelectorAll('.delete');
+    for (let i = 0; i < documentDel.length; i++) {
+        documentDel[i].onclick = function (e) {
+            e.preventDefault();
+            swalDelete(this.getAttribute('href'));
+        };
+    }
+}
+
+function swalDelete(param) {
+    Swal.fire({
+        title: 'Yakin ingin Menghapus?',
+        text: 'Data akan di hapus secara permanent!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal',
+    }).then(result => {
+        result.isConfirmed ? (window.location.href = param) : '';
+    });
+}
+
+listDelete();
+
+const flash = document.querySelector('#flash-data-success');
+
+const alert = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (flash.getAttribute('data-flash-success') !== '') {
+    alert.fire({
+        icon: 'success',
+        title: `${flash.getAttribute('data-flash-success')}`,
+    });
+}

@@ -66,10 +66,10 @@ function filter() {
 function getfilter() {
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
-    const format = split[0].split('-')
-    const format2 = split[1].split('-')
-    const date1 = `${format[2]}-${format[1]}-${format[0]}`
-    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
+    const format = split[0].split('-');
+    const format2 = split[1].split('-');
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`;
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`;
     fetch(`${URL}/filterpulang`, {
         method: 'post',
         body: JSON.stringify({ tgl1: date1, tgl2: date2 }),
@@ -103,11 +103,14 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>
-        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${
+            res.id_keberangkatan
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/pulang/${res.id_keberangkatan
+        <a href="/pulang/${
+            res.id_keberangkatan
         }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
@@ -321,3 +324,20 @@ const formatRupiah = (angka, prefix) => {
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
+
+const flash = document.querySelector('#flash-data-success');
+
+const alert = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (flash.getAttribute('data-flash-success') !== '') {
+    alert.fire({
+        icon: 'success',
+        title: `${flash.getAttribute('data-flash-success')}`,
+    });
+}

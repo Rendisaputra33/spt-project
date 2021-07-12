@@ -4,6 +4,8 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
+            <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+            <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">

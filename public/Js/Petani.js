@@ -89,3 +89,20 @@ function swalDelete(param) {
 }
 
 listDelete();
+
+const flash = document.querySelector('#flash-data-success');
+
+const alert = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (flash.getAttribute('data-flash-success') !== '') {
+    alert.fire({
+        icon: 'success',
+        title: `${flash.getAttribute('data-flash-success')}`,
+    });
+}
