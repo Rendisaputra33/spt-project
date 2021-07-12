@@ -90,7 +90,11 @@ class PetaniController extends Controller
      */
     public function search()
     {
-        $data = Petani::where('nama_pemilik', 'LIKE', '%' . request('name') . '%')->get();
+        $param = '%' . request('name') . '%';
+        $data = Petani::where('nama_pemilik', 'LIKE', $param)
+            ->orWhere('register_pemilik', $param)
+            ->orWhere('nama_pabrik', $param)
+            ->get();
         return response()->json(['data' => $data]);
     }
 

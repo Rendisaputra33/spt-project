@@ -33,7 +33,7 @@ Route::prefix('/petani')->group(function () {
     Route::get('/', [PetaniController::class, 'index'])->middleware('myAuth');
     Route::post('/', [PetaniController::class, 'add'])->middleware('myAuth');
     Route::put('/{id}', [PetaniController::class, 'update'])->middleware('myAuth');
-    Route::delete('/{id}', [PetaniController::class, 'delete'])->middleware('myAuth');
+    Route::get('/{id}', [PetaniController::class, 'delete'])->middleware('myAuth');
     Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister'])->middleware('myAuth');
     Route::get('/induk', [PetaniController::class, 'updateInduk'])->middleware('myAuth');
     // route grouping
@@ -57,7 +57,7 @@ Route::prefix('/sopir')->group(function () {
     Route::get('/', [SopirController::class, 'index'])->middleware('myAuth');
     Route::post('/', [SopirController::class, 'add'])->middleware('myAuth');
     Route::put('/{id}', [SopirController::class, 'update'])->middleware('myAuth');
-    Route::delete('/{id}', [SopirController::class, 'delete'])->middleware('myAuth');
+    Route::get('/{id}', [SopirController::class, 'delete'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
         Route::get('/search', [SopirController::class, 'search'])->middleware('myAuth');
@@ -80,7 +80,7 @@ Route::prefix('/wilayah')->group(function () {
     Route::get('/', [WilayahController::class, 'index'])->middleware('myAuth');
     Route::post('/', [WilayahController::class, 'add'])->middleware('myAuth');
     Route::put('/{id}', [WilayahController::class, 'update'])->middleware('myAuth');
-    Route::delete('/{id}', [WilayahController::class, 'delete'])->middleware('myAuth');
+    Route::get('/{id}', [WilayahController::class, 'delete'])->middleware('myAuth');
     Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga'])->middleware('myAuth');
     Route::get('/harga', [WilayahController::class, 'updateHarga'])->middleware('myAuth');
 
@@ -105,7 +105,7 @@ Route::prefix('/pg')->group(function () {
     Route::get('/', [PgController::class, 'index'])->middleware('myAuth');
     Route::post('/', [PgController::class, 'add'])->middleware('myAuth');
     Route::put('/{id}', [PgController::class, 'update'])->middleware('myAuth');
-    Route::delete('/{id}', [PgController::class, 'delete'])->middleware('myAuth');
+    Route::get('/{id}', [PgController::class, 'delete'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
         Route::get('/search', [PgController::class, 'search'])->middleware('myAuth');

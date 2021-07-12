@@ -153,10 +153,10 @@ function filter() {
 function getfilter() {
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
-    const format = split[0].split('-')
-    const format2 = split[1].split('-')
-    const date1 = `${format[2]}-${format[1]}-${format[0]}`
-    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`
+    const format = split[0].split('-');
+    const format2 = split[1].split('-');
+    const date1 = `${format[2]}-${format[1]}-${format[0]}`;
+    const date2 = `${format2[2]}-${format2[1]}-${format2[0]}`;
     fetch(`${URL}/filterberangkat`, {
         method: 'post',
         body: JSON.stringify({ tgl1: date1, tgl2: date2 }),
@@ -166,6 +166,7 @@ function getfilter() {
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
             setFunctionu();
+            listDelete();
         });
 }
 
@@ -177,7 +178,9 @@ function setForm(THIS) {
     fetch(URL + '/berangkat/view/get/' + ID)
         .then(res => res.json())
         .then(res => {
-            FORM_UPDATE.tgl_b.value = formatInputUpdate(res.data.tanggal_keberangkatan);
+            FORM_UPDATE.tgl_b.value = formatInputUpdate(
+                res.data.tanggal_keberangkatan
+            );
             FORM_UPDATE.tipe.value = res.data.tipe;
             FORM_UPDATE.no_sp.value = res.data.no_sp;
             FORM_UPDATE.no_induk.value = res.data.no_induk;
@@ -236,18 +239,20 @@ const htmldata = (res, no) => {
     <td>${no}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.no_sp}</td>
-    <td>${res.nama_petani}}</td>
+    <td>${res.nama_petani}</td>
     <td>${res.nama_sopir}</td>
     <td>${res.pabrik_tujuan}</td>
     <td>${res.no_induk}</td>
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan
+        <button type="button" class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
+            res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="${URL}/berangkat/${res.id_keberangkatan
-        }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="${URL}/berangkat/${
+        res.id_keberangkatan
+    }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };
@@ -289,6 +294,33 @@ const formatRupiah = (angka, prefix) => {
 };
 
 function formatInputUpdate(tgl) {
-    const tanggal = tgl.split('-')
-    return `${tanggal[2]}/${tanggal[1]}/${tanggal[0]}`
+    const tanggal = tgl.split('-');
+    return `${tanggal[2]}/${tanggal[1]}/${tanggal[0]}`;
 }
+
+function listDelete() {
+    const documentDel = document.querySelectorAll('.delete');
+    for (let i = 0; i < documentDel.length; i++) {
+        documentDel[i].onclick = function (e) {
+            e.preventDefault();
+            swalDelete(this.getAttribute('href'));
+        };
+    }
+}
+
+function swalDelete(param) {
+    Swal.fire({
+        title: 'Yakin ingin Menghapus?',
+        text: 'Data akan di hapus secara permanent!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal',
+    }).then(result => {
+        result.isConfirmed ? (window.location.href = param) : '';
+    });
+}
+
+listDelete();

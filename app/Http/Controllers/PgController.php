@@ -51,6 +51,15 @@ class PgController extends Controller
         ]);
     }
 
+    public function search()
+    {
+        $param = '%' . request('name') . '%';
+        $data = Pg::where('nama_pg', 'LIKE', $param)
+            ->orWhere('lokasi_pg', 'LIKE', $param)
+            ->get();
+        return response()->json(['data' => $data]);
+    }
+
     public function viewAdd()
     {
         return view('pg', [

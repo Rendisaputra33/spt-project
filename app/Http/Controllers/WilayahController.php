@@ -58,6 +58,15 @@ class WilayahController extends Controller
         ]);
     }
 
+    public function search()
+    {
+        $param = '%' . request('name') . '%';
+        $data = Wilayah::where('nama_wilayah', 'LIKE', $param)
+            ->orWhere('harga_wilayah', 'LIKE', $param)
+            ->get();
+        return response()->json(['data' => $data]);
+    }
+
     public function updateHarga()
     {
         return response()->json([

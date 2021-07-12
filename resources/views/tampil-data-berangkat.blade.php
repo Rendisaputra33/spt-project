@@ -70,33 +70,33 @@
                                         </thead>
                                         <tbody id='list-data'>
                                             @if (count($data) === 0)
-                                            <td colspan="11" style="text-align: center;">DATA KOSONG</td>
-                                        @else
-                                            @php
-                                                $no = 1;
-                                            @endphp
-                                            @foreach ($data as $item)
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
-                                                <td>{{ $item->no_sp === null ? 'kosong' : $item->no_sp }}</td>
-                                                <td>{{ $item->nama_petani }}</td>
-                                                <td>{{ $item->nama_sopir }}</td>
-                                                <td>{{ $item->pabrik_tujuan }}</td>
-                                                <td>{{ $item->no_induk }}</td>
-                                                <td>{{ $item->wilayah }}</td>
-                                                <td>{{ formatRupiah($item->harga) }}</td>
-                                                <td style="text-align: center;">
-                                                    <button type="button" {{ $item->tanggal_pulang != null ? 'disabled' : '' }} class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
-                                                        <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-                                                    @if ($item->tanggal_pulang == null)
-                                                    <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                @else
-                                                    <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                            @endforeach
+                                                <td colspan="11" style="text-align: center;">DATA KOSONG</td>
+                                            @else
+                                                @php
+                                                    $no = 1;
+                                                @endphp
+                                                @foreach ($data as $item)
+                                                    <tr>
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
+                                                        <td>{{ $item->no_sp === null ? 'kosong' : $item->no_sp }}</td>
+                                                        <td>{{ $item->nama_petani }}</td>
+                                                        <td>{{ $item->nama_sopir }}</td>
+                                                        <td>{{ $item->pabrik_tujuan }}</td>
+                                                        <td>{{ $item->no_induk }}</td>
+                                                        <td>{{ $item->wilayah }}</td>
+                                                        <td>{{ formatRupiah($item->harga) }}</td>
+                                                        <td style="text-align: center;">
+                                                            <button type="button" {{ $item->tanggal_pulang != null ? 'disabled' : '' }} class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                                <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+                                                            @if ($item->tanggal_pulang == null)
+                                                                <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                            @else
+                                                                <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             @endif
                                     </table>
                                 </div>
@@ -152,8 +152,8 @@
                                                 <select name="wilayah" class="custom-select">
                                                     <option selected value="def">Pilih...</option>
                                                     @foreach ($wilayah as $item)
-                                                    <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
-                                                    </option>
+                                                        <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -165,8 +165,8 @@
                                                 <select name="nama_petani" class="custom-select">
                                                     <option selected value="def">Pilih...</option>
                                                     @foreach ($petani as $item)
-                                                    <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
-                                                    </option>
+                                                        <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -180,8 +180,8 @@
                                                 <select name="nama_sopir" class="custom-select">
                                                     <option selected value="def">Pilih...</option>
                                                     @foreach ($sopir as $item)
-                                                    <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
-                                                    </option>
+                                                        <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -193,7 +193,7 @@
                                                 <select name="nama_pabrik" class="custom-select">
                                                     <option selected value="def">Pilih...</option>
                                                     @foreach ($pg as $item)
-                                                    <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                                        <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -334,7 +334,7 @@
                                         <select class="form-control" id="wilayah" name="uwilayah">
                                             <option selected>Pilih...</option>
                                             @foreach ($wilayah as $item)
-                                            <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
+                                                <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -343,7 +343,7 @@
                                         <select class="form-control" id="namapetani" name="unama_petani">
                                             <option selected>Pilih...</option>
                                             @foreach ($petani as $item)
-                                            <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
+                                                <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -352,7 +352,7 @@
                                         <select class="form-control" id="namasopir" name="unama_sopir">
                                             <option selected>Pilih...</option>
                                             @foreach ($sopir as $item)
-                                            <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
+                                                <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -364,7 +364,7 @@
                                         <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
                                             <option selected>Pilih...</option>
                                             @foreach ($pg as $item)
-                                            <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                                <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -406,12 +406,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
-    <script src="{{ asset('Js/BerangkatProduction.js') }}"></script>
+    <script src="{{ asset('Js/Berangkat.js') }}"></script>
     <script src="{{ asset('Js/Range.js') }}"></script>
     <script src="{{ asset('Js/Pagination.js') }}"></script>
     <script>

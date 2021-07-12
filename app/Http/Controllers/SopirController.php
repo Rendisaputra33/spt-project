@@ -46,6 +46,16 @@ class SopirController extends Controller
             : redirect()->back()->with('error', 'data gagal di delete');
     }
 
+    public function search()
+    {
+        $param = '%' . request('name') . '%';
+        $data = Sopir::where('nama_petani', 'LIKE', $param)
+            ->orWhere('nohp_petani', 'LIKE', $param)
+            ->orWhere('alamat_petani', 'LIKE', $param)
+            ->get();
+        return response()->json(['data' => $data]);
+    }
+
     public function getUpdate($id)
     {
         return response()->json([
