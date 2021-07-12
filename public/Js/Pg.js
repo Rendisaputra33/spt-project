@@ -2,23 +2,27 @@ const URL = document.getElementById('url').value;
 
 const elementUpdate = document.getElementsByClassName('update');
 
-for (let i = 0; i < elementUpdate.length; i++) {
-    elementUpdate[i].addEventListener('click', function () {
-        const id = this.getAttribute('data-id');
-        document
-            .getElementById('form-update')
-            .setAttribute('action', URL + '/pg/' + id);
+function getUpdate() {
+    for (let i = 0; i < elementUpdate.length; i++) {
+        elementUpdate[i].addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            document
+                .getElementById('form-update')
+                .setAttribute('action', URL + '/pg/' + id);
 
-        fetch(`${URL}/pg/json/getPg/${id}`)
-            .then(res => res.json())
-            .then(res => {
-                document.querySelector('input[name=nama_pg]').value =
-                    res.data_update.nama_pg;
-                document.querySelector('input[name=lokasi_pg]').value =
-                    res.data_update.lokasi_pg;
-            });
-    });
+            fetch(`${URL}/pg/json/getPg/${id}`)
+                .then(res => res.json())
+                .then(res => {
+                    document.querySelector('input[name=nama_pg]').value =
+                        res.data_update.nama_pg;
+                    document.querySelector('input[name=lokasi_pg]').value =
+                        res.data_update.lokasi_pg;
+                });
+        });
+    }
 }
+
+getUpdate();
 
 document.getElementById('search').addEventListener('keyup', function () {
     const keyword = this.value;
@@ -26,6 +30,7 @@ document.getElementById('search').addEventListener('keyup', function () {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parseSearch(res);
+            getUpdate();
         });
 });
 
@@ -38,24 +43,42 @@ const parseSearch = data => {
 };
 
 const elementSearch = res => {
+    let d = new Date(res.created_at);
+    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
     <td>${res.id_pg}</td>
     <td>${res.nama_pg}</td>
     <td>${res.lokasi_pg}</td>
-<td>
+    <td>${formatTanggal(date)}</td>
+<td style="text-align: center;">
 
-    <a href="#" class="btn btn-success text-bold update"
+    <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_pg}">UPDATE</a>
-    <form action="${URL}/pg/${res.id_pg}"
-        method="post" class="d-inline">
-        <input type="hidden" name="_token" value="${TOKEN}">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
-    </form>
+        data-id="${res.id_pg}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+    <a href="/pg/${
+        res.id_pg
+    }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;
+};
+
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
 };
 
 function listDelete() {

@@ -325,6 +325,33 @@ const formatRupiah = (angka, prefix) => {
     return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
 
+function listDelete() {
+    const documentDel = document.querySelectorAll('.delete');
+    for (let i = 0; i < documentDel.length; i++) {
+        documentDel[i].onclick = function (e) {
+            e.preventDefault();
+            swalDelete(this.getAttribute('href'));
+        };
+    }
+}
+
+function swalDelete(param) {
+    Swal.fire({
+        title: 'Yakin ingin Menghapus?',
+        text: 'Data akan di hapus secara permanent!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal',
+    }).then(result => {
+        result.isConfirmed ? (window.location.href = param) : '';
+    });
+}
+
+listDelete();
+
 const flash = document.querySelector('#flash-data-success');
 
 const alert = Swal.mixin({

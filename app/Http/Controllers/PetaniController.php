@@ -92,8 +92,8 @@ class PetaniController extends Controller
     {
         $param = '%' . request('name') . '%';
         $data = Petani::where('nama_pemilik', 'LIKE', $param)
-            ->orWhere('register_pemilik', $param)
-            ->orWhere('nama_pabrik', $param)
+            ->orWhere('register_pemilik', 'LIKE', $param)
+            ->orWhere('nama_pabrik', 'LIKE', $param)
             ->get();
         return response()->json(['data' => $data]);
     }

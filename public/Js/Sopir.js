@@ -1,26 +1,30 @@
 const URL = document.getElementById('url').value;
 const elementUpdate = document.getElementsByClassName('update');
 
-for (let i = 0; i < elementUpdate.length; i++) {
-    elementUpdate[i].addEventListener('click', function () {
-        const id = elementUpdate[i].getAttribute('data-id');
-        console.log(id);
-        document
-            .getElementById('form-update')
-            .setAttribute('action', URL + '/sopir/' + id);
+function getUpdate() {
+    for (let i = 0; i < elementUpdate.length; i++) {
+        elementUpdate[i].addEventListener('click', function () {
+            const id = elementUpdate[i].getAttribute('data-id');
+            console.log(id);
+            document
+                .getElementById('form-update')
+                .setAttribute('action', URL + '/sopir/' + id);
 
-        fetch(`${URL}/sopir/json/getSopir/${id}`)
-            .then(res => res.json())
-            .then(res => {
-                document.querySelector('input[name=nama_sopir]').value =
-                    res.data_update.nama_petani;
-                document.querySelector('input[name=nohp_sopir]').value =
-                    res.data_update.nohp_petani;
-                document.querySelector('input[name=alamat_sopir]').value =
-                    res.data_update.alamat_petani;
-            });
-    });
+            fetch(`${URL}/sopir/json/getSopir/${id}`)
+                .then(res => res.json())
+                .then(res => {
+                    document.querySelector('input[name=nama_sopir]').value =
+                        res.data_update.nama_petani;
+                    document.querySelector('input[name=nohp_sopir]').value =
+                        res.data_update.nohp_petani;
+                    document.querySelector('input[name=alamat_sopir]').value =
+                        res.data_update.alamat_petani;
+                });
+        });
+    }
 }
+
+getUpdate();
 
 document.getElementById('search').addEventListener('keyup', function () {
     const keyword = this.value;
@@ -28,37 +32,60 @@ document.getElementById('search').addEventListener('keyup', function () {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parseSearch(res);
+            getUpdate();
+            listDelete();
         });
 });
 
 const parseSearch = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += elementSearch(res);
+        html += elementSearch(res, no++);
     });
     return html;
 };
 
-const elementSearch = res => {
+const elementSearch = (res, no) => {
+    let d = new Date(res.created_at);
+    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
-    <td>${res.id_petani}</td>
+    <td>${no}</td>
     <td>${res.nama_petani}</td>
     <td>${res.nohp_petani}</td>
     <td>${res.alamat_petani}</td>
-<td>
+    <td>${formatTanggal(date)}</td>
+<td style="text-align: center;">
 
-    <a href="#" class="btn btn-success text-bold update"
+    <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_sopir}">UPDATE</a>
-    <form action="${URL}/sopir/${res.id_petani}"
-        method="post" class="d-inline">
-        <input type="hidden" name="_token" value="${TOKEN}">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
-    </form>
+        data-id="${
+            res.id_petani
+        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/sopir/${
+            res.id_petani
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;
+};
+
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
 };
 
 function listDelete() {

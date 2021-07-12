@@ -65,7 +65,7 @@
                                         </tr>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="list-data">
                                         @if (count($pg) === 0)
                                             <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                         @else
@@ -77,7 +77,7 @@
                                                     <td>{{ $item->lokasi_pg }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td style="text-align: center;">
-                                                        <a href="#" class="btn btn-success text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                         <a href="/pg/{{ $item->id_pg }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                     </td>
                                                 </tr>

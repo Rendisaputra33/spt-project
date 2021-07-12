@@ -89,7 +89,7 @@
                                                         <td>{{ $item->wilayah }}</td>
                                                         <td>{{ formatRupiah($item->harga) }}</td>
                                                         <td style="text-align: center;">
-                                                            <button type="button" {{ $item->tanggal_pulang != null ? 'disabled' : '' }} class="btn btn-success text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                            <button type="button" {{ $item->tanggal_pulang != null ? 'disabled' : '' }} class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
                                                                 <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                             @if ($item->tanggal_pulang == null)
                                                                 <a href="/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>

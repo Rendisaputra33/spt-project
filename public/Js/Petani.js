@@ -1,27 +1,32 @@
 const URL = document.getElementById('url').value;
 const TOKEN = document.getElementById('token').value;
 
-const elementUpdate = document.getElementsByClassName('update');
+function getUpdate() {
+    const elementUpdate = document.getElementsByClassName('update');
 
-for (let i = 0; i < elementUpdate.length; i++) {
-    elementUpdate[i].addEventListener('click', function () {
-        const id = this.getAttribute('data-id');
-        document
-            .getElementById('form-update')
-            .setAttribute('action', URL + '/petani/' + id);
-        fetch(`${URL}/petani/json/getPetani/${id}`)
-            .then(res => res.json())
-            .then(res => {
-                document.querySelector('input[name=nama_petani]').value =
-                    res.data_update.nama_pemilik;
-                document.querySelector('input[name=register_petani]').value =
-                    res.data_update.register_pemilik;
-                document.querySelector('input[name=nama_pabrik]').value =
-                    res.data_update.nama_pabrik;
-            })
-            .catch(err => console.log(err));
-    });
+    for (let i = 0; i < elementUpdate.length; i++) {
+        elementUpdate[i].addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            document
+                .getElementById('form-update')
+                .setAttribute('action', URL + '/petani/' + id);
+            fetch(`${URL}/petani/json/getPetani/${id}`)
+                .then(res => res.json())
+                .then(res => {
+                    document.querySelector('input[name=nama_petani]').value =
+                        res.data_update.nama_pemilik;
+                    document.querySelector(
+                        'input[name=register_petani]'
+                    ).value = res.data_update.register_pemilik;
+                    document.querySelector('input[name=nama_pabrik]').value =
+                        res.data_update.nama_pabrik;
+                })
+                .catch(err => console.log(err));
+        });
+    }
 }
+
+getUpdate();
 
 document.getElementById('search').addEventListener('keyup', function () {
     const keyword = this.value;
@@ -29,6 +34,8 @@ document.getElementById('search').addEventListener('keyup', function () {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parseSearch(res);
+            getUpdate();
+            listDelete();
         });
 });
 
@@ -41,23 +48,24 @@ const parseSearch = data => {
 };
 
 const elementSearch = res => {
+    let d = new Date(res.created_at);
+    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
     <td>${res.id_pemilik}</td>
     <td>${res.nama_pemilik}</td>
     <td>${res.register_pemilik}</td>
     <td>${res.nama_pemilik}</td>
-    <td>${res.created_at}</td>
-<td>
+    <td>${formatTanggal(date)}</td>
+<td style="text-align: center;">
 
-    <a href="#" class="btn btn-success text-bold update"
+    <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_petani}">UPDATE</a>
-    <form action="${URL}/petani/${res.id_pemilik}"
-        method="post" class="d-inline">
-        <input type="hidden" name="_token" value="${TOKEN}">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn-danger text-bold">DELETE</button>
-    </form>
+        data-id="${
+            res.id_pemilik
+        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/petani/${
+            res.id_pemilik
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;
@@ -106,3 +114,21 @@ if (flash.getAttribute('data-flash-success') !== '') {
         title: `${flash.getAttribute('data-flash-success')}`,
     });
 }
+
+const formatTanggal = tgl => {
+    const listMonth = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'November',
+        'Desember',
+    ];
+    const month = tgl.split('-');
+    return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+};
