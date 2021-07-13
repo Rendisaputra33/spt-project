@@ -5,9 +5,13 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"></h1>
+            <div class="row mb-1">
+                <div class="col-sm-4">
+                    <h1 class="m-0 text-dark" style="font-size: 2.5em">DATA PEMBAYARAN</h1>
+                </div>
+                <div class="content-header">
+                    <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+                    <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->

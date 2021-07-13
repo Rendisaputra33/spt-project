@@ -4,12 +4,14 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
-            <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"></h1>
+                <div class="row mb-1">
+                    <div class="col-sm-4">
+                        <h1 class="m-0 text-dark" style="font-size: 2.5em">DATA KEBERANGKATAN</h1>
+                    </div>
+                    <div class="content-header">
+                        <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+                        <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -25,7 +27,6 @@
                     <div class="clearfix hidden-md-up"></div>
 
                     <div class="col-12">
-                        <h1 class="mb-3">DATA KEBERANGKATAN</h1>
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">

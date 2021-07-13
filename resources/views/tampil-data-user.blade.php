@@ -4,12 +4,14 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
-            <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"></h1>
+                <div class="row mb-1">
+                    <div class="col-sm-4">
+                        <h1 class="m-0 text-dark" style="font-size: 2.5em">DATA USER</h1>
+                    </div>
+                    <div class="content-header">
+                        <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+                        <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -191,7 +193,6 @@
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
