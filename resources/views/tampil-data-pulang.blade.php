@@ -25,6 +25,7 @@
                     <div class="clearfix hidden-md-up"></div>
 
                     <div class="col-12">
+                        <h1 class="mb-3">DATA KEPULANGAN</h1>
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
