@@ -27,26 +27,29 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <form action="/transaksi/berangkat/cetak" method="POST">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="row">
-                                                <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <form>
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
+                                                            <input type="text" class="form-control float-right" id="search" name="date" value="">
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="#" class="btn btn-success text-bold float-right" data-target="#modal-lg" data-toggle="modal" data-id=""><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-primary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
+                                            </div>
+                                            </form>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-6">
+                                        <a href="#" data-target="#modal-lg" data-toggle="modal" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -60,20 +63,24 @@
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td style="width: 15%; text-align: center;">
-                                                        <a href="#" class="btn btn-warning text-bold" data-target="#modal-edit" data-toggle="modal" data-id=""><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                        <a href="" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                    </td>
-                                                </tr>
+                                        <tbody id="list-data">
+                                            @if (count($user) === 0) 
+                                                <td colspan="6" style="text-align: center">DATA KOSONG</td>
+                                            @else
+                                            @foreach ($user as $item)
+                                            <tr>
+                                                <td>{{ $item->nama_user }}</td>
+                                                <td>{{ $item->username }}</td>
+                                                <td>{{ $item->level == 2 ? 'Super Admin' : 'Admin' }}</td>
+                                                <td style="width: 15%; text-align: center;">
+                                                    <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                    <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
-                                    </table>
-
                                 </div>
                             </div>
 
@@ -94,9 +101,8 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="" id="form-update">
+                        <form method="post" action="/user">
                             @csrf
-                            @method('PUT')
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nama User</label>
@@ -110,7 +116,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="text" class="form-control" placeholder="Password" name="password" required>
+                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -149,22 +155,22 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nama User</label>
-                                    <input type="text" class="form-control" placeholder="Nama" name="nama_user" required>
+                                    <input type="text" class="form-control" placeholder="Nama" name="unama_user" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" name="username" required>
+                                    <input type="text" class="form-control" placeholder="Username" name="uusername" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="text" class="form-control" placeholder="Password" name="password" required>
+                                    <input type="password" class="form-control" placeholder="Password" name="upassword" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Level</label>
-                                    <select name="level" id="" class="form-control">
+                                    <select name="ulevel" id="" class="form-control">
                                         <option value="1">Admin</option>
                                         <option value="2">Super Admin</option>
                                     </select>
@@ -182,15 +188,30 @@
                 <!-- /.modal-dialog -->
             </div>
 
-
-
-            <script src="{{ asset('Js/LaporanTransaksi.js') }}"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+            <script src="{{ asset('Js/User.js') }}"></script>
             <script src="{{ asset('Js/Range.js') }}"></script>
             <script src="{{ asset('Js/Pagination.js') }}"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+            var elements = document.getElementsByTagName("INPUT");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].oninvalid = function(e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                    }
+                };
+                elements[i].oninput = function(e) {
+                    e.target.setCustomValidity("");
+                };
+            }
+        })
+            </script>
         @endsection

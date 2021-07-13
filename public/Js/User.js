@@ -13,14 +13,12 @@ function getUpdate() {
             fetch(`${URL}/user/json/getUser/${id}`)
                 .then(res => res.json())
                 .then(res => {
-                    document.querySelector('input[name=nama_user]').value =
+                    document.querySelector('input[name=unama_user]').value =
                         res.data_update.nama_user;
                     document.querySelector(
-                        'input[name=username]'
+                        'input[name=uusername]'
                     ).value = res.data_update.username;
-                    document.querySelector('input[name=password]').value =
-                        res.data_update.password;
-                    document.querySelector('select[name=level]').value =
+                    document.querySelector('select[name=ulevel]').value =
                         res.data_update.level;
                 })
                 .catch(err => console.log(err));
@@ -50,24 +48,14 @@ const parseSearch = data => {
 };
 
 const elementSearch = res => {
-    let d = new Date(res.created_at);
-    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
-    <td>${res.id_pemilik}</td>
-    <td>${res.nama_pemilik}</td>
-    <td>${res.register_pemilik}</td>
-    <td>${res.nama_pemilik}</td>
-    <td>${formatTanggal(date)}</td>
-<td style="text-align: center;">
-
-    <a href="#" class="btn btn-warning text-bold update"
-        data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_pemilik
-        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/pemilik/${res.id_pemilik
-        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-
-</td>
+    <td>${res.nama_user}</td>
+    <td>${res.username}</td>
+    <td>${res.level == 2 ? 'Super Admin' : 'Admin'}</td>
+    <td style="width: 15%; text-align: center;">
+        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${res.id_user}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/user/${res.id_user}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+    </td>
 </tr>`;
 };
 
