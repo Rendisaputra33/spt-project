@@ -76,7 +76,7 @@
                                     </thead>
                                     <tbody id="list-data">
                                         @if (count($data) === 0)
-                                        <td colspan="9" style="text-align: center;">DATA KOSONG</td>
+                                        <td colspan="13" style="text-align: center;">DATA KOSONG</td>
                                         @else
                                         @foreach ($data as $item)
                                         <tr>
