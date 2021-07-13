@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 /* ===================== Routing petani =================  */
 
 // Routing petani
-Route::prefix('/petani')->group(function () {
+Route::prefix('/pemilik')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
         Route::get('/add', [PetaniController::class, 'viewAdd'])->middleware('myAuth');
@@ -48,7 +48,7 @@ Route::prefix('/petani')->group(function () {
 
 /* ===================== Routing sopir =================  */
 
-Route::prefix('/sopir')->group(function () {
+Route::prefix('/petani')->group(function () {
     // route to view pg
     Route::prefix('/view')->group(function () {
         Route::get('/add', [SopirController::class, 'viewAdd'])->middleware('myAuth');

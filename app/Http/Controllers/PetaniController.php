@@ -32,7 +32,7 @@ class PetaniController extends Controller
             'register_pemilik' => $req->register_petani,
             'nama_pabrik' => $req->nama_pabrik,
         ])
-            ? redirect('/petani')->with('sukses', 'data berhasil di tambah')
+            ? redirect('/pemilik')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
     }
 
@@ -47,7 +47,7 @@ class PetaniController extends Controller
             'register_pemilik' => $req->register_petani,
             'nama_pabrik' => $req->nama_pabrik,
         ])
-            ? redirect('/petani')->with('sukses', 'data berhasil di update')
+            ? redirect('/pemilik')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
     }
 
@@ -58,7 +58,7 @@ class PetaniController extends Controller
     public function delete($id)
     {
         return Petani::where('id_pemilik', $id)->delete()
-            ? redirect('/petani')->with('sukses', 'data berhasil di delete')
+            ? redirect('/pemilik')->with('sukses', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
 
