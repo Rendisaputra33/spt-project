@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware('myAuth');
 
 Route::prefix('/user')->group(function () {
-    Route::get('/', UserController::class, 'viewindex');
+    Route::get('/', [UserController::class, 'viewindex']);
 });
 
 /* ===================== Routing petani =================  */
