@@ -198,10 +198,16 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <script src="{{ asset('dist/js/pages/dashboard3.js') }}"></script>
     <script>
-        $('li a').click(function(e) {
-        $('a').removeClass('active');
-        $(this).addClass('active');
-    });
+    $(function(){
+    var current = location.pathname;
+    $(' li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+            $this.addClass('active');
+        }
+    })
+})
     </script>
 </body>
 
