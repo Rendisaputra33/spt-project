@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('myAuth');
 
+Route::prefix('/user')->group(function () {
+    Route::get('/', UserController::class, 'viewindex');
+});
+
 /* ===================== Routing petani =================  */
 
 // Routing petani

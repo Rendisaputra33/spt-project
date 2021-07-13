@@ -10,4 +10,9 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function viewIndex()
+    {
+        return view('tampil-data-user');
+    }
 }
