@@ -101,8 +101,7 @@ function listDelete() {
     for (let i = 0; i < documentDel.length; i++) {
         documentDel[i].onclick = function (e) {
             e.preventDefault();
-            console.log('ok');
-            // swalDelete(this.getAttribute('href'));
+            swalDelete(this.getAttribute('href'));
         };
     }
 }
