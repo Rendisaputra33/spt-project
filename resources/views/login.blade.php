@@ -18,6 +18,8 @@
     <link rel="stylesheet" href=" {{ asset('') }}dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alerts-css@1.0.2/assets/css/alerts-css.min.css">
+
 </head>
 
 <body class="hold-transition login-page">
@@ -26,6 +28,19 @@
             <a href=""><b>Login</b></a>
         </div>
         <!-- /.login-logo -->
+        @if (session('error'))
+            <div class="alert alert_danger" style="animation-delay: .4s">
+                <div class="alert--icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="alert--content">
+                    {{ session('error') }}
+                </div>
+                <div class="alert--close">
+                    <i class="far fa-times-circle"></i>
+                </div>
+            </div>
+        @endif
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan masuk</p>
@@ -68,6 +83,8 @@
     <script src="{{ asset('') }}plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('') }}dist/js/adminlte.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alerts-css@1.0.1/assets/js/alerts.min.js"></script>
+
 
 </body>
 
