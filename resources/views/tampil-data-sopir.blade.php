@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Telp</label>
-                                        <input type="text" class="form-control" placeholder="No Telp " name="nohp_sopir">
+                                        <input type="text" class="form-control" maxlength="13" onkeypress="return isNumber(event)" placeholder="No Telp " name="nohp_sopir">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">

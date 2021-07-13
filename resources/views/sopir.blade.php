@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Telp</label>
-                                        <input type="text" class="form-control" placeholder="No Telp " name="nohp_sopir">
+                                        <input type="text" class="form-control" maxlength="13" onkeypress="return isNumber(event)" placeholder="No Telp " name="nohp_sopir">
                                         <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
@@ -77,5 +77,12 @@
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
+    <script>
+        function isNumber(evt) {
+            var charCode = evt.which ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+            return true;
+        }
+    </script>
     <!-- /.control-sidebar -->
 @endsection

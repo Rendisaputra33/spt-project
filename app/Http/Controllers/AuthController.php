@@ -17,7 +17,7 @@ class AuthController extends Controller
         //
         $user = User::where('username', $id)->first();
 
-        return['status' => 'ok', 'data' => $user];
+        return ['status' => 'ok', 'data' => $user];
     }
 
     /**
@@ -30,15 +30,15 @@ class AuthController extends Controller
         //
         $validate = $this->getUser($req->username);
 
-        if($validate['data'] == null) {
-            return response()->json(['pesan' => 'username tidak terdaftar']);
+        if ($validate['data'] == null) {
+            return redirect()->back()->with('error', 'username salah / tidak terdaftar');
         }
 
         $this->createSession($req, $validate['data']);
 
         return password_verify($req->password, $validate['data']['pass_user'])
             ? redirect('/dashboard')
-            : redirect()->back();
+            : redirect()->back()->with('error', 'pasword salah');
     }
 
     public function createSession($req, $validate)

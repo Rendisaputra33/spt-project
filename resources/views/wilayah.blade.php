@@ -35,12 +35,12 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Wilayah</label>
-                                        <input type="text" class="form-control" placeholder="Nama " name="nama_wilayah">
+                                        <input type="text" class="form-control" placeholder="Nama " name="nama_wilayah" required>
                                         <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Harga Wilayah</label>
-                                        <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah">
+                                        <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah" required>
                                         <span class="text-secondary"></span>
                                     </div>
                                 </div>

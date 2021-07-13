@@ -30,7 +30,7 @@ class SopirController extends Controller
 
     public function update(Request $req, $id)
     {
-        return Sopir::where('id_sopir', $id)->update([
+        return Sopir::where('id_petani', $id)->update([
             'nama_petani' => $req->nama_sopir,
             'nohp_petani' => $req->nohp_sopir,
             'alamat_petani' => $req->alamat_sopir,
