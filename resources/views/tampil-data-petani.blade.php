@@ -25,6 +25,7 @@
                     <div class="clearfix hidden-md-up"></div>
 
                     <div class="col-12">
+                        <h1 class="mb-3">DATA PEMILIK</h1>
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
@@ -52,6 +53,7 @@
                                 </div>
                             </div>
                             <!-- /.card-header -->
+                            
                             <div class="card-body">
                                 <table id="tb" class="table table-bordered table-striped">
                                     <thead>

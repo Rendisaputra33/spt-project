@@ -25,6 +25,7 @@
                     <div class="clearfix hidden-md-up"></div>
 
                     <div class="col-12">
+                        <h1 class="mb-3">DATA TRANSAKSI</h1>
                         <div class="card">
                             <div class="card-header">
                                 <form action="/transaksi/berangkat/cetak" method="POST">
