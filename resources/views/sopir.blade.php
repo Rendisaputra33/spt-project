@@ -30,7 +30,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" action="/sopir" method="POST">
+                            <form role="form" action="/petani" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

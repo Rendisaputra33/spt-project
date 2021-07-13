@@ -86,7 +86,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/petani" class="nav-link">
+                                    <a href="/pemilik" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pemilik</p>
                                     </a>
@@ -94,7 +94,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/sopir" class="nav-link">
+                                    <a href="/petani" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Petani</p>
                                     </a>
