@@ -23,6 +23,18 @@ Route::get('/dashboard', function () {
 
 Route::prefix('/user')->group(function () {
     Route::get('/', [UserController::class, 'viewindex']);
+    // route crud user
+    Route::post('/', [UserController::class, 'add'])->middleware('myAuth');
+    Route::put('/{id}', [UserController::class, 'update'])->middleware('myAuth');
+    Route::get('/{id}', [UserController::class, 'delete'])->middleware('myAuth');
+    // route grouping
+    Route::prefix('/group')->group(function () {
+        Route::get('/search', [UserController::class, 'search'])->middleware('myAuth');
+    });
+    // Route get update user
+    Route::prefix('/json')->group(function () {
+        Route::get('/getUser/{id}', [UserController::class, 'getUpdate'])->middleware('myAuth');
+    });
 });
 
 /* ===================== Routing petani =================  */

@@ -44,6 +44,15 @@ class UserController extends Controller
             ? redirect('/user')->with('sukses', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
+    public function search()
+    {
+        $param = '%' . request('name') . '%';
+        $data = Petani::where('nama_user', 'LIKE', $param)
+            ->orWhere('username', 'LIKE', $param)
+            ->orWhere('level', 'LIKE', $param)
+            ->get();
+        return response()->json(['data' => $data]);
+    }
     public function getUpdate($id)
     {
         return response()->json([
