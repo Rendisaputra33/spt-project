@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/sopir/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        <a href="/petani/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
                                                     <td style="text-align: center;">
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                        <a href="/sopir/{{ $item->id_petani }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        <a href="/petani/{{ $item->id_petani }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

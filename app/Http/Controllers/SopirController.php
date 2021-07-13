@@ -24,7 +24,7 @@ class SopirController extends Controller
             'nohp_petani' => $req->nohp_sopir,
             'alamat_petani' => $req->alamat_sopir,
         ])
-            ? redirect('/sopir')->with('sukses', 'data berhasil di tambah')
+            ? redirect('/petani')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
     }
 
@@ -35,14 +35,14 @@ class SopirController extends Controller
             'nohp_petani' => $req->nohp_sopir,
             'alamat_petani' => $req->alamat_sopir,
         ])
-            ? redirect('/sopir')->with('sukses', 'data berhasil di update')
+            ? redirect('/petani')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
     }
 
     public function delete($id)
     {
         return Sopir::where('id_petani', $id)->delete()
-            ? redirect('/sopir')->with('sukses', 'data berhasil di delete')
+            ? redirect('/petani')->with('sukses', 'data berhasil di delete')
             : redirect()->back()->with('error', 'data gagal di delete');
     }
 

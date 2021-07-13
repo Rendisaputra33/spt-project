@@ -9,8 +9,8 @@ function getUpdate() {
             const id = this.getAttribute('data-id');
             document
                 .getElementById('form-update')
-                .setAttribute('action', URL + '/petani/' + id);
-            fetch(`${URL}/petani/json/getPetani/${id}`)
+                .setAttribute('action', URL + '/pemilik/' + id);
+            fetch(`${URL}/pemilik/json/getPetani/${id}`)
                 .then(res => res.json())
                 .then(res => {
                     document.querySelector('input[name=nama_petani]').value =
@@ -30,7 +30,7 @@ getUpdate();
 
 document.getElementById('search').addEventListener('keyup', function () {
     const keyword = this.value;
-    fetch(URL + '/petani/group/search?name=' + keyword)
+    fetch(URL + '/pemilik/group/search?name=' + keyword)
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parseSearch(res);
@@ -62,7 +62,7 @@ const elementSearch = res => {
         data-target="#modal-lg" data-toggle="modal"
         data-id="${res.id_pemilik
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/petani/${res.id_pemilik
+        <a href="/pemilik/${res.id_pemilik
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>

@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/petani/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        <a href="/pemilik/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                                     <td style="text-align: center;">
 
                                                         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                        <a href="/petani/{{ $item->id_pemilik }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        <a href="/pemilik/{{ $item->id_pemilik }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

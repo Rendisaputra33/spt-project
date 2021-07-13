@@ -8,9 +8,9 @@ function getUpdate() {
             console.log(id);
             document
                 .getElementById('form-update')
-                .setAttribute('action', URL + '/sopir/' + id);
+                .setAttribute('action', URL + '/petani/' + id);
 
-            fetch(`${URL}/sopir/json/getSopir/${id}`)
+            fetch(`${URL}/petani/json/getSopir/${id}`)
                 .then(res => res.json())
                 .then(res => {
                     document.querySelector('input[name=nama_sopir]').value =
@@ -28,7 +28,7 @@ getUpdate();
 
 document.getElementById('search').addEventListener('keyup', function () {
     const keyword = this.value;
-    fetch(URL + '/sopir/group/search?name=' + keyword)
+    fetch(URL + '/petani/group/search?name=' + keyword)
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parseSearch(res);
@@ -59,11 +59,9 @@ const elementSearch = (res, no) => {
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${
-            res.id_petani
+        data-id="${res.id_petani
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/sopir/${
-            res.id_petani
+        <a href="/petani/${res.id_petani
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
