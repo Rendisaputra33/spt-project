@@ -35,17 +35,17 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Petani</label>
-                                        <input type="text" class="form-control" placeholder="Nama " name="nama_sopir">
+                                        <input type="text" class="form-control" placeholder="Nama " name="nama_sopir" required>
                                         <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Telp</label>
-                                        <input type="text" class="form-control" maxlength="13" onkeypress="return isNumber(event)" placeholder="No Telp " name="nohp_sopir">
+                                        <input type="text" class="form-control" maxlength="13" onkeypress="return isNumber(event)" placeholder="No Telp " name="nohp_sopir" required>
                                         <span class="text-secondary"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Alamat Petani</label>
-                                        <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir">
+                                        <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir" required>
                                         <span class="text-secondary"></span>
                                     </div>
                                 </div>
@@ -83,6 +83,22 @@
             if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
             return true;
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
     </script>
     <!-- /.control-sidebar -->
 @endsection

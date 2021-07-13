@@ -100,7 +100,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">UBAH DATA PETANI</h4>
+                                <h4 class="modal-title">UBAH DATA PEMILIK</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -111,17 +111,17 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pemilik</label>
-                                        <input type="text" class="form-control" placeholder="Nama " name="nama_petani">
+                                        <input type="text" class="form-control" placeholder="Nama " name="nama_petani" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Register Pemilik</label>
-                                        <input type="text" class="form-control" placeholder="Register " name="register_petani">
+                                        <input type="text" class="form-control" placeholder="Register " name="register_petani" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Pabrik</label>
-                                        <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik">
+                                        <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -159,4 +159,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('Js/Pagination.js') }}"></script>
     <script src="{{ asset('Js/Petani.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
+    </script>
 @endsection

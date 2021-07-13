@@ -46,7 +46,7 @@
                                     <div class="form-group">
                                         <label for="pabriktujuan">Nama Pabrik</label>
                                         <select class="form-control" id="pabriktujuan" name="nama_pabrik" required>
-                                            <option selected>Choose...</option>
+                                            <option selected>Pilih</option>
                                             @foreach ($pabrik as $item)
                                                 <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                             @endforeach
@@ -84,4 +84,20 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
+    </script>
 @endsection

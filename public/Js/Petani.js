@@ -60,11 +60,9 @@ const elementSearch = res => {
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${
-            res.id_pemilik
+        data-id="${res.id_pemilik
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/petani/${
-            res.id_pemilik
+        <a href="/petani/${res.id_pemilik
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
