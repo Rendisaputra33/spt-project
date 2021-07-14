@@ -49,12 +49,14 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/pemilik/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @if (session('role') === 2)
+                                            <a href="/pemilik/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-header -->
-                            
+
                             <div class="card-body">
                                 <table id="tb" class="table table-bordered table-striped">
                                     <thead>
@@ -65,7 +67,9 @@
                                             <th>No Induk</th>
                                             <th>Nama Pabrik</th>
                                             <th>Tanggal Edit</th>
-                                            <th style="text-align: center;">Action</th>
+                                            @if (session('role') === 2)
+                                                <th style="text-align: center;">Action</th>
+                                            @endif
                                         </tr>
                                         </tr>
                                     </thead>
@@ -81,11 +85,12 @@
                                                     <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
-                                                    <td style="text-align: center;">
-
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                        <a href="/pemilik/{{ $item->id_pemilik }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                    </td>
+                                                    @if (session('role') === 2)
+                                                        <td style="text-align: center;">
+                                                            <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                            <a href="/pemilik/{{ $item->id_pemilik }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -127,7 +132,7 @@
                                         <select class="form-control" id="pabriktujuan" name="nama_pabrik" required>
                                             <option value="">Pilih</option>
                                             @foreach ($pabrik as $item)
-                                            <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                                <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                             @endforeach
                                         </select>
                                         <span class="text-danger"></span>
@@ -169,30 +174,30 @@
     <script src="{{ asset('Js/Petani.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    var elements = document.getElementsByTagName("INPUT");
-    var element = document.getElementsByTagName("SELECT");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].oninvalid = function(e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            var elements = document.getElementsByTagName("INPUT");
+            var element = document.getElementsByTagName("SELECT");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].oninvalid = function(e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                    }
+                };
+                elements[i].oninput = function(e) {
+                    e.target.setCustomValidity("");
+                };
             }
-        };
-        elements[i].oninput = function(e) {
-            e.target.setCustomValidity("");
-        };
-    }
-    for (var i = 0; i < element.length; i++) {
-        element[i].oninvalid = function(e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                e.target.setCustomValidity("List Harap dipilih !");
+            for (var i = 0; i < element.length; i++) {
+                element[i].oninvalid = function(e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("List Harap dipilih !");
+                    }
+                };
+                element[i].oninput = function(e) {
+                    e.target.setCustomValidity("");
+                };
             }
-        };
-        element[i].oninput = function(e) {
-            e.target.setCustomValidity("");
-        };
-    }
-})
+        })
     </script>
 @endsection

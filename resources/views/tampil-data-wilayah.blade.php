@@ -49,7 +49,9 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/wilayah/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @if (session('role') === 2)
+                                            <a href="/wilayah/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +65,9 @@
                                             <th>Nama Wilayah</th>
                                             <th>Harga Wilayah</th>
                                             <th>Tanggal Edit</th>
-                                            <th style="text-align: center;">Action</th>
+                                            @if (session('role') === 2)
+                                                <th style="text-align: center;">Action</th>
+                                            @endif
                                         </tr>
                                         </tr>
                                     </thead>
@@ -78,10 +82,12 @@
                                                     <td>{{ $item->nama_wilayah }}</td>
                                                     <td>Rp {{ number_format($item->harga_wilayah, 0, ',', '.') }}</td>
                                                     <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
-                                                    <td style="text-align: center;">
-                                                        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_wilayah }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                        <a href="/wilayah/{{ $item->id_wilayah }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                    </td>
+                                                    @if (session('role') === 2)
+                                                        <td style="text-align: center;">
+                                                            <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_wilayah }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                            <a href="/wilayah/{{ $item->id_wilayah }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -153,18 +159,18 @@
     <script src="{{ asset('Js/Pagination.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    var elements = document.getElementsByTagName("INPUT");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].oninvalid = function(e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            var elements = document.getElementsByTagName("INPUT");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].oninvalid = function(e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                    }
+                };
+                elements[i].oninput = function(e) {
+                    e.target.setCustomValidity("");
+                };
             }
-        };
-        elements[i].oninput = function(e) {
-            e.target.setCustomValidity("");
-        };
-    }
-})
+        })
     </script>
 @endsection

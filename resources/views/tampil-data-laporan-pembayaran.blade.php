@@ -75,6 +75,7 @@
                                                 <th>Nama Petani</th>
                                                 <th>No SP</th>
                                                 <th style="text-align: center;">Action</th>
+
                                             </tr>
                                         </thead>
                                         <tbody id='list-data'>
@@ -125,30 +126,30 @@
                 </script>
                 <script>
                     document.addEventListener("DOMContentLoaded", function() {
-                var elements = document.getElementsByTagName("INPUT");
-                var element = document.getElementsByTagName("SELECT");
-                for (var i = 0; i < elements.length; i++) {
-                    elements[i].oninvalid = function(e) {
-                        e.target.setCustomValidity("");
-                        if (!e.target.validity.valid) {
-                            e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                        var elements = document.getElementsByTagName("INPUT");
+                        var element = document.getElementsByTagName("SELECT");
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].oninvalid = function(e) {
+                                e.target.setCustomValidity("");
+                                if (!e.target.validity.valid) {
+                                    e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                                }
+                            };
+                            elements[i].oninput = function(e) {
+                                e.target.setCustomValidity("");
+                            };
                         }
-                    };
-                    elements[i].oninput = function(e) {
-                        e.target.setCustomValidity("");
-                    };
-                }
-                for (var i = 0; i < element.length; i++) {
-                    element[i].oninvalid = function(e) {
-                        e.target.setCustomValidity("");
-                        if (!e.target.validity.valid) {
-                            e.target.setCustomValidity("List Harap dipilih !");
+                        for (var i = 0; i < element.length; i++) {
+                            element[i].oninvalid = function(e) {
+                                e.target.setCustomValidity("");
+                                if (!e.target.validity.valid) {
+                                    e.target.setCustomValidity("List Harap dipilih !");
+                                }
+                            };
+                            element[i].oninput = function(e) {
+                                e.target.setCustomValidity("");
+                            };
                         }
-                    };
-                    element[i].oninput = function(e) {
-                        e.target.setCustomValidity("");
-                    };
-                }
-            })
+                    })
                 </script>
             @endsection
