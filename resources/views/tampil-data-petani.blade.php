@@ -123,8 +123,13 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Pabrik</label>
-                                        <input type="text" class="form-control" placeholder="Nama Pabrik " name="nama_pabrik" required>
+                                        <label for="pabriktujuan">Nama Pabrik</label>
+                                        <select class="form-control" id="pabriktujuan" name="nama_pabrik" required>
+                                            <option value="">Pilih</option>
+                                            @foreach ($pabrik as $item)
+                                            <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                            @endforeach
+                                        </select>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -165,6 +170,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
     var elements = document.getElementsByTagName("INPUT");
+    var element = document.getElementsByTagName("SELECT");
     for (var i = 0; i < elements.length; i++) {
         elements[i].oninvalid = function(e) {
             e.target.setCustomValidity("");
@@ -173,6 +179,17 @@
             }
         };
         elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+    for (var i = 0; i < element.length; i++) {
+        element[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("List Harap dipilih !");
+            }
+        };
+        element[i].oninput = function(e) {
             e.target.setCustomValidity("");
         };
     }

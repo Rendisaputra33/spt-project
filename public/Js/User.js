@@ -17,6 +17,8 @@ function getUpdate() {
                         res.data_update.nama_user;
                     document.querySelector('input[name=uusername]').value =
                         res.data_update.username;
+                    document.querySelector('input[name=upassword]').value =
+                        res.data_update.password;
                     document.querySelector('select[name=ulevel]').value =
                         res.data_update.level;
                 })
@@ -52,11 +54,9 @@ const elementSearch = res => {
     <td>${res.username}</td>
     <td>${res.level == 2 ? 'Super Admin' : 'Admin'}</td>
     <td style="width: 15%; text-align: center;">
-        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${
-            res.id_user
+        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${res.id_user
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/user/${
-            res.id_user
+        <a href="/user/${res.id_user
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;

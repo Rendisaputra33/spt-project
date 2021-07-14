@@ -136,7 +136,7 @@
                                             <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
                                         </div>
                                         <select name="tipe" id="tipe" class="custom-select">
-                                            <option selected value="def">Pilih</option>
+                                            <option selected value="">Pilih</option>
                                             <option value="SPT">SPT</option>
                                             <option value="AMPERA">AMPERAN</option>
                                         </select>
@@ -154,7 +154,7 @@
                                                     <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                                 </div>
                                                 <select name="wilayah" class="custom-select">
-                                                    <option selected value="def">Pilih...</option>
+                                                    <option selected value="">Pilih...</option>
                                                     @foreach ($wilayah as $item)
                                                         <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
                                                         </option>
@@ -167,7 +167,7 @@
                                                         Pemilik</label>
                                                 </div>
                                                 <select name="nama_petani" class="custom-select">
-                                                    <option selected value="def">Pilih...</option>
+                                                    <option selected value="">Pilih...</option>
                                                     @foreach ($petani as $item)
                                                         <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
                                                         </option>
@@ -182,7 +182,7 @@
                                                         Petani</label>
                                                 </div>
                                                 <select name="nama_sopir" class="custom-select">
-                                                    <option selected value="def">Pilih...</option>
+                                                    <option selected value="">Pilih...</option>
                                                     @foreach ($sopir as $item)
                                                         <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
                                                         </option>
@@ -195,7 +195,7 @@
                                                         Pabrik</label>
                                                 </div>
                                                 <select name="nama_pabrik" class="custom-select">
-                                                    <option selected value="def">Pilih...</option>
+                                                    <option selected value="">Pilih...</option>
                                                     @foreach ($pg as $item)
                                                         <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                                     @endforeach
@@ -336,7 +336,7 @@
                                     <div class="form-group">
                                         <label for="wilayah">Wilayah</label>
                                         <select class="form-control" id="wilayah" name="uwilayah">
-                                            <option selected>Pilih...</option>
+                                            <option selected value="">Pilih...</option>
                                             @foreach ($wilayah as $item)
                                                 <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
                                             @endforeach
@@ -345,7 +345,7 @@
                                     <div class="form-group">
                                         <label for="namapetani">Nama Pemilik</label>
                                         <select class="form-control" id="namapetani" name="unama_petani">
-                                            <option selected>Pilih...</option>
+                                            <option selected value="">Pilih...</option>
                                             @foreach ($petani as $item)
                                                 <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
                                             @endforeach
@@ -354,7 +354,7 @@
                                     <div class="form-group">
                                         <label for="namasopir">Nama Petani</label>
                                         <select class="form-control" id="namasopir" name="unama_sopir">
-                                            <option selected>Pilih...</option>
+                                            <option selected value="">Pilih...</option>
                                             @foreach ($sopir as $item)
                                                 <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
                                             @endforeach
@@ -366,7 +366,7 @@
                                     <div class="form-group">
                                         <label for="pabriktujuan">Pabrik Tujuan</label>
                                         <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
-                                            <option selected>Pilih...</option>
+                                            <option selected value="">Pilih...</option>
                                             @foreach ($pg as $item)
                                                 <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                             @endforeach
@@ -427,6 +427,34 @@
             inputs: $('input[name=utanggal_berangkat]'),
             format: 'dd/mm/yyyy'
         })
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    var element = document.getElementsByTagName("SELECT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+    for (var i = 0; i < element.length; i++) {
+        element[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("List Harap dipilih !");
+            }
+        };
+        element[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
     </script>
 
 @endsection
