@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -20,20 +21,19 @@ class UserController extends Controller
             'title' => 'User'
         ]);
     }
-    
+
     public function add(Request $req)
-    {   
-        if ($req->validate(['username' => 'unique:tb_user,username'])){
+    {
+        if ($req->validate(['username' => 'unique:tb_user,username'])) {
             return User::insert([
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
-                'pass_user' => bcrypt($req->pass_user),
+                'pass_user' => bcrypt($req->password),
                 'level' => $req->level
             ])
                 ? redirect('/user')->with('sukses', 'data berhasil di tambah')
                 : redirect()->back()->with('error', 'data gagal di tambah');
-        }
-        else{
+        } else {
             return redirect('/user')->with('error', 'username sudah terdaftar');
         }
     }
@@ -42,7 +42,7 @@ class UserController extends Controller
         return User::where('id_user', $id)->update([
             'nama_user' => $req->unama_user,
             'username' => $req->uusername,
-            'pass_user' => bcrypt($req->upass_user),
+            'pass_user' => bcrypt($req->upassword),
             'level' => $req->ulevel
         ])
             ? redirect('/user')->with('sukses', 'data berhasil di update')
