@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware('myAuth');
 
 Route::prefix('/user')->group(function () {
-    Route::get('/', [UserController::class, 'viewindex'])->middleware('isAdmin');
+    Route::get('/', [UserController::class, 'viewindex']);
     // route crud user
     Route::post('/', [UserController::class, 'add'])->middleware('isAdmin');
     Route::put('/{id}', [UserController::class, 'update'])->middleware('isAdmin');

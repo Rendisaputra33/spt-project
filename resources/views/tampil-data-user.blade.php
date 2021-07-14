@@ -43,13 +43,16 @@
                                                     </div>
                                             </div>
                                             <div class="col-6">
+
                                                 <button type="button" class="btn btn-primary text-bold"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                             </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" data-target="#modal-lg" data-toggle="modal" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @if (session('role') === 2)
+                                            <a href="#" data-target="#modal-lg" data-toggle="modal" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +70,9 @@
                                                 <th>Nama User</th>
                                                 <th>Username</th>
                                                 <th style="width: 10%">Level</th>
-                                                <th style="text-align: center">Action</th>
+                                                @if (session('role') === 2)
+                                                    <th style="text-align: center">Action</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody id="list-data">
@@ -79,10 +84,12 @@
                                                         <td>{{ $item->nama_user }}</td>
                                                         <td>{{ $item->username }}</td>
                                                         <td>{{ $item->level == 2 ? 'Super Admin' : 'Admin' }}</td>
-                                                        <td style="width: 15%; text-align: center;">
-                                                            <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                            <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                        </td>
+                                                        @if (session('role') === 2)
+                                                            <td style="width: 15%; text-align: center;">
+                                                                <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                                <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                            </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                             @endif
