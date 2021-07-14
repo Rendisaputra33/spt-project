@@ -25,16 +25,18 @@ class UserController extends Controller
     public function add(Request $req)
     {
         if ($req->validate(['username' => 'unique:tb_user,username'])) {
-            return User::insert([
+            if (User::insert([
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
                 'pass_user' => bcrypt($req->password),
                 'level' => $req->level
-            ])
-                ? redirect('/user')->with('sukses', 'data berhasil di tambah')
-                : redirect()->back()->with('error', 'data gagal di tambah');
+            ])) {
+                return redirect('/user')->with('sukses', 'data berhasil di tambah');
+            } else {
+                return redirect()->back()->with('gagal', 'data gagal di tambah');
+            }
         } else {
-            return redirect('/user')->with('error', 'username sudah terdaftar');
+            return redirect('/user')->with('gagal', 'username telas terdaftar');
         }
     }
     public function update(Request $req, $id)

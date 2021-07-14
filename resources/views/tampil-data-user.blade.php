@@ -11,7 +11,7 @@
                     </div>
                     <div class="content-header">
                         <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
-                        <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
+                        <div id="flash-data-error" data-flash-error="{{ session('gagal') }}"></div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -55,6 +55,11 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                                @if (session('gagal') !== null)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('gagal') }}
+                                    </div>
+                                @endif
                                 <div class="table-responsive">
                                     <table id="tb" class="table table-bordered table-striped ">
                                         <thead>
@@ -66,20 +71,20 @@
                                             </tr>
                                         </thead>
                                         <tbody id="list-data">
-                                            @if (count($user) === 0) 
+                                            @if (count($user) === 0)
                                                 <td colspan="6" style="text-align: center">DATA KOSONG</td>
                                             @else
-                                            @foreach ($user as $item)
-                                            <tr>
-                                                <td>{{ $item->nama_user }}</td>
-                                                <td>{{ $item->username }}</td>
-                                                <td>{{ $item->level == 2 ? 'Super Admin' : 'Admin' }}</td>
-                                                <td style="width: 15%; text-align: center;">
-                                                    <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-                                                    <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
+                                                @foreach ($user as $item)
+                                                    <tr>
+                                                        <td>{{ $item->nama_user }}</td>
+                                                        <td>{{ $item->username }}</td>
+                                                        <td>{{ $item->level == 2 ? 'Super Admin' : 'Admin' }}</td>
+                                                        <td style="width: 15%; text-align: center;">
+                                                            <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                                            <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             @endif
                                         </tbody>
                                     </table>
@@ -123,7 +128,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Level</label>
-                                    <select name="level" id="" class="form-control">
+                                    <select name="level" class="form-control">
                                         <option value="1">Admin</option>
                                         <option value="2">Super Admin</option>
                                     </select>
@@ -172,7 +177,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Level</label>
-                                    <select name="ulevel" id="" class="form-control">
+                                    <select name="ulevel" class="form-control">
                                         <option value="1">Admin</option>
                                         <option value="2">Super Admin</option>
                                     </select>
@@ -201,18 +206,18 @@
             <script src="{{ asset('Js/Pagination.js') }}"></script>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-            var elements = document.getElementsByTagName("INPUT");
-            for (var i = 0; i < elements.length; i++) {
-                elements[i].oninvalid = function(e) {
-                    e.target.setCustomValidity("");
-                    if (!e.target.validity.valid) {
-                        e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                    var elements = document.getElementsByTagName("INPUT");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].oninvalid = function(e) {
+                            e.target.setCustomValidity("");
+                            if (!e.target.validity.valid) {
+                                e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+                            }
+                        };
+                        elements[i].oninput = function(e) {
+                            e.target.setCustomValidity("");
+                        };
                     }
-                };
-                elements[i].oninput = function(e) {
-                    e.target.setCustomValidity("");
-                };
-            }
-        })
+                })
             </script>
         @endsection
