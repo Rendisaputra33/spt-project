@@ -59,6 +59,7 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <a href="/pemilik" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>
