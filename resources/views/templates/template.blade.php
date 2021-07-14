@@ -188,6 +188,13 @@
             <!-- /.sidebar -->
         </aside>
         @yield('content')
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2021 <a href="#">CV Informent</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 0.0.1
+            </div>
+        </footer>
     </div>
 
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
