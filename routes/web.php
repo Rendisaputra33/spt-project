@@ -22,18 +22,18 @@ Route::get('/dashboard', function () {
 })->middleware('myAuth');
 
 Route::prefix('/user')->group(function () {
-    Route::get('/', [UserController::class, 'viewindex']);
+    Route::get('/', [UserController::class, 'viewindex'])->middleware('isAdmin');
     // route crud user
-    Route::post('/', [UserController::class, 'add'])->middleware('myAuth');
-    Route::put('/{id}', [UserController::class, 'update'])->middleware('myAuth');
-    Route::get('/{id}', [UserController::class, 'delete'])->middleware('myAuth');
+    Route::post('/', [UserController::class, 'add'])->middleware('isAdmin');
+    Route::put('/{id}', [UserController::class, 'update'])->middleware('isAdmin');
+    Route::get('/{id}', [UserController::class, 'delete'])->middleware('isAdmin');
     // route grouping
     Route::prefix('/group')->group(function () {
-        Route::get('/search', [UserController::class, 'search'])->middleware('myAuth');
+        Route::get('/search', [UserController::class, 'search'])->middleware('isAdmin');
     });
     // Route get update user
     Route::prefix('/json')->group(function () {
-        Route::get('/getUser/{id}', [UserController::class, 'getUpdate'])->middleware('myAuth');
+        Route::get('/getUser/{id}', [UserController::class, 'getUpdate'])->middleware('isAdmin');
     });
 });
 

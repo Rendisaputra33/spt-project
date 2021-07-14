@@ -46,6 +46,7 @@ class AuthController extends Controller
         $req->session()->put('username', $validate['username']);
         $req->session()->put('user_id', $validate['id_user']);
         $req->session()->put('name', $validate['nama_user']);
+        $req->session()->put('role', $validate['level']);
     }
 
     public function Logout()
@@ -54,6 +55,7 @@ class AuthController extends Controller
             session()->pull('name');
             session()->pull('username');
             session()->pull('user_id');
+            session()->pull('role');
         }
         return redirect('/');
     }
