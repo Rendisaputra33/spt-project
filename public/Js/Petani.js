@@ -18,7 +18,7 @@ function getUpdate() {
                     document.querySelector(
                         'input[name=register_petani]'
                     ).value = res.data_update.register_pemilik;
-                    document.querySelector('input[name=nama_pabrik]').value =
+                    document.querySelector('select[name=nama_pabrik]').value =
                         res.data_update.nama_pabrik;
                 })
                 .catch(err => console.log(err));
@@ -60,11 +60,9 @@ const elementSearch = res => {
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${
-            res.id_pemilik
+        data-id="${res.id_pemilik
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/pemilik/${
-            res.id_pemilik
+        <a href="/pemilik/${res.id_pemilik
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>

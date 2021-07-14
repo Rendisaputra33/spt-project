@@ -40,7 +40,7 @@
                                                         <div class="input-group-prepend">
                                                         </div>
                                                         <select class="form-control" name="pilih" id="pilih">
-                                                            <option selected>Pilih Petani</option>
+                                                            <option selected value="">Pilih Petani</option>
                                                             @foreach ( $sopir as $i )
                                                             <option value="{{ $i->nama_petani }}">{{ $i->nama_petani }}</option>
                                                             @endforeach
@@ -132,4 +132,32 @@
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+var elements = document.getElementsByTagName("INPUT");
+var element = document.getElementsByTagName("SELECT");
+for (var i = 0; i < elements.length; i++) {
+    elements[i].oninvalid = function(e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+            e.target.setCustomValidity("Kolom Tidak Boleh Kosong !");
+        }
+    };
+    elements[i].oninput = function(e) {
+        e.target.setCustomValidity("");
+    };
+}
+for (var i = 0; i < element.length; i++) {
+    element[i].oninvalid = function(e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+            e.target.setCustomValidity("List Harap dipilih !");
+        }
+    };
+    element[i].oninput = function(e) {
+        e.target.setCustomValidity("");
+    };
+}
+})
+</script>
 @endsection

@@ -17,6 +17,7 @@ class PetaniController extends Controller
     {
         return view('tampil-data-petani', [
             'petani' => Petani::get(),
+            'pabrik' => Pg::select('nama_pg')->get(),
             'title' => 'Pemilik'
         ]);
     }
