@@ -15,9 +15,8 @@ function getUpdate() {
                 .then(res => {
                     document.querySelector('input[name=unama_user]').value =
                         res.data_update.nama_user;
-                    document.querySelector(
-                        'input[name=uusername]'
-                    ).value = res.data_update.username;
+                    document.querySelector('input[name=uusername]').value =
+                        res.data_update.username;
                     document.querySelector('select[name=ulevel]').value =
                         res.data_update.level;
                 })
@@ -53,8 +52,12 @@ const elementSearch = res => {
     <td>${res.username}</td>
     <td>${res.level == 2 ? 'Super Admin' : 'Admin'}</td>
     <td style="width: 15%; text-align: center;">
-        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${res.id_user}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/user/${res.id_user}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${
+            res.id_user
+        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/user/${
+            res.id_user
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };
@@ -100,5 +103,22 @@ if (flash.getAttribute('data-flash-success') !== '') {
     alert.fire({
         icon: 'success',
         title: `${flash.getAttribute('data-flash-success')}`,
+    });
+}
+
+const errorflash = document.querySelector('#flash-data-error');
+
+const alerterror = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'error',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (errorflash.getAttribute('data-flash-error') !== '') {
+    alerterror.fire({
+        icon: 'error',
+        title: `${flash.getAttribute('data-flash-error')}`,
     });
 }

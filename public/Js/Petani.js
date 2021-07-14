@@ -60,9 +60,11 @@ const elementSearch = res => {
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_pemilik
+        data-id="${
+            res.id_pemilik
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/pemilik/${res.id_pemilik
+        <a href="/pemilik/${
+            res.id_pemilik
         }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
@@ -130,3 +132,20 @@ const formatTanggal = tgl => {
     const month = tgl.split('-');
     return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
 };
+
+const errorflash = document.querySelector('#flash-data-error');
+
+const alerterror = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'error',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (errorflash.getAttribute('data-flash-error') !== '') {
+    alerterror.fire({
+        icon: 'error',
+        title: `${flash.getAttribute('data-flash-error')}`,
+    });
+}

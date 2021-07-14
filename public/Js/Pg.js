@@ -124,3 +124,20 @@ if (flash.getAttribute('data-flash-success') !== '') {
         title: `${flash.getAttribute('data-flash-success')}`,
     });
 }
+
+const errorflash = document.querySelector('#flash-data-error');
+
+const alerterror = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    icon: 'error',
+    showConfirmButton: false,
+    timer: 1500,
+});
+
+if (errorflash.getAttribute('data-flash-error') !== '') {
+    alerterror.fire({
+        icon: 'error',
+        title: `${flash.getAttribute('data-flash-error')}`,
+    });
+}
