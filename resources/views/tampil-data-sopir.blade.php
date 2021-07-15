@@ -117,7 +117,7 @@
                                 @method('PUT')
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Sopir</label>
+                                        <label for="exampleInputPassword1">Nama Petani</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_sopir" required>
                                         <span class="text-danger"></span>
                                     </div>
@@ -127,7 +127,7 @@
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Alamat Sopir</label>
+                                        <label for="exampleInputPassword1">Alamat Petani</label>
                                         <input type="text" class="form-control" placeholder="Alamat " name="alamat_sopir" required>
                                         <span class="text-danger"></span>
                                     </div>

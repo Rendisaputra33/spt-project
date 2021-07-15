@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Tambah Data User</h1>
+                        <h1 class="m-0 text-dark">Tambah Data PG</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -48,6 +48,7 @@
 
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <a href="/pg" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>
