@@ -36,17 +36,16 @@ document.getElementById('search').addEventListener('keyup', function () {
 
 const parseSearch = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += elementSearch(res);
+        html += elementSearch(res, no++);
     });
     return html;
 };
 
-const elementSearch = res => {
-    let d = new Date(res.created_at);
-    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+const elementSearch = (res, no) => {
     return /*html*/ `<tr>
-    <td>${res.id_pg}</td>
+    <td>${no}</td>
     <td>${res.nama_pg}</td>
     <td>${res.lokasi_pg}</td>
 <td style="text-align: center;">

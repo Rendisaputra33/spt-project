@@ -39,7 +39,6 @@ const parseSearch = data => {
     let html = '';
     let no = 1;
     data.data.map(res => {
-        console.log(res);
         html += elementSearch(res, no++);
     });
     return html;
@@ -51,7 +50,7 @@ const elementSearch = (res, no) => {
     return /*html*/ `<tr>
     <td>${no}</td>
     <td>${res.nama_wilayah}</td>
-    <td>${res.harga_wilayah}</td>
+    <td>${formatRupiah(res.harga_wilayah.toString(), 'Rp ')}</td>
 <td style="text-align: center;">
 
     <a href="#" class="btn btn-warning text-bold update"
@@ -80,6 +79,24 @@ const formatTanggal = tgl => {
     const month = tgl.split('-');
     return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
 };
+
+const formatRupiah = (angka, prefix) => {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
+};
+
 
 function listDelete() {
     const documentDel = document.querySelectorAll('.delete');

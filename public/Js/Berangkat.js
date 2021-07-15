@@ -101,7 +101,7 @@ FORM_ADD.wilayah.addEventListener('change', function () {
 });
 
 FORM_ADD.petani.addEventListener('change', function () {
-    fetch(URL + '/petani/getRegister/' + this.value)
+    fetch(URL + '/pemilik/getRegister/' + this.value)
         .then(res => res.json())
         .then(res => updateRegister(res.data[0]));
 
@@ -217,7 +217,7 @@ BTN.uharga.onclick = async function () {
 BTN.uinduk.onclick = async function () {
     const INDUK = FORM_ADD.no_induk.value;
     const DATA = await fetch(
-        URL + `/petani/induk?id=${REGISTER.id}&induk=${INDUK}`
+        URL + `/pemilik/induk?id=${REGISTER.id}&induk=${INDUK}`
     );
     const RESULT = await DATA.json();
     RESULT.data === 'sukses'
@@ -246,13 +246,11 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${
-            res.id_keberangkatan
+        <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan
         }">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="${URL}/berangkat/${
-        res.id_keberangkatan
-    }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        <a href="${URL}/berangkat/${res.id_keberangkatan
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
 };

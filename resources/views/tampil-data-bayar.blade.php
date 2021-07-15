@@ -160,6 +160,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('Js/Pagination.js') }}"></script>
     <script src="{{ asset('Js/Pembayaran.js') }}"></script>
     <script src="{{ asset('Js/Range.js') }}"></script>
     {{-- <script src="{{ asset('Js/Pagination.js') }}"></script> --}}

@@ -47,8 +47,6 @@ const parseSearch = data => {
 };
 
 const elementSearch = (res, no) => {
-    let d = new Date(res.created_at);
-    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
     <td>${no}</td>
     <td>${res.nama_petani}</td>
