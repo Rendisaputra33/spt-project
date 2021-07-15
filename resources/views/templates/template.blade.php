@@ -75,57 +75,59 @@
                                 </p>
                             </a>
                         </li>
+                        @if (session('role') === 2)
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-money-check-alt"></i>
+                                    <p>
+                                        Date Master
+                                        <i class="fas fa-angle-left right"></i>
+                                        <span class="badge badge-info right">2</span>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/pemilik" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pemilik</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/petani" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Petani</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/wilayah" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Wilayah</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/pg" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pabrik Gula</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/user" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>User</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
 
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-money-check-alt"></i>
-                                <p>
-                                    Date Master
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">2</span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/pemilik" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pemilik</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/petani" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Petani</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/wilayah" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Wilayah</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/pg" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pabrik Gula</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/user" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>User</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-money-check-alt"></i>
