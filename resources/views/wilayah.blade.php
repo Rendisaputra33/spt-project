@@ -40,7 +40,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Harga Wilayah</label>
-                                        <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah" required>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Rp</span>
+                                            <input type="text" class="form-control" placeholder="Harga " name="harga_wilayah" required>
+                                          </div>
+                                        
+                                        
                                         <span class="text-secondary"></span>
                                     </div>
                                 </div>
