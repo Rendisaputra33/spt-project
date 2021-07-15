@@ -40,6 +40,17 @@ document.getElementById('search').addEventListener('keyup', function () {
         });
 });
 
+document.getElementById('filter').addEventListener('change', function () {
+    const keyword = this.value;
+    fetch(URL + '/user/group/search?name=' + keyword)
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('list-data').innerHTML = parseSearch(res);
+            getUpdate();
+            listDelete();
+        });
+});
+
 const parseSearch = data => {
     let html = '';
     data.data.map(res => {
