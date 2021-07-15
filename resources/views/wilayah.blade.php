@@ -42,10 +42,8 @@
                                         <label for="exampleInputPassword1">Harga Wilayah</label>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Rp</span>
-                                            <input type="text" onkeypress="return isNumber(event)" class="form-control" placeholder="Harga " name="harga_wilayah" required>
+                                            <input type="text" onkeypress="return isNumber(event)" aria-describedby="basic-addon1" class="form-control" placeholder="Harga " name="harga_wilayah" required>
                                         </div>
-
-
                                         <span class="text-secondary"></span>
                                     </div>
                                 </div>
