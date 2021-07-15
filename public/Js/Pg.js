@@ -49,7 +49,6 @@ const elementSearch = res => {
     <td>${res.id_pg}</td>
     <td>${res.nama_pg}</td>
     <td>${res.lokasi_pg}</td>
-    <td>${formatTanggal(date)}</td>
 <td style="text-align: center;">
 
     <a href="#" class="btn btn-warning text-bold update"

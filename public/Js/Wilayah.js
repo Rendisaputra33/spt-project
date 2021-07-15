@@ -52,17 +52,12 @@ const elementSearch = (res, no) => {
     <td>${no}</td>
     <td>${res.nama_wilayah}</td>
     <td>${res.harga_wilayah}</td>
-    <td>${formatTanggal(date)}</td>
 <td style="text-align: center;">
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${
-            res.id_wilayah
-        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/wilayah/${
-            res.id_wilayah
-        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        data-id="${res.id_wilayah}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/wilayah/${res.id_wilayah}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;

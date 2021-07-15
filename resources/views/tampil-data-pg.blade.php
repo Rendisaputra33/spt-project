@@ -64,7 +64,6 @@
                                             <th>No</th>
                                             <th>Nama PG</th>
                                             <th>Lokasi PG</th>
-                                            <th>Tanggal Edit</th>
                                             @if (session('role') === 2)
                                                 <th style="text-align: center;">Action</th>
                                             @endif
@@ -81,7 +80,7 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $item->nama_pg }}</td>
                                                     <td>{{ $item->lokasi_pg }}</td>
-                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
+                                                    {{-- <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td> --}}
                                                     @if (session('role') === 2)
                                                         <td style="text-align: center;">
                                                             <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pg }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>

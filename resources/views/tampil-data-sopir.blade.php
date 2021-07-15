@@ -65,7 +65,7 @@
                                             <th>Nama Petani</th>
                                             <th>No Telp</th>
                                             <th>Alamat Petani</th>
-                                            <th>Tanggal Edit</th>
+                            
                                             @if (session('role') === 2)
                                                 <th style="text-align: center;">Action</th>
                                             @endif
@@ -83,7 +83,7 @@
                                                     <td>{{ $item->nama_petani }}</td>
                                                     <td>{{ $item->nohp_petani }}</td>
                                                     <td>{{ $item->alamat_petani }}</td>
-                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
+                                                    {{-- <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td> --}}
                                                     @if (session('role') === 2)
                                                         <td style="text-align: center;">
                                                             <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_petani }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
