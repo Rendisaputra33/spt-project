@@ -54,9 +54,8 @@ const elementSearch = res => {
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
         data-id="${res.id_pg}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-    <a href="/pg/${
-        res.id_pg
-    }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+    <a href="/pg/${res.id_pg
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;
