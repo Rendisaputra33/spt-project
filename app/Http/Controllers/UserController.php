@@ -67,8 +67,14 @@ class UserController extends Controller
     }
     public function getUpdate($id)
     {
+        $data = User::where('id_user', $id)->first();
         return response()->json([
-            'data_update' => User::where('id_user', $id)->first()
+            'data_update' => [
+                'nama_user' => $data->nama_user,
+                'username' => $data->username,
+                'pass_user' => $data->pass_user,
+                'level' => $data->level
+            ]
         ]);
     }
 }
