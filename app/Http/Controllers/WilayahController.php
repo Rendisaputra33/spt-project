@@ -60,11 +60,16 @@ class WilayahController extends Controller
 
     public function search()
     {
-        $param = '%' . request('name') . '%';
-        $data = Wilayah::where('nama_wilayah', 'LIKE', $param)
-            ->orWhere('harga_wilayah', 'LIKE', $param)
-            ->get();
-        return response()->json(['data' => $data]);
+        $trim = explode(' ', request('name'));
+        if (count($trim) === 2) {
+            $param = '%' . $trim[1] . '%';
+            $data = Wilayah::where('harga_wilayah', 'LIKE', $param)->get();
+            return response()->json(['data' => $data]);
+        } else {
+            $param = '%' . request('name') . '%';
+            $data = Wilayah::where('nama_wilayah', 'LIKE', $param)->get();
+            return response()->json(['data' => $data]);
+        }
     }
 
     public function updateHarga()
