@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-6">
                                         @if (session('role') === 2)
-                                            <a href="#" data-target="#modal-lg" data-toggle="modal" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
+                                            <a href="/user/view/add" class="btn btn-success float-right text-bold"><i class="fas fa-plus"></i>&nbsp;Tambah</a>
                                         @endif
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                                         <td>{{ $item->username }}</td>
                                                         <td>{{ $item->level == 2 ? 'Super Admin' : 'Admin' }}</td>
                                                         @if (session('role') === 2)
-                                                            <td style="width: 15%; text-align: center;">
+                                                            <td style="text-align: center;">
                                                                 <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
                                                                 <a href="/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                             </td>
@@ -110,55 +110,7 @@
             </div>
             <!-- /.row -->
 
-            <div class="modal fade" id="modal-lg">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">TAMBAH USER</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form method="post" action="/user">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Nama User</label>
-                                    <input type="text" class="form-control" placeholder="Nama" name="nama_user" required>
-                                    <span class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" name="username" required>
-                                    <span class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                    <span class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Level</label>
-                                    <select name="level" class="form-control">
-                                        <option value="1">Admin</option>
-                                        <option value="2">Super Admin</option>
-                                    </select>
-                                    <span class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-
-
+            
             <div class="modal fade" id="modal-edit">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">

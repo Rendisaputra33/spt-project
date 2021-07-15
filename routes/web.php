@@ -22,6 +22,9 @@ Route::get('/dashboard', function () {
 })->middleware('myAuth');
 
 Route::prefix('/user')->group(function () {
+    Route::prefix('/view')->group(function () {
+        Route::get('/add', [UserController::class, 'viewAdd'])->middleware('myAuth');
+    });
     Route::get('/', [UserController::class, 'viewindex']);
     // route crud user
     Route::post('/', [UserController::class, 'add'])->middleware('isAdmin');

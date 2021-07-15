@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function add(Request $req)
     {
-        if ($req->validate(['username' => 'unique:tb_user,username'])) {
+        if (User::where('username', $req)->first()) {
             if (User::insert([
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
@@ -33,10 +33,10 @@ class UserController extends Controller
             ])) {
                 return redirect('/user')->with('sukses', 'data berhasil di tambah');
             } else {
-                return redirect()->back()->with('gagal', 'data gagal di tambah');
+                return redirect()->back()->with('gagal', 'username telas terdaftar');
             }
         } else {
-            return redirect('/user')->with('gagal', 'username telas terdaftar');
+            return redirect()->back()->with('gagal', 'username telas terdaftar');
         }
     }
     public function update(Request $req, $id)
@@ -64,6 +64,12 @@ class UserController extends Controller
             ->orWhere('level', 'LIKE', $param)
             ->get();
         return response()->json(['data' => $data]);
+    }
+    public function viewAdd()
+    {
+        return view('user', [
+            'title' => 'Tambah | User'
+        ]);
     }
     public function getUpdate($id)
     {
