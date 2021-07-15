@@ -64,7 +64,7 @@ const elementSearch = res => {
     <td>${res.nama_user}</td>
     <td>${res.username}</td>
     <td>${res.level == 2 ? 'Super Admin' : 'Admin'}</td>
-    <td style="width: 15%; text-align: center;">
+    <td style="text-align: center;">
         <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="${res.id_user
         }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
         <a href="/user/${res.id_user
