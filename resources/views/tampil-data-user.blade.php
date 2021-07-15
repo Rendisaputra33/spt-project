@@ -39,6 +39,11 @@
                                                             <div class="input-group-prepend">
                                                             </div>
                                                             <input type="text" class="form-control float-right" id="search" name="date" value="">
+                                                            <select name="role" class="form-control">
+                                                                <option value="pilih">pilih</option>
+                                                                <option value="1">Admin</option>
+                                                                <option value="2">Super Admin</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                             </div>
