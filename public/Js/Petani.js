@@ -41,17 +41,18 @@ document.getElementById('search').addEventListener('keyup', function () {
 
 const parseSearch = data => {
     let html = '';
+    let no = 1;
     data.data.map(res => {
-        html += elementSearch(res);
+        html += elementSearch(res, no++);
     });
     return html;
 };
 
-const elementSearch = res => {
+const elementSearch = (res, no) => {
     let d = new Date(res.created_at);
     const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     return /*html*/ `<tr>
-    <td>${res.id_pemilik}</td>
+    <td>${no}</td>
     <td>${res.nama_pemilik}</td>
     <td>${res.register_pemilik}</td>
     <td>${res.nama_pabrik}</td>
