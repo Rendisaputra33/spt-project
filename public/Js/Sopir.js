@@ -54,7 +54,6 @@ const elementSearch = (res, no) => {
     <td>${res.nama_petani}</td>
     <td>${res.nohp_petani}</td>
     <td>${res.alamat_petani}</td>
-    <td>${formatTanggal(date)}</td>
 <td style="text-align: center;">
 
     <a href="#" class="btn btn-warning text-bold update"

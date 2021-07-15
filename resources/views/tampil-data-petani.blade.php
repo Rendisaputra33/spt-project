@@ -66,7 +66,6 @@
                                             <th>Nama Pemilik</th>
                                             <th>No Induk</th>
                                             <th>Nama Pabrik</th>
-                                            <th>Tanggal Edit</th>
                                             @if (session('role') === 2)
                                                 <th style="text-align: center;">Action</th>
                                             @endif
@@ -84,7 +83,7 @@
                                                     <td>{{ $item->nama_pemilik }}</td>
                                                     <td>{{ $item->register_pemilik }}</td>
                                                     <td>{{ $item->nama_pabrik }}</td>
-                                                    <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td>
+                                                    {{-- <td>{{ formatTanggal(date('Y-m-d', strtotime($item->created_at))) }}</td> --}}
                                                     @if (session('role') === 2)
                                                         <td style="text-align: center;">
                                                             <a href="#" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_pemilik }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
