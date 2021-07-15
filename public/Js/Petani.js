@@ -54,7 +54,7 @@ const elementSearch = res => {
     <td>${res.id_pemilik}</td>
     <td>${res.nama_pemilik}</td>
     <td>${res.register_pemilik}</td>
-    <td>${res.nama_pemilik}</td>
+    <td>${res.nama_pabrik}</td>
 <td style="text-align: center;">
 
     <a href="#" class="btn btn-warning text-bold update"
