@@ -16,7 +16,7 @@ function getUpdate() {
                     document.querySelector('input[name=nama_wilayah]').value =
                         res.data_update.nama_wilayah;
                     document.querySelector('input[name=harga_wilayah]').value =
-                        res.data_update.harga_wilayah;
+                        'Rp. ' + res.data_update.harga_wilayah;
                 });
         });
     }
@@ -55,8 +55,12 @@ const elementSearch = (res, no) => {
 
     <a href="#" class="btn btn-warning text-bold update"
         data-target="#modal-lg" data-toggle="modal"
-        data-id="${res.id_wilayah}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
-        <a href="/wilayah/${res.id_wilayah}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+        data-id="${
+            res.id_wilayah
+        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+        <a href="/wilayah/${
+            res.id_wilayah
+        }" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
 
 </td>
 </tr>`;
@@ -96,7 +100,6 @@ const formatRupiah = (angka, prefix) => {
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : rupiah ? 'Rp. ' + rupiah : '';
 };
-
 
 function listDelete() {
     const documentDel = document.querySelectorAll('.delete');

@@ -122,8 +122,7 @@
 
                                         <label for="exampleInputPassword1">Harga Wilayah</label>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">Rp</span>
-                                            <input type="text" class="form-control" onkeypress="return isNumber(event)" placeholder="Harga " name="harga_wilayah" required>
+                                            <input type="text" class="form-control" onkeypress="return isNumber(event)" value="Rp. " placeholder="Harga " name="harga_wilayah" required>
                                         </div>
 
                                         <span class="text-danger"></span>
