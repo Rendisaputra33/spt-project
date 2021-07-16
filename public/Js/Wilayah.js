@@ -16,7 +16,10 @@ function getUpdate() {
                     document.querySelector('input[name=nama_wilayah]').value =
                         res.data_update.nama_wilayah;
                     document.querySelector('input[name=harga_wilayah]').value =
-                        'Rp. ' + res.data_update.harga_wilayah;
+                        formatRupiah(
+                            res.data_update.harga_wilayah.toString(),
+                            'Rp. '
+                        );
                 });
         });
     }
@@ -83,6 +86,14 @@ const formatTanggal = tgl => {
     const month = tgl.split('-');
     return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
 };
+
+var rupiah = document.querySelector('.harga');
+rupiah.addEventListener('keyup', function (e) {
+    const val = this.value.split('Rp. ');
+    val.length > 1
+        ? (rupiah.value = formatRupiah(val[1], 'Rp. '))
+        : (rupiah.value = formatRupiah(this.value, 'Rp. '));
+});
 
 const formatRupiah = (angka, prefix) => {
     var number_string = angka.replace(/[^,\d]/g, '').toString(),

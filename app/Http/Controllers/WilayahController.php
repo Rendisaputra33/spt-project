@@ -22,7 +22,7 @@ class WilayahController extends Controller
         $trimHarga = explode(' ', $req->harga_wilayah);
         return Wilayah::insert([
             'nama_wilayah' => $req->nama_wilayah,
-            'harga_wilayah' => $trimHarga[1],
+            'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
         ])
             ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
@@ -33,7 +33,7 @@ class WilayahController extends Controller
         $trimHarga = explode(' ', $req->harga_wilayah);
         return Wilayah::where('id_wilayah', $id)->update([
             'nama_wilayah' => $req->nama_wilayah,
-            'harga_wilayah' => $trimHarga[1],
+            'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
         ])
             ? redirect('/wilayah')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
