@@ -35,6 +35,22 @@ class WilayahController extends Controller
 
     public function update(Request $req, $id)
     {
+        $data = Wilayah::where('nama_wilayah', $req->nama_wilayah)->first();
+        if ($data !== null) {
+            if ($data->nama_wilayah === $req->nama_wilayah && $data->id_wilayah === (int) $id) {
+                return $this->saveUpdate($req, $id);
+            } elseif ($data->id_wilayah !== (int) $id) {
+                return redirect()->back()->with('error', 'Nama Wilayah Telah dipakai');
+            } else {
+                return $this->saveUpdate($req, $id);
+            }
+        } else {
+            return $this->saveUpdate($req, $id);
+        }
+    }
+
+    public function saveUpdate($req, $id)
+    {
         $trimHarga = explode(' ', $req->harga_wilayah);
         return Wilayah::where('id_wilayah', $id)->update([
             'nama_wilayah' => $req->nama_wilayah,
