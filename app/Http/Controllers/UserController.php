@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function add(Request $req)
     {
-        if (User::where('username', $req)->first()) {
+        if (User::where('username', $req->username)->first() === null) {
             if (User::insert([
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
