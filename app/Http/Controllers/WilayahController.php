@@ -19,13 +19,18 @@ class WilayahController extends Controller
 
     public function add(Request $req)
     {
-        $trimHarga = explode(' ', $req->harga_wilayah);
-        return Wilayah::insert([
-            'nama_wilayah' => $req->nama_wilayah,
-            'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
+        if (Wilayah::where('nama_wilayah', $req->nama_wilayah)->first() === null) {
+            $trimHarga = explode(' ', $req->harga_wilayah);
+            return Wilayah::insert([
+                'nama_wilayah' => $req->nama_wilayah,
+                'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
         ])
             ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
+        }
+        else {
+            return redirect()->back()->with('error', 'Nama Wilayah Sudah Terdaftar');
+        }
     }
 
     public function update(Request $req, $id)
