@@ -100,6 +100,7 @@
         <div class="row no-print">
             <div class="col-xs-12">
                 <a href="#" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                <a href="/transaksi/pembayaran" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Kembali</a>
             </div>
         </div>
     </div>

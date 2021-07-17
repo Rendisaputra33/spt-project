@@ -102,6 +102,7 @@
                 <div class="row no-print">
                     <div class="col-xs-12">
                         <a id="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a id="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                         {{-- <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
                         </button>
                         <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
