@@ -42,6 +42,22 @@ class UserController extends Controller
     }
     public function update(Request $req, $id)
     {
+        $data = User::where('username', $req->uusername)->first();
+        if ($data !== null) {
+            if ($data->username === $req->uusername && $data->id_user === (int) $id) {
+                return $this->saveUpdate($req, $id);
+            } elseif ($data->id_user !== (int) $id) {
+                return redirect()->back()->with('gagal', 'username telah dipakai');
+            } else {
+                return $this->saveUpdate($req, $id);
+            }
+        } else {
+            return $this->saveUpdate($req, $id);
+        }
+    }
+
+    public function saveUpdate($req, $id)
+    {
         return User::where('id_user', $id)->update([
             'nama_user' => $req->unama_user,
             'username' => $req->uusername,
@@ -52,6 +68,7 @@ class UserController extends Controller
             ? redirect('/user')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('error', 'data gagal di update');
     }
+
     public function delete($id)
     {
         return User::where('id_user', $id)->delete()
@@ -87,3 +104,17 @@ class UserController extends Controller
         ]);
     }
 }
+
+// $data = User::where('id_user', $id)->first();
+// if ($data !== null) {
+//     $check = User::where('username', $req->uusername)->first();
+//     if ($data->username === $req->uusername && $data->id_user === (int) $id) {
+//         return $this->saveUpdate($req, $id);
+//     } elseif ($check !== null) {
+//         if ($check->id_user !== (int) $id) {
+//             return redirect()->back()->with('gagal', 'username telah dipakai');
+//         }
+//     } else {
+//         return $this->saveUpdate($req, $id);
+//     }
+// }

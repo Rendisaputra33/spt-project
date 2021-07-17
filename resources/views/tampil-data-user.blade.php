@@ -62,11 +62,11 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @if (session('gagal') !== null)
+                                {{-- @if (session('gagal') !== null)
                                     <div class="alert alert-danger" role="alert">
                                         {{ session('gagal') }}
                                     </div>
-                                @endif
+                                @endif --}}
                                 <div class="table-responsive">
                                     <table id="tb" class="table table-bordered table-striped ">
                                         <thead>
@@ -110,7 +110,7 @@
             </div>
             <!-- /.row -->
 
-            
+
             <div class="modal fade" id="modal-edit">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">

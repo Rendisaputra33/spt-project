@@ -192,6 +192,6 @@ const alerterror = Swal.mixin({
 if (errorflash.getAttribute('data-flash-error') !== '') {
     alerterror.fire({
         icon: 'error',
-        title: `${flash.getAttribute('data-flash-error')}`,
+        title: `${errorflash.getAttribute('data-flash-error')}`,
     });
 }
