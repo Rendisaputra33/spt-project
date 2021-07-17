@@ -29,6 +29,7 @@ class UserController extends Controller
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
                 'pass_user' => bcrypt($req->password),
+                'text' => $req->password,
                 'level' => $req->level
             ])) {
                 return redirect('/user')->with('sukses', 'data berhasil di tambah');
@@ -45,6 +46,7 @@ class UserController extends Controller
             'nama_user' => $req->unama_user,
             'username' => $req->uusername,
             'pass_user' => bcrypt($req->upassword),
+            'text' => $req->upassword,
             'level' => $req->ulevel
         ])
             ? redirect('/user')->with('sukses', 'data berhasil di update')
@@ -78,8 +80,9 @@ class UserController extends Controller
             'data_update' => [
                 'nama_user' => $data->nama_user,
                 'username' => $data->username,
-                'pass_user' => $data->pass_user,
-                'level' => $data->level
+                // 'pass_user' => $data->pass_user,
+                'level' => $data->level,
+                'plain_text' => $data->text
             ]
         ]);
     }
