@@ -19,16 +19,37 @@ class WilayahController extends Controller
 
     public function add(Request $req)
     {
-        $trimHarga = explode(' ', $req->harga_wilayah);
-        return Wilayah::insert([
-            'nama_wilayah' => $req->nama_wilayah,
-            'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
+        if (Wilayah::where('nama_wilayah', $req->nama_wilayah)->first() === null) {
+            $trimHarga = explode(' ', $req->harga_wilayah);
+            return Wilayah::insert([
+                'nama_wilayah' => $req->nama_wilayah,
+                'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
         ])
             ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
             : redirect()->back()->with('error', 'data gagal di tambah');
+        }
+        else {
+            return redirect()->back()->with('error', 'Nama Wilayah Sudah Terdaftar');
+        }
     }
 
     public function update(Request $req, $id)
+    {
+        $data = Wilayah::where('nama_wilayah', $req->nama_wilayah)->first();
+        if ($data !== null) {
+            if ($data->nama_wilayah === $req->nama_wilayah && $data->id_wilayah === (int) $id) {
+                return $this->saveUpdate($req, $id);
+            } elseif ($data->id_wilayah !== (int) $id) {
+                return redirect()->back()->with('error', 'Nama Wilayah Telah dipakai');
+            } else {
+                return $this->saveUpdate($req, $id);
+            }
+        } else {
+            return $this->saveUpdate($req, $id);
+        }
+    }
+
+    public function saveUpdate($req, $id)
     {
         $trimHarga = explode(' ', $req->harga_wilayah);
         return Wilayah::where('id_wilayah', $id)->update([

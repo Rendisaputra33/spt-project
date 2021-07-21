@@ -121,6 +121,7 @@
                 <div class="row no-print">
                     <div class="col-xs-12">
                         <a id="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a href="/transaksi/berangkat" id="button" class="btn btn-default"><i class="fa fa-print"></i> Kembali</a>
                     </div>
                 </div>
             </section>

@@ -33,6 +33,13 @@
                             <form role="form" action="/wilayah" method="POST">
                                 @csrf
                                 <div class="card-body">
+                                    @if (session('error') !== null)
+                                    <div class="form-group">
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ session('error') }}
+                                        </div>
+                                    </div>
+                                @endif
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Wilayah</label>
                                         <input type="text" class="form-control" placeholder="Nama " name="nama_wilayah" required>
