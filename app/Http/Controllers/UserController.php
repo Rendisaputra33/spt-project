@@ -97,24 +97,9 @@ class UserController extends Controller
             'data_update' => [
                 'nama_user' => $data->nama_user,
                 'username' => $data->username,
-                // 'pass_user' => $data->pass_user,
                 'level' => $data->level,
                 'plain_text' => $data->text
             ]
         ]);
     }
 }
-
-// $data = User::where('id_user', $id)->first();
-// if ($data !== null) {
-//     $check = User::where('username', $req->uusername)->first();
-//     if ($data->username === $req->uusername && $data->id_user === (int) $id) {
-//         return $this->saveUpdate($req, $id);
-//     } elseif ($check !== null) {
-//         if ($check->id_user !== (int) $id) {
-//             return redirect()->back()->with('gagal', 'username telah dipakai');
-//         }
-//     } else {
-//         return $this->saveUpdate($req, $id);
-//     }
-// }
